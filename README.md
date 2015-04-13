@@ -11,9 +11,9 @@ node_modules directory appear with all needed modules.
 
 if bower is not install, follow tuto on "http://bower.io/" , and then tape :
 
- bower update
+ bower install
 
-All js depend
+All js dependencies comes under bower_components directory.
 
 
 
