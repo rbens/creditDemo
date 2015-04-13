@@ -1,0 +1,20 @@
+<div class="panel panel-default col-sm-10" id="chart" ng-show="model.mensualite != 0" style="padding-left: 0; padding-right: 0;">
+    <div class="panel-heading" >
+        <h3 class="panel-title">R&eacute;sultat graphique</h3>
+    </div>
+    <div class="panel-body" >
+        <div class="row" cg-busy="{promise:promise}">
+            <md-tabs md-selected="selectedIndex" md-stretch-tabs="always">
+                <md-tab ng-repeat="opt in options"  md-on-select="swapChartType(opt)" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="{{opt.title}}">
+                    <div class="demo-tab tab{{$index%4}}" >
+                        <label ng-model="chart.title.text"/>
+                        <highchart id="chart1" config="pie" ng-if="option.id == 'pie'"></highchart>
+                        <highchart id="chart2" config="line" ng-if="option.id != 'pie' && option.id != 'area'"></highchart>
+                        <highchart id="chart3" config="area" ng-if="option.id == 'area'"></highchart>
+                    </div>
+                </md-tab>
+            </md-tabs>
+        </div>
+
+    </div>
+</div>
