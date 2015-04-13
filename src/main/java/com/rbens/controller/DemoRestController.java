@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.io.IOException;
 
 @Controller
+@RequestMapping(value = "/")
 public class DemoRestController {
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping
     public String initIndex() {
         return "index";
     }
