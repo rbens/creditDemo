@@ -8,8 +8,6 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "src/main/webapp/node_modules",
-    "src/main/webapp/bower_components",
     "test",
     "tests",
     "node_modules",

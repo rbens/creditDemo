@@ -86,16 +86,16 @@ angular.module('mainApp').directive('chartResult', function () {
             };
 
             $scope.options = [
-                {"id": "pie", "title": "Répartition du remboursement"},
-                {"id": "line", "title": "Évolution du remboursement"},
-                {"id": "area", "title": "Évolution de la dette"}
+                {"id": "chart1", "config": "pie" , "title": "Répartition du remboursement"},
+                {"id": "chart2", "config": "line", "title": "Évolution du remboursement"},
+                {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
             ];
 
             $scope.option = $scope.options[0];
 
             $scope.swapChartType = function (type) {
-                this.line.options.chart.type = type.id;
-                $scope.option = type;
+                this.line.options.chart.type = type;
+                $scope.option.config = type;
             };
         }]
     };
