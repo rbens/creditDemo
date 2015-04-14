@@ -27,10 +27,10 @@ angular.module('mainApp').directive('chartResult', function () {
                     }
                 ],
                 title: {
-                    text: 'Évolution du remboursement mensuel'
+                    text: 'Évolution du remboursement (crédit, intérets, assurance) '
                 },
                 xAxis: {
-                    min: 0,
+                    min: 1,
                     title: {text: 'mois'}
                 },
                 yAxis: {
@@ -42,7 +42,7 @@ angular.module('mainApp').directive('chartResult', function () {
             $scope.area = {
                 options: {
                     chart: {
-                        type: 'area'
+                        type: 'spline'
                     },
                     plotOptions: {
                         series: {
@@ -56,10 +56,10 @@ angular.module('mainApp').directive('chartResult', function () {
                     }
                 ],
                 title: {
-                    text: 'Évolution du capital à rembourser'
+                    text: 'Évolution de la dette (totalité de la somme, capital emprunté)'
                 },
                 xAxis: {
-                    min: 0,
+                    min: 1,
                     title: {text: 'mois'}
                 },
                 yAxis: {

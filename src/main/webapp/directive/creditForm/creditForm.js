@@ -37,7 +37,7 @@ angular.module('mainApp').directive('creditForm', function () {
                                         //noinspection JSUnresolvedVariable
                                         if (data.coutPrincipal) {
                                             var last = (data.amortissements.length - 1);
-                                            addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.interetRestantSeries);
+                                            addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
                                             addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
                                         }
                                     })
@@ -91,7 +91,7 @@ angular.module('mainApp').directive('creditForm', function () {
                     "name": 'Capital restant',
                     "data": capitalRestantSeries
                 },{
-                    "name": 'Intéret restant',
+                    "name": 'Total restant',
                     "data": interetRestantSeries
                 });
             }
