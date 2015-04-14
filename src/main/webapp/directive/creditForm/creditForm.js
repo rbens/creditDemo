@@ -8,7 +8,7 @@ angular.module('mainApp').directive('creditForm', function () {
         link : function(scope,element,attrs,fn){
 
         },
-        controller : ['$rootScope','$scope', '$filter', '$timeout', 'creditService', function ($rootScope,$scope, $filter, $timeout, creditService) {
+        controller : ['$rootScope','$scope', '$filter', '$q', '$timeout', 'creditService', function ($rootScope,$scope, $filter, $q, $timeout, creditService) {
             var time;
             $scope.calcul = function () {
                 $timeout.cancel( time );
@@ -16,29 +16,33 @@ angular.module('mainApp').directive('creditForm', function () {
                 time = $timeout(function(){
                         if (isComplete()) {
                             var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
-                            $rootScope.promise =  creditService.getAmortissement({mois: $scope.model.annee * 12 + "", capital: $scope.model.capital, tauxNominal: tauxNominal, tauxAssurance: $scope.model.tauxAssurance})
+                            $rootScope.promise = $q.all([
+                                creditService.getAmortissement({mois: $scope.model.annee * 12 + "", capital: $scope.model.capital, tauxNominal: tauxNominal, tauxAssurance: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
                                     //noinspection JSUnresolvedVariable
                                     if (data.coutPrincipal) {
-                                        var amortissements = data.amortissements;
-                                        var last = (amortissements.length - 1);
-                                        var inter = data.interetSeries[last];
-                                        var assu  = data.assuranceSeries[last];
-                                        var cred  = data.creditSeries[last];
-
-                                        addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.interetRestantSeries);
-                                        addSeriesToPieChart(inter, assu, data.capital);
-
-                                        $scope.model.amortissements     = amortissements;
-                                        $scope.model.assurance          = formatNumber(data.assuranceSeries[0]).concat(' €');
+                                        $scope.model.amortissements     = data.amortissements;
+                                        $scope.model.assurance          = formatNumber(data.coutAssurance).concat(' €');
                                         $scope.model.mensualite         = formatNumber(data.mensualite).concat(' €');
-                                        $scope.model.interetTotal       = formatNumber(inter).concat(' €');
-                                        $scope.model.assuranceTotal     = formatNumber(assu).concat(' €');
-                                        $scope.model.creditTotal        = formatNumber(cred).concat(' €');
-                                        $scope.model.remboursementTotal = formatNumber(cred + Number($scope.model.capital)).concat(' €');
+                                        $scope.model.interetTotal       = formatNumber(data.interetTotal).concat(' €');
+                                        $scope.model.assuranceTotal     = formatNumber(data.assuranceTotal).concat(' €');
+                                        $scope.model.creditTotal        = formatNumber(data.creditTotal).concat(' €');
+                                        $scope.model.remboursementTotal = formatNumber(data.remboursementTotal).concat(' €');
                                     }
-                                });
+                                }),
+                                creditService.getSeries({mois: $scope.model.annee * 12 + "", capital: $scope.model.capital, tauxNominal: tauxNominal, tauxAssurance: $scope.model.tauxAssurance})
+                                    .then(function (response) {
+                                        var data = response.data;
+                                        //noinspection JSUnresolvedVariable
+                                        if (data.coutPrincipal) {
+                                            var last = (data.amortissements.length - 1);
+                                            addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.interetRestantSeries);
+                                            addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
+                                        }
+                                    })
+
+                            ]);
 
                         } else {
                             $scope.model.amortissements = [];

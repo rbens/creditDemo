@@ -73,13 +73,13 @@ public abstract class Mensualite {
         return amortissements;
     }
 
-    double calculCredit(){
+    private double calculCredit(){
         final float v = (tauxNominal * 0.01f) / 12;
         return formatNumber((capital * v) / (1 - Math.pow((1+ v),-mois)));
     }
 
 
-    double calculAssurance() {
+    private double calculAssurance() {
         final float v = (tauxAssurance * 0.01f) / 12;
         return formatNumber(capital * v);
     }

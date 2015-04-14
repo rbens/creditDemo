@@ -17,15 +17,10 @@ import java.io.IOException;
 public class DemoRestController {
 
 
-    @RequestMapping
-    public String initIndex() {
-        return "index";
-    }
-
     @RequestMapping(value = "/amortissements", method = RequestMethod.POST)
     @ResponseBody
     public Mensualite getAmortissement(@RequestBody String mensualite) throws IOException {
-        return new ObjectMapper().readValue(mensualite, Series.class);
+        return new ObjectMapper().readValue(mensualite, Resultats.class);
     }
 
     @RequestMapping(value = "/series", method = RequestMethod.POST)

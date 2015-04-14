@@ -10,6 +10,13 @@ angular.module('mainApp').factory('creditService', function ($http, $rootScope,$
             }).error(function (error) {
                 deferred.reject("An error occured [RootCause] " + error);
             });
+        },
+        getSeries: function (credit) {
+        return $http.post($rootScope.rootPath + "series", credit).success(function (response) {
+            deferred.resolve(response);
+        }).error(function (error) {
+            deferred.reject("An error occured [RootCause] " + error);
+        });
         }
     };
 });
