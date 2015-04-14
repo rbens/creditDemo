@@ -16,6 +16,7 @@ angular.module('mainApp').directive('creditForm', function () {
                 time = $timeout(function(){
                         if (isComplete()) {
                             var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
+
                             $rootScope.promise = $q.all([
                                 creditService.getAmortissement({mois: $scope.model.annee * 12 + "", capital: $scope.model.capital, tauxNominal: tauxNominal, tauxAssurance: $scope.model.tauxAssurance})
                                 .then(function (response) {
@@ -43,7 +44,6 @@ angular.module('mainApp').directive('creditForm', function () {
                                     })
 
                             ]);
-
                         } else {
                             $scope.model.amortissements = [];
                             $scope.model.mensualite = undefined;
