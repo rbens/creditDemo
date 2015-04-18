@@ -7,6 +7,7 @@ import static java.lang.Double.valueOf;
 
 /**
  * Created by rbenseghir on 3/18/15.
+ *
  */
 public class Format<T> {
 
