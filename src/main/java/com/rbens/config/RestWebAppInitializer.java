@@ -13,13 +13,17 @@ import javax.servlet.ServletRegistration;
 
 @Configuration
 public class RestWebAppInitializer implements WebApplicationInitializer {
+
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext rootCtx = new AnnotationConfigWebApplicationContext();
+
         servletContext.addListener(new ContextLoaderListener(rootCtx));
         servletContext.addFilter("corsFilter", new CORSFilter()).addMappingForUrlPatterns(null, false, "/*");
+
         AnnotationConfigWebApplicationContext webCtx = new AnnotationConfigWebApplicationContext();
         webCtx.register(SpringMVCConfig.class);
+
         ServletRegistration.Dynamic reg = servletContext.addServlet("rest", new DispatcherServlet(webCtx));
         reg.setLoadOnStartup(1);
         reg.addMapping("/");

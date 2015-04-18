@@ -31,8 +31,6 @@ public class CORSFilter implements Filter {
         } else {
             response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
         }
-
-
         chain.doFilter(req, res);
     }
 
