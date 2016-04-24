@@ -3,7 +3,7 @@ web application for credit simulation (french computing system)
 
 Ensure npm are installed on your post.(see npm install on : https://docs.npmjs.com/getting-started/installing-node )
 
-Use prompt command and go to webapps directory :
+Use prompt command and go to 'webapp' directory :
 
 > npm update 
 

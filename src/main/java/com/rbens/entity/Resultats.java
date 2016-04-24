@@ -26,9 +26,6 @@ public final class Resultats extends Mensualite{
         return interetTotal;
     }
 
-    public double getCreditTotal() {
-        return interetTotal + assuranceTotal;
-    }
 
     public double getRemboursementTotal() {
         for(Amortissement amortissement : amortissements){
@@ -37,4 +34,6 @@ public final class Resultats extends Mensualite{
 
         return remboursementTotal;
     }
+
+    public double getCreditTotal() { return interetTotal + assuranceTotal; }
 }

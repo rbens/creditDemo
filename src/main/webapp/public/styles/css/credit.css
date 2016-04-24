@@ -58,6 +58,6 @@ body {
   margin-bottom: 0;
 }
 
-md-tabs:not(.md-no-tab-content) {
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
     min-height: 500px;
 }

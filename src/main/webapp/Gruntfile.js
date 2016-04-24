@@ -10,7 +10,7 @@ var pkg = require('./package.json');
 //This enables users to create any directory structure they desire.
 var createFolderGlobs = function(fileTypePatterns) {
     fileTypePatterns = Array.isArray(fileTypePatterns) ? fileTypePatterns : [fileTypePatterns];
-    var ignore = ['node_modules','bower_components','dist','temp'];
+    var ignore = ['node_modules','bower_components','coverage','dist','temp'];
     var fs = require('fs');
     return fs.readdirSync(process.cwd())
         .map(function(file){
@@ -198,12 +198,12 @@ module.exports = function (grunt) {
                     createFolderGlobs('*-spec.js')
                 ],
                 logLevel:'ERROR',
-                reporters:['mocha'],
+                reporters:['coverage'],
                 autoWatch: false, //watching is handled by grunt-contrib-watch
                 singleRun: true
             },
             all_tests: {
-                browsers: ['PhantomJS','Chrome','Firefox']
+                browsers: ['PhantomJS']
             },
             during_watch: {
                 browsers: ['PhantomJS']

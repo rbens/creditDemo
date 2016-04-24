@@ -1,6 +1,6 @@
 {
   "name": "creditDemo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "credit simulator",
   "authors": [
     "rbens"
@@ -14,20 +14,20 @@
     "bower_components"
   ],
   "dependencies": {
-    "angular-aria": "^1.3.15",
+    "angular-aria": "^1.5.3",
     "angular-bootstrap": "~0.12.0",
     "angular-busy": "~4.1.2",
-    "angular-material": "master",
+    "angular-material": "1.1.0-RC4",
     "angular-motion": "^0.3.3",
     "angular-strap": "~2.1.5",
-    "angular-route": "1.3.15",
+    "angular-route": "1.5.3",
     "bootstrap-material-design": "~0.2.1",
     "flat-ui": "2.2.2",
     "hammerjs": "~2.0.2",
     "modernizr": "~2.8.3",
     "highcharts-ng": "~0.0.8",
     "highcharts": "v4.0.4",
-    "angular-mocks": "~1.3.15"
+    "angular-mocks": "~1.5.3"
   },
   "homepage": "https://github.com/rbens/creditDemo",
   "keywords": [

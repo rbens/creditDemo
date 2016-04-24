@@ -14,7 +14,6 @@ import javax.servlet.ServletRegistration;
 @Configuration
 public class RestWebAppInitializer implements WebApplicationInitializer {
 
-    @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext rootCtx = new AnnotationConfigWebApplicationContext();
 
