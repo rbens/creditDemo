@@ -1,50 +1,48 @@
 package com.rbens.entity;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.rbens.utils.Format.formatNumber;
-import static java.lang.Double.valueOf;
 
 public abstract class Mensualite {
 
+    @JsonProperty
     int mois;
+
+    @JsonProperty
     double capital;
+
+    @JsonProperty
     float tauxNominal;
+
+    @JsonProperty
     float tauxAssurance;
+
     List<Amortissement> amortissements;
+
+    int duration;
 
     public Mensualite() {
     }
 
-    public int getMois() {
-        return mois;
+    @JsonProperty(value = "coutPrincipal")
+    double calculCredit(){
+        final float v = (tauxNominal * 0.01f) / 12;
+        return formatNumber((capital * v) / (1 - Math.pow((1+ v),-mois)));
     }
 
-    public double getCapital() {
-        return capital;
+    @JsonProperty(value = "coutAssurance")
+    double calculAssurance() {
+        final float v = (tauxAssurance * 0.01f) / 12;
+        return formatNumber(capital * v);
     }
 
-    public float getTauxNominal() {
-        return tauxNominal;
-    }
-
-    public float getTauxAssurance() {
-        return tauxAssurance;
-    }
-
-    public double getCoutPrincipal() {
-        return formatNumber(calculCredit());
-    }
-
-    public double getCoutAssurance(){
-        return formatNumber(calculAssurance());
-    }
-
-    public double getMensualite(){
-        return formatNumber(getCoutPrincipal()+getCoutAssurance());
+    @JsonProperty
+    double mensualite(){
+        return formatNumber(calculCredit()+calculAssurance());
     }
 
     public List<Amortissement> getAmortissements(){
@@ -57,7 +55,7 @@ public abstract class Mensualite {
         double mensualite;
         for (int i=1 ; i<= mois; i++){
             interet = capitalRestant * v ;
-            principal =  getCoutPrincipal() - interet;
+            principal =  calculCredit() - interet;
             mensualite = formatNumber(calculCredit() + assurance);
             capitalRestant = capitalRestant - principal;
 
@@ -73,16 +71,6 @@ public abstract class Mensualite {
         return amortissements;
     }
 
-    private double calculCredit(){
-        final float v = (tauxNominal * 0.01f) / 12;
-        return formatNumber((capital * v) / (1 - Math.pow((1+ v),-mois)));
-    }
-
-
-    private double calculAssurance() {
-        final float v = (tauxAssurance * 0.01f) / 12;
-        return formatNumber(capital * v);
-    }
 
 
 

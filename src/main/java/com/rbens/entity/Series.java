@@ -11,7 +11,7 @@ import static com.rbens.utils.Format.formatNumber;
 public final class Series extends Mensualite{
 
     public double[] getInteretSeries() {
-        final double[] interetSeries = new double[amortissements.size()];
+        final double[] interetSeries = new double[mois];
         double cumul = 0;
         int  cpt = 0;
 
@@ -24,7 +24,7 @@ public final class Series extends Mensualite{
     }
 
     public double[] getAssuranceSeries() {
-        final double[] assuranceSeries = new double[amortissements.size()];
+        final double[] assuranceSeries = new double[mois];
         double cumul = 0;
         int  cpt = 0;
 
@@ -36,7 +36,7 @@ public final class Series extends Mensualite{
     }
 
     public double[] getCreditSeries() {
-        final double[] creditSeries = new double[amortissements.size()];
+        final double[] creditSeries = new double[mois];
         double cumul = 0;
         int  cpt = 0;
 
@@ -48,7 +48,7 @@ public final class Series extends Mensualite{
     }
 
     public double[] getCapitalRestantSeries() {
-        final double[] capitalRestantSeries = new double[amortissements.size()];
+        final double[] capitalRestantSeries = new double[mois];
         int  cpt = 0;
 
         for(Amortissement amortissement : amortissements){
@@ -58,7 +58,7 @@ public final class Series extends Mensualite{
     }
 
     public Double[] getTotalRestantSeries() {
-        final Double[] totalRestantSeries = new Double[amortissements.size()];
+        final Double[] totalRestantSeries = new Double[mois];
         double cumul = 0;
         int  cpt = 0;
 

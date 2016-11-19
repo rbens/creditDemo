@@ -5,18 +5,20 @@ angular.module('mainApp').factory('creditService', function ($http, $rootScope,$
     var deferred = $q.defer();
     return  {
         getAmortissement: function (credit) {
-            return $http.post($rootScope.rootPath + "amortissements", credit).success(function (response) {
-                deferred.resolve(response);
-            }).error(function (error) {
-                deferred.reject("An error occured [RootCause] " + error);
-            });
+            return $http.post($rootScope.rootPath + "amortissements", credit)
+                .success(function (response) {
+                    deferred.resolve(response);
+                }).error(function (error) {
+                    deferred.reject("An error occured [RootCause] " + error);
+                });
         },
         getSeries: function (credit) {
-        return $http.post($rootScope.rootPath + "series", credit).success(function (response) {
-            deferred.resolve(response);
-        }).error(function (error) {
-            deferred.reject("An error occured [RootCause] " + error);
-        });
+            return $http.post($rootScope.rootPath + "series", credit)
+                .success(function (response) {
+                    deferred.resolve(response);
+                }).error(function (error) {
+                    deferred.reject("An error occured [RootCause] " + error);
+                });
         }
     };
 });

@@ -1,4 +1,4 @@
-angular.module('mainApp', ['mgcrea.ngStrap', 'highcharts-ng', 'mgcrea.ngStrap.helpers.dimensions', 'ui.bootstrap','ngMaterial','cgBusy'])
+angular.module('mainApp', ['mgcrea.ngStrap', 'highcharts-ng', 'mgcrea.ngStrap.helpers.dimensions', 'ui.bootstrap','ngMaterial','cgBusy','ngResource'])
 .config(function ($locationProvider) {
     // use the HTML5 History API
     $locationProvider.html5Mode({
@@ -21,7 +21,7 @@ angular.module('mainApp', ['mgcrea.ngStrap', 'highcharts-ng', 'mgcrea.ngStrap.he
         capital: undefined,
         tauxNominal: 0.0,
         tauxAssurance: 0.0,
-        tauxGlobal: 0.0,
+        tauxGlobal: 0.0
     };
 
 }]);

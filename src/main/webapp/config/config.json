@@ -1,0 +1,77 @@
+{
+  "line" : {
+	"options": {
+	  "chart": {
+		"type": "line"
+	  },
+	  "plotOptions": {
+		"series": {
+		  "stacking": ""
+		}
+	  }
+	},
+	"series": [
+	  {
+		"data": []
+	  }
+	],
+	"title": {
+	  "text": "Évolution du remboursement (crédit, intérets, assurance) "
+	},
+	"xAxis": {
+	  "min": 1,
+	  "title": {
+		"text": "mois"}
+	},
+	"yAxis": {
+	  "min": 0,
+	  "title": {
+		"text": "valeur en euros"}
+	}
+  },
+  "area" : {
+	"options": {
+	  "chart": {
+		"type": "spline"
+	  },
+	  "plotOptions": {
+		"series": {
+		  "stacking": ""
+		}
+	  }
+	},
+	"series": [
+	  {
+		"data": []
+	  }
+	],
+	"title": {
+	  "text": "Évolution de la dette (totalité de la somme, capital emprunté)"
+	},
+	"xAxis": {
+	  "min": 1,
+	  "title": {
+		"text": "mois"}
+	},
+	"yAxis": {
+	  "min": 0,
+	  "title": {
+		"text": "valeur en euros"}
+	}
+  },
+  "pie" : {
+	"options": {
+	  "chart": {
+		"type": "pie"
+	  }
+	},
+	"series": [
+	  {
+		"data": []
+	  }
+	],
+	"title": {
+	  "text": "Répartition du remboursement total"
+	}
+  }
+}

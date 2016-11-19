@@ -1,3 +1,7 @@
 /**
- * Created by rbens on 18.11.16.
+ * Created by rbenseghir on 11/28/14.
  */
+angular.module('mainApp').factory('configService', ['$resource', function ($resource) {
+        return $resource('/config/config.json');
+    }
+]);
