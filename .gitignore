@@ -1,4 +1,4 @@
 .idea
 /src/main/webapp/node_modules
-/src/main/webapp/bower_components
+/src/main/webapp/libs
 /src/main/webapp/coverage
