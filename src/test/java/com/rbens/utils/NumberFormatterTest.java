@@ -2,7 +2,7 @@ package com.rbens.utils;
 
 import org.junit.Test;
 
-import static com.rbens.utils.NumberFormatter.formatNumber;
+import static com.rbens.utils.NumberFormatter.formatNumberToDoubleValue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -13,8 +13,8 @@ public class NumberFormatterTest {
 
     @Test
     public void testFormatNumber() throws Exception {
-        assertThat(formatNumber(num1), is(32.24));
-        assertThat(formatNumber(num2), is(32.23));
+        assertThat(formatNumberToDoubleValue(num1), is(32.24));
+        assertThat(formatNumberToDoubleValue(num2), is(32.23));
     }
 
 }

@@ -5,66 +5,66 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Mensualite {
+public abstract class MonthlyPayment {
 
     @JsonProperty
-    int mois;
+    int month;
 
     @JsonProperty
     double capital;
 
     @JsonProperty
-    float tauxNominal;
+    float interestRate;
 
     @JsonProperty
-    float tauxAssurance;
+    float insuranceRate;
 
-    List<Amortissement> amortissements;
+    List<WriteDown> writeDowns;
 
-    public Mensualite() {
+    public MonthlyPayment() {
     }
 
     @JsonProperty(value = "coutPrincipal")
     double calculCredit(){
-        final float v = (tauxNominal * 0.01f) / 12;
-        return (capital * v) / (1 - Math.pow((1+ v),-mois));
+        final float v = (interestRate * 0.01f) / 12;
+        return (capital * v) / (1 - Math.pow((1+ v),-month));
     }
 
     @JsonProperty(value = "coutAssurance")
     double calculAssurance() {
-        final float v = (tauxAssurance * 0.01f) / 12;
+        final float v = (insuranceRate * 0.01f) / 12;
         return capital * v;
     }
 
     @JsonProperty
-    double mensualite(){
+    double monthlyAmount(){
         return calculCredit()+calculAssurance();
     }
 
-    public List<Amortissement> getAmortissements(){
-        amortissements = new ArrayList<Amortissement>();
-        final float v = (tauxNominal * 0.01f) / 12;
-        final Double assurance = calculAssurance();
+    public List<WriteDown> getWriteDowns(){
+        writeDowns = new ArrayList<>();
+        final float v = (interestRate * 0.01f) / 12;
+        final double assurance = calculAssurance();
         double capitalRestant = capital;
         double interet;
         double principal;
         double mensualite;
-        for (int i=1 ; i<= mois; i++){
+        for (int currentMonth=1 ; currentMonth<= month; currentMonth++){
             interet = capitalRestant * v ;
             principal =  calculCredit() - interet;
             mensualite = calculCredit() + assurance;
             capitalRestant = capitalRestant - principal;
 
-            //dernier mois
-            if(i == mois){
+            //handle the last month
+            if(currentMonth == month){
                 mensualite = mensualite + capitalRestant;
                 capitalRestant = 0;
             }
 
-            amortissements.add(new Amortissement(i, interet, principal, assurance, mensualite, capitalRestant));
+            writeDowns.add(new WriteDown(currentMonth, interet, principal, assurance, mensualite, capitalRestant));
         }
 
-        return amortissements;
+        return writeDowns;
     }
 
 }

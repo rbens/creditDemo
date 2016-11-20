@@ -11,7 +11,7 @@ import static java.lang.Double.valueOf;
  */
 public class NumberFormatter {
 
-    public static<T extends Number> double formatNumber(T num){
+    public static<T extends Number> double formatNumberToDoubleValue(T num){
         NumberFormat f = NumberFormat.getInstance();
         String format = "0";
         if (f instanceof DecimalFormat) {

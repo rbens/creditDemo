@@ -62,26 +62,26 @@ angular.module('mainApp').directive('creditForm', function () {
                         var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
 
                         $scope.promise = $q.all([
-                            creditService.getAmortissement({mois: $scope.model.annee * 12 + "", capital: $scope.model.capital, tauxNominal: tauxNominal, tauxAssurance: $scope.model.tauxAssurance})
+                            creditService.getAmortissement({month: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
                                     //noinspection JSUnresolvedVariable
                                     if (data.coutPrincipal) {
-                                        $scope.model.amortissements     = data.amortissements;
+                                        $scope.model.amortissements     = data.writeDowns;
                                         $scope.model.assurance          = formatNumber(data.coutAssurance).concat(' €');
-                                        $scope.model.mensualite         = formatNumber(data.mensualite).concat(' €');
-                                        $scope.model.interetTotal       = formatNumber(data.interetTotal).concat(' €');
-                                        $scope.model.assuranceTotal     = formatNumber(data.assuranceTotal).concat(' €');
-                                        $scope.model.creditTotal        = formatNumber(data.creditTotal).concat(' €');
-                                        $scope.model.remboursementTotal = formatNumber(data.remboursementTotal).concat(' €');
+                                        $scope.model.mensualite         = formatNumber(data.monthlyAmount).concat(' €');
+                                        $scope.model.interetTotal       = formatNumber(data.interestTotalCost).concat(' €');
+                                        $scope.model.assuranceTotal     = formatNumber(data.insuranceTotalCost).concat(' €');
+                                        $scope.model.creditTotal        = formatNumber(data.creditTotalCost).concat(' €');
+                                        $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
                                     }
                                 }),
-                            creditService.getSeries({mois: $scope.model.annee * 12 + "", capital: $scope.model.capital, tauxNominal: tauxNominal, tauxAssurance: $scope.model.tauxAssurance})
+                            creditService.getSeries({month: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
                                     //noinspection JSUnresolvedVariable
                                     if (data.coutPrincipal) {
-                                        var last = (data.amortissements.length - 1);
+                                        var last = (data.writeDowns.length - 1);
                                         addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
                                         addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
                                     }
