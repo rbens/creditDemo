@@ -1,9 +1,9 @@
 package com.rbens.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rbens.entity.Mensualite;
-import com.rbens.entity.Resultats;
-import com.rbens.entity.Series;
+import com.rbens.model.Mensualite;
+import com.rbens.model.Resultats;
+import com.rbens.model.Series;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

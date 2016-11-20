@@ -1,8 +1,6 @@
-package com.rbens.entity;
+package com.rbens.model;
 
-import com.rbens.utils.Format;
-
-import static com.rbens.utils.Format.formatNumber;
+import static com.rbens.utils.ArrayNumber.reverseArray;
 
 /**
  * Created by rbenseghir on 3/18/15.
@@ -16,8 +14,8 @@ public final class Series extends Mensualite{
         int  cpt = 0;
 
         for(Amortissement amortissement : amortissements){
-            cumul+=amortissement.getInteret();
-            interetSeries[cpt++] = formatNumber(cumul);
+            cumul+=amortissement.interet;
+            interetSeries[cpt++] = cumul;
         }
 
         return interetSeries;
@@ -29,8 +27,8 @@ public final class Series extends Mensualite{
         int  cpt = 0;
 
         for(Amortissement amortissement : amortissements){
-            cumul+=amortissement.getAssurance();
-            assuranceSeries[cpt++] = formatNumber(cumul) ;
+            cumul+=amortissement.assurance;
+            assuranceSeries[cpt++] = cumul;
         }
         return assuranceSeries;
     }
@@ -41,8 +39,8 @@ public final class Series extends Mensualite{
         int  cpt = 0;
 
         for(Amortissement amortissement : amortissements){
-            cumul += amortissement.getAssurance() + amortissement.getInteret();
-            creditSeries[cpt++] = formatNumber(cumul) ;
+            cumul += amortissement.assurance + amortissement.interet;
+            creditSeries[cpt++] = cumul ;
         }
         return creditSeries;
     }
@@ -52,7 +50,7 @@ public final class Series extends Mensualite{
         int  cpt = 0;
 
         for(Amortissement amortissement : amortissements){
-            capitalRestantSeries[cpt++] = amortissement.getRestant() ;
+            capitalRestantSeries[cpt++] = amortissement.restant ;
         }
         return capitalRestantSeries;
     }
@@ -64,11 +62,11 @@ public final class Series extends Mensualite{
 
 
         for(Amortissement amortissement : amortissements){
-            cumul+=amortissement.getMensualite();
-            totalRestantSeries[cpt++] = formatNumber(cumul) ;
+            cumul+=amortissement.mensualite;
+            totalRestantSeries[cpt++] = cumul;
         }
 
-        return  new Format<Double>().reverseArray(totalRestantSeries);
+        return reverseArray(totalRestantSeries);
     }
 
 }

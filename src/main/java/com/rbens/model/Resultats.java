@@ -1,4 +1,4 @@
-package com.rbens.entity;
+package com.rbens.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -10,17 +10,17 @@ public final class Resultats extends Mensualite{
 
     @JsonProperty
     private double assuranceTotal() {
-        return amortissements.stream().mapToDouble(Amortissement::getAssurance).sum();
+        return amortissements.stream().mapToDouble(a -> a.assurance).sum();
     }
 
     @JsonProperty
     private double interetTotal() {
-        return amortissements.stream().mapToDouble(Amortissement::getInteret).sum();
+        return amortissements.stream().mapToDouble(a -> a.interet).sum();
     }
 
     @JsonProperty
     private double remboursementTotal() {
-        return amortissements.stream().mapToDouble(Amortissement::getMensualite).sum();
+        return amortissements.stream().mapToDouble(a -> a.mensualite).sum();
     }
 
     @JsonProperty
