@@ -62,7 +62,7 @@ angular.module('mainApp').directive('creditForm', function () {
                         var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
 
                         $scope.promise = $q.all([
-                            creditService.getAmortissement({month: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
+                            creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
                                     //noinspection JSUnresolvedVariable
@@ -76,7 +76,7 @@ angular.module('mainApp').directive('creditForm', function () {
                                         $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
                                     }
                                 }),
-                            creditService.getSeries({month: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
+                            creditService.getSeries({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
                                     //noinspection JSUnresolvedVariable

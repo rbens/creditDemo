@@ -14,10 +14,10 @@ angular.module('mainApp', ['mgcrea.ngStrap', 'highcharts-ng', 'mgcrea.ngStrap.he
     message:'Chargement en cours',
 }).run(['$rootScope', function($rootScope){
 
-    $rootScope.rootPath = 'http://localhost:8090/';
+    $rootScope.rootPath = '//localhost:8090/';
 
     $rootScope.model = {
-        annee: 0,
+        duree: undefined,
         capital: undefined,
         tauxNominal: 0.0,
         tauxAssurance: 0.0,

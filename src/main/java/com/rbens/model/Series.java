@@ -1,69 +1,71 @@
 package com.rbens.model;
 
+import com.rbens.utils.NumberFormatter;
+
 import static com.rbens.utils.ArrayNumber.reverseArray;
 
 /**
  * Created by rbenseghir on 3/18/15.
  *
  */
-public final class Series extends Mensualite{
+public final class Series extends MonthlyPayment {
 
     public double[] getInteretSeries() {
-        final double[] interetSeries = new double[mois];
+        final double[] interetSeries = new double[months];
         double cumul = 0;
         int  cpt = 0;
 
-        for(Amortissement amortissement : amortissements){
-            cumul+=amortissement.interet;
-            interetSeries[cpt++] = cumul;
+        for(WriteDown writeDown : writeDowns){
+            cumul = Double.sum(cumul, writeDown.interestAmount);
+            interetSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul);
         }
 
         return interetSeries;
     }
 
     public double[] getAssuranceSeries() {
-        final double[] assuranceSeries = new double[mois];
+        final double[] assuranceSeries = new double[months];
         double cumul = 0;
         int  cpt = 0;
 
-        for(Amortissement amortissement : amortissements){
-            cumul+=amortissement.assurance;
-            assuranceSeries[cpt++] = cumul;
+        for(WriteDown writeDown : writeDowns){
+            cumul = Double.sum(cumul, writeDown.insuranceAmount);
+            assuranceSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul);
         }
         return assuranceSeries;
     }
 
     public double[] getCreditSeries() {
-        final double[] creditSeries = new double[mois];
+        final double[] creditSeries = new double[months];
         double cumul = 0;
         int  cpt = 0;
 
-        for(Amortissement amortissement : amortissements){
-            cumul += amortissement.assurance + amortissement.interet;
-            creditSeries[cpt++] = cumul ;
+        for(WriteDown writeDown : writeDowns){
+            cumul = Double.sum(cumul, writeDown.insuranceAmount + writeDown.interestAmount);
+            creditSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul) ;
         }
         return creditSeries;
     }
 
     public double[] getCapitalRestantSeries() {
-        final double[] capitalRestantSeries = new double[mois];
+        final double[] capitalRestantSeries = new double[months];
         int  cpt = 0;
 
-        for(Amortissement amortissement : amortissements){
-            capitalRestantSeries[cpt++] = amortissement.restant ;
+        for(WriteDown writeDown : writeDowns){
+            capitalRestantSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(writeDown.owingAmount);
         }
         return capitalRestantSeries;
     }
 
     public Double[] getTotalRestantSeries() {
-        final Double[] totalRestantSeries = new Double[mois];
+        final Double[] totalRestantSeries = new Double[months];
         double cumul = 0;
         int  cpt = 0;
 
 
-        for(Amortissement amortissement : amortissements){
-            cumul+=amortissement.mensualite;
-            totalRestantSeries[cpt++] = cumul;
+        for(WriteDown writeDown : writeDowns){
+            cumul = Double.sum(cumul, writeDown.monthlyAmount);
+            totalRestantSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul);
         }
 
         return reverseArray(totalRestantSeries);

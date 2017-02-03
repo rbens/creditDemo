@@ -24,5 +24,5 @@ public final class Results extends MonthlyPayment {
     }
 
     @JsonProperty
-    double creditTotalCost() { return interestTotalCost() + owingTotalCost(); }
+    double creditTotalCost() { return interestTotalCost() + insuranceTotalCost(); }
 }

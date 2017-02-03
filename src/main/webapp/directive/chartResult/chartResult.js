@@ -1,6 +1,3 @@
-/**
- * Created by rbenseghir on 11/28/14.
- */
 angular.module('mainApp').directive('chartResult', function () {
     return {
         restrict : 'E',
@@ -11,6 +8,12 @@ angular.module('mainApp').directive('chartResult', function () {
         controller: function($scope, configService) {
             configService.get().$promise.then(
                 function(config){
+                    config.line.xAxis.labels.formatter = function() {
+                            return this.value + 1;
+                    };
+                    config.area.xAxis.labels.formatter = function() {
+                            return this.value + 1;
+                    };
                     $scope.line = config.line;
                     $scope.area = config.area;
                     $scope.pie = config.pie;

@@ -8,7 +8,7 @@ import java.util.List;
 public abstract class MonthlyPayment {
 
     @JsonProperty
-    int month;
+    int months;
 
     @JsonProperty
     double capital;
@@ -27,7 +27,7 @@ public abstract class MonthlyPayment {
     @JsonProperty(value = "coutPrincipal")
     double calculCredit(){
         final float v = (interestRate * 0.01f) / 12;
-        return (capital * v) / (1 - Math.pow((1+ v),-month));
+        return (capital * v) / (1 - Math.pow((1+ v),-months));
     }
 
     @JsonProperty(value = "coutAssurance")
@@ -49,14 +49,14 @@ public abstract class MonthlyPayment {
         double interet;
         double principal;
         double mensualite;
-        for (int currentMonth=1 ; currentMonth<= month; currentMonth++){
+        for (int currentMonth=1 ; currentMonth<= months; currentMonth++){
             interet = capitalRestant * v ;
             principal =  calculCredit() - interet;
             mensualite = calculCredit() + assurance;
             capitalRestant = capitalRestant - principal;
 
-            //handle the last month
-            if(currentMonth == month){
+            //handle the last months
+            if(currentMonth == months){
                 mensualite = mensualite + capitalRestant;
                 capitalRestant = 0;
             }
