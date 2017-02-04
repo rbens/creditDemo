@@ -1,5 +1,7 @@
 package com.rbens.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rbens.utils.NumberFormatter;
 
 import static com.rbens.utils.ArrayNumber.reverseArray;
@@ -8,9 +10,11 @@ import static com.rbens.utils.ArrayNumber.reverseArray;
  * Created by rbenseghir on 3/18/15.
  *
  */
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.DEFAULT)
 public final class Series extends MonthlyPayment {
 
-    public double[] getInteretSeries() {
+    @JsonProperty(value = "interetSeries")
+    double[] interetSeries() {
         final double[] interetSeries = new double[months];
         double cumul = 0;
         int  cpt = 0;
@@ -23,7 +27,8 @@ public final class Series extends MonthlyPayment {
         return interetSeries;
     }
 
-    public double[] getAssuranceSeries() {
+    @JsonProperty(value = "assuranceSeries")
+    double[] assuranceSeries() {
         final double[] assuranceSeries = new double[months];
         double cumul = 0;
         int  cpt = 0;
@@ -35,7 +40,8 @@ public final class Series extends MonthlyPayment {
         return assuranceSeries;
     }
 
-    public double[] getCreditSeries() {
+    @JsonProperty(value = "creditSeries")
+    double[] creditSeries() {
         final double[] creditSeries = new double[months];
         double cumul = 0;
         int  cpt = 0;
@@ -47,7 +53,8 @@ public final class Series extends MonthlyPayment {
         return creditSeries;
     }
 
-    public double[] getCapitalRestantSeries() {
+    @JsonProperty(value = "capitalRestantSeries")
+    double[] capitalRestantSeries() {
         final double[] capitalRestantSeries = new double[months];
         int  cpt = 0;
 
@@ -57,7 +64,8 @@ public final class Series extends MonthlyPayment {
         return capitalRestantSeries;
     }
 
-    public Double[] getTotalRestantSeries() {
+    @JsonProperty(value = "totalRestantSeries")
+    Double[] totalRestantSeries() {
         final Double[] totalRestantSeries = new Double[months];
         double cumul = 0;
         int  cpt = 0;
