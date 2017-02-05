@@ -153,12 +153,6 @@
                         <fileset>
                             <directory>app/coverage</directory>
                         </fileset>
-                        <fileset>
-                            <directory>app/node_modules</directory>
-                        </fileset>
-                        <fileset>
-                            <directory>app/libs</directory>
-                        </fileset>
                     </filesets>
                 </configuration>
             </plugin>
