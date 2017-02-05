@@ -5,7 +5,7 @@ angular.module('mainApp').directive('creditForm', function () {
         link : function(scope,element,attrs,fn){
 
         },
-        controller : function ($scope, $filter, $q, $timeout, creditService) {
+        controller : function ($scope, $filter, $q, $timeout, creditService, $mdDialog) {
             var time,
                 formatNumber = function(data) {
                     return $filter('number')(data, 2);
@@ -104,7 +104,30 @@ angular.module('mainApp').directive('creditForm', function () {
                 $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
                 $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
             };
+
+            $scope.modal =  function(ev) {
+                $mdDialog.show({
+                  title:'Informations d\'utilisation',
+                  controller:DialogController,
+                  parent: angular.element(document.body),
+                  templateUrl : 'directive/creditForm/infoCreditForm.html',
+                  targetEvent:ev,
+                  clickOutsideToClose:true
+                }).then(function() {
+                    $scope.status = 'You decided to get rid of your debt.';
+                });
+            };
+
+            function DialogController($scope, $mdDialog) {
+                $scope.hide = function() {
+                    $mdDialog.hide();
+                };
+                $scope.cancel = function() {
+                    $mdDialog.cancel();
+                };
+            }
         }
     };
 
 });
+
