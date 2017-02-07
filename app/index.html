@@ -36,7 +36,7 @@
     <script src="libs/angular-busy/dist/angular-busy.js"></script>
 
     <script src="app.js"></script>
-    <script src="views/content/Content.js"></script>
+    <script src="views/content.js"></script>
     <script src="service/creditDemoService.js" charset="UTF-8"></script>
     <script src="service/configService.js" charset="UTF-8"></script>
     <script src="directive/numeric/numeric.js" charset="UTF-8"></script>
@@ -47,9 +47,7 @@
 
 </head>
 <body style="overflow: scroll;" data-spy="scroll" data-target=".navbar-left-menu">
-<div ng-include="'../views/header/header.html'"></div>
-<div ng-include="'../views/content/content.html'"></div>
-<div ng-include="'../views/footer/footer.html'"></div>
+<ng-view></ng-view>
 <a href="javascript:void(0)" class="cd-top" style=" margin-bottom: 60px; ">Top</a>
 </body>
 <script>

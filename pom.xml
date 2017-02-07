@@ -156,6 +156,30 @@
                     </filesets>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/</path>
+                    <port>8090</port>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>tomcat build and run</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tomcat run war only</id>
+                        <goals>
+                            <goal>run-war-only</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

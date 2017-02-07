@@ -1,7 +1,7 @@
 angular.module('mainApp').directive('chartResult', function () {
     return {
         restrict : 'E',
-        templateUrl : '/directive/chartResult/chartResult.html',
+        templateUrl : 'directive/chartResult/chartResult.html',
         link : function(scope, element, attrs, fn){
 
         },

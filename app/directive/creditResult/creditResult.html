@@ -1,4 +1,4 @@
-<div class="panel panel-default col-sm-7" id="results" style="padding-left: 0; padding-right: 0;">
+<md-content class="panel panel-default col-sm-4" id="results" style="margin-left: 5%;padding-left: 0; padding-right: 0;">
     <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
         <div class="md-toolbar-tools">
             <h3 class="panel-title">R&eacute;sultat</h3>
@@ -8,43 +8,43 @@
             </md-button>
         </div>
     </md-toolbar>
-    <div class="panel-body" >
+    <md-content flex layout-padding >
         <div class="form-horizontal" cg-busy="{promise:promise}">
             <div class="form-group">
-                <label class="control-label col-sm-3">Mensualité </label>
+                <label class="control-label col-sm-5">Mensualité </label>
 
                 <div class="col-sm-4">
                     <input class="form-control" ng-value="model.mensualite" disabled/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3">Total intérets </label>
+                <label class="control-label col-sm-5">Total intérets </label>
 
                 <div class="col-sm-4">
                     <input class="form-control" ng-value="model.interetTotal" disabled>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3">Total assurance </label>
+                <label class="control-label col-sm-5">Total assurance </label>
 
                 <div class="col-sm-4">
                     <input class="form-control" ng-value="model.assuranceTotal" disabled/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3">Total crédit </label>
+                <label class="control-label col-sm-5">Total crédit </label>
 
                 <div class="col-sm-4">
                     <input class="form-control" ng-value="model.creditTotal" disabled/>
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-3">Total remboursement </label>
+                <label class="control-label col-sm-5">Total remboursement </label>
 
                 <div class="col-sm-4">
                     <input class="form-control" ng-value="model.remboursementTotal" disabled/>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </md-content>
+</md-content>

@@ -42,25 +42,7 @@ module.exports = function (grunt) {
                 options: {
                     port: 9001,
                     hostname: 'localhost',
-                    livereload: 35729,
-
-                    // remove next from params
-                    middleware: function(connect, options) {
-                        return [
-                            function(req, res, next) {
-                                res.setHeader('Access-Control-Allow-Origin', '*');
-                                res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-                                res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-                                // don't just call next() return it
-                                return next();
-                            },
-
-                            // add other middlewares here
-                            connect.static(require('path').resolve('.'))
-
-                        ];
-                    }
+                    livereload: 35729
                 }
             }
         },
@@ -110,7 +92,7 @@ module.exports = function (grunt) {
         ngtemplates: {
             main: {
                 options: {
-                    module: pkg.name,
+                    module: 'mainApp',
                     htmlmin:'<%= htmlmin.main.options %>'
                 },
                 src: [createFolderGlobs('*.html'),'!index.html','!_SpecRunner.html'],
@@ -122,7 +104,9 @@ module.exports = function (grunt) {
                 files: [
                     {src: ['public/flaticon/**'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['public/img/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true}
+                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {cwd: 'libs/bootstrap/fonts', src: ['**'], dest: 'dist/fonts/',expand:true}
                 ]
             }
         },
