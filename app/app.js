@@ -17,7 +17,7 @@ angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy
         });
 
     }).value('cgBusyDefaults',{
-        message:'Chargement en cours'
+        templateUrl:'cg-template.html'
     }).run(['$rootScope', function($rootScope){
 
         $rootScope.rootPath = '//localhost:8090/';

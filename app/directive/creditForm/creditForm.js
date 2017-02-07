@@ -11,7 +11,7 @@ angular.module('mainApp').directive('creditForm', function () {
                     return $filter('number')(data, 2);
                 },
                 isComplete = function() {
-                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxGlobal);
+                    return isDefined($scope.model.annee) && isDefined(Number($scope.model.capital)) && isDefined($scope.model.tauxGlobal);
                 },
                 isDefined = function(value) {
                     return value !== null && value !== 0;
@@ -90,11 +90,12 @@ angular.module('mainApp').directive('creditForm', function () {
                         ]);
                     } else {
                         $scope.model.amortissements = [];
-                        $scope.model.mensualite = undefined;
-                        $scope.model.interetTotal = undefined;
-                        $scope.model.assuranceTotal = undefined;
-                        $scope.model.creditTotal = undefined;
-                        $scope.model.assurance = undefined;
+                        $scope.model.mensualite = formatNumber(0).concat(' €');
+                        $scope.model.interetTotal = formatNumber(0).concat(' €');
+                        $scope.model.assuranceTotal = formatNumber(0).concat(' €');
+                        $scope.model.creditTotal = formatNumber(0).concat(' €');
+                        $scope.model.assurance = formatNumber(0).concat(' €');
+                        $scope.model.remboursementTotal = formatNumber(0).concat(' €');
                     }
                 },1500);
             };
