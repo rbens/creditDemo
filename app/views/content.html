@@ -43,10 +43,11 @@
 <!-- content -->
 <div class="container-fluid main-content">
     <div class="container col-sm-12 col-xs-12">
+        <market-rate></market-rate>
         <credit-form></credit-form>
         <credit-result></credit-result>
-        <chart-result ng-show="model.mensualite"></chart-result>
-        <tab-result ng-show="model.mensualite"></tab-result>
+        <chart-result ng-show="model.amortissements.length > 0"></chart-result>
+        <tab-result ng-show="model.amortissements.length > 0"></tab-result>
     </div>
 </div>
 

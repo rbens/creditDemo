@@ -46,17 +46,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        watch: {
-            main: {
-                options: {
-                    livereload: true,
-                    livereloadOnError: false,
-                    spawn: false
-                },
-                files: [createFolderGlobs(['*.js','*.less','*.html','*.json']),'!_SpecRunner.html','!.grunt'],
-                tasks: ['less:development'] //all the tasks are run dynamically during the watch event handler
-            }
-        },
         jshint: {
             main: {
                 options: {
@@ -89,6 +78,17 @@ module.exports = function (grunt) {
                 }
             }
         },
+        watch: {
+            main: {
+                options: {
+                    livereload: true,
+                    livereloadOnError: false,
+                    spawn: false
+                },
+                files: [createFolderGlobs(['*.js','*.less','*.html','*.json']),'!_SpecRunner.html','!.grunt'],
+                tasks: ['less:development']
+            }
+        },
         ngtemplates: {
             main: {
                 options: {
@@ -109,6 +109,7 @@ module.exports = function (grunt) {
                     {cwd: 'libs/bootstrap/fonts', src: ['**'], dest: 'dist/fonts/',expand:true}
                 ]
             }
+
         },
         dom_munger:{
             read: {
@@ -181,7 +182,6 @@ module.exports = function (grunt) {
                     'libs/angular-mocks/angular-mocks.js',
                     createFolderGlobs('*-spec.js')
                 ],
-                logLevel:'ERROR',
                 reporters:['coverage'],
                 autoWatch: false, //watching is handled by grunt-contrib-watch
                 singleRun: true
@@ -198,42 +198,5 @@ module.exports = function (grunt) {
     grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
     grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
     grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
-
-    grunt.event.on('watch', function(action, filepath) {
-        //https://github.com/gruntjs/grunt-contrib-watch/issues/156
-
-        var tasksToRun = [];
-
-        if (filepath.lastIndexOf('.js') !== -1 && filepath.lastIndexOf('.js') === filepath.length - 3) {
-
-            //lint the changed js file
-            grunt.config('jshint.main.src', filepath);
-            tasksToRun.push('jshint');
-
-            //find the appropriate unit test for the changed file
-            var spec = filepath;
-            if (filepath.lastIndexOf('-spec.js') === -1 || filepath.lastIndexOf('-spec.js') !== filepath.length - 8) {
-                spec = filepath.substring(0,filepath.length - 3) + '-spec.js';
-            }
-
-            //if the spec exists then lets run it
-            if (grunt.file.exists(spec)) {
-                var files = [].concat(grunt.config('dom_munger.data.appjs'));
-                files.push('libs/angular-mocks/angular-mocks.js');
-                files.push(spec);
-                grunt.config('karma.options.files', files);
-                tasksToRun.push('karma:during_watch');
-            }
-        }
-
-        //if index.html changed, we need to reread the <script> tags so our next run of karma
-        //will have the correct environment
-        if (filepath === 'index.html') {
-            tasksToRun.push('dom_munger:read');
-        }
-
-        grunt.config('watch.main.tasks',tasksToRun);
-
-    });
 };
 

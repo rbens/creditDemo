@@ -2,10 +2,6 @@
     <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
         <div class="md-toolbar-tools">
             <h3 class="panel-title">R&eacute;sultat graphique</h3>
-            <span flex></span>
-            <md-button class="md-icon-button" aria-label="Settings" ng-click="modal($event)">
-                <span class="glyphicon glyphicon-info-sign"></span>
-            </md-button>
         </div>
     </md-toolbar>
     <div class="panel-body" >
@@ -14,19 +10,19 @@
                 <md-tab md-on-select="swapChartType('pie')" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="Répartition du remboursement">
                     <div class="demo-tab tab{{$index%4}}" >
                         <label ng-model="chart.title.text"/>
-                        <highchart id="chart1" config="pie"  ng-if="option.config === 'pie'" ></highchart>
+                        <highchart id="chart1" config="pie"  ng-if="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
                     </div>
                 </md-tab>
                 <md-tab md-on-select="swapChartType('line')" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="Évolution du remboursement">
                     <div class="demo-tab tab{{$index%4}}" >
                         <label ng-model="chart.title.text"/>
-                        <highchart id="chart2" config="line" ng-if="option.config === 'line'"></highchart>
+                        <highchart id="chart2" config="line" ng-if="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
                     </div>
                 </md-tab>
                 <md-tab md-on-select="swapChartType('area')" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="Évolution de la dette">
                     <div class="demo-tab tab{{$index%4}}" >
                         <label ng-model="chart.title.text"/>
-                        <highchart id="chart3" config="area" ng-if="option.config === 'area'"></highchart>
+                        <highchart id="chart3" config="area" ng-if="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
                     </div>
                 </md-tab>
             </md-tabs>

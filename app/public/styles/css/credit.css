@@ -25,11 +25,14 @@
 .main-content {
   background-color: #eee;
 }
-.panel .panel-default {
+.panel.panel-default {
   border: none;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   padding-left: 0;
   padding-right: 0;
+}
+.panel.no-bottom {
+  margin-bottom: 0;
 }
 .modal-backdrop.am-fade {
   opacity: .5;
@@ -59,4 +62,7 @@ body {
 }
 md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   min-height: 500px;
+}
+.md-radio-button {
+  margin-bottom: 0;
 }

@@ -6,27 +6,19 @@ angular.module('mainApp').directive('creditResult',function($mdDialog){
         },
         controller: function($scope) {
 
-            $scope.modal =  function(ev) {
+            $scope.modalResult =  function(ev) {
                 $mdDialog.show({
                     title:'Informations sur les résultats',
-                    controller:DialogController,
                     parent: angular.element(document.body),
                     templateUrl : 'directive/creditResult/infoCreditResult.html',
                     targetEvent:ev,
                     clickOutsideToClose:true
                 }).then(function() {
-                    $scope.status = 'You decided to get rid of your debt.';
+                    $scope.status = 'cancel';
+                },function(){
+                    $scope.status = 'close';
                 });
             };
-
-            function DialogController($scope, $mdDialog) {
-                $scope.hide = function() {
-                    $mdDialog.hide();
-                };
-                $scope.cancel = function() {
-                    $mdDialog.cancel();
-                };
-            }
 
         }
     };

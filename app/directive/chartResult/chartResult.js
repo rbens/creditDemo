@@ -1,11 +1,11 @@
-angular.module('mainApp').directive('chartResult', function () {
+angular.module('mainApp').directive('chartResult', function (configService) {
     return {
         restrict : 'E',
         templateUrl : 'directive/chartResult/chartResult.html',
         link : function(scope, element, attrs, fn){
 
         },
-        controller: function($scope, configService) {
+        controller: function($scope) {
             configService.get().$promise.then(
                 function(config){
                     config.line.xAxis.labels.formatter = function() {
@@ -26,10 +26,11 @@ angular.module('mainApp').directive('chartResult', function () {
                 {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
             ];
 
+            $scope.panelWidth = angular.element('.panel-body').css('width');
+
             $scope.option = $scope.options[0];
 
             $scope.swapChartType = function (type) {
-                //this.line.options.chart.type = type;
                 $scope.option.config = type;
             };
         }

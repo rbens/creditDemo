@@ -1,0 +1,18 @@
+<md-content class="panel panel-default col-sm-2" id="results" style="margin-right: 3%;padding-left: 0; padding-right: 0;" ng-show="rates.length > 0">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
+        <div class="md-toolbar-tools">
+            <h3 class="panel-title">Taux du marché</h3>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="modalRate($event)">
+                <md-tooltip>Cliquez pour les détails</md-tooltip>
+                <span class="glyphicon glyphicon-info-sign"></span>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content flex layout-padding >
+        <md-radio-group class="md-radio-group" ng-repeat="result in rates" ng-model="rates.id" ng-click="updateRate(result)">
+            <md-radio-button ng-value="result.id" class="md-primary md-radio-button" ng-style="{background: currentId === $index ? '#3366ff' : '' }">{{result.rate}} sur {{result.years}} ans</md-radio-button>
+        </md-radio-group>
+    </md-content>
+    </md-content>
+
