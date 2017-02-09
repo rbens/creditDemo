@@ -186,9 +186,6 @@ module.exports = function (grunt) {
                 autoWatch: false, //watching is handled by grunt-contrib-watch
                 singleRun: true
             },
-            all_tests: {
-                browsers: ['PhantomJS']
-            },
             during_watch: {
                 browsers: ['PhantomJS']
             }

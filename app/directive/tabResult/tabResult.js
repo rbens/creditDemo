@@ -1,6 +1,3 @@
-/**
- * Created by rbenseghir on 11/28/14.
- */
 angular.module('mainApp').directive('tabResult', function () {
     return {
         restrict : 'E',

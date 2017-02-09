@@ -1,23 +1,50 @@
 <div class="panel panel-default" id="chart" ng-show="model.mensualite != 0" style="margin-left:8%;padding-left: 0; padding-right: 0;">
     <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
         <div class="md-toolbar-tools">
-            <h3 class="panel-title">{{options[0].title}}</h3>
+            <h3 class="panel-title">{{option.title}}</h3>
+            <span flex></span>
+            <md-menu>
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="openMenu($mdMenu, $event)">
+                    <md-tooltip>Autres graphiques</md-tooltip>
+                    <md-icon md-svg-icon="public/img/more_vert.svg"></md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ng-click="swapChartType(0)">
+                            répartition du remboursement
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="swapChartType(1)">
+                            évolution du remboursement
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-divider></md-menu-divider>
+                    <md-menu-item>
+                        <md-button ng-click="swapChartType(2)">
+                            évolution de la dette
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
     </md-toolbar>
     <div class="panel-body" >
-        <div class="row" cg-busy="{promise:promise}">
+        <div class="row" cg-busy="{promise:promiseForm}">
                     <div>
                         <!--<label ng-model="chart.title.text"/>-->
-                        <highchart id="chart1" config="pie" ng-style="{width : panelWidth}" ></highchart>
+                        <highchart id="chart1" config="pie" ng-show="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
                     </div>
-                    <!--<div>-->
+                    <div>
                         <!--<label ng-model="chart.title.text"/>-->
-                        <!--<highchart id="chart2" config="line" ng-style="{width : panelWidth}"></highchart>-->
-                    <!--</div>-->
-                    <!--<div>-->
+                        <highchart id="chart2" config="line" ng-show="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
+                    </div>
+                    <div>
                         <!--<label ng-model="chart.title.text"/>-->
-                        <!--<highchart id="chart3" config="area" ng-style="{width : panelWidth}"></highchart>-->
-                    <!--</div>-->
+                        <highchart id="chart3" config="area" ng-show="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
+                    </div>
         </div>
     </div>
+
 </div>

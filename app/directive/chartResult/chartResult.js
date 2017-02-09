@@ -1,4 +1,4 @@
-angular.module('mainApp').directive('chartResult', function (configService) {
+angular.module('mainApp').directive('chartResult', function (configService, $mdDialog) {
     return {
         restrict : 'E',
         templateUrl : 'directive/chartResult/chartResult.html',
@@ -20,7 +20,7 @@ angular.module('mainApp').directive('chartResult', function (configService) {
                     $scope.pie = config.pie;
                 });
 
-            $scope.options = [
+            var options = [
                 {"id": "chart1", "config": "pie" , "title": "Répartition du remboursement"},
                 {"id": "chart2", "config": "line", "title": "Évolution du remboursement"},
                 {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
@@ -28,10 +28,14 @@ angular.module('mainApp').directive('chartResult', function (configService) {
 
             $scope.panelWidth = angular.element('.panel-body').css('width');
 
-            $scope.option = $scope.options[0];
+            $scope.option = options[0];
 
-            $scope.swapChartType = function (type) {
-                $scope.option.config = type;
+            $scope.swapChartType = function (index) {
+                $scope.option = options[index];
+            };
+
+            $scope.openMenu = function($mdMenu, ev) {
+                $mdMenu.open(ev);
             };
         }
     };

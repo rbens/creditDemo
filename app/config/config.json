@@ -10,7 +10,9 @@
 		}
 	  }
 	},
-	"tooltip":{},
+	"title": {
+	  "text": null
+	},
 	"series": [
 	  {
 		"data": []
@@ -49,7 +51,7 @@
 	  }
 	],
 	"title": {
-	  "text": "Évolution de la dette (totalité de la somme, capital emprunté)"
+	  "text": null
 	},
 	"xAxis": {
 	  "min": 0,

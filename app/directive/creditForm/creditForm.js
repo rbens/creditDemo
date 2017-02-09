@@ -54,6 +54,11 @@ angular.module('mainApp').directive('creditForm', function () {
                     });
                 };
 
+            $scope.model.annee = 0;
+            $scope.model.tauxNominal = 0;
+            $scope.model.tauxAssurance = 0;
+
+
             $scope.calcul = function () {
                 $timeout.cancel( time );
 
@@ -61,7 +66,7 @@ angular.module('mainApp').directive('creditForm', function () {
                     if (isComplete()) {
                         var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
 
-                        $scope.promise = $q.all([
+                        $scope.promiseForm = $q.all([
                             creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
