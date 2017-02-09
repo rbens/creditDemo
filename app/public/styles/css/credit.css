@@ -67,6 +67,6 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   margin-bottom: 0;
   margin-left: 10%;
 }
-.layout-gt-xs-row.adapt-form {
-  max-height: 88px;
+.adapt-form {
+  max-height: 88px!important;
 }

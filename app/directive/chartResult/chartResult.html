@@ -33,15 +33,12 @@
     <div class="panel-body" >
         <div class="row" cg-busy="{promise:promiseForm}">
                     <div>
-                        <!--<label ng-model="chart.title.text"/>-->
                         <highchart id="chart1" config="pie" ng-show="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
                     </div>
                     <div>
-                        <!--<label ng-model="chart.title.text"/>-->
                         <highchart id="chart2" config="line" ng-show="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
                     </div>
                     <div>
-                        <!--<label ng-model="chart.title.text"/>-->
                         <highchart id="chart3" config="area" ng-show="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
                     </div>
         </div>
