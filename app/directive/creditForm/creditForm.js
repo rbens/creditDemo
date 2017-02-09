@@ -1,0 +1,110 @@
+angular.module('mainApp').directive('creditForm', function () {
+    return {
+        restrict : 'E',
+        templateUrl : '/directive/creditForm/creditForm.html',
+        link : function(scope,element,attrs,fn){
+
+        },
+        controller : function ($scope, $filter, $q, $timeout, creditService) {
+            var time,
+                formatNumber = function(data) {
+                    return $filter('number')(data, 2);
+                },
+                isComplete = function() {
+                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxGlobal);
+                },
+                isDefined = function(value) {
+                    return value !== null && value !== 0;
+                },
+                addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
+                    $scope.line.series = [];
+                    $scope.line.series.push({
+                        "name": 'Intérets',
+                        "data": interetSeries
+                    }, {
+                        "name": 'Assurance',
+                        "data": assuranceSeries
+                    }, {
+                        "name": 'Crédit',
+                        "data": creditSeries
+                    });
+
+                    $scope.area.series = [];
+                    $scope.area.series.push({
+                        "name": 'Capital restant',
+                        "data": capitalRestantSeries
+                    },{
+                        "name": 'Total restant',
+                        "data": interetRestantSeries
+                    });
+
+                    $scope.line.xAxis.tickInterval = creditSeries.length < 60 ? 1 : 12;
+                    $scope.area.xAxis.tickInterval =  creditSeries.length < 60 ? 1 : 12;
+                }, addSeriesToPieChart = function(interetSeries, assuranceSeries, creditSeries) {
+                    $scope.pie.series = [];
+                    $scope.pie.series.push({
+                        type: 'pie',
+                        name: 'somme en euros',
+                        data: [
+                            ['Cout total interets ', interetSeries],
+                            ['Cout total assurances', assuranceSeries],
+                            ['Capital emprunté', creditSeries]
+                        ]
+
+                    });
+                };
+
+            $scope.calcul = function () {
+                $timeout.cancel( time );
+
+                time = $timeout(function(){
+                    if (isComplete()) {
+                        var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
+
+                        $scope.promise = $q.all([
+                            creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
+                                .then(function (response) {
+                                    var data = response.data;
+                                    //noinspection JSUnresolvedVariable
+                                    if (data.coutPrincipal) {
+                                        $scope.model.amortissements     = data.writeDowns;
+                                        $scope.model.assurance          = formatNumber(data.coutAssurance).concat(' €');
+                                        $scope.model.mensualite         = formatNumber(data.monthlyAmount).concat(' €');
+                                        $scope.model.interetTotal       = formatNumber(data.interestTotalCost).concat(' €');
+                                        $scope.model.assuranceTotal     = formatNumber(data.insuranceTotalCost).concat(' €');
+                                        $scope.model.creditTotal        = formatNumber(data.creditTotalCost).concat(' €');
+                                        $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
+                                    }
+                                }),
+                            creditService.getSeries({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
+                                .then(function (response) {
+                                    var data = response.data;
+                                    //noinspection JSUnresolvedVariable
+                                    if (data.coutPrincipal) {
+                                        var last = (data.writeDowns.length - 1);
+                                        addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
+                                        addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
+                                    }
+                                })
+
+                        ]);
+                    } else {
+                        $scope.model.amortissements = [];
+                        $scope.model.mensualite = undefined;
+                        $scope.model.interetTotal = undefined;
+                        $scope.model.assuranceTotal = undefined;
+                        $scope.model.creditTotal = undefined;
+                        $scope.model.assurance = undefined;
+                    }
+                },1500);
+            };
+
+            $scope.teg = function(){
+                $scope.model.tauxNominal = Number(formatNumber($scope.model.tauxNominal));
+                $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
+                $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
+            };
+        }
+    };
+
+});

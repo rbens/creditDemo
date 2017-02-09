@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="col-sm-2 col-xs-2 hidden-xs hidden-sm navbar-left-menu">
+        <div style="position: relative;" class="bs-sidebar hidden-print affix-top" role="complementary" data-offset-top="200" bs-affix bs-scrollspy-list>
+            <ul class="nav bs-sidenav">
+                <li data-target="#simulateur"  bs-scrollspy>
+                    <a href="#simulateur" class="btn"><span class="flaticon-edit26 "></span><strong
+                            style="padding-left: 5px">Simulateur</strong></a>
+                </li>
+                <li data-target="#results"  bs-scrollspy>
+                    <a href="#results" class="btn" ng-show="model.mensualite"><span
+                            class="flaticon-verification5"></span><strong
+                            style="padding-left: 5px">R&eacute;sultat</strong></a>
+                </li>
+                <li data-target="#chart"  bs-scrollspy>
+                    <a href="#chart" class="btn" ng-show="model.mensualite"><span
+                            class="flaticon-chart23"></span><strong style="padding-left: 5px">Graphique</strong></a>
+                </li>
+                <li data-target="#tab"  bs-scrollspy>
+                    <a href="#tab" class="btn" ng-show="model.mensualite"><span
+                            class="flaticon-seo1"></span><strong style="padding-left: 5px">D&eacute;tails</strong></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container col-sm-10 col-xs-12">
+        <ul class="nav bs-sidenav" >
+            <li>
+                <credit-form></credit-form>
+            </li>
+            <li>
+                <credit-result ng-show="model.mensualite"></credit-result>
+            </li>
+            <li>¨
+                <chart-result ng-show="model.mensualite"></chart-result>
+            </li>
+            <li>
+                <tab-result ng-show="model.mensualite"></tab-result>
+            </li>
+        </ul>
+    </div>
+    <br/>
+</div>
