@@ -9,10 +9,10 @@ angular.module('mainApp').directive('chartResult', function (configService) {
             configService.get().$promise.then(
                 function(config){
                     config.line.xAxis.labels.formatter = function() {
-                            return this.value + 1;
+                            return this.value/12;
                     };
                     config.area.xAxis.labels.formatter = function() {
-                            return this.value + 1;
+                            return this.value/12;
                     };
 
                     $scope.line = config.line;

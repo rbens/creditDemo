@@ -65,4 +65,5 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
 }
 .md-radio-button {
   margin-bottom: 0;
+  margin-left: 10%;
 }

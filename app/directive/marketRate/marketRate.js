@@ -12,6 +12,7 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
             }, 1000);
             $scope.rates = [];
             $scope.currentId = 0;
+            $scope.isCancel = false;
 
              creditService.getTauxMarche().then(
                 function success(response){
@@ -32,6 +33,7 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
                 $scope.model.annee = result.years;
                 $scope.calcul();
                 $interval.cancel(intervalPromise);
+                $scope.isCancel = true;
             };
 
             $scope.modalRate =  function(ev) {

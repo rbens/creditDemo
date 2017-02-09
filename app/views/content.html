@@ -41,30 +41,25 @@
 </div>
 
 <!-- content -->
-<div class="container-fluid main-content">
-    <div class="container col-sm-12 col-xs-12">
-        <market-rate></market-rate>
-        <credit-form></credit-form>
-        <credit-result></credit-result>
-        <chart-result ng-show="model.amortissements.length > 0"></chart-result>
-        <tab-result ng-show="model.amortissements.length > 0"></tab-result>
+<div layout="column" layout-xs="column">
+    <div layout-gt-xs="row" layout-xs="column">
+        <div flex="20">
+            <market-rate></market-rate>
+        </div>
+        <div flex="45">
+            <credit-form></credit-form>
+        </div>
+        <div flex="30">
+            <credit-result></credit-result>
+        </div>
+    </div>
+    <div layout-gt-xs="row" layout-xs="column">
+        <div flex="50">
+            <chart-result ng-show="model.amortissements.length > 0"></chart-result>
+        </div>
+        <div flex="45">
+            <tab-result ng-show="model.amortissements.length > 0"></tab-result>
+        </div>
     </div>
 </div>
 
-<!-- footer -->
-<nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse" style="height:80px">
-    <div class="container">
-        <form class="form-horizontal">
-            <div class="form-group" style="margin-top: 20px">
-                <div class="col-sm-2">
-                    <a href="https://github.com/rbens/creditDemo">GitHub project</a>
-                </div>
-                <div class="col-sm-8">
-                    <a href="https://angularjs.org/" style="margin-left:10px">AngularJs</a>
-                    <a href="https://material.angularjs.org" style="margin-left:10px">Angular material</a>
-                    <a href="https://github.com/pablojim/highcharts-ng" style="margin-left:10px">Highcharts-ng</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</nav>

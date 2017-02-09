@@ -110,7 +110,6 @@ angular.module('mainApp').directive('creditForm', function () {
 
             $scope.modalForm =  function(ev) {
                 $mdDialog.show({
-                  title:'Informations d\'utilisation',
                   parent: angular.element(document.body),
                   templateUrl : 'directive/creditForm/infoCreditForm.html',
                   targetEvent:ev,

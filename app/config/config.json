@@ -10,18 +10,16 @@
 		}
 	  }
 	},
+	"tooltip":{},
 	"series": [
 	  {
 		"data": []
 	  }
 	],
-	"title": {
-	  "text": "Évolution du remboursement"
-	},
 	"xAxis": {
 	  "min": 0,
 	  "title": {
-		"text": "mois"
+		"text": "années"
 	  },
 	  "tickInterval":1,
 	  "labels":{
@@ -56,7 +54,7 @@
 	"xAxis": {
 	  "min": 0,
 	  "title": {
-		"text": "mois"
+		"text": "années"
 	  },
 	  "tickInterval":1,
 	  "labels":{
@@ -81,7 +79,7 @@
 	  }
 	],
 	"title": {
-	  "text": "Répartition du remboursement total"
+	  "text": null
 	}
   }
 }
