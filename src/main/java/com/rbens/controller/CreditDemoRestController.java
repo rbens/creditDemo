@@ -3,7 +3,6 @@ package com.rbens.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rbens.model.MonthlyPayment;
 import com.rbens.model.Results;
-import com.rbens.model.Series;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -30,11 +29,6 @@ public class CreditDemoRestController {
     @RequestMapping(value = "/amortissements", method = POST)
     public MonthlyPayment getAmortissement(@RequestBody String mensualite) throws IOException {
         return new ObjectMapper().readValue(mensualite, Results.class);
-    }
-
-    @RequestMapping(value = "/series", method = POST)
-    public MonthlyPayment getSeries(@RequestBody String mensualite) throws IOException {
-        return new ObjectMapper().readValue(mensualite, Series.class);
     }
 
     @RequestMapping(value = "/rates", method = GET)

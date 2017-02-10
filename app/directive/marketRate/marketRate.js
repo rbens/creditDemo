@@ -30,6 +30,7 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
 
             $scope.updateRate = function(result){
                 $scope.model.tauxNominal = Number(result.rate.replace('%','').replace(',','.'));
+                $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
                 $scope.model.annee = result.years;
                 $scope.calcul();
                 $interval.cancel(intervalPromise);

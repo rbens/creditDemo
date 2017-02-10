@@ -79,19 +79,12 @@ angular.module('mainApp').directive('creditForm', function () {
                                         $scope.model.assuranceTotal     = formatNumber(data.insuranceTotalCost).concat(' €');
                                         $scope.model.creditTotal        = formatNumber(data.creditTotalCost).concat(' €');
                                         $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
-                                    }
-                                }),
-                            creditService.getSeries({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
-                                .then(function (response) {
-                                    var data = response.data;
-                                    //noinspection JSUnresolvedVariable
-                                    if (data.coutPrincipal) {
+
                                         var last = (data.writeDowns.length - 1);
                                         addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
                                         addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
                                     }
                                 })
-
                         ]);
                     } else {
                         $scope.model.amortissements = [];

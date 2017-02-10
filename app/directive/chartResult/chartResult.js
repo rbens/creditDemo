@@ -1,4 +1,4 @@
-angular.module('mainApp').directive('chartResult', function (configService, $mdDialog) {
+angular.module('mainApp').directive('chartResult', function (configService, $window) {
     return {
         restrict : 'E',
         templateUrl : 'directive/chartResult/chartResult.html',
@@ -27,6 +27,11 @@ angular.module('mainApp').directive('chartResult', function (configService, $mdD
             ];
 
             $scope.panelWidth = angular.element('.panel-body').css('width');
+
+            angular.element($window).bind('resize', function(){
+                $scope.panelWidth = angular.element('.panel-body').css('width');
+                $scope.$digest();
+            });
 
             $scope.option = options[0];
 
