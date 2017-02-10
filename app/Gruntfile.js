@@ -120,9 +120,12 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                    {src: ['public/flaticon/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {cwd: 'public/flaticon/',src: ['**.woff','**.ttf'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['public/img/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true}
+                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['views/**/**.html'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['directive/**/**.html'], dest: 'dist/',filter:'isFile',expand:true}
                 ]
             }
         },
