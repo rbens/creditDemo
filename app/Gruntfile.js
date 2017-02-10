@@ -69,13 +69,6 @@ module.exports = function (grunt) {
                 files: {
                     "public/styles/css/credit.css": "public/styles/less/credit.less"
                 }
-            },
-            production: {
-                options: {
-                },
-                files: {
-                    'temp/app.css': 'app.less'
-                }
             }
         },
         watch: {
