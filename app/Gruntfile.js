@@ -157,6 +157,32 @@ module.exports = function (grunt) {
                 dest:'dist/app.full.min.js'
             }
         },
+        'string-replace': {
+            prod: {
+                files: {
+                    'dist/app.full.min.js':'dist/app.full.min.js'
+                },
+                options: {
+                    replacements: [{
+                        pattern: /localhost:8090/g,
+                        replacement: 'credit-immo.eu-central-1.elasticbeanstalk.com/'
+                    }]
+                }
+            },
+            local: {},
+            dev: {
+                files: {
+                    'dist/app.full.min.js':'dist/app.full.min.js'
+                },
+                options: {
+                    replacements: [{
+
+                        pattern: /localhost:8090/g,
+                        replacement: 'credit-immo-dev.eu-central-1.elasticbeanstalk.com/'
+                    }]
+                }
+            }
+        },
         htmlmin: {
             main: {
                 options: {
@@ -191,8 +217,8 @@ module.exports = function (grunt) {
             }
         }
     });
-
-    grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
+    var target = grunt.option('target') || 'local';
+    grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify',['string-replace:']+target,'copy','htmlmin','clean:after']);
     grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
     grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
 };

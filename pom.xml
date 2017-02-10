@@ -14,6 +14,7 @@
         <spring.version>4.2.4.RELEASE</spring.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <env>local</env>
     </properties>
 
     <dependencies>
@@ -122,6 +123,7 @@
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>build</argument>
+                                <argument>--target=${env}</argument>
                             </arguments>
                         </configuration>
                     </execution>
