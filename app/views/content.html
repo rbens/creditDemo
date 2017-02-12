@@ -1,15 +1,18 @@
 <!-- header -->
 <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
-    <div class="md-toolbar-tools">
+    <div class="md-toolbar-tools" hide-xs hide-sm flex>
         <h1>Simulez votre crédit !</h1>
         <span flex></span>
         <md-button aria-label="menu" class="md-raised md-accent" ng-click="openVideo()">
             <md-icon md-svg-src="public/img/movie_white_18px.svg"></md-icon> Demo vidéo
         </md-button>
     </div>
+    <div class="md-toolbar-tools" hide-gt-sm flex>
+        <h1>Simulez votre crédit !</h1>
+    </div>
 </md-toolbar>
-<div class="hidden-xs" >
-    <div class="container ">
+<div hide-xs hide-sm flex>
+    <div class="container">
         <form class="form-inline " role="form">
             <div class="form-group col-md-4">
                 <div class="todo-content">

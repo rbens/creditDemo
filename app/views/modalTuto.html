@@ -6,16 +6,16 @@
             </div>
         </md-toolbar>
         <md-dialog-content>
-            <video width="100%" height="100%" autoplay>
-                <source src="https://dl.dropboxusercontent.com/s/y7vdcei9n8wbbl1/tuto720Light.mp4?dl=0" type="video/mp4">
+            <video width="100%" height="100%" autoplay poster="public/img/poster-video.png">
+                <source src="https://dl.dropboxusercontent.com/s/yh86iargdllkhll/tutoDemoCredit720.mp4?dl=0" type="video/mp4">
             </video>
         </md-dialog-content>
         <md-dialog-actions layout="row">
-            <md-switch ng-model="showVideo" aria-label="Switch 1" ng-click="onChange(showVideo)">
+            <md-switch ng-model="hideVideo" aria-label="Switch 1" >
                 Ne plus afficher la démo la prochaine fois
             </md-switch>
             <span flex></span>
-            <md-button ng-click="answer('useful')">
+            <md-button ng-click="hide()">
                 Passer la vidéo
             </md-button>
         </md-dialog-actions>

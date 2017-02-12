@@ -29,6 +29,7 @@ angular.module('mainApp').directive('chartResult', function (configService, $win
             $scope.panelWidth = angular.element('.panel-body').css('width');
 
             angular.element($window).bind('resize', function(){
+                console.log('resize');
                 $scope.panelWidth = angular.element('.panel-body').css('width');
                 $scope.$digest();
             });
@@ -41,6 +42,11 @@ angular.module('mainApp').directive('chartResult', function (configService, $win
 
             $scope.openMenu = function($mdMenu, ev) {
                 $mdMenu.open(ev);
+            };
+
+            $scope.demo = {
+                isOpen: false,
+                selectedDirection: 'left'
             };
         }
     };
