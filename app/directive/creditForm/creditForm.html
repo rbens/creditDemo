@@ -1,9 +1,9 @@
 <md-content class="panel" style="margin-left: 2%;padding-left: 0;" id="simulateur">
-    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
-        <div class="md-toolbar-tools">
+    <md-toolbar class="demo-toolbar" >
+        <div class="md-toolbar-tools panel">
             <h3 class="panel-title">Simulateur</h3>
             <span flex></span>
-            <md-button class="md-icon-button" aria-label="Settings" ng-click="modalForm($event)">
+            <md-button class="md-icon-button icon-color" aria-label="Settings" ng-click="modalForm($event)">
                 <md-tooltip>Cliquez pour les détails</md-tooltip>
                 <md-icon md-svg-icon="public/img/info_outline.svg"></md-icon>
             </md-button>
@@ -54,6 +54,11 @@
             <md-input-container>
                 <label>TEG</label>
                 <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>
+            </md-input-container>
+            <md-input-container class="md-button-form">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()">
+                    réinitialiser
+                </md-button>
             </md-input-container>
         </div>
     </md-content>

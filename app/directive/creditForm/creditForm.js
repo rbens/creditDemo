@@ -118,6 +118,14 @@ angular.module('mainApp').directive('creditForm', function () {
                     $scope.status = 'close';
                 });
             };
+
+            $scope.reset = function(){
+                $scope.model.capital = "";
+                $scope.model.annee = 0;
+                $scope.model.tauxNominal = 0;
+                $scope.model.tauxAssurance = 0;
+                $scope.model.amortissements = [];
+            }
         }
     };
 

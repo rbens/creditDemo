@@ -35,6 +35,16 @@
   background-color: #eee;
 }
 
+.md-toolbar-tools{
+  &.panel{
+    background: #42a5f5;
+  }
+
+  &.modal{
+    background: #01579b;
+  }
+}
+
 .panel{
 
   &.panel-default {
@@ -96,3 +106,31 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   margin-left: 6%;
 }
 
+.md-button-form{
+    margin-top: 1%;
+    margin-left: 50%;
+}
+
+.md-button {
+  &.btn-color-form {
+    background: #0097a7;
+    color: white;
+  }
+
+  &.btn-color-form:not([disabled]):hover {
+    background: #ff4081;
+    color: white;
+  }
+
+  &.btn-color-nav:not([disabled]):hover {
+    background: #ff4081;
+    color: white;
+  }
+}
+
+.md-icon-button {
+  &.icon-color:not([disabled]):hover {
+      background: #448aff;
+      color: white;
+  }
+}
