@@ -26,10 +26,10 @@
 .main-content {
   background-color: #eee;
 }
-.md-toolbar-tools.panel {
+.md-toolbar-tools.panel-dialog {
   background: #42a5f5;
 }
-.md-toolbar-tools.modal {
+.md-toolbar-tools.modal-dialog {
   background: #01579b;
 }
 .panel.panel-default {
