@@ -11,7 +11,12 @@
     </md-toolbar>
     <md-content flex layout-padding >
         <md-radio-group class="md-radio-group" ng-repeat="result in rates" ng-model="rates.id" ng-click="updateRate(result)">
-            <md-radio-button ng-value="result.id" class="md-primary md-radio-button" ng-style="{background: currentId === $index && !isCancel? '#3366ff' : '' }">{{result.rate}} sur {{result.years}} ans</md-radio-button>
+            <md-radio-button ng-value="result.id" class="md-primary md-radio-button">
+                <span ng-style="{
+                    background: currentId === $index && !isCancel? colorAccent : '',
+                    color: currentId === $index && !isCancel ? 'white':''
+                }">{{result.rate}} sur {{result.years}} ans</span>
+            </md-radio-button>
         </md-radio-group>
     </md-content>
     </md-content>

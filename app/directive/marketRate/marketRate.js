@@ -1,4 +1,4 @@
-angular.module('mainApp').directive('marketRate', function (creditService, $mdDialog, $interval) {
+angular.module('mainApp').directive('marketRate', function (creditService, $mdDialog, $interval, $mdColors) {
     return {
         restrict : 'E',
         templateUrl : 'directive/marketRate/marketRate.html',
@@ -9,10 +9,13 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
             var intervalPromise = $interval(function () {
                 $scope.currentId++;
                 $scope.currentId = $scope.rates.length < $scope.currentId ? 0 : $scope.currentId;
-            }, 1000);
+            }, 1000),
+            colorsTab = ['Pink-A400','Purple-A400','DeepPurple-A400','Indigo-A400','Blue-A400','LightBlue-A400'];
+            $scope.colorAccent = $mdColors.getThemeColor(colorsTab[5]);
             $scope.rates = [];
             $scope.currentId = 0;
             $scope.isCancel = false;
+
 
              creditService.getTauxMarche().then(
                 function success(response){
@@ -49,6 +52,14 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
                     $scope.status = 'close';
                 });
             };
+
+            $scope.$on('form-reset', function(){
+                $scope.isCancel = false;
+                intervalPromise = $interval(function () {
+                    $scope.currentId++;
+                    $scope.currentId = $scope.rates.length < $scope.currentId ? 0 : $scope.currentId;
+                }, 1000)
+            })
 
         }
     };

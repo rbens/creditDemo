@@ -1,6 +1,6 @@
 <md-dialog class="panel no-bottom" aria-label="video tutoriel">
     <form ng-cloak>
-        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
+        <md-toolbar class="demo-toolbar md-primary" >
             <div class="md-toolbar-tools modal-dialog">
                 <h3 class="panel-title">Démo</h3>
             </div>
@@ -12,10 +12,10 @@
         </md-dialog-content>
         <md-dialog-actions layout="row">
             <md-switch ng-model="hideVideo" aria-label="Switch 1" >
-                Ne plus afficher la démo la prochaine fois
+                Ne plus lancer la démo automatique
             </md-switch>
             <span flex></span>
-            <md-button ng-click="hide()">
+            <md-button class="md-raised" ng-click="hide()">
                 Passer la vidéo
             </md-button>
         </md-dialog-actions>
