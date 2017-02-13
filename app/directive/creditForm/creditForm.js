@@ -1,7 +1,7 @@
 angular.module('mainApp').directive('creditForm', function () {
     return {
         restrict : 'E',
-        templateUrl : '/directive/creditForm/creditForm.html',
+        templateUrl : 'directive/creditForm/creditForm.html',
         link : function(scope,element,attrs,fn){
 
         },

@@ -42,37 +42,8 @@ module.exports = function (grunt) {
                 options: {
                     port: 9001,
                     hostname: 'localhost',
-                    livereload: 35729,
-
-                    // remove next from params
-                    middleware: function(connect, options) {
-                        return [
-                            function(req, res, next) {
-                                res.setHeader('Access-Control-Allow-Origin', '*');
-                                res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-                                res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-                                // don't just call next() return it
-                                return next();
-                            },
-
-                            // add other middlewares here
-                            connect.static(require('path').resolve('.'))
-
-                        ];
-                    }
+                    livereload: 35729
                 }
-            }
-        },
-        watch: {
-            main: {
-                options: {
-                    livereload: true,
-                    livereloadOnError: false,
-                    spawn: false
-                },
-                files: [createFolderGlobs(['*.js','*.less','*.html','*.json']),'!_SpecRunner.html','!.grunt'],
-                tasks: [] //all the tasks are run dynamically during the watch event handler
             }
         },
         jshint: {
@@ -107,10 +78,21 @@ module.exports = function (grunt) {
                 }
             }
         },
+        watch: {
+            main: {
+                options: {
+                    livereload: true,
+                    livereloadOnError: false,
+                    spawn: false
+                },
+                files: [createFolderGlobs(['*.js','*.less','*.html','*.json']),'!_SpecRunner.html','!.grunt'],
+                tasks: ['less:development']
+            }
+        },
         ngtemplates: {
             main: {
                 options: {
-                    module: pkg.name,
+                    module: 'mainApp',
                     htmlmin:'<%= htmlmin.main.options %>'
                 },
                 src: [createFolderGlobs('*.html'),'!index.html','!_SpecRunner.html'],
@@ -120,9 +102,12 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                    {src: ['public/flaticon/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {cwd: 'public/flaticon/',src: ['**.woff','**.ttf'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['public/img/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true}
+                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['views/**/**.html'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['directive/**/**.html'], dest: 'dist/',filter:'isFile',expand:true}
                 ]
             }
         },
@@ -172,6 +157,32 @@ module.exports = function (grunt) {
                 dest:'dist/app.full.min.js'
             }
         },
+        'string-replace': {
+            prod: {
+                files: {
+                    'dist/app.full.min.js':'dist/app.full.min.js'
+                },
+                options: {
+                    replacements: [{
+                        pattern: /localhost:8090/g,
+                        replacement: 'credit-immo.eu-central-1.elasticbeanstalk.com/'
+                    }]
+                }
+            },
+            local: {},
+            dev: {
+                files: {
+                    'dist/app.full.min.js':'dist/app.full.min.js'
+                },
+                options: {
+                    replacements: [{
+
+                        pattern: /localhost:8090/g,
+                        replacement: 'credit-immo-dev.eu-central-1.elasticbeanstalk.com/'
+                    }]
+                }
+            }
+        },
         htmlmin: {
             main: {
                 options: {
@@ -197,59 +208,18 @@ module.exports = function (grunt) {
                     'libs/angular-mocks/angular-mocks.js',
                     createFolderGlobs('*-spec.js')
                 ],
-                logLevel:'ERROR',
                 reporters:['coverage'],
                 autoWatch: false, //watching is handled by grunt-contrib-watch
                 singleRun: true
             },
-            all_tests: {
-                browsers: ['PhantomJS']
-            },
             during_watch: {
                 browsers: ['PhantomJS']
-            },
+            }
         }
     });
-
-    grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
+    var target = grunt.option('target') || 'local';
+    grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify',['string-replace:']+target,'copy','htmlmin','clean:after']);
     grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
     grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
-
-    grunt.event.on('watch', function(action, filepath) {
-        //https://github.com/gruntjs/grunt-contrib-watch/issues/156
-
-        var tasksToRun = [];
-
-        if (filepath.lastIndexOf('.js') !== -1 && filepath.lastIndexOf('.js') === filepath.length - 3) {
-
-            //lint the changed js file
-            grunt.config('jshint.main.src', filepath);
-            tasksToRun.push('jshint');
-
-            //find the appropriate unit test for the changed file
-            var spec = filepath;
-            if (filepath.lastIndexOf('-spec.js') === -1 || filepath.lastIndexOf('-spec.js') !== filepath.length - 8) {
-                spec = filepath.substring(0,filepath.length - 3) + '-spec.js';
-            }
-
-            //if the spec exists then lets run it
-            if (grunt.file.exists(spec)) {
-                var files = [].concat(grunt.config('dom_munger.data.appjs'));
-                files.push('bower_components/angular-mocks/angular-mocks.js');
-                files.push(spec);
-                grunt.config('karma.options.files', files);
-                tasksToRun.push('karma:during_watch');
-            }
-        }
-
-        //if index.html changed, we need to reread the <script> tags so our next run of karma
-        //will have the correct environment
-        if (filepath === 'index.html') {
-            tasksToRun.push('dom_munger:read');
-        }
-
-        grunt.config('watch.main.tasks',tasksToRun);
-
-    });
 };
 
