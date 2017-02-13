@@ -125,7 +125,7 @@ angular.module('mainApp').directive('creditForm', function () {
                 $scope.model.tauxNominal = 0;
                 $scope.model.tauxAssurance = 0;
                 $scope.model.amortissements = [];
-            }
+            };
         }
     };
 
