@@ -18,15 +18,28 @@
 .base-class {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  cursor: inherit;
 }
 .base-class.my-class {
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.23), 0px 10px 30px rgba(0, 0, 0, 0.19);
 }
-.panel .panel-default {
+.main-content {
+  background-color: #eee;
+}
+.md-toolbar-tools.panel-dialog {
+  background: #42a5f5;
+}
+.md-toolbar-tools.modal-dialog {
+  background: #01579b;
+}
+.panel.panel-default {
   border: none;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   padding-left: 0;
   padding-right: 0;
+}
+.panel.no-bottom {
+  margin-bottom: 0;
 }
 .modal-backdrop.am-fade {
   opacity: .5;
@@ -56,4 +69,34 @@ body {
 }
 md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   min-height: 500px;
+}
+.md-radio-button {
+  margin-bottom: 0;
+  margin-left: 10%;
+}
+.adapt-form {
+  max-height: 88px!important;
+}
+.space-icon {
+  margin-left: 6%;
+}
+.md-button-form {
+  margin-top: 1%;
+  margin-left: 50%;
+}
+.md-button.btn-color-form {
+  background: #0097a7;
+  color: white;
+}
+.md-button.btn-color-form:not([disabled]):hover {
+  background: #ff4081;
+  color: white;
+}
+.md-button.btn-color-nav:not([disabled]):hover {
+  background: #ff4081;
+  color: white;
+}
+.md-icon-button.icon-color:not([disabled]):hover {
+  background: #448aff;
+  color: white;
 }

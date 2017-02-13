@@ -1,18 +1,18 @@
-angular.module('mainApp').directive('chartResult', function () {
+angular.module('mainApp').directive('chartResult', function (configService, $window) {
     return {
         restrict : 'E',
-        templateUrl : '/directive/chartResult/chartResult.html',
+        templateUrl : 'directive/chartResult/chartResult.html',
         link : function(scope, element, attrs, fn){
 
         },
-        controller: function($scope, configService) {
+        controller: function($scope) {
             configService.get().$promise.then(
                 function(config){
                     config.line.xAxis.labels.formatter = function() {
-                            return this.value + 1;
+                            return this.value/12;
                     };
                     config.area.xAxis.labels.formatter = function() {
-                            return this.value + 1;
+                            return this.value/12;
                     };
 
                     $scope.line = config.line;
@@ -20,17 +20,33 @@ angular.module('mainApp').directive('chartResult', function () {
                     $scope.pie = config.pie;
                 });
 
-            $scope.options = [
+            var options = [
                 {"id": "chart1", "config": "pie" , "title": "Répartition du remboursement"},
                 {"id": "chart2", "config": "line", "title": "Évolution du remboursement"},
                 {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
             ];
 
-            $scope.option = $scope.options[0];
+            $scope.panelWidth = angular.element('.panel-body').css('width');
 
-            $scope.swapChartType = function (type) {
-                //this.line.options.chart.type = type;
-                $scope.option.config = type;
+            angular.element($window).bind('resize', function(){
+                console.log('resize');
+                $scope.panelWidth = angular.element('.panel-body').css('width');
+                $scope.$digest();
+            });
+
+            $scope.option = options[0];
+
+            $scope.swapChartType = function (index) {
+                $scope.option = options[index];
+            };
+
+            $scope.openMenu = function($mdMenu, ev) {
+                $mdMenu.open(ev);
+            };
+
+            $scope.demo = {
+                isOpen: false,
+                selectedDirection: 'left'
             };
         }
     };

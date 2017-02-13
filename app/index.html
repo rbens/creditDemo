@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="mainApp" style="background: #eee">
+<html ng-app="mainApp" style="background-color: #b2ebf2">
 
 <head>
     <meta charset="UTF-8">
@@ -36,7 +36,7 @@
     <script src="libs/angular-busy/dist/angular-busy.js"></script>
 
     <script src="app.js"></script>
-    <script src="views/content/Content.js"></script>
+    <script src="views/content.js"></script>
     <script src="service/creditDemoService.js" charset="UTF-8"></script>
     <script src="service/configService.js" charset="UTF-8"></script>
     <script src="directive/numeric/numeric.js" charset="UTF-8"></script>
@@ -45,13 +45,11 @@
     <script src="directive/chartResult/chartResult.js" charset="UTF-8"></script>
     <script src="directive/tabResult/tabResult.js" charset="UTF-8"></script>
     <script src="directive/bottomToTop/bottomToTop.js" charset="UTF-8"></script>
+    <script src="directive/marketRate/marketRate.js" charset="UTF-8"></script>
+    <script src="directive/spinnerLoading/spinnerLoading.js" charset="UTF-8"></script>
 
 </head>
-<body style="overflow: scroll; background: #eee" data-spy="scroll" data-target=".navbar-left-menu">
-<div ng-include="'views/header/header.html'"></div>
-<div ng-include="'views/content/content.html'"></div>
-<div ng-include="'views/footer/footer.html'"></div>
-<a href="javascript:void(0)" class="cd-top" style=" margin-bottom: 60px; ">Top</a>
-<back-to-top></back-to-top>
+<body style="background-color: #b2ebf2">
+<ng-view></ng-view>
 </body>
 </html>
