@@ -52,15 +52,6 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
                     $scope.status = 'close';
                 });
             };
-
-            $scope.$on('form-reset', function(){
-                $scope.isCancel = false;
-                intervalPromise = $interval(function () {
-                    $scope.currentId++;
-                    $scope.currentId = $scope.rates.length < $scope.currentId ? 0 : $scope.currentId;
-                }, 1000)
-            })
-
         }
     };
 });
