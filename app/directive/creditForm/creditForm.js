@@ -125,6 +125,12 @@ angular.module('mainApp').directive('creditForm', function () {
                 $scope.model.tauxNominal = 0;
                 $scope.model.tauxAssurance = 0;
                 $scope.model.amortissements = [];
+                $scope.model.mensualite = formatNumber(0).concat(' €');
+                $scope.model.interetTotal = formatNumber(0).concat(' €');
+                $scope.model.assuranceTotal = formatNumber(0).concat(' €');
+                $scope.model.creditTotal = formatNumber(0).concat(' €');
+                $scope.model.assurance = formatNumber(0).concat(' €');
+                $scope.model.remboursementTotal = formatNumber(0).concat(' €');
             };
         }
     };

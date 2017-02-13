@@ -2,23 +2,23 @@
     <md-toolbar class="demo-toolbar md-primary" >
         <div class="md-toolbar-tools panel-dialog">
             <md-button class="btn-color-nav" aria-label="comment" ng-click="swapChartType(0)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'pie'}">
-                <md-icon md-svg-icon="public/img/ic_pie_chart_outlined_white_24px.svg" ></md-icon>répartition du remboursement
+                <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_pie_chart_outlined_white_24px.svg" ></md-icon>répartition du remboursement
             </md-button>
             <md-button class="btn-color-nav" aria-label="label" ng-click="swapChartType(1)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'line'}">
-                <md-icon md-svg-icon="public/img/ic_trending_up_white_24px.svg" ></md-icon>évolution du remboursement
+                <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_up_white_24px.svg" ></md-icon>évolution du remboursement
             </md-button>
             <md-button class="btn-color-nav" aria-label="photo" ng-click="swapChartType(2)" style="font-size: 55%;" ng-class="{'btn-color-form' :  option.config === 'area'}">
-                <md-icon md-svg-icon="public/img/ic_trending_down_white_24px.svg"></md-icon>évolution de la dette
+                <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_down_white_24px.svg"></md-icon>évolution de la dette
             </md-button>
         </div>
     </md-toolbar>
     <div class="panel-body" >
         <div class="row">
-                    <div cg-busy="{promise:promiseForm}">
-                        <highchart id="chart1" config="pie" ng-if="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
-                        <highchart id="chart2" config="line" ng-if="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
-                        <highchart id="chart3" config="area" ng-if="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
-                    </div>
+            <div cg-busy="{promise:promiseForm}">
+                <highchart id="chart1" config="pie" ng-if="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
+                <highchart id="chart2" config="line" ng-if="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
+                <highchart id="chart3" config="area" ng-if="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
+            </div>
         </div>
     </div>
 
