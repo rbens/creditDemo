@@ -100,7 +100,7 @@ angular.module('mainApp').directive('creditForm', function () {
 
             $scope.teg = function(){
                 $scope.model.tauxNominal = Number(formatNumber($scope.model.tauxNominal));
-                $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
+                $scope.model.tauxAssurance = $scope.model.tauxAssurance ? Number(formatNumber($scope.model.tauxAssurance)) : 0;
                 $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
             };
 

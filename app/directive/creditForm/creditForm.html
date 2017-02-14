@@ -9,48 +9,48 @@
             </md-button>
         </div>
     </md-toolbar>
-    <md-content flex layout-padding hide-xs hide-sm hide-md>
-        <div layout-gt-xs="row" class="adapt-form">
-            <md-input-container flex="30" style="padding-top:0.5em">
+    <div layout-fill hide-xs hide-sm hide-md>
+        <md-content layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="25" >
                 <label>Durée </label>
                 <md-slider class="md-accent" aria-label="dureé"
                            ng-model="model.annee" value="0" max="35" min="0" step="1" ng-change="calcul()" placeholder=""></md-slider>
             </md-input-container>
-            <md-input-container flex="10" style="margin-top: 20px;">
+            <md-input-container flex="15">
                 <input type="text" class="form-control" ng-value="model.annee +(model.annee ? ' ans' : '')" disabled data-toggle="tooltip"
                        data-placement="right" aria-label="durée en année">
             </md-input-container>
-            <md-input-container flex="30" style="margin-left: 2%">
+            <md-input-container flex="30">
                 <label>Capital </label>
                 <input type="text" ng-model="model.capital" ng-change="calcul()" numeric="model.capital" aria-label="" placeholder=""/>
             </md-input-container>
-        </div>
+        </md-content>
 
-        <div layout-gt-xs="row" class="adapt-form">
-            <md-input-container flex="30" style=";padding-top:0.5em">
+        <md-content layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="25">
                 <label>Taux emprunt</label>
                 <md-slider  class="md-accent" aria-label="selectionnez le taux fixe"
                             ng-model="model.tauxNominal" value="0.00" max="10.00" min="0.00" step="0.01"
                             ng-change="teg();calcul()" placeholder=""></md-slider>
             </md-input-container>
-            <md-input-container flex="10" style="margin-top: 20px;">
+            <md-input-container flex="15">
                 <input type="text" class="form-control"  ng-value="model.tauxNominal +(model.tauxNominal ? ' %' : '')" aria-label="taux fixe" ng-model="model.tauxNominal" disabled ng-change="teg();calcul()">
             </md-input-container>
-            <md-input-container flex="30" style="margin-left: 2%;padding-top:0.5em">
+            <md-input-container flex="30">
                 <label>Taux assurance</label>
                 <md-slider class="md-accent" aria-label="selectionnez le taux d'assurance"
                            ng-model="model.tauxAssurance" value="0.00" max="10.00" min="0.00" step="0.01"
                            ng-change="teg();calcul();assu()" placeholder=""></md-slider>
             </md-input-container>
-            <md-input-container flex="10" style="margin-top: 20px;">
+            <md-input-container flex="15">
                 <input type="text" class="form-control" ng-value="model.tauxAssurance +(model.tauxAssurance ? ' %' : '')" aria-label="taux d'assurance" ng-model="model.tauxAssurance" disabled ng-change="teg();calcul();assu()">
             </md-input-container>
-            <md-input-container flex="15" style="margin-top: 20px;">
+            <md-input-container flex="15">
                 <input type="text" class="form-control" aria-label="prix assurance par mois" ng-value="model.assurance" disabled >
             </md-input-container>
-        </div>
+        </md-content>
 
-        <div layout-gt-xs="row" class="adapt-form">
+        <md-content layout="row" layout-padding class="adapt-form">
             <md-input-container>
                 <label>TEG</label>
                 <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>
@@ -60,12 +60,12 @@
                     réinitialiser
                 </md-button>
             </md-input-container>
-        </div>
-    </md-content>
+        </md-content>
+    </div>
 
     <div layout-fill hide-gt-md>
-        <md-content  layout="row" layout-padding>
-            <md-input-container flex="30" style="padding-top:0.5em">
+        <md-content  layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="30" >
                 <label>Durée </label>
                 <input type="number" ng-model="model.annee" ng-value="model.annee" aria-label="durée en année" ng-change="calcul()">
             </md-input-container>
@@ -75,12 +75,12 @@
             </md-input-container>
         </md-content>
 
-        <md-content  layout="row" layout-padding>
-            <md-input-container flex="30" style=";padding-top:0.5em">
+        <md-content  layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="30" >
                 <label>Taux emprunt</label>
                 <input type="number" aria-label="taux fixe" ng-model="model.tauxNominal" ng-change="teg();calcul()">
             </md-input-container>
-            <md-input-container flex="30" style="margin-left: 2%;padding-top:0.5em">
+            <md-input-container flex="30" style="margin-left: 2%;">
                 <label>Taux assurance</label>
                 <input type="number" flex="" aria-label="taux d'assurance" ng-model="model.tauxAssurance" ng-change="teg();calcul()">
             </md-input-container>
@@ -89,7 +89,7 @@
             </md-input-container>
         </md-content>
 
-        <md-content  layout="row" layout-padding>
+        <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="60" >
                 <label>TEG</label>
                 <input type="text" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>

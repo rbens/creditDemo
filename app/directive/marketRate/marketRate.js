@@ -36,6 +36,7 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
                 $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
                 $scope.model.annee = result.years;
                 $scope.calcul();
+                $scope.teg();
                 $interval.cancel(intervalPromise);
                 $scope.isCancel = true;
             };

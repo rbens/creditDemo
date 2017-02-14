@@ -1,4 +1,4 @@
-<md-content class="panel panel-default" id="results" style="padding-left: 0; padding-right: 0;" ng-show="rates.length > 0">
+<md-content class="panel panel-default" id="results" style="padding-left: 0; padding-right: 0;max-height : 95%" ng-show="rates.length > 0">
     <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
         <div class="md-toolbar-tools panel-dialog">
             <h3 class="panel-title">Taux du marché</h3>
@@ -9,7 +9,7 @@
             </md-button>
         </div>
     </md-toolbar>
-    <md-content flex layout-padding >
+    <md-content flex layout-padding style="padding: 1px">
         <md-radio-group class="md-radio-group" ng-repeat="result in rates" ng-model="rates.id" ng-click="updateRate(result)">
             <md-radio-button ng-value="result.id" class="md-primary md-radio-button">
                 <span ng-style="{
