@@ -14,7 +14,7 @@ angular.module('mainApp').directive('creditForm', function () {
                     return isDefined($scope.model.annee) && isDefined(Number($scope.model.capital)) && isDefined($scope.model.tauxNominal);
                 },
                 isDefined = function(value) {
-                    return value !== null && value !== 0;
+                    return value && value !== null && value !== 0;
                 },
                 addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
                     $scope.line.series = [];
@@ -53,6 +53,11 @@ angular.module('mainApp').directive('creditForm', function () {
 
                     });
                 };
+
+            $scope.model.capital = undefined;
+            $scope.model.annee = undefined;
+            $scope.model.tauxNominal = undefined;
+            $scope.model.tauxAssurance = undefined;
 
             $scope.calcul = function () {
                 $timeout.cancel( time );
@@ -115,10 +120,10 @@ angular.module('mainApp').directive('creditForm', function () {
             };
 
             $scope.reset = function(){
-                $scope.model.capital = "";
-                $scope.model.annee = 0;
-                $scope.model.tauxNominal = 0;
-                $scope.model.tauxAssurance = 0;
+                $scope.model.capital = undefined;
+                $scope.model.annee = undefined;
+                $scope.model.tauxNominal = undefined;
+                $scope.model.tauxAssurance = undefined;
                 $scope.model.amortissements = [];
                 $scope.model.mensualite = formatNumber(0).concat(' €');
                 $scope.model.interetTotal = formatNumber(0).concat(' €');

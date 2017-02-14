@@ -5,7 +5,7 @@
         <span flex></span>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Durée
-            <md-icon class="space-icon" md-svg-icon="public/img/check_circle_black.svg" ng-show="model.annee!=0"></md-icon>
+            <md-icon class="space-icon" md-svg-icon="public/img/check_circle_black.svg" ng-show="model.annee"></md-icon>
         </md-button>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Capital
@@ -13,7 +13,7 @@
         </md-button>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Taux d'int&eacute;ret
-            <md-icon class="space-icon" md-svg-icon="public/img/check_circle_black.svg" ng-show="model.tauxNominal!=0"></md-icon>
+            <md-icon class="space-icon" md-svg-icon="public/img/check_circle_black.svg" ng-show="model.tauxNominal"></md-icon>
         </md-button>
         <span flex></span>
         <md-button aria-label="menu" class="md-raised btn-color-form" ng-click="openVideo()" hide-sm hide-xs>
@@ -28,10 +28,10 @@
         <div flex-offset="5" flex="15" hide-xs hide-md hide-sm>
             <market-rate></market-rate>
         </div>
-        <div flex="95" flex-gt-md="45">
+        <div flex="95" flex-gt-sm="55" flex-gt-md="45">
             <credit-form></credit-form>
         </div>
-        <div flex="95" flex-gt-md="30">
+        <div flex="95" flex-gt-sm="40" flex-gt-md="30">
             <credit-result></credit-result>
         </div>
     </div>
@@ -45,19 +45,4 @@
     </div>
 </div>
 
-<!-- content -->
-<!--<div  hide-gt-md>-->
-    <!--<div flex="95">-->
-        <!--<credit-form></credit-form>-->
-    <!--</div>-->
-    <!--<div flex="95">-->
-        <!--<credit-result></credit-result>-->
-    <!--</div>-->
-    <!--<div flex="95">-->
-        <!--<chart-result ng-show="model.amortissements.length > 0"></chart-result>-->
-    <!--</div>-->
-    <!--<div flex="95">-->
-        <!--<tab-result ng-show="model.amortissements.length > 0"></tab-result>-->
-    <!--</div>-->
-<!--</div>-->
 
