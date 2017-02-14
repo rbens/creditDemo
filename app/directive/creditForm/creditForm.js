@@ -54,11 +54,6 @@ angular.module('mainApp').directive('creditForm', function () {
                     });
                 };
 
-            $scope.model.annee = 0;
-            $scope.model.tauxNominal = 0;
-            $scope.model.tauxAssurance = 0;
-
-
             $scope.calcul = function () {
                 $timeout.cancel( time );
 
