@@ -1,4 +1,4 @@
-<md-content class="panel" flex-offset="5" style="padding-left: 0;" id="simulateur">
+<md-content class="panel" flex-offset="5" flex-offset-md="10" style="padding-left: 0;" id="simulateur">
     <md-toolbar class="demo-toolbar" >
         <div class="md-toolbar-tools panel-dialog">
             <h3 class="panel-title">Calculatrice</h3>
@@ -22,7 +22,7 @@
             </md-input-container>
             <md-input-container flex="30">
                 <label>Capital </label>
-                <input type="text" ng-model="model.capital" ng-change="calcul()" numeric="model.capital" aria-label="" placeholder=""/>
+                <input type="number" ng-model="model.capital" ng-change="calcul()" aria-label="" placeholder=""/>
             </md-input-container>
         </md-content>
 
@@ -65,38 +65,50 @@
 
     <div layout-fill hide-gt-md>
         <md-content  layout="row" layout-padding class="adapt-form">
-            <md-input-container flex="30" >
+            <md-input-container flex="30" flex-xs="50" >
                 <label>Durée </label>
                 <input type="number" ng-model="model.annee" ng-value="model.annee" aria-label="durée en année" ng-change="calcul()">
             </md-input-container>
-            <md-input-container flex="30" style="margin-left: 2%">
+            <md-input-container flex="30" flex-xs="50" style="margin-left: 2%">
                 <label>Capital </label>
-                <input type="text" ng-model="model.capital" ng-change="calcul()" numeric="model.capital" aria-label=""/>
+                <input type="number" ng-model="model.capital" ng-change="calcul()" aria-label=""/>
             </md-input-container>
         </md-content>
 
         <md-content  layout="row" layout-padding class="adapt-form">
-            <md-input-container flex="30" >
+            <md-input-container flex="30" flex-xs="50">
                 <label>Taux emprunt</label>
                 <input type="number" aria-label="taux fixe" ng-model="model.tauxNominal" ng-change="teg();calcul()">
             </md-input-container>
-            <md-input-container flex="30" style="margin-left: 2%;">
+            <md-input-container flex="30" flex-xs="50" style="margin-left: 2%;">
                 <label>Taux assurance</label>
                 <input type="number" flex="" aria-label="taux d'assurance" ng-model="model.tauxAssurance" ng-change="teg();calcul()">
             </md-input-container>
-            <md-input-container flex="30">
+            <md-input-container flex="30" hide-xs>
                 <input type="text" class="form-control" disabled aria-label="prix assurance par mois" ng-value="model.assurance" >
             </md-input-container>
         </md-content>
 
+        <md-content  layout="row" layout-padding class="adapt-form" hide-gt-xs>
+            <md-input-container flex="50">
+                <label>Prix assurance</label>
+                <input type="text" disabled class="form-control" aria-label="prix assurance par mois" ng-value="model.assurance" placeholder="">
+            </md-input-container>
+            <md-input-container flex="50" style="margin-left: 2%;">
+                <label>TEG</label>
+                <input type="text" disabled class="form-control"  aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " placeholder="">
+            </md-input-container>
+         </md-content>
+
         <md-content  layout="row" layout-padding class="adapt-form">
-            <md-input-container flex="60" >
+            <md-input-container flex="60" hide-xs>
                 <label>TEG</label>
                 <input type="text" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>
             </md-input-container>
             <md-input-container  flex="40" class="md-button-form">
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()">
-                    réinitialiser
+                    <span hide-xs>réinitialiser</span>
+                    <md-icon md-svg-icon="public/img/ic_autorenew.svg" hide-gt-xs></md-icon>
                 </md-button>
             </md-input-container>
         </md-content>

@@ -26,6 +26,8 @@ angular.module('mainApp').directive('chartResult', function (configService, $win
                 {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
             ];
 
+            //$scope.panelWidth = angular.element('.panel-body').css('width');
+
             angular.element($window).bind('resize', function(){
                 $scope.panelWidth = angular.element('.panel-body').css('width');
                 $scope.$digest();

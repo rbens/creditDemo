@@ -11,7 +11,7 @@ angular.module('mainApp').directive('creditForm', function () {
                     return $filter('number')(data, 2);
                 },
                 isComplete = function() {
-                    return isDefined($scope.model.annee) && isDefined(Number($scope.model.capital)) && isDefined($scope.model.tauxNominal);
+                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
                 },
                 isDefined = function(value) {
                     return value && value !== null && value !== 0;
@@ -100,8 +100,13 @@ angular.module('mainApp').directive('creditForm', function () {
 
             $scope.teg = function(){
                 $scope.model.tauxNominal = Number(formatNumber($scope.model.tauxNominal));
-                $scope.model.tauxAssurance = $scope.model.tauxAssurance ? Number(formatNumber($scope.model.tauxAssurance)) : 0;
-                $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
+                if($scope.model.tauxAssurance){
+                    $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
+                    $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
+                }else{
+                    $scope.model.tauxGlobal =  $scope.model.tauxNominal;
+                }
+
             };
 
 
@@ -124,6 +129,7 @@ angular.module('mainApp').directive('creditForm', function () {
                 $scope.model.annee = undefined;
                 $scope.model.tauxNominal = undefined;
                 $scope.model.tauxAssurance = undefined;
+                $scope.model.tauxGlobal = 0;
                 $scope.model.amortissements = [];
                 $scope.model.mensualite = formatNumber(0).concat(' €');
                 $scope.model.interetTotal = formatNumber(0).concat(' €');
