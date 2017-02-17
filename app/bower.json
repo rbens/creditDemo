@@ -14,8 +14,8 @@
     "libs"
   ],
   "dependencies": {
-    "angular-aria": "~1.6.1",
-	"angular-bootstrap": "~2.5.0",
+    "angular-aria": "~1.6",
+    "angular-bootstrap": "~2.5.0",
     "angular-resource": "~1.6.1",
     "angular-busy": "~4.1.4",
     "angular-material": "*",
@@ -34,5 +34,8 @@
   "keywords": [
     "credit",
     "simulation"
-  ]
+  ],
+  "resolutions": {
+    "angular": "1.6.2"
+  }
 }
