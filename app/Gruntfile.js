@@ -49,7 +49,8 @@ module.exports = function (grunt) {
         jshint: {
             main: {
                 options: {
-                    jshintrc: '.jshintrc'
+                    jshintrc: '.jshintrc',
+                    reporterOutput: ""
                 },
                 src: createFolderGlobs('*.js')
             }
@@ -68,13 +69,6 @@ module.exports = function (grunt) {
                 },
                 files: {
                     "public/styles/css/credit.css": "public/styles/less/credit.less"
-                }
-            },
-            production: {
-                options: {
-                },
-                files: {
-                    'temp/app.css': 'app.less'
                 }
             }
         },
@@ -102,14 +96,14 @@ module.exports = function (grunt) {
         copy: {
             main: {
                 files: [
-                    {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {cwd: 'public/flaticon/',src: ['**.woff','**.ttf'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['public/flaticon/**'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['public/img/**'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['views/**/**.html'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['directive/**/**.html'], dest: 'dist/',filter:'isFile',expand:true}
+                    {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {cwd: 'libs/bootstrap/fonts', src: ['**'], dest: 'dist/fonts/',expand:true}
                 ]
             }
+
         },
         dom_munger:{
             read: {
@@ -126,7 +120,8 @@ module.exports = function (grunt) {
                     remove: ['script[data-remove!="false"]','link[rel="stylesheet"][data-remove!="false"]'],
                     append: [
                         {selector:'body',html:'<script src="app.full.min.js"></script>'},
-                        {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'}
+                        {selector:'head',html:'<link rel="stylesheet" href="app.full.min.css">'},
+                        {selector:'head',html:'<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">'}
                     ]
                 },
                 src:'index.html',

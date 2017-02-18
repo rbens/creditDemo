@@ -10,18 +10,18 @@
 		}
 	  }
 	},
+	"title": {
+	  "text": null
+	},
 	"series": [
 	  {
 		"data": []
 	  }
 	],
-	"title": {
-	  "text": "Évolution du remboursement (crédit, intérets, assurance) "
-	},
 	"xAxis": {
 	  "min": 0,
 	  "title": {
-		"text": "mois"
+		"text": "années"
 	  },
 	  "tickInterval":1,
 	  "labels":{
@@ -51,12 +51,12 @@
 	  }
 	],
 	"title": {
-	  "text": "Évolution de la dette (totalité de la somme, capital emprunté)"
+	  "text": null
 	},
 	"xAxis": {
 	  "min": 0,
 	  "title": {
-		"text": "mois"
+		"text": "années"
 	  },
 	  "tickInterval":1,
 	  "labels":{
@@ -81,7 +81,7 @@
 	  }
 	],
 	"title": {
-	  "text": "Répartition du remboursement total"
+	  "text": null
 	}
   }
 }

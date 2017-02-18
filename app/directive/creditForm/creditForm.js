@@ -5,16 +5,16 @@ angular.module('mainApp').directive('creditForm', function () {
         link : function(scope,element,attrs,fn){
 
         },
-        controller : function ($scope, $filter, $q, $timeout, creditService) {
+        controller : function ($scope, $filter, $q, $timeout, creditService, $mdDialog) {
             var time,
                 formatNumber = function(data) {
                     return $filter('number')(data, 2);
                 },
                 isComplete = function() {
-                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxGlobal);
+                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
                 },
                 isDefined = function(value) {
-                    return value !== null && value !== 0;
+                    return value && value !== null && value !== 0;
                 },
                 addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
                     $scope.line.series = [];
@@ -54,6 +54,11 @@ angular.module('mainApp').directive('creditForm', function () {
                     });
                 };
 
+            $scope.model.capital = undefined;
+            $scope.model.annee = undefined;
+            $scope.model.tauxNominal = undefined;
+            $scope.model.tauxAssurance = undefined;
+
             $scope.calcul = function () {
                 $timeout.cancel( time );
 
@@ -61,7 +66,7 @@ angular.module('mainApp').directive('creditForm', function () {
                     if (isComplete()) {
                         var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
 
-                        $scope.promise = $q.all([
+                        $scope.promiseForm = $q.all([
                             creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
                                     var data = response.data;
@@ -74,37 +79,67 @@ angular.module('mainApp').directive('creditForm', function () {
                                         $scope.model.assuranceTotal     = formatNumber(data.insuranceTotalCost).concat(' €');
                                         $scope.model.creditTotal        = formatNumber(data.creditTotalCost).concat(' €');
                                         $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
-                                    }
-                                }),
-                            creditService.getSeries({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
-                                .then(function (response) {
-                                    var data = response.data;
-                                    //noinspection JSUnresolvedVariable
-                                    if (data.coutPrincipal) {
+
                                         var last = (data.writeDowns.length - 1);
                                         addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
                                         addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
                                     }
                                 })
-
                         ]);
                     } else {
                         $scope.model.amortissements = [];
-                        $scope.model.mensualite = undefined;
-                        $scope.model.interetTotal = undefined;
-                        $scope.model.assuranceTotal = undefined;
-                        $scope.model.creditTotal = undefined;
-                        $scope.model.assurance = undefined;
+                        $scope.model.mensualite = formatNumber(0).concat(' €');
+                        $scope.model.interetTotal = formatNumber(0).concat(' €');
+                        $scope.model.assuranceTotal = formatNumber(0).concat(' €');
+                        $scope.model.creditTotal = formatNumber(0).concat(' €');
+                        $scope.model.assurance = formatNumber(0).concat(' €');
+                        $scope.model.remboursementTotal = formatNumber(0).concat(' €');
                     }
                 },1500);
             };
 
             $scope.teg = function(){
                 $scope.model.tauxNominal = Number(formatNumber($scope.model.tauxNominal));
-                $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
-                $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
+                if($scope.model.tauxAssurance){
+                    $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
+                    $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
+                }else{
+                    $scope.model.tauxGlobal =  $scope.model.tauxNominal;
+                }
+
+            };
+
+
+
+            $scope.modalForm =  function(ev) {
+                $mdDialog.show({
+                  parent: angular.element(document.body),
+                  templateUrl : 'directive/creditForm/infoCreditForm.html',
+                  targetEvent:ev,
+                  clickOutsideToClose:true
+                }).then(function() {
+                    $scope.status = 'cancel';
+                },function(){
+                    $scope.status = 'close';
+                });
+            };
+
+            $scope.reset = function(){
+                $scope.model.capital = undefined;
+                $scope.model.annee = undefined;
+                $scope.model.tauxNominal = undefined;
+                $scope.model.tauxAssurance = undefined;
+                $scope.model.tauxGlobal = 0;
+                $scope.model.amortissements = [];
+                $scope.model.mensualite = formatNumber(0).concat(' €');
+                $scope.model.interetTotal = formatNumber(0).concat(' €');
+                $scope.model.assuranceTotal = formatNumber(0).concat(' €');
+                $scope.model.creditTotal = formatNumber(0).concat(' €');
+                $scope.model.assurance = formatNumber(0).concat(' €');
+                $scope.model.remboursementTotal = formatNumber(0).concat(' €');
             };
         }
     };
 
 });
+

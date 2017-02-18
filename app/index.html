@@ -1,8 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="mainApp" style="background: #eee">
+<html ng-app="mainApp" style="background-color: #b2ebf2">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>credit immo</title>
+    <!-- android full screen app mode-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- ios full screen app mode-->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <link rel="apple-touch-icon" href="/favicon.ico">
+    <!-- mobile scaling-->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
 
     <!-- Livereload script for development only (stripped during dist build) -->
     <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +49,7 @@
     <script src="libs/angular-busy/dist/angular-busy.js"></script>
 
     <script src="app.js"></script>
-    <script src="views/content/Content.js"></script>
+    <script src="views/content.js"></script>
     <script src="service/creditDemoService.js" charset="UTF-8"></script>
     <script src="service/configService.js" charset="UTF-8"></script>
     <script src="directive/numeric/numeric.js" charset="UTF-8"></script>
@@ -44,14 +57,11 @@
     <script src="directive/creditResult/creditResult.js" charset="UTF-8"></script>
     <script src="directive/chartResult/chartResult.js" charset="UTF-8"></script>
     <script src="directive/tabResult/tabResult.js" charset="UTF-8"></script>
-    <script src="directive/bottomToTop/bottomToTop.js" charset="UTF-8"></script>
+    <script src="directive/marketRate/marketRate.js" charset="UTF-8"></script>
+    <script src="directive/spinnerLoading/spinnerLoading.js" charset="UTF-8"></script>
 
 </head>
-<body style="overflow: scroll; background: #eee" data-spy="scroll" data-target=".navbar-left-menu">
-<div ng-include="'views/header/header.html'"></div>
-<div ng-include="'views/content/content.html'"></div>
-<div ng-include="'views/footer/footer.html'"></div>
-<a href="javascript:void(0)" class="cd-top" style=" margin-bottom: 60px; ">Top</a>
-<back-to-top></back-to-top>
+<body style="background-color: #b2ebf2">
+<ng-view></ng-view>
 </body>
 </html>

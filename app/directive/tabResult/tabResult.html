@@ -1,10 +1,12 @@
-<div class="panel panel-default col-sm-10" id="tab" style="padding-left: 0; padding-right: 0;padding-bottom:30px">
-    <div class="panel-heading" >
-        <h3 class="panel-title">D&eacute;tails du remboursement par mois</h3>
-    </div>
-    <div class="panel-body" >
-        <div class="table-responsive" cg-busy="{promise:promise}">
-            <table class="table table-striped table-hover">
+<div class="panel no-bottom" id="tab" flex-offset="5">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
+        <div class="md-toolbar-tools panel-dialog">
+            <h3 class="panel-title">D&eacute;tails du remboursement par mois</h3>
+        </div>
+    </md-toolbar>
+    <md-content flex layout-padding style="max-height: 429px;overflow:scroll">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover" >
                 <thead>
                 <th>Mois</th>
                 <th>Intérêts payé</th>
@@ -12,17 +14,10 @@
                 <th>Assurance payé</th>
                 <th title="capital restant à rembourser">Capital restant</th>
                 </thead>
-                <tbody>
-                <tr ng-repeat="result in model.amortissements">
-                    <td>{{result.currentMonth}}</td>
-                    <td>{{result.interestAmount | number:2}} €</td>
-                    <td>{{result.principalAmount | number:2}} €</td>
-                    <td>{{result.insuranceAmount | number:2}} €</td>
-                    <td>{{result.owingAmount | number:2}} €</td>
-                </tr>
+
+                <tbody cg-busy="{promise:promiseForm}">
                 </tbody>
             </table>
         </div>
-
-    </div>
+    </md-content>
 </div>

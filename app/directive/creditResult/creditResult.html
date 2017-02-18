@@ -1,44 +1,42 @@
-<div class="panel panel-default col-sm-7" id="results" style="padding-left: 0; padding-right: 0;">
-    <div class="panel-heading" >
-        <h3 class="panel-title">R&eacute;sultat</h3>
-    </div>
-    <div class="panel-body" >
-        <div class="form-horizontal" cg-busy="{promise:promise}">
-            <div class="form-group">
-                <label class="control-label col-sm-3">Mensualité </label>
-
-                <div class="col-sm-4">
-                    <input class="form-control" ng-value="model.mensualite" disabled/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3">Total intérets </label>
-
-                <div class="col-sm-4">
-                    <input class="form-control" ng-value="model.interetTotal" disabled>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3">Total assurance </label>
-
-                <div class="col-sm-4">
-                    <input class="form-control" ng-value="model.assuranceTotal" disabled/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3">Total crédit </label>
-
-                <div class="col-sm-4">
-                    <input class="form-control" ng-value="model.creditTotal" disabled/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-3">Total remboursement </label>
-
-                <div class="col-sm-4">
-                    <input class="form-control" ng-value="model.remboursementTotal" disabled/>
-                </div>
-            </div>
+<md-content class="panel" id="results" flex-offset="5" style="padding-left: 0; padding-right: 0;">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
+        <div class="md-toolbar-tools panel-dialog">
+            <h3 class="panel-title">R&eacute;sultat</h3>
+            <span flex></span>
+            <md-button class="md-icon-button icon-color" aria-label="Settings" ng-click="modalResult($event)">
+                <md-tooltip>Cliquez pour les détails</md-tooltip>
+                <md-icon md-svg-icon="public/img/info_outline.svg"></md-icon>
+            </md-button>
         </div>
+    </md-toolbar>
+    <div layout-fill cg-busy="{promise:promiseForm}">
+            <md-content layout="row" layout-padding class="adapt-form">
+                <md-input-container flex style=";padding-top:0.5em">
+                    <label class="control-label col-sm-5">Mensualité </label>
+                    <input class="form-control" ng-value="model.mensualite" placeholder="" disabled/>
+                </md-input-container>
+                <md-input-container flex style=";padding-top:0.5em">
+                    <label class="control-label col-sm-5">Total intérets </label>
+                    <input class="form-control" ng-value="model.interetTotal" placeholder="" disabled>
+                </md-input-container>
+            </md-content>
+
+            <md-content layout="row" layout-padding class="adapt-form">
+                <md-input-container flex style=";padding-top:0.5em">
+                    <label class="control-label col-sm-5">Total assurance </label>
+                    <input class="form-control" ng-value="model.assuranceTotal" placeholder="" disabled/>
+                </md-input-container>
+                <md-input-container flex style=";padding-top:0.5em">
+                    <label class="control-label col-sm-5">Total crédit </label>
+                    <input class="form-control" ng-value="model.creditTotal" placeholder="" disabled/>
+                </md-input-container>
+            </md-content>
+
+            <md-content layout="row" layout-padding class="adapt-form">
+                <md-input-container flex="50" style=";padding-top:0.5em">
+                    <label class="control-label col-sm-5">Total remboursement </label>
+                    <input class="form-control" ng-value="model.remboursementTotal" placeholder="" disabled/>
+                </md-input-container>
+            </md-content>
     </div>
-</div>
+</md-content>

@@ -1,30 +1,25 @@
-<div class="panel panel-default col-sm-10" id="chart" ng-show="model.mensualite != 0" style="padding-left: 0; padding-right: 0;">
-    <div class="panel-heading" >
-        <h3 class="panel-title">R&eacute;sultat graphique</h3>
-    </div>
-    <div class="panel-body" >
-        <div class="row" cg-busy="{promise:promise}">
-            <md-tabs md-selected="selectedIndex" md-stretch-tabs="always">
-                <md-tab md-on-select="swapChartType('pie')" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="Répartition du remboursement">
-                    <div class="demo-tab tab{{$index%4}}" >
-                        <label ng-model="chart.title.text"/>
-                        <highchart id="chart1" config="pie"  ng-if="option.config === 'pie'" ></highchart>
-                    </div>
-                </md-tab>
-                <md-tab md-on-select="swapChartType('line')" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="Évolution du remboursement">
-                    <div class="demo-tab tab{{$index%4}}" >
-                        <label ng-model="chart.title.text"/>
-                        <highchart id="chart2" config="line" ng-if="option.config === 'line'"></highchart>
-                    </div>
-                </md-tab>
-                <md-tab md-on-select="swapChartType('area')" md-on-deselect="announceDeselected(tab)" ng-disabled="tab.disabled" label="Évolution de la dette">
-                    <div class="demo-tab tab{{$index%4}}" >
-                        <label ng-model="chart.title.text"/>
-                        <highchart id="chart3" config="area" ng-if="option.config === 'area'"></highchart>
-                    </div>
-                </md-tab>
-            </md-tabs>
+<div class="panel panel-default" id="chart" ng-show="model.mensualite != 0" flex-offset="5" flex-offset-gt-md="10" style="padding-left: 0; padding-right: 0;">
+    <md-toolbar class="demo-toolbar md-primary" flex>
+        <div class="md-toolbar-tools panel-dialog">
+                <md-button class="btn-color-nav" aria-label="repartiton" ng-click="swapChartType(0)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'pie'}">
+                    <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_pie_chart_outlined_white_24px.svg" ></md-icon><span hide-xs>répartition du remboursement</span>
+                </md-button>
+                <md-button class="btn-color-nav" aria-label="remboursement" ng-click="swapChartType(1)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'line'}">
+                    <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_up_white_24px.svg" ></md-icon><span hide-xs>évolution du remboursement</span>
+                </md-button>
+                <md-button class="btn-color-nav" aria-label="dette" ng-click="swapChartType(2)"  style="font-size: 55%;" ng-class="{'btn-color-form' :  option.config === 'area'}">
+                    <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_down_white_24px.svg"></md-icon><span hide-xs>évolution de la dette</span>
+                </md-button>
         </div>
-
+    </md-toolbar>
+    <div class="panel-body" >
+        <div class="row">
+            <div cg-busy="{promise:promiseForm}">
+                <highchart id="chart1" config="pie" ng-if="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
+                <highchart id="chart2" config="line" ng-if="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
+                <highchart id="chart3" config="area" ng-if="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
+            </div>
+        </div>
     </div>
+
 </div>
