@@ -10,11 +10,11 @@ angular.module('mainApp').directive('creditForm', function () {
                 formatNumber = function(data) {
                     return $filter('number')(data, 2);
                 },
-                isComplete = function() {
-                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
-                },
                 isDefined = function(value) {
                     return value && value !== null && value !== 0;
+                },
+                isComplete = function() {
+                    return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
                 },
                 addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
                     $scope.line.series = [];
