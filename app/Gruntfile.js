@@ -49,8 +49,7 @@ module.exports = function (grunt) {
         jshint: {
             main: {
                 options: {
-                    jshintrc: '.jshintrc',
-                    reporterOutput: ""
+                    jshintrc: '.jshintrc'
                 },
                 src: createFolderGlobs('*.js')
             }
