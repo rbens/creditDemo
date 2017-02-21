@@ -7,8 +7,8 @@ angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy
         }).hashPrefix('!');
 
         $routeProvider.when('/',{
-            controller:'content',
-            templateUrl : 'views/content.html'
+            controller:'contentViewCtrl',
+            templateUrl : 'views/contentView.html'
         });
 
         angular.extend($scrollspyProvider.defaults, {

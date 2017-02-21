@@ -1,4 +1,4 @@
-angular.module('mainApp').controller('content', function($scope, $window, $mdDialog) {
+angular.module('mainApp').controller('contentViewCtrl', function($scope, $window, $mdDialog) {
     var initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
     function DiaController($scope,$mdDialog,$window) {
