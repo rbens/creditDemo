@@ -67,7 +67,8 @@
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50" >
                 <label>Durée </label>
-                <input type="number" ng-model="model.annee" ng-value="model.annee" aria-label="durée en année" ng-change="calcul()">
+                <input type="number" max="37" ng-model="model.annee" ng-value="model.annee" aria-label="durée en année" ng-change="calcul()">
+                <div class="hint">durée max 37 ans</div>
             </md-input-container>
             <md-input-container flex="30" flex-xs="50" style="margin-left: 2%">
                 <label>Capital </label>
@@ -78,11 +79,13 @@
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50">
                 <label>Taux emprunt</label>
-                <input type="number" aria-label="taux fixe" ng-model="model.tauxNominal" ng-change="teg();calcul()">
+                <input type="number" max="10" aria-label="taux fixe" ng-model="model.tauxNominal" ng-change="teg();calcul()">
+                <div class="hint">taux emprunt max 10%</div>
             </md-input-container>
             <md-input-container flex="30" flex-xs="50" style="margin-left: 2%;">
                 <label>Taux assurance</label>
-                <input type="number" flex="" aria-label="taux d'assurance" ng-model="model.tauxAssurance" ng-change="teg();calcul()">
+                <input type="number" max="5" flex="" aria-label="taux d'assurance" ng-model="model.tauxAssurance" ng-change="teg();calcul()">
+                <div class="hint">taux assurance max 5%</div>
             </md-input-container>
             <md-input-container flex="30" hide-xs>
                 <input type="text" class="form-control" disabled aria-label="prix assurance par mois" ng-value="model.assurance" >
