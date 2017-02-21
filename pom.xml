@@ -158,6 +158,7 @@
                             <directory>src/main/java/com/rbens/config</directory>
                         </resource>
                     </webResources>
+                    <warName>credit-demo</warName>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
