@@ -7,7 +7,7 @@
 
     <groupId>com.rbens</groupId>
     <artifactId>creditDemo</artifactId>
-    <version>1.1.5-SNAPSHOT</version>
+    <version>1.1.5</version>
 
 
     <properties>
