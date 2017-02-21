@@ -39,14 +39,6 @@ angular.module('mainApp').directive('chartResult', function (configService, $win
                 $scope.option = options[index];
             };
 
-            $scope.openMenu = function($mdMenu, ev) {
-                $mdMenu.open(ev);
-            };
-
-            $scope.demo = {
-                isOpen: false,
-                selectedDirection: 'left'
-            };
         }
     };
 });
