@@ -116,8 +116,24 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
   left: 2px;
   right: auto;
   bottom: 7px;
-  font-size: 12px;
+  font-size: 10px;
   line-height: 14px;
   transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
   color: grey;
+}
+@media (orientation: portrait) {
+  .playfield {
+    display: block;
+  }
+  .overlay {
+    display: none;
+  }
+}
+@media (orientation: landscape) {
+  .playfield {
+    display: none;
+  }
+  .overlay {
+    display: block;
+  }
 }

@@ -1,4 +1,4 @@
-<div class="panel panel-default" id="chart" ng-show="model.mensualite != 0" flex-offset="5" flex-offset-gt-md="10" style="padding-left: 0; padding-right: 0;">
+<div class="panel panel-default overlay" id="chart" ng-show="model.mensualite != 0" flex-offset="5" flex-offset-gt-md="10" style="padding-left: 0; padding-right: 0;">
     <md-toolbar class="demo-toolbar md-primary" flex>
         <div class="md-toolbar-tools panel-dialog">
                 <md-button class="btn-color-nav" aria-label="repartiton" ng-click="swapChartType(0)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'pie'}">
@@ -16,7 +16,7 @@
         <div class="row">
             <div cg-busy="{promise:promiseForm}">
                 <highchart id="chart1" config="pie" ng-if="option.config === 'pie'" ng-style="{width : panelWidth}" ></highchart>
-                <highchart id="chart2" config="line" ng-if="option.config === 'line'" ng-style="{width : panelWidth}"></highchart>
+                <highchart id="chart2" config="line" ng-if="option.config === 'line'" ng-style="{width : panelWidth}" ></highchart>
                 <highchart id="chart3" config="area" ng-if="option.config === 'area'" ng-style="{width : panelWidth}"></highchart>
             </div>
         </div>
