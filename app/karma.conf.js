@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../',
+    basePath: '/',
 
 
     // frameworks to use
@@ -15,30 +15,30 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern : 'webapp/bower_components/jquery/dist/jquery.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular/angular.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-mocks/angular-mocks.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-material/angular-material.js', watched :false},
-      {pattern : 'webapp/bower_components/modernizr/modernizr.js', watched :false},
-      {pattern : 'webapp/bower_components/highcharts-ng/dist/highcharts-ng.js', watched :false},
-      {pattern : 'webapp/bower_components/highcharts/highcharts.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-bootstrap/ui-bootstrap.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-strap/dist/angular-strap.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-strap/dist/angular-strap.tpl.min.js', watched :false},
-      {pattern : 'webapp/bower_components/bootstrap-material-design/dist/js/ripples.min.js', watched :false},
-      {pattern : 'webapp/bower_components/bootstrap-material-design/dist/js/material.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-animate/angular-animate.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-route/angular-route.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-aria/angular-aria.min.js', watched :false},
-      {pattern : 'webapp/bower_components/hammerjs/hammer.min.js', watched :false},
-      {pattern : 'webapp/bower_components/angular-busy/dist/angular-busy.js', watched :false},
+      {pattern : 'libs/jquery/dist/jquery.min.js', watched :false},
+      {pattern : 'libs/angular/angular.js', watched :false},
+      {pattern : 'libs/angular-mocks/angular-mocks.js', watched :false},
+      {pattern : 'libs/angular-material/angular-material.js', watched :false},
+      {pattern : 'libs/modernizr/modernizr.js', watched :false},
+      {pattern : 'libs/highcharts-ng/dist/highcharts-ng.js', watched :false},
+      {pattern : 'libs/highcharts/highcharts.js', watched :false},
+      {pattern : 'libs/angular-bootstrap/ui-bootstrap.min.js', watched :false},
+      {pattern : 'libs/angular-bootstrap/ui-bootstrap-tpls.min.js', watched :false},
+      {pattern : 'libs/angular-strap/dist/angular-strap.min.js', watched :false},
+      {pattern : 'libs/angular-strap/dist/angular-strap.tpl.min.js', watched :false},
+      {pattern : 'libs/bootstrap-material-design/dist/js/ripples.min.js', watched :false},
+      {pattern : 'libs/bootstrap-material-design/dist/js/material.min.js', watched :false},
+      {pattern : 'libs/angular-animate/angular-animate.min.js', watched :false},
+      {pattern : 'libs/angular-route/angular-route.min.js', watched :false},
+      {pattern : 'libs/angular-aria/angular-aria.min.js', watched :false},
+      {pattern : 'libs/hammerjs/hammer.min.js', watched :false},
+      {pattern : 'libs/angular-busy/dist/angular-busy.js', watched :false},
 
-      {pattern : 'webapp/app.js', watched :true},
-      {pattern : 'webapp/service/*.js', watched :true},
-      {pattern : 'webapp/directive/*/*.html', watched :false},
-      {pattern : 'webapp/directive/*/*.js', watched :true},
-      {pattern : 'webapp/test/*/*spec.js', watched :true}
+      {pattern : 'app.js', watched :true},
+      {pattern : 'service/*.js', watched :true},
+      {pattern : 'directive/*/*.html', watched :false},
+      {pattern : 'directive/*/*.js', watched :true},
+      {pattern : 'test/*/*spec.js', watched :true}
     ],
 
 
@@ -48,9 +48,9 @@ module.exports = function(config) {
 
 
     preprocessors: {
-      'webapp/directive/**/*.html': ['ng-html2js'],
-      'webapp/service/*.js': ['coverage'],
-      'webapp/directive/*/*.js': ['coverage']
+      'directive/**/*.html': ['ng-html2js'],
+      'service/*.js': ['coverage'],
+      'directive/*/*.js': ['coverage']
 
     },
 
@@ -95,7 +95,7 @@ module.exports = function(config) {
 
     // optionally, configure the reporter
     coverageReporter: {
-      dir : 'webapp/coverage/',
+      dir : 'coverage/',
       reporters:[
         {type: 'html',file : 'coverage.html'}
       ]
