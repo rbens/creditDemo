@@ -96,8 +96,7 @@ module.exports = function (grunt) {
             main: {
                 files: [
                     {src: ['public/flaticon/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['public/img/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {src: ['public/styles/**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {cwd: 'public/svg', src: ['**'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
                     {cwd: 'libs/bootstrap/fonts', src: ['**'], dest: 'dist/fonts/',expand:true}
                 ]
@@ -191,6 +190,20 @@ module.exports = function (grunt) {
                 files: {
                     'dist/index.html': 'dist/index.html'
                 }
+            }
+        },
+        //use when adding new svg
+        svg_sprites: {
+            options: {
+                svg: {
+                    sprite: "svg-sprite.svg"
+                },
+                cssFile:'sprites.css',
+                generatePreview: false
+            },
+            prod: {
+                src: 'public/img/*.svg',
+                dest: 'public/svg'
             }
         },
         karma: {
