@@ -1,4 +1,4 @@
-angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy','ngResource', 'ngRoute'])
+angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy','ngResource', 'ngRoute','duScroll'])
     .config(function ($locationProvider, $routeProvider, $scrollspyProvider) {
         // use the HTML5 History API
         $locationProvider.html5Mode({

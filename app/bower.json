@@ -28,7 +28,8 @@
     "modernizr": "~2.8.3",
     "highcharts-ng": "~0.0.8",
     "highcharts": "~v4.0.4",
-    "angular-mocks": "~1.6.1"
+    "angular-mocks": "~1.6.1",
+    "angular-scroll": "^1.0.0"
   },
   "homepage": "https://github.com/rbens/creditDemo",
   "keywords": [

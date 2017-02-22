@@ -1,15 +1,18 @@
 <div class="panel panel-default overlay" id="chart" ng-show="model.mensualite != 0" flex-offset="5" flex-offset-gt-md="10" style="padding-left: 0; padding-right: 0;">
     <md-toolbar class="demo-toolbar md-primary" flex>
         <div class="md-toolbar-tools panel-dialog">
-                <md-button class="btn-color-nav" aria-label="repartiton" ng-click="swapChartType(0)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'pie'}">
-                    <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_pie_chart_outlined_white_24px.svg" ></md-icon><span hide-xs>répartition du remboursement</span>
-                </md-button>
-                <md-button class="btn-color-nav" aria-label="remboursement" ng-click="swapChartType(1)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'line'}">
-                    <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_up_white_24px.svg" ></md-icon><span hide-xs>évolution du remboursement</span>
-                </md-button>
-                <md-button class="btn-color-nav" aria-label="dette" ng-click="swapChartType(2)"  style="font-size: 55%;" ng-class="{'btn-color-form' :  option.config === 'area'}">
-                    <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_down_white_24px.svg"></md-icon><span hide-xs>évolution de la dette</span>
-                </md-button>
+            <md-button class="btn-color-nav" aria-label="repartiton" ng-click="swapChartType(0)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'pie'}">
+                <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_pie_chart_outlined_white_24px.svg" ></md-icon>
+                <span hide-gt-xs>répartition paiement</span><span hide-xs>répartition du remboursement</span>
+            </md-button>
+            <md-button class="btn-color-nav" aria-label="dette" ng-click="swapChartType(2)"  style="font-size: 55%;" ng-class="{'btn-color-form' :  option.config === 'area'}">
+                <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_down_white_24px.svg"></md-icon>
+                <span hide-gt-xs>évolution paiement</span><span hide-xs>évolution de la dette</span>
+            </md-button>
+            <md-button class="btn-color-nav" aria-label="remboursement" ng-click="swapChartType(1)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'line'}">
+                <md-icon class="padding-icon-text" md-svg-icon="public/img/ic_trending_up_white_24px.svg" ></md-icon>
+                <span hide-gt-xs>remboursement crédit</span><span hide-xs>évolution du remboursement</span>
+            </md-button>
         </div>
     </md-toolbar>
     <div class="panel-body" >
