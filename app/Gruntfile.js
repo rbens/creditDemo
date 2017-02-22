@@ -159,7 +159,7 @@ module.exports = function (grunt) {
                 options: {
                     replacements: [{
                         pattern: /localhost:8090/g,
-                        replacement: 'credit-immo.eu-central-1.elasticbeanstalk.com/'
+                        replacement: 'credit-immo.app-rb.net'
                     }]
                 }
             },
@@ -172,7 +172,7 @@ module.exports = function (grunt) {
                     replacements: [{
 
                         pattern: /localhost:8090/g,
-                        replacement: 'credit-immo-dev.eu-central-1.elasticbeanstalk.com/'
+                        replacement: 'credit-immo-dev.app-rb.net'
                     }]
                 }
             }
