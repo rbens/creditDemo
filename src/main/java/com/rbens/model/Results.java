@@ -5,10 +5,6 @@ import com.rbens.utils.NumberFormatter;
 
 import static com.rbens.utils.ArrayNumber.reverseArray;
 
-/**
- * Created by rbenseghir on 3/18/15.
- *
- */
 public final class Results extends MonthlyPayment {
 
     @JsonProperty
@@ -21,14 +17,17 @@ public final class Results extends MonthlyPayment {
         return writeDowns.stream().mapToDouble(a -> a.interestAmount).sum();
     }
 
+    @SuppressWarnings("unused")
     @JsonProperty
     double owingTotalCost() {
         return writeDowns.stream().mapToDouble(a -> a.monthlyAmount).sum();
     }
 
+    @SuppressWarnings("unused")
     @JsonProperty
     double creditTotalCost() { return interestTotalCost() + insuranceTotalCost(); }
 
+    @SuppressWarnings("unused")
     @JsonProperty(value = "interetSeries")
     double[] interetSeries() {
         final double[] interetSeries = new double[months];
@@ -43,6 +42,7 @@ public final class Results extends MonthlyPayment {
         return interetSeries;
     }
 
+    @SuppressWarnings("unused")
     @JsonProperty(value = "assuranceSeries")
     double[] assuranceSeries() {
         final double[] assuranceSeries = new double[months];
@@ -56,6 +56,7 @@ public final class Results extends MonthlyPayment {
         return assuranceSeries;
     }
 
+    @SuppressWarnings("unused")
     @JsonProperty(value = "creditSeries")
     double[] creditSeries() {
         final double[] creditSeries = new double[months];
@@ -69,6 +70,7 @@ public final class Results extends MonthlyPayment {
         return creditSeries;
     }
 
+    @SuppressWarnings("unused")
     @JsonProperty(value = "capitalRestantSeries")
     double[] capitalRestantSeries() {
         final double[] capitalRestantSeries = new double[months];
@@ -80,6 +82,7 @@ public final class Results extends MonthlyPayment {
         return capitalRestantSeries;
     }
 
+    @SuppressWarnings("unused")
     @JsonProperty(value = "totalRestantSeries")
     Double[] totalRestantSeries() {
         final Double[] totalRestantSeries = new Double[months];

@@ -5,7 +5,7 @@ angular.module('mainApp').directive('creditForm', function () {
         link : function(scope,element,attrs,fn){
 
         },
-        controller : function ($scope, $filter, $q, $timeout, creditService, $mdDialog) {
+        controller : function ($scope, $filter, $q, $timeout, creditService, $mdDialog, $document) {
             var time,
                 formatNumber = function(data) {
                     return $filter('number')(data, 2);
@@ -15,6 +15,10 @@ angular.module('mainApp').directive('creditForm', function () {
                 },
                 isComplete = function() {
                     return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
+                },
+                goTo = function() {
+                    var someElement = angular.element(document.getElementById('results'));
+                    $document.scrollToElement(someElement, -450, 1000);
                 },
                 addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
                     $scope.line.series = [];
@@ -59,13 +63,17 @@ angular.module('mainApp').directive('creditForm', function () {
             $scope.model.tauxNominal = undefined;
             $scope.model.tauxAssurance = undefined;
 
+
+
             $scope.calcul = function () {
                 $timeout.cancel( time );
 
                 time = $timeout(function(){
                     if (isComplete()) {
                         var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
-
+                        if(screen.width < 660){
+                            goTo();
+                        }
                         $scope.promiseForm = $q.all([
                             creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                                 .then(function (response) {
@@ -95,7 +103,7 @@ angular.module('mainApp').directive('creditForm', function () {
                         $scope.model.assurance = formatNumber(0).concat(' €');
                         $scope.model.remboursementTotal = formatNumber(0).concat(' €');
                     }
-                },1500);
+                },2000);
             };
 
             $scope.teg = function(){
