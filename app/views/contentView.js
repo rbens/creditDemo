@@ -8,7 +8,7 @@ angular.module('mainApp').controller('contentViewCtrl', function($scope, $window
             $mdDialog.hide();
         };
 
-        //use $watch, because change detection with ng-change misses the first change
+        //use $watch, because the change detection with ng-change misses the first change
         $scope.$watch('hideVideo',function(){
             $window.localStorage.setItem('hideVideo',$scope.hideVideo);
         });
@@ -29,7 +29,7 @@ angular.module('mainApp').controller('contentViewCtrl', function($scope, $window
     };
 
     angular.element(document).ready(function (ev) {
-        if(!initDemo){
+        if(!initDemo && screen.width > 660){
             $mdDialog.show({
                 parent: angular.element(document.body),
                 controller: DiaController,

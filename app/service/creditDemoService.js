@@ -3,9 +3,6 @@ angular.module('mainApp').factory('creditService', function ($http, $rootScope) 
         getAmortissement: function (credit) {
             return $http.post($rootScope.rootPath + "amortissements", credit);
         },
-        getSeries: function (credit) {
-            return $http.post($rootScope.rootPath + "series", credit);
-        },
         getTauxMarche : function(){
             return $http.get($rootScope.rootPath + "rates");
         }

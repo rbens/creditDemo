@@ -17,11 +17,6 @@ angular.module('mainApp').directive('tabResult', function ($filter) {
                     });
                 }
             },true);
-        },
-        controller : [function(){
-
         }
-        ]
-
     };
 });

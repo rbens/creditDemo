@@ -96,12 +96,12 @@ module.exports = function (grunt) {
             main: {
                 files: [
                     {src: ['public/flaticon/**'], dest: 'dist/',filter:'isFile',expand:true},
-                    {cwd: 'public/svg', src: ['**'], dest: 'dist/',filter:'isFile',expand:true},
+                    {src: ['public/img/**.png'], dest: 'dist/',filter:'isFile',expand:true},
+                    {cwd: 'public/svg', src: ['svg-sprite.svg'], dest: 'dist/',filter:'isFile',expand:true},
                     {src: ['config/**'], dest: 'dist/',filter:'isFile',expand:true},
                     {cwd: 'libs/bootstrap/fonts', src: ['**'], dest: 'dist/fonts/',expand:true}
                 ]
             }
-
         },
         dom_munger:{
             read: {
