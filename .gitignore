@@ -5,3 +5,4 @@ app/coverage
 app/dist
 target/
 app/public/styles/css/credit.css
+*.iml
