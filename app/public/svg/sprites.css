@@ -1,72 +1,86 @@
 
-.check_circle_black:before {
+.add_white:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -0em 0;
 }
 
-.check_circle_white:before {
+.check_circle_black:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -2.4em 0;
 }
 
-.ic_autorenew:before {
+.check_circle_white:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -4.8em 0;
 }
 
-.ic_movie:before {
+.clear_white:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -7.2em 0;
 }
 
-.ic_pie_chart_outlined_white_24px:before {
+.ic_autorenew:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -9.6em 0;
 }
 
-.ic_trending_down_white_24px:before {
+.ic_movie:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -12em 0;
 }
 
-.ic_trending_up_white_24px:before {
+.ic_pie_chart_outlined_white_24px:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -14.4em 0;
 }
 
-.info_outline:before {
+.ic_trending_down_white_24px:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -16.8em 0;
 }
 
-.keyboard_arrow_left:before {
+.ic_trending_up_white_24px:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -19.2em 0;
 }
 
-.keyboard_arrow_right:before {
+.info_outline:before {
 	width: 2.4em;
 	height: 2.4em;
 	background-position: -21.6em 0;
 }
 
-.movie_white_18px:before {
-	width: 1.8em;
-	height: 1.8em;
+.keyboard_arrow_left:before {
+	width: 2.4em;
+	height: 2.4em;
 	background-position: -24em 0;
 }
 
+.keyboard_arrow_right:before {
+	width: 2.4em;
+	height: 2.4em;
+	background-position: -26.4em 0;
+}
+
+.movie_white_18px:before {
+	width: 1.8em;
+	height: 1.8em;
+	background-position: -28.8em 0;
+}
+
+.add_white,
 .check_circle_black,
 .check_circle_white,
+.clear_white,
 .ic_autorenew,
 .ic_movie,
 .ic_pie_chart_outlined_white_24px,
@@ -79,22 +93,10 @@
 	font-size:10px;
 }
 
-.no-svg .check_circle_black:before,
-.no-svg .check_circle_white:before,
-.no-svg .ic_autorenew:before,
-.no-svg .ic_movie:before,
-.no-svg .ic_pie_chart_outlined_white_24px:before,
-.no-svg .ic_trending_down_white_24px:before,
-.no-svg .ic_trending_up_white_24px:before,
-.no-svg .info_outline:before,
-.no-svg .keyboard_arrow_left:before,
-.no-svg .keyboard_arrow_right:before,
-.no-svg .movie_white_18px:before {
-	background-image: url("../png-sprite.png");
-}
-
+.add_white:before,
 .check_circle_black:before,
 .check_circle_white:before,
+.clear_white:before,
 .ic_autorenew:before,
 .ic_movie:before,
 .ic_pie_chart_outlined_white_24px:before,
@@ -109,5 +111,5 @@
 	display: inline-block;
 	background-image: url("svg-sprite.svg");
 	background-repeat: no-repeat;
-	background-size: 25.8em 2.4em;
+	background-size: 30.6em 2.4em;
 }

@@ -108,15 +108,15 @@
                 <label>TEG</label>
                 <input type="text" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>
             </md-input-container>
-            <md-input-container layout="row" flex="40" class="md-button-form">
+            <md-input-container layout="row" class="md-button-form">
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="calcul()">
                     <span hide-xs>calculer</span>
-                    <md-icon md-font-icon="ic_autorenew" hide-gt-xs></md-icon>
+                    <md-icon md-font-icon="add_white" hide-gt-xs></md-icon>
                 </md-button>
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()" ng-disabled="model.amortissements.length == 0">
-                    <span hide-xs>réinitialiser</span>
-                    <md-icon md-font-icon="ic_autorenew" hide-gt-xs></md-icon>
-                </md-button>
+                <!--<md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()" ng-disabled="model.amortissements.length == 0">-->
+                    <!--<span hide-xs>réinitialiser</span>-->
+                    <!--<md-icon md-font-icon="clear_white" hide-gt-xs></md-icon>-->
+                <!--</md-button>-->
             </md-input-container>
         </md-content>
     </div>

@@ -3,15 +3,15 @@
         <div class="md-toolbar-tools panel-dialog">
             <md-button class="btn-color-nav" aria-label="repartiton" ng-click="swapChartType(0)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'pie'}">
                 <md-icon class="padding-icon-text" md-font-icon="ic_pie_chart_outlined_white_24px" ></md-icon>
-                <span hide-gt-xs>répartition paiement</span><span hide-xs>répartition du remboursement</span>
+                <span hide-gt-sm>Répartition remboursement</span><span hide-xs hide-sm>répartition du remboursement</span>
             </md-button>
             <md-button class="btn-color-nav" aria-label="dette" ng-click="swapChartType(2)"  style="font-size: 55%;" ng-class="{'btn-color-form' :  option.config === 'area'}">
                 <md-icon class="padding-icon-text" md-font-icon="ic_trending_down_white_24px"></md-icon>
-                <span hide-gt-xs>évolution paiement</span><span hide-xs>évolution de la dette</span>
+                <span hide-gt-sm>évolution Dette</span><span hide-xs hide-sm>évolution de la dette</span>
             </md-button>
             <md-button class="btn-color-nav" aria-label="remboursement" ng-click="swapChartType(1)" style="font-size: 55%;" ng-class="{'btn-color-form' : option.config === 'line'}">
                 <md-icon class="padding-icon-text" md-font-icon="ic_trending_up_white_24px" ></md-icon>
-                <span hide-gt-xs>remboursement crédit</span><span hide-xs>évolution du remboursement</span>
+                <span hide-gt-sm>Remboursement crédit</span><span hide-xs hide-sm>évolution du remboursement</span>
             </md-button>
         </div>
     </md-toolbar>
