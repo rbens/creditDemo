@@ -56,7 +56,7 @@
                 <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>
             </md-input-container>
             <md-input-container class="md-button-form">
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()" ng-disabled="model.amortissements.length == 0">
                     réinitialiser
                 </md-button>
             </md-input-container>
@@ -67,24 +67,24 @@
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50" >
                 <label>Durée </label>
-                <input type="number" min="1" max="35" required ng-model="model.annee" ng-value="model.annee" aria-label="durée en année" ng-change="calcul()">
+                <input type="number" min="1" max="35" required ng-model="model.annee" ng-value="model.annee" aria-label="durée en année">
                 <div class="hint">max 35 ans</div>
             </md-input-container>
             <md-input-container flex="30" flex-xs="50" style="margin-left: 2%">
                 <label>Capital </label>
-                <input type="number" ng-model="model.capital" required ng-change="calcul()" aria-label=""/>
+                <input type="number" ng-model="model.capital" required aria-label=""/>
             </md-input-container>
         </md-content>
 
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50">
                 <label>Taux emprunt</label>
-                <input type="number" min="0.01" max="10" required aria-label="taux fixe" ng-model="model.tauxNominal" ng-change="teg();calcul()">
+                <input type="number" min="0.01" max="10" required aria-label="taux fixe" ng-model="model.tauxNominal" ng-change="teg()">
                 <div class="hint">max 10%</div>
             </md-input-container>
             <md-input-container flex="30" flex-xs="50" style="margin-left: 2%;">
                 <label>Taux assurance</label>
-                <input type="number" min="0.01" max="5" flex="" aria-label="taux d'assurance" ng-model="model.tauxAssurance" ng-change="teg();calcul()">
+                <input type="number" min="0.01" max="5" flex="" aria-label="taux d'assurance" ng-model="model.tauxAssurance" ng-change="teg()">
                 <div class="hint">max 5%</div>
             </md-input-container>
             <md-input-container flex="30" hide-xs>
@@ -108,11 +108,15 @@
                 <label>TEG</label>
                 <input type="text" aria-label="taux emprunt global" ng-value="model.tauxGlobal | number:2 " disabled>
             </md-input-container>
-            <md-input-container  flex="40" class="md-button-form">
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()">
-                    <span hide-xs>réinitialiser</span>
-                    <md-icon md-font-icon="ic_autorenew" hide-gt-xs></md-icon>
+            <md-input-container layout="row" class="md-button-form">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="calcul()">
+                    <span hide-xs>calculer</span>
+                    <md-icon md-font-icon="add_white" hide-gt-xs></md-icon>
                 </md-button>
+                <!--<md-button class="md-raised btn-color-form" aria-label="comment" ng-click="reset()" ng-disabled="model.amortissements.length == 0">-->
+                    <!--<span hide-xs>réinitialiser</span>-->
+                    <!--<md-icon md-font-icon="clear_white" hide-gt-xs></md-icon>-->
+                <!--</md-button>-->
             </md-input-container>
         </md-content>
     </div>

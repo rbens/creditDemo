@@ -9,8 +9,8 @@
             </md-button>
         </div>
     </md-toolbar>
-    <md-content flex layout-padding style="padding: 1px;overflow-y: hidden">
-        <md-radio-group class="md-radio-group" ng-repeat="result in rates" ng-model="rates.id" ng-click="updateRate(result)">
+    <md-content flex layout-padding style="padding: 1px;overflow-y: hidden;margin-left: 15%">
+        <md-radio-group  class="md-radio-group" ng-repeat="result in rates" ng-model="rates.id" ng-click="updateRate(result)">
             <md-radio-button ng-value="result.id" class="md-primary md-radio-button">
                 <span ng-style="{
                     background: currentId === $index && !isCancel? colorAccent : '',

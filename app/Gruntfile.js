@@ -228,5 +228,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build',['clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify',['string-replace:']+target,'copy','htmlmin','clean:after']);
     grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
     grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
+    grunt.registerTask('sprite',['svg_sprites']);
 };
 
