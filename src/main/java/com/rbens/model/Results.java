@@ -3,99 +3,102 @@ package com.rbens.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rbens.utils.NumberFormatter;
 
-import static com.rbens.utils.ArrayNumber.reverseArray;
+import java.util.List;
 
+import static com.rbens.utils.NumberFormatter.formatNumberToDoubleValue;
+
+
+@SuppressWarnings("unused")
 public final class Results extends MonthlyPayment {
 
-    @JsonProperty
-    double insuranceTotalCost() {
-        return writeDowns.stream().mapToDouble(a -> a.insuranceAmount).sum();
+    private TotalCost insurance = (list)->list.stream().mapToDouble(a -> a.insuranceAmount).sum();
+    private TotalCost interest = (list)->list.stream().mapToDouble(a -> a.interestAmount).sum();
+    private TotalCost owing = (list)->list.stream().mapToDouble(a -> a.monthlyAmount).sum();
+
+    @FunctionalInterface
+    interface TotalCost{
+        double calculTotal(List<WriteDown> writeDowns);
+    }
+
+    private double applyCalcul(List<WriteDown> list, TotalCost tc){
+        return tc.calculTotal(list);
     }
 
     @JsonProperty
-    double interestTotalCost() {
-        return writeDowns.stream().mapToDouble(a -> a.interestAmount).sum();
+    double insuranceTotalCost(){
+        return insurance.calculTotal(writeDowns);
     }
 
-    @SuppressWarnings("unused")
     @JsonProperty
-    double owingTotalCost() {
-        return writeDowns.stream().mapToDouble(a -> a.monthlyAmount).sum();
+    double interestTotalCost(){
+        return interest.calculTotal(writeDowns);
     }
 
-    @SuppressWarnings("unused")
+    @JsonProperty
+    double owingTotalCost(){
+        return owing.calculTotal(writeDowns);
+    } 
+
     @JsonProperty
     double creditTotalCost() { return interestTotalCost() + insuranceTotalCost(); }
 
-    @SuppressWarnings("unused")
     @JsonProperty(value = "interetSeries")
-    double[] interetSeries() {
-        final double[] interetSeries = new double[months];
-        double cumul = 0;
-        int  cpt = 0;
-
-        for(WriteDown writeDown : writeDowns){
-            cumul = Double.sum(cumul, writeDown.interestAmount);
-            interetSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul);
-        }
-
-        return interetSeries;
+    double[] interetSeries(){
+        return  calculSeries(writeDowns.stream()
+                .mapToDouble(WriteDown::getInterestAmount)
+                .toArray());
     }
 
-    @SuppressWarnings("unused")
     @JsonProperty(value = "assuranceSeries")
-    double[] assuranceSeries() {
-        final double[] assuranceSeries = new double[months];
-        double cumul = 0;
-        int  cpt = 0;
-
-        for(WriteDown writeDown : writeDowns){
-            cumul = Double.sum(cumul, writeDown.insuranceAmount);
-            assuranceSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul);
-        }
-        return assuranceSeries;
+    double[] assuranceSeries(){
+        return calculSeries(writeDowns.stream()
+                .mapToDouble(WriteDown::getInsuranceAmount)
+                .toArray());
     }
 
-    @SuppressWarnings("unused")
     @JsonProperty(value = "creditSeries")
-    double[] creditSeries() {
-        final double[] creditSeries = new double[months];
-        double cumul = 0;
-        int  cpt = 0;
-
-        for(WriteDown writeDown : writeDowns){
-            cumul = Double.sum(cumul, writeDown.insuranceAmount + writeDown.interestAmount);
-            creditSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul) ;
-        }
-        return creditSeries;
+    double[] creditSeries(){
+        return calculSeries(writeDowns.stream()
+                .mapToDouble(d -> Double.sum(d.interestAmount, d.insuranceAmount))
+                .toArray());
     }
 
-    @SuppressWarnings("unused")
     @JsonProperty(value = "capitalRestantSeries")
-    double[] capitalRestantSeries() {
-        final double[] capitalRestantSeries = new double[months];
-        int  cpt = 0;
-
-        for(WriteDown writeDown : writeDowns){
-            capitalRestantSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(writeDown.owingAmount);
-        }
-        return capitalRestantSeries;
+    double[] capitalRestantSeries(){
+        return writeDowns.stream()
+                .mapToDouble(WriteDown::getOwingAmount)
+                .map(NumberFormatter::formatNumberToDoubleValue)
+                .toArray();
     }
 
-    @SuppressWarnings("unused")
     @JsonProperty(value = "totalRestantSeries")
-    Double[] totalRestantSeries() {
-        final Double[] totalRestantSeries = new Double[months];
+    double[] totalRestantSeries() {
+        return reverseArrayDouble(calculSeries(writeDowns.stream()
+                .mapToDouble(WriteDown::getMonthlyAmount)
+                .toArray()));
+    }
+
+    private double[] calculSeries(double[] series){
+        final double[] seriesResults = new double[months];
         double cumul = 0;
-        int  cpt = 0;
+        int cpt = 0;
 
+        for(double writeDown : series){
+            cumul = Double.sum(cumul, writeDown);
+            seriesResults[cpt++] = formatNumberToDoubleValue(cumul) ;
+        }
+        return seriesResults;
+    }
 
-        for(WriteDown writeDown : writeDowns){
-            cumul = Double.sum(cumul, writeDown.monthlyAmount);
-            totalRestantSeries[cpt++] = NumberFormatter.formatNumberToDoubleValue(cumul);
+    private double[] reverseArrayDouble(double[] numberArray){
+        for(int i = 0; i < numberArray.length / 2; i++)
+        {
+            double temp = numberArray[i];
+            numberArray[i] = numberArray[numberArray.length - i - 1];
+            numberArray[numberArray.length - i - 1] = temp;
         }
 
-        return reverseArray(totalRestantSeries);
+        return numberArray;
     }
 
 }

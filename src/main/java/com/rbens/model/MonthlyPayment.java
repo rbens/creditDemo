@@ -22,37 +22,37 @@ public abstract class MonthlyPayment {
     List<WriteDown> writeDowns;
 
     public MonthlyPayment() {
+        writeDowns = new ArrayList<>();
     }
 
     @JsonProperty(value = "coutPrincipal")
-    double calculCredit(){
+    double creditFormula(){
         final float v = (interestRate * 0.01f) / 12;
         return (capital * v) / (1 - Math.pow((1+ v),-months));
     }
 
     @JsonProperty(value = "coutAssurance")
-    double calculAssurance() {
+    double insuranceFormula() {
         final float v = (insuranceRate * 0.01f) / 12;
         return capital * v;
     }
 
     @JsonProperty
     double monthlyAmount(){
-        return calculCredit()+calculAssurance();
+        return creditFormula()+ insuranceFormula();
     }
 
     public List<WriteDown> getWriteDowns(){
-        writeDowns = new ArrayList<>();
         final float v = (interestRate * 0.01f) / 12;
-        final double assurance = calculAssurance();
+        final double assurance = insuranceFormula();
         double capitalRestant = capital;
         double interet;
         double principal;
         double mensualite;
         for (int currentMonth=1 ; currentMonth<= months; currentMonth++){
             interet = capitalRestant * v ;
-            principal =  calculCredit() - interet;
-            mensualite = calculCredit() + assurance;
+            principal =  creditFormula() - interet;
+            mensualite = creditFormula() + assurance;
             capitalRestant = capitalRestant - principal;
 
             //handle the last months
