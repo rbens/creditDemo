@@ -20,7 +20,7 @@ angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy
         templateUrl:'cg-template.html'
     }).run(['$rootScope', function($rootScope){
 
-        $rootScope.rootPath = '//localhost:8080/';
+        $rootScope.rootPath = '//localhost:8090/';
 
         $rootScope.model = {
             duree: undefined,
