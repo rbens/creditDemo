@@ -4,7 +4,7 @@ package com.rbens.model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 @JsonAutoDetect(fieldVisibility= JsonAutoDetect.Visibility.ANY)
-final class WriteDown implements Comparable {
+final class WriteDown{
 
     private final int currentMonth;
     final double interestAmount;
@@ -70,12 +70,5 @@ final class WriteDown implements Comparable {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
-
-    @Override
-    public int compareTo(Object o) {
-        WriteDown writeDown = (WriteDown) o;
-        return Double.compare(writeDown.monthlyAmount, monthlyAmount) ;
-    }
-
 
 }
