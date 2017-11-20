@@ -1,4 +1,4 @@
-angular.module('mainApp').controller('contentViewCtrl', function($scope, $window, $mdDialog) {
+angular.module('mainApp').controller('contentViewCtrl', function($scope, $window, $mdDialog, configService) {
     var initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
     function DiaController($scope,$mdDialog,$window) {
@@ -29,19 +29,22 @@ angular.module('mainApp').controller('contentViewCtrl', function($scope, $window
     };
 
     angular.element(document).ready(function (ev) {
-        if(!initDemo && screen.width > 660){
-            $mdDialog.show({
-                parent: angular.element(document.body),
-                controller: DiaController,
-                templateUrl : 'views/modalTuto.html',
-                targetEvent:ev,
-                clickOutsideToClose:false
-            }).then(function() {
-                $scope.status = 'cancel';
-            },function(){
-                $scope.status = 'close';
+        configService.get().$promise.then(
+            function(config){
+                if(!initDemo && screen.width > 660 && config.activeDemoVideo){
+                    $mdDialog.show({
+                        parent: angular.element(document.body),
+                        controller: DiaController,
+                        templateUrl : 'views/modalTuto.html',
+                        targetEvent:ev,
+                        clickOutsideToClose:false
+                    }).then(function() {
+                        $scope.status = 'cancel';
+                    },function(){
+                        $scope.status = 'close';
+                    });
+                }
             });
-        }
     });
 
 });
