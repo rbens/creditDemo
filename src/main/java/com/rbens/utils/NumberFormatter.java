@@ -13,7 +13,7 @@ import static java.lang.Double.valueOf;
  */
 public class NumberFormatter {
 
-    final static DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.US);
+    private final static DecimalFormatSymbols formatSymbols = new DecimalFormatSymbols(Locale.US);
 
     public static<T extends Number> double formatNumberToDoubleValue(T num){
         NumberFormat f = NumberFormat.getInstance();

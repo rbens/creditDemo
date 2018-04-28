@@ -25,17 +25,17 @@ public final class Results extends MonthlyPayment {
     }
 
     @JsonProperty
-    double insuranceTotalCost(){
+    private double insuranceTotalCost(){
         return insurance.calculTotal(writeDowns);
     }
 
     @JsonProperty
-    double interestTotalCost(){
+    private double interestTotalCost(){
         return interest.calculTotal(writeDowns);
     }
 
     @JsonProperty
-    double owingTotalCost(){
+    private double owingTotalCost(){
         return owing.calculTotal(writeDowns);
     } 
 
