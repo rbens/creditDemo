@@ -1,22 +1,28 @@
-angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy','ngResource', 'ngRoute','duScroll'])
-    .config(function ($locationProvider, $routeProvider, $scrollspyProvider) {
+import angular from "angular";
+import uiRouter from "@uirouter/angularjs";
+import highchartsNg from "highcharts-ng";
+import ngStrap from "angular-strap";
+import ngMaterial from "angular-material";
+import cgBusy from "angular-busy";
+import ngResource from "angular-resource";
+
+
+angular.module('mainApp', [ highchartsNg, ngStrap, ngMaterial, cgBusy, ngResource, uiRouter])
+    .config(['$locationProvider','$stateProvider', function ($locationProvider, $stateProvider) {
         // use the HTML5 History API
         $locationProvider.html5Mode({
             enabled: true,
             requireBase: false
         }).hashPrefix('!');
 
-        $routeProvider.when('/',{
+        $stateProvider.state({
+            name:'root',
+            url:'/',
             controller:'contentViewCtrl',
-            templateUrl : 'views/contentView.html'
+            templateUrl : './views/contentView.html'
         });
 
-        angular.extend($scrollspyProvider.defaults, {
-            animation: 'view-animate',
-            placement: 'top'
-        });
-
-    }).value('cgBusyDefaults',{
+    }]).value('cgBusyDefaults',{
         templateUrl:'cg-template.html'
     }).run(['$rootScope', function($rootScope){
 
