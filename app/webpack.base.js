@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -15,7 +16,14 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: './index.html'
-        })
+        }),
+        new CopyWebpackPlugin([
+            {
+                from: './config/config.json',
+                to: 'config',
+                toType: 'dir'
+            }
+        ],{})
     ],
     module: {
         rules: [
@@ -27,15 +35,41 @@ module.exports = {
                 ]
             },
             {
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader' // creates style nodes from JS strings
+                }, {
+                    loader: 'css-loader' // translates CSS into CommonJS
+                }, {
+                    loader: 'less-loader' // compiles Less to CSS
+                }]
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
+            },
+            {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader'
+                    'file-loader',
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            bypassOnDebug: true,
+                        }
+                    }
                 ]
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
                     'file-loader'
+                ]
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    'html-loader'
                 ]
             },
             {

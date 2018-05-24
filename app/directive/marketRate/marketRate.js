@@ -1,7 +1,7 @@
-angular.module('mainApp').directive('marketRate', function (creditService, $mdDialog, $interval, $mdColors) {
+export function marketRate(creditService, $mdDialog, $interval, $mdColors) {
     return {
         restrict : 'E',
-        templateUrl : 'directive/marketRate/marketRate.html',
+        template : require('./marketRate.html'),
         link : function(scope, element, attrs, fn){
 
         },
@@ -44,7 +44,7 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
             $scope.modalRate =  function(ev) {
                 $mdDialog.show({
                     parent: angular.element(document.body),
-                    templateUrl : 'directive/marketRate/infoMarketRate.html',
+                    template : require('./infoMarketRate.html'),
                     targetEvent:ev,
                     clickOutsideToClose:true
                 }).then(function() {
@@ -55,5 +55,5 @@ angular.module('mainApp').directive('marketRate', function (creditService, $mdDi
             };
         }
     };
-});
+}
 

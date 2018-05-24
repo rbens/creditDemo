@@ -1,7 +1,7 @@
-angular.module('mainApp').directive('creditResult',function($mdDialog){
+export function creditResult($mdDialog){
     return {
         restrict: 'E',
-        templateUrl: 'directive/creditResult/creditResult.html',
+        template: require('./creditResult.html'),
         link: function(scope, element, attrs, fn) {
         },
         controller: function($scope) {
@@ -10,7 +10,7 @@ angular.module('mainApp').directive('creditResult',function($mdDialog){
                 $mdDialog.show({
                     title:'Informations sur les résultats',
                     parent: angular.element(document.body),
-                    templateUrl : 'directive/creditResult/infoCreditResult.html',
+                    template : require('./infoCreditResult.html'),
                     targetEvent:ev,
                     clickOutsideToClose:true
                 }).then(function() {
@@ -22,4 +22,4 @@ angular.module('mainApp').directive('creditResult',function($mdDialog){
 
         }
     };
-});
+}

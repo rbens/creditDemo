@@ -1,7 +1,7 @@
-angular.module('mainApp').directive('chartResult', function (configService, $window) {
+export function chartResult(configService, $window) {
     return {
         restrict : 'E',
-        templateUrl : 'directive/chartResult/chartResult.html',
+        template : require('./chartResult.html'),
         link : function(scope, element, attrs, fn){
 
         },
@@ -20,7 +20,7 @@ angular.module('mainApp').directive('chartResult', function (configService, $win
                     $scope.pie = config.pie;
                 });
 
-            var options = [
+            let options = [
                 {"id": "chart1", "config": "pie" , "title": "Répartition du remboursement"},
                 {"id": "chart2", "config": "line", "title": "Évolution du remboursement"},
                 {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
@@ -41,5 +41,5 @@ angular.module('mainApp').directive('chartResult', function (configService, $win
 
         }
     };
-});
+}
 

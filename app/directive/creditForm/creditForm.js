@@ -1,7 +1,7 @@
-angular.module('mainApp').directive('creditForm', function () {
+export function creditForm() {
     return {
         restrict : 'E',
-        templateUrl : 'directive/creditForm/creditForm.html',
+        template : require('./creditForm.html'),
         link : function(scope,element,attrs,fn){
 
         },
@@ -122,7 +122,7 @@ angular.module('mainApp').directive('creditForm', function () {
             $scope.modalForm =  function(ev) {
                 $mdDialog.show({
                   parent: angular.element(document.body),
-                  templateUrl : 'directive/creditForm/infoCreditForm.html',
+                  template : require('./infoCreditForm.html'),
                   targetEvent:ev,
                   clickOutsideToClose:true
                 }).then(function() {
@@ -149,5 +149,5 @@ angular.module('mainApp').directive('creditForm', function () {
         }
     };
 
-});
+}
 

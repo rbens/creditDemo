@@ -1,4 +1,7 @@
-angular.module('mainApp').factory('configService', function ($resource) {
-        return $resource('/config/config.json');
-    }
-);
+'use strict';
+
+export function configService($resource) {
+    "ngInject";
+    return $resource('../config/config.json');
+}
+
