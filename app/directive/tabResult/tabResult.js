@@ -1,7 +1,7 @@
-angular.module('mainApp').directive('tabResult', function ($filter) {
+export function tabResult($filter) {
     return {
         restrict : 'E',
-        templateUrl : 'directive/tabResult/tabResult.html',
+        template : require('./tabResult.html'),
         link:function(scope,element,attrs,fn){
 
             scope.$watch('model.amortissements',function(){
@@ -19,4 +19,4 @@ angular.module('mainApp').directive('tabResult', function ($filter) {
             },true);
         }
     };
-});
+}

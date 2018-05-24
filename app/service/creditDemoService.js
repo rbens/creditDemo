@@ -1,4 +1,4 @@
-angular.module('mainApp').factory('creditService', function ($http, $rootScope) {
+export function creditService($http, $rootScope) {
     return  {
         getAmortissement: function (credit) {
             return $http.post($rootScope.rootPath + "amortissements", credit);
@@ -7,4 +7,4 @@ angular.module('mainApp').factory('creditService', function ($http, $rootScope) 
             return $http.get($rootScope.rootPath + "rates");
         }
     };
-});
+}

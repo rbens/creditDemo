@@ -1,5 +1,8 @@
-angular.module('mainApp').controller('contentViewCtrl', function($scope, $window, $mdDialog, configService) {
-    var initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
+import "angular";
+
+export function contentViewCtrl($scope, $window, $mdDialog, configService) {
+    "ngInject";
+    let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
     function DiaController($scope,$mdDialog,$window) {
         $scope.hideVideo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
@@ -14,11 +17,11 @@ angular.module('mainApp').controller('contentViewCtrl', function($scope, $window
         });
     }
 
-    $scope.openVideo =  function(ev){
+    this.openVideo =  function(ev){
         $mdDialog.show({
             parent: angular.element(document.body),
             controller: DiaController,
-            templateUrl : 'views/modalTuto.html',
+            template : require('./modalTuto.html'),
             targetEvent:ev,
             clickOutsideToClose:false
         }).then(function(answer) {
@@ -35,7 +38,7 @@ angular.module('mainApp').controller('contentViewCtrl', function($scope, $window
                     $mdDialog.show({
                         parent: angular.element(document.body),
                         controller: DiaController,
-                        templateUrl : 'views/modalTuto.html',
+                        template : require('./modalTuto.html'),
                         targetEvent:ev,
                         clickOutsideToClose:false
                     }).then(function() {
@@ -47,6 +50,6 @@ angular.module('mainApp').controller('contentViewCtrl', function($scope, $window
             });
     });
 
-});
+}
 
 

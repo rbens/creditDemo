@@ -100,20 +100,20 @@
                 <version>1.3.2</version>
                 <executions>
                     <execution>
-                        <id>npm install (initialize)</id>
+                        <id>yarn install (initialize)</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <phase>initialize</phase>
                         <configuration>
-                            <executable>npm</executable>
+                            <executable>yarn</executable>
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>install</argument>
                             </arguments>
                         </configuration>
                     </execution>
-                    <execution>
+                   <!-- <execution>
                         <id>bower install</id>
                         <goals>
                             <goal>exec</goal>
@@ -126,19 +126,19 @@
                                 <argument>install</argument>
                             </arguments>
                         </configuration>
-                    </execution>
+                    </execution>-->
                     <execution>
-                        <id>grunt build</id>
+                        <id>yarn build</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <phase>initialize</phase>
                         <configuration>
-                            <executable>grunt</executable>
+                            <executable>yarn</executable>
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>build</argument>
-                                <argument>--target=${env}</argument>
+                                <!--<argument>&#45;&#45;target=${env}</argument>-->
                             </arguments>
                         </configuration>
                     </execution>

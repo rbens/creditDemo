@@ -109,7 +109,6 @@
 	content:' ';
 	vertical-align:middle;
 	display: inline-block;
-	background-image: url("svg-sprite.svg");
-	background-repeat: no-repeat;
+	background: require('./sprite.svg') no-repeat;
 	background-size: 30.6em 2.4em;
 }
