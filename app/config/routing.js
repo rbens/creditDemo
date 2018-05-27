@@ -1,26 +1,17 @@
 
 
-export default class Routing{
+export default function routing($locationProvider, $stateProvider) {
+    // use the HTML5 History API
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    }).hashPrefix('!');
 
-
-    constructor($stateProvider, $locationProvider){
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        }).hashPrefix('!');
-
-        this.$stateProvider = $stateProvider;
-
-    }
-
-
-    state( name, url, controller, template){
-        this.$stateProvider.state({
-            name: name,
-            url: url,
-            controller: controller,
-            template : require(template)
-        });
-    }
+    $stateProvider.state({
+        name:'root',
+        url:'/',
+        controller:'contentViewCtrl',
+        template : require('../views/contentView.html')
+    });
 
 }

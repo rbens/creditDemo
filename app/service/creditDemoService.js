@@ -1,4 +1,4 @@
-export function creditService($http, $rootScope) {
+export default function creditService($http, $rootScope) {
     return  {
         getAmortissement: function (credit) {
             return $http.post($rootScope.rootPath + "amortissements", credit);

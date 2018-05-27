@@ -8,10 +8,12 @@
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^4.2.0",
     "json-loader": "^0.5.7",
+    "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "ng-annotate-loader": "^0.6.1",
     "style-loader": "^0.21.0",
@@ -25,8 +27,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js"
   },
   "author": "rbens",
@@ -46,7 +49,6 @@
     "bootstrap-material-design": "^4.1.1",
     "hammerjs": "^2.0.8",
     "highcharts": "^6.1.0",
-    "highcharts-ng": "^1.2.0",
-    "jquery": "^3.3.1"
+    "highcharts-ng": "^1.2.1"
   }
 }

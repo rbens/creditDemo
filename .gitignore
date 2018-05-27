@@ -6,3 +6,4 @@ app/dist
 target/
 app/public/styles/css/credit.css
 *.iml
+.DS_Store

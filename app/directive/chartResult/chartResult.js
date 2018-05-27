@@ -1,4 +1,4 @@
-export function chartResult(configService, $window) {
+export default function chartResult(configService, $window, $document) {
     return {
         restrict : 'E',
         template : require('./chartResult.html'),
@@ -29,7 +29,7 @@ export function chartResult(configService, $window) {
             //$scope.panelWidth = angular.element('.panel-body').css('width');
 
             angular.element($window).bind('resize', function(){
-                $scope.panelWidth = angular.element('.panel-body').css('width');
+                $scope.panelWidth = $document.find('.panel-body').css('width');
                 $scope.$digest();
             });
 

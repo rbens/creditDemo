@@ -1,4 +1,4 @@
-export function tabResult($filter) {
+export default function tabResult($filter, $document) {
     return {
         restrict : 'E',
         template : require('./tabResult.html'),
@@ -6,9 +6,9 @@ export function tabResult($filter) {
 
             scope.$watch('model.amortissements',function(){
                 if(scope.model.amortissements){
-                    $('.tabLine').remove();
+                    $document.find('tbody').find('tr').remove();
                     angular.forEach(scope.model.amortissements,function(val,key){
-                        $('tbody').append(
+                        $document.find('tbody').append(
                             '<tr class="tabLine"><td>'+val.currentMonth +' </td>'+
                             '<td>'+$filter('number')(val.interestAmount,2)   +' € </td>'+
                             '<td>'+$filter('number')(val.principalAmount,2)  +' € </td>'+
