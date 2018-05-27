@@ -1,4 +1,4 @@
-export function marketRate(creditService, $mdDialog, $interval, $mdColors) {
+export default function marketRate(creditService, $mdDialog, $interval, $mdColors) {
     return {
         restrict : 'E',
         template : require('./marketRate.html'),

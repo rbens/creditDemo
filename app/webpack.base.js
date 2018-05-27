@@ -6,10 +6,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         app: './app.js',
-        vendors: './vendors.js'
+        vendor: './vendor.js'
     },
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
@@ -51,13 +51,7 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            bypassOnDebug: true,
-                        }
-                    }
+                    { loader: 'file-loader' }
                 ]
             },
             {

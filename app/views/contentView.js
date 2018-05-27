@@ -1,7 +1,6 @@
 import "angular";
 
-export function contentViewCtrl($scope, $window, $mdDialog, configService) {
-    "ngInject";
+export default function contentViewCtrl($scope, $window, $mdDialog, configService, $document) {
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
     function DiaController($scope,$mdDialog,$window) {
@@ -17,9 +16,9 @@ export function contentViewCtrl($scope, $window, $mdDialog, configService) {
         });
     }
 
-    this.openVideo =  function(ev){
+    $scope.openVideo =  function(ev){
         $mdDialog.show({
-            parent: angular.element(document.body),
+            parent: $document.body,
             controller: DiaController,
             template : require('./modalTuto.html'),
             targetEvent:ev,
@@ -31,12 +30,12 @@ export function contentViewCtrl($scope, $window, $mdDialog, configService) {
         });
     };
 
-    angular.element(document).ready(function (ev) {
+    $document.ready(function (ev) {
         configService.get().$promise.then(
             function(config){
                 if(!initDemo && screen.width > 660 && config.activeDemoVideo){
                     $mdDialog.show({
-                        parent: angular.element(document.body),
+                        parent: $document.body,
                         controller: DiaController,
                         template : require('./modalTuto.html'),
                         targetEvent:ev,

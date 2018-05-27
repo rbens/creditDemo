@@ -1,4 +1,4 @@
-export function creditForm() {
+export default function creditForm() {
     return {
         restrict : 'E',
         template : require('./creditForm.html'),

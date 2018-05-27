@@ -1,4 +1,4 @@
-export function creditResult($mdDialog){
+export default function creditResult($mdDialog){
     return {
         restrict: 'E',
         template: require('./creditResult.html'),
