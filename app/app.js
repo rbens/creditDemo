@@ -6,8 +6,8 @@ import "./public/styles/less/credit.less";
 
 import contentViewCtrl from "./views/contentView";
 import configService from "./service/configService";
-import chartResult from "./directive/chartResult/chartResult";
-import creditForm from "./directive/creditForm/creditForm";
+import chartResultComponent from "./components/chartResult/chartResult.component";
+import creditForm from "./components/creditForm/creditForm.component";
 import creditResult from "./directive/creditResult/creditResult";
 import tabResult from "./directive/tabResult/tabResult";
 import marketRate from "./directive/marketRate/marketRate";
@@ -19,7 +19,7 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
     .factory('configService', configService)
     .factory('creditService', creditService)
     .controller('contentViewCtrl',contentViewCtrl)
-    .directive('chartResult',chartResult)
+    .directive('chartResultComponent',chartResultComponent)
     .directive('creditForm',creditForm)
     .directive('creditResult',creditResult)
     .directive('tabResult',tabResult)
@@ -28,8 +28,6 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
     .value('cgBusyDefaults',{
         template: require('./cg-template.html')
     }).run(function($rootScope){
-
-        $rootScope.rootPath = '//localhost:8090/';
 
         $rootScope.model = {
             duree: undefined,

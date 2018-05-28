@@ -1,10 +1,10 @@
-export default function creditService($http, $rootScope) {
+export default function creditService($http) {
     return  {
         getAmortissement: function (credit) {
-            return $http.post($rootScope.rootPath + "amortissements", credit);
+            return $http.post("amortissements", credit);
         },
         getTauxMarche : function(){
-            return $http.get($rootScope.rootPath + "rates");
+            return $http.get("rates");
         }
     };
 }

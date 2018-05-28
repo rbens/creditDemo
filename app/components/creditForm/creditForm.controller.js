@@ -1,0 +1,142 @@
+export default function creditFormController($scope, $filter, $q, $timeout, creditService, $mdDialog, $document) {
+    let time,
+        formatNumber = function(data) {
+            return $filter('number')(data, 2);
+        },
+        isDefined = function(value) {
+            return value && value !== null && value !== 0;
+        },
+        isComplete = function() {
+            return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
+        },
+        goTo = function() {
+            var someElement = angular.element(document.getElementById('results'));
+            $document.scrollToElement(someElement, -450, 1000);
+        },
+        addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
+            $scope.line.series = [];
+            $scope.line.series.push({
+                "name": 'Intérets',
+                "data": interetSeries
+            }, {
+                "name": 'Assurance',
+                "data": assuranceSeries
+            }, {
+                "name": 'Crédit',
+                "data": creditSeries
+            });
+
+            $scope.area.series = [];
+            $scope.area.series.push({
+                "name": 'Capital restant',
+                "data": capitalRestantSeries
+            },{
+                "name": 'Total restant',
+                "data": interetRestantSeries
+            });
+
+            $scope.line.xAxis.tickInterval = creditSeries.length < 60 ? 1 : 12;
+            $scope.area.xAxis.tickInterval =  creditSeries.length < 60 ? 1 : 12;
+        }, addSeriesToPieChart = function(interetSeries, assuranceSeries, creditSeries) {
+            $scope.pie.series = [];
+            $scope.pie.series.push({
+                type: 'pie',
+                name: 'somme en euros',
+                data: [
+                    ['Cout total interets ', interetSeries],
+                    ['Cout total assurances', assuranceSeries],
+                    ['Capital emprunté', creditSeries]
+                ]
+
+            });
+        };
+
+    $scope.model.capital = undefined;
+    $scope.model.annee = undefined;
+    $scope.model.tauxNominal = undefined;
+    $scope.model.tauxAssurance = undefined;
+
+
+
+    $scope.calcul = function () {
+        $timeout.cancel( time );
+
+        time = $timeout(function(){
+            if (isComplete()) {
+                var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
+                if(screen.width < 660){
+                    goTo();
+                }
+                $scope.promiseForm = $q.all([
+                    creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
+                        .then(function (response) {
+                            var data = response.data;
+                            //noinspection JSUnresolvedVariable
+                            if (data.coutPrincipal) {
+                                $scope.model.amortissements     = data.writeDowns;
+                                $scope.model.assurance          = formatNumber(data.coutAssurance).concat(' €');
+                                $scope.model.mensualite         = formatNumber(data.monthlyAmount).concat(' €');
+                                $scope.model.interetTotal       = formatNumber(data.interestTotalCost).concat(' €');
+                                $scope.model.assuranceTotal     = formatNumber(data.insuranceTotalCost).concat(' €');
+                                $scope.model.creditTotal        = formatNumber(data.creditTotalCost).concat(' €');
+                                $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
+
+                                var last = (data.writeDowns.length - 1);
+                                addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
+                                addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
+                            }
+                        })
+                ]);
+            } else {
+                $scope.model.amortissements = [];
+                $scope.model.mensualite = formatNumber(0).concat(' €');
+                $scope.model.interetTotal = formatNumber(0).concat(' €');
+                $scope.model.assuranceTotal = formatNumber(0).concat(' €');
+                $scope.model.creditTotal = formatNumber(0).concat(' €');
+                $scope.model.assurance = formatNumber(0).concat(' €');
+                $scope.model.remboursementTotal = formatNumber(0).concat(' €');
+            }
+        },2000);
+    };
+
+    $scope.teg = function(){
+        $scope.model.tauxNominal = Number(formatNumber($scope.model.tauxNominal));
+        if($scope.model.tauxAssurance){
+            $scope.model.tauxAssurance = Number(formatNumber($scope.model.tauxAssurance));
+            $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
+        }else{
+            $scope.model.tauxGlobal =  $scope.model.tauxNominal;
+        }
+
+    };
+
+
+
+    $scope.modalForm =  function(ev) {
+        $mdDialog.show({
+            parent: angular.element(document.body),
+            template : require('./infoCreditForm.html'),
+            targetEvent:ev,
+            clickOutsideToClose:true
+        }).then(function() {
+            $scope.status = 'cancel';
+        },function(){
+            $scope.status = 'close';
+        });
+    };
+
+    $scope.reset = function(){
+        $scope.model.capital = undefined;
+        $scope.model.annee = undefined;
+        $scope.model.tauxNominal = undefined;
+        $scope.model.tauxAssurance = undefined;
+        $scope.model.tauxGlobal = 0;
+        $scope.model.amortissements = [];
+        $scope.model.mensualite = formatNumber(0).concat(' €');
+        $scope.model.interetTotal = formatNumber(0).concat(' €');
+        $scope.model.assuranceTotal = formatNumber(0).concat(' €');
+        $scope.model.creditTotal = formatNumber(0).concat(' €');
+        $scope.model.assurance = formatNumber(0).concat(' €');
+        $scope.model.remboursementTotal = formatNumber(0).concat(' €');
+    };
+}
