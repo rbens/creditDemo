@@ -113,20 +113,6 @@
                             </arguments>
                         </configuration>
                     </execution>
-                   <!-- <execution>
-                        <id>bower install</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>initialize</phase>
-                        <configuration>
-                            <executable>bower</executable>
-                            <workingDirectory>app</workingDirectory>
-                            <arguments>
-                                <argument>install</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>-->
                     <execution>
                         <id>yarn build</id>
                         <goals>
@@ -138,7 +124,6 @@
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>build</argument>
-                                <!--<argument>&#45;&#45;target=${env}</argument>-->
                             </arguments>
                         </configuration>
                     </execution>
@@ -179,12 +164,6 @@
                         </fileset>
                         <fileset>
                             <directory>app/.tmp</directory>
-                        </fileset>
-                        <fileset>
-                            <directory>app/coverage</directory>
-                        </fileset>
-                        <fileset>
-                            <directory>app/libs</directory>
                         </fileset>
                         <fileset>
                             <directory>app/node_modules</directory>
