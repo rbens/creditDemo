@@ -36,5 +36,8 @@
   "keywords": [
     "credit",
     "simulation"
-  ]
+  ],
+  "resolutions": {
+    "angular": "1.6.10"
+  }
 }
