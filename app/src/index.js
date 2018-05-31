@@ -5,7 +5,7 @@ import angular from 'angular';
 
 //css
 import '../public/styles/css/animations.css';
-import '../public/styles/css/bootstrap.css';
+import '../public/styles/css/bootstrap-custom.css';
 import '../public/styles/css/credit.css';
 import '../public/styles/css/style.css';
 import '../public/flaticon/flaticon.css';

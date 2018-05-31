@@ -1,10 +1,15 @@
-@import "bootstrap.css";
-@import "style.css";
+
+@import "credit.css";
 @import "animations.css";
 @import "../../flaticon/flaticon.css";
 @import "../../svg/sprites.css";
-@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "../../../node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css";
-@import "../../../node_modules/angular-material/angular-material.min.css";
-@import "../../../node_modules/angular-busy/angular-busy.css";
+@import "bootstrap-custom.css";
+@import "bootstrap-theme.css";
+@import "bootstrap.css";
+
+@import "ripples.css";
+@import "material-wfont.css";
+@import "angular-material.min.css";
+@import "angular-busy.css";
 @import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
+@import "style.css";
