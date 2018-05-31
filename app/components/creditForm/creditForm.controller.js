@@ -10,7 +10,7 @@ export default function creditFormController($scope, $filter, $q, $timeout, cred
             return isDefined($scope.model.annee) && isDefined($scope.model.capital) && isDefined($scope.model.tauxNominal);
         },
         goTo = function() {
-            var someElement = angular.element(document.getElementById('results'));
+            let someElement = angular.element(document.getElementById('results'));
             $document.scrollToElement(someElement, -450, 1000);
         },
         addSeries = function(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries) {
@@ -63,14 +63,14 @@ export default function creditFormController($scope, $filter, $q, $timeout, cred
 
         time = $timeout(function(){
             if (isComplete()) {
-                var tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
+                let tauxNominal = $scope.model.tauxNominal !== 0 ? $scope.model.tauxNominal : $scope.model.tauxGlobal;
                 if(screen.width < 660){
                     goTo();
                 }
                 $scope.promiseForm = $q.all([
                     creditService.getAmortissement({months: $scope.model.annee * 12 + "", capital: $scope.model.capital, interestRate: tauxNominal, insuranceRate: $scope.model.tauxAssurance})
                         .then(function (response) {
-                            var data = response.data;
+                            let data = response.data;
                             //noinspection JSUnresolvedVariable
                             if (data.coutPrincipal) {
                                 $scope.model.amortissements     = data.writeDowns;
@@ -81,7 +81,7 @@ export default function creditFormController($scope, $filter, $q, $timeout, cred
                                 $scope.model.creditTotal        = formatNumber(data.creditTotalCost).concat(' €');
                                 $scope.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
 
-                                var last = (data.writeDowns.length - 1);
+                                let last = (data.writeDowns.length - 1);
                                 addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries,data.capitalRestantSeries, data.totalRestantSeries);
                                 addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
                             }

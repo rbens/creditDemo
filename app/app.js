@@ -1,8 +1,6 @@
 'use strict';
 
 import "./public/styles/css/main.css";
-import "./public/styles/less/credit.less";
-
 
 import contentViewCtrl from "./views/contentView";
 import configService from "./service/configService";

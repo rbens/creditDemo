@@ -1,4 +1,4 @@
-import * as $ from "jquery";
+import $ from 'jquery';
 
 export default function chartResultController(configService, $window, $document, $scope) {
     configService.get().$promise.then(
@@ -21,10 +21,10 @@ export default function chartResultController(configService, $window, $document,
         {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
     ];
 
-    // $scope.panelWidth = $document.find('.panel-body').css('width');
+    //$scope.panelWidth = angular.element('.panel-body').css('width');
 
-    angular.element($window).bind('resize', function () {
-        $scope.panelWidth = $('.panel-body').replaceWith();
+    angular.element($window).bind('resize', function(){
+        $scope.panelWidth = $('.panel-body').css('width');
         $scope.$digest();
     });
 
