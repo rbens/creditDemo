@@ -1,4 +1,5 @@
 export default function creditFormController($scope, $filter, $q, $timeout, creditService, $mdDialog, $document) {
+    'ngInject';
     let time,
         formatNumber = function(data) {
             return $filter('number')(data, 2);

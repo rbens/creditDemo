@@ -1,11 +1,12 @@
 export default function creditResult($mdDialog){
+    'ngInject';
     return {
         restrict: 'E',
         template: require('./creditResult.html'),
         link: function(scope, element, attrs, fn) {
         },
         controller: function($scope) {
-
+            'ngInject';
             $scope.modalResult =  function(ev) {
                 $mdDialog.show({
                     title:'Informations sur les résultats',
