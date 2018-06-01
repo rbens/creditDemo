@@ -1,9 +1,9 @@
 export default function tabResult($filter, $document) {
+    'ngInject';
     return {
         restrict : 'E',
         template : require('./tabResult.html'),
         link:function(scope,element,attrs,fn){
-
             scope.$watch('model.amortissements',function(){
                 if(scope.model.amortissements){
                     $document.find('tbody').find('tr').remove();

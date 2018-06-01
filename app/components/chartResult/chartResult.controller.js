@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 export default function chartResultController(configService, $window, $document, $scope) {
+    'ngInject';
     configService.get().$promise.then(
         function (config) {
             config.line.xAxis.labels.formatter = function () {

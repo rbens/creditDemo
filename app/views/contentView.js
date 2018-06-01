@@ -1,6 +1,5 @@
-import "angular";
-
 export default function contentViewCtrl($scope, $window, $mdDialog, configService, $document) {
+    'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
     function DiaController($scope,$mdDialog,$window) {

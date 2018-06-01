@@ -5,12 +5,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './app.js',
-        vendor: './vendor.js'
+        vendor: './vendor.js',
+        app: './app.js'
     },
     output: {
         filename: '[name].[hash].bundle.js',
         path: path.resolve(__dirname, 'dist')
+    },
+    optimization:{
+      splitChunks:{
+          chunks : 'all'
+      }
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
@@ -69,12 +74,14 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
+                use: [
+                    {loader: 'ng-annotate-loader'},
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['@babel/preset-env']
+                        }
+                    }]
             }
         ]
     }

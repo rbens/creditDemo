@@ -1,4 +1,5 @@
 export default function marketRate(creditService, $mdDialog, $interval, $mdColors) {
+    'ngInject';
     return {
         restrict : 'E',
         template : require('./marketRate.html'),
@@ -6,6 +7,7 @@ export default function marketRate(creditService, $mdDialog, $interval, $mdColor
 
         },
         controller: function($scope) {
+            'ngInject';
             var intervalPromise = $interval(function () {
                 $scope.currentId++;
                 $scope.currentId = $scope.rates.length < $scope.currentId ? 0 : $scope.currentId;
