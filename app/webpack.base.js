@@ -27,6 +27,11 @@ module.exports = {
                 from: './config/config.json',
                 to: 'config',
                 toType: 'dir'
+            },
+            {
+                from: './public/img/*.png',
+                to: '',
+                toType: 'dir'
             }
         ],{})
     ],

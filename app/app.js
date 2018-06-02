@@ -34,5 +34,16 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
             tauxAssurance: 0.0,
             tauxGlobal: 0.0
         };
-
     });
+
+angular.module('cgBusy').run(['$templateCache', function($templateCache) {
+    'use strict';
+
+    $templateCache.put('angular-busy.html',
+        "<div layout=\"row\" layout-sm=\"column\" layout-align=\"space-around\">\n" +
+        "<md-progress-circular md-mode=\"indeterminate\"></md-progress-circular>" +
+        "</div>"
+    );
+
+}]);
+
