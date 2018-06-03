@@ -6,9 +6,9 @@ import contentViewCtrl from "./views/contentView";
 import configService from "./service/configService";
 import chartResultComponent from "./components/chartResult/chartResult.component";
 import creditForm from "./components/creditForm/creditForm.component";
-import creditResult from "./directive/creditResult/creditResult";
-import tabResult from "./directive/tabResult/tabResult";
-import marketRate from "./directive/marketRate/marketRate";
+import creditResult from "./components/creditResult/creditResult.component";
+import tabResult from "./components/tabResult/tabResult.component";
+import marketRate from "./components/marketRate/marketRate.component";
 import creditService from "./service/creditDemoService";
 import routing from "./config/routing";
 
