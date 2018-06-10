@@ -5,7 +5,7 @@ import "./public/styles/css/main.css";
 import contentViewCtrl from "./views/contentView";
 import configService from "./service/configService";
 import chartResultComponent from "./components/chartResult/chartResult.component";
-import {creditForm} from "./components/creditForm/creditForm.component";
+import creditForm from "./components/creditForm/creditForm.component";
 import creditResult from "./components/creditResult/creditResult.component";
 import tabResult from "./components/tabResult/tabResult.component";
 import {marketRate} from "./components/marketRate/marketRate.component";
@@ -20,7 +20,7 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
     .directive('chartResultComponent',chartResultComponent)
     .directive('creditResult',creditResult)
     .directive('tabResult',tabResult)
-    .component('creditForm',creditForm)
+    .directive('creditForm',creditForm)
     .component('marketRate',marketRate)
     .config(routing)
     .run(function($rootScope){

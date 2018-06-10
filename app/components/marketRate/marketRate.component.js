@@ -1,9 +1,8 @@
 import marketRateController from './marketRate.controller';
 
-export default function marketRate() {
-    return {
-        restrict : 'E',
+export const marketRate = {
         template : require('./marketRate.html'),
-        controller:   marketRateController  };
-}
+        controller:   marketRateController ,
+        controllerAs : 'market'
+};
 
