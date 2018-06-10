@@ -26,6 +26,32 @@ Modules - reusable parts of our design
   clear: both;
 }
 
+
+
+.fixed_header{
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.fixed_header tbody{
+  display:block;
+  width: 100%;
+  overflow: auto;
+  height: 339px;
+}
+
+.fixed_header thead tr {
+  display: block;
+}
+
+
+.fixed_header th, .fixed_header td {
+  padding: 5px;
+  text-align: left;
+  width: 160px;
+}
+
 /* -------------------------------- 
 
 Main components 
