@@ -1,50 +1,50 @@
-export default function marketRateController($scope,creditService, $mdDialog, $interval, $mdColors) {
+export default function marketRateController($scope, creditService, $mdDialog, $interval, $mdColors) {
     'ngInject';
-    var intervalPromise = $interval(function () {
-            $scope.currentId++;
-            $scope.currentId = $scope.rates.length < $scope.currentId ? 0 : $scope.currentId;
+    let intervalPromise = $interval(() => {
+            this.currentId++;
+            this.currentId = this.rates.length < this.currentId ? 0 : this.currentId;
         }, 1000),
-        colorsTab = ['Pink-A400','Purple-A400','DeepPurple-A400','Indigo-A400','Blue-A400','LightBlue-A400'];
-    $scope.colorAccent = $mdColors.getThemeColor(colorsTab[5]);
-    $scope.rates = [];
-    $scope.currentId = 0;
-    $scope.isCancel = false;
+        colorsTab = ['Pink-A400', 'Purple-A400', 'DeepPurple-A400', 'Indigo-A400', 'Blue-A400', 'LightBlue-A400'];
+    this.colorAccent = $mdColors.getThemeColor(colorsTab[5]);
+    this.rates = [];
+    this.currentId = 0;
+    this.isCancel = false;
+    this.model = {};
 
 
     creditService.getTauxMarche().then(
-        function success(response){
-            if(response){
-                var id = 1;
-                angular.forEach(response.data, function(val,key){
-                    $scope.rates.push({
-                        id : id++,
-                        rate  : val,
-                        years : key === 0 ? 7 : 10+((key-1) *5)
-                    });
-                });
+        (response) => {
+            if (response) {
+                let id = 1;
+                angular.forEach(response.data, (val, key) => this.rates.push({
+                        id: id++,
+                        rate: val,
+                        years: key === 0 ? 7 : 10 + ((key - 1) * 5)
+                    })
+                );
             }
         });
 
-    $scope.updateRate = function(result){
-        $scope.model.tauxNominal = Number(result.rate.replace('%','').replace(',','.'));
-        $scope.model.tauxGlobal =  $scope.model.tauxNominal + $scope.model.tauxAssurance;
-        $scope.model.annee = result.years;
-        $scope.calcul();
-        $scope.teg();
+    this.updateRate = (result) => {
+        this.model.tauxNominal = Number(result.rate.replace('%', '').replace(',', '.'));
+        this.model.tauxGlobal = this.model.tauxNominal + this.model.tauxAssurance;
+        this.model.annee = result.years;
+        creditService.setDataModel(this.model);
+        creditService.calcul();
+        creditService.teg();
         $interval.cancel(intervalPromise);
-        $scope.isCancel = true;
+        this.isCancel = true;
     };
 
-    $scope.modalRate =  function(ev) {
+    this.modalRate = (ev) => {
         $mdDialog.show({
             parent: angular.element(document.body),
-            template : require('./infoMarketRate.html'),
-            targetEvent:ev,
-            clickOutsideToClose:true
-        }).then(function() {
-            $scope.status = 'cancel';
-        },function(){
-            $scope.status = 'close';
-        });
+            template: require('./infoMarketRate.html'),
+            targetEvent: ev,
+            clickOutsideToClose: true
+        }).then(
+            () => this.status = 'cancel',
+            () => this.status = 'close'
+        );
     };
 }
