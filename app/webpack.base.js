@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const PACKAGE = require('./package.json');
+const dir = `dist-${PACKAGE.version}`;
 
 module.exports = {
     entry: {
@@ -10,7 +12,7 @@ module.exports = {
     },
     output: {
         filename: '[name].[hash].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, dir)
     },
     optimization:{
       splitChunks:{
@@ -18,7 +20,7 @@ module.exports = {
       }
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin([dir]),
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
