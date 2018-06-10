@@ -6,7 +6,7 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: './dist',
+        contentBase: common.output.path,
         hot: true,
         port: '9001',
         proxy: {
@@ -14,7 +14,6 @@ module.exports = merge(common, {
         }
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ]
 });

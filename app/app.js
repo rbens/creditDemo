@@ -5,10 +5,10 @@ import "./public/styles/css/main.css";
 import contentViewCtrl from "./views/contentView";
 import configService from "./service/configService";
 import chartResultComponent from "./components/chartResult/chartResult.component";
-import creditForm from "./components/creditForm/creditForm.component";
+import {creditForm} from "./components/creditForm/creditForm.component";
 import creditResult from "./components/creditResult/creditResult.component";
 import tabResult from "./components/tabResult/tabResult.component";
-import marketRate from "./components/marketRate/marketRate.component";
+import {marketRate} from "./components/marketRate/marketRate.component";
 import creditService from "./service/creditDemoService";
 import routing from "./config/routing";
 
@@ -18,15 +18,13 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
     .factory('creditService', creditService)
     .controller('contentViewCtrl',contentViewCtrl)
     .directive('chartResultComponent',chartResultComponent)
-    .directive('creditForm',creditForm)
     .directive('creditResult',creditResult)
     .directive('tabResult',tabResult)
-    .directive('marketRate',marketRate)
+    .component('creditForm',creditForm)
+    .component('marketRate',marketRate)
     .config(routing)
-    .value('cgBusyDefaults',{
-        template: require('./cg-template.html')
-    }).run(function($rootScope){
-
+    .run(function($rootScope){
+        'ngInject';
         $rootScope.model = {
             duree: undefined,
             capital: undefined,
