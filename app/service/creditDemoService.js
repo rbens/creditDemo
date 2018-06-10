@@ -1,14 +1,15 @@
 import DataModel from './DataModel';
 import _ from 'lodash';
 
-export default function creditService($http, $timeout, $filter) {
+export default function creditService($http, $timeout, $filter, $q) {
     'ngInject';
     let dataModel = new DataModel({},{},{},{});
     let formatNumber = (data) => $filter('number')(data, 2);
+    let getAmortization = (credit) => $http.post("amortissements", credit);
 
     return  {
-        getAmortissement: (credit) => $http.post("amortissements", credit),
-        getTauxMarche : () => $http.get("rates"),
+        formatNumber: formatNumber,
+        getMarketRates : () => $http.get("rates"),
         getDataModel: () => dataModel,
         setDataModel: (model) => {
             _.merge(dataModel.model, model);
@@ -16,21 +17,19 @@ export default function creditService($http, $timeout, $filter) {
         calcul : function () {
             let time = '';
             $timeout.cancel(time);
-
-            time = $timeout(function () {
+            time = $timeout( () => {
                 if (dataModel.isComplete()) {
                     let tauxNominal = dataModel.model.tauxNominal !== 0 ? dataModel.model.tauxNominal : dataModel.model.tauxGlobal;
                     if (screen.width < 660) {
                         goTo();
                     }
                     $q.all([
-                        this.getAmortissement({
+                        getAmortization({
                             months: dataModel.model.annee * 12 + "",
                             capital: dataModel.model.capital,
                             interestRate: tauxNominal,
                             insuranceRate: dataModel.model.tauxAssurance
-                        })
-                            .then((response) => {
+                        }).then((response) => {
                                 let data = response.data;
                                 //noinspection JSUnresolvedVariable
                                 if (data.coutPrincipal) {
@@ -43,8 +42,8 @@ export default function creditService($http, $timeout, $filter) {
                                     dataModel.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
 
                                     let last = (data.writeDowns.length - 1);
-                                    addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
-                                    addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
+                                    dataModel.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
+                                    dataModel.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
                                 }
                             })
                     ]);

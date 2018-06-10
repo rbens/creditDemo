@@ -12,7 +12,7 @@ export default function marketRateController($scope, creditService, $mdDialog, $
     this.model = {};
 
 
-    creditService.getTauxMarche().then(
+    creditService.getMarketRates().then(
         (response) => {
             if (response) {
                 let id = 1;
