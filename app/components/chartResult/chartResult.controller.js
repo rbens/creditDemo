@@ -5,8 +5,12 @@ export default function chartResultController(configService, creditService, $win
 
     configService.get().$promise.then(
         (config) => {
-            config.line.xAxis.labels.formatter = () => this.value / 12;
-            config.area.xAxis.labels.formatter = () => this.value / 12;
+            config.line.xAxis.labels.formatter = function () {
+                return this.value / 12;
+            };
+            config.area.xAxis.labels.formatter = function () {
+                return this.value / 12;
+            };
 
             creditService.getDataModel().chartArea(config.area);
             creditService.getDataModel().chartLine(config.line);

@@ -5,15 +5,15 @@
         <span flex></span>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Durée
-            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="model.annee"></md-icon>
+            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.model.annee"></md-icon>
         </md-button>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Capital
-            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="model.capital"></md-icon>
+            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.model.capital"></md-icon>
         </md-button>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Taux d'int&eacute;ret
-            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="model.tauxNominal"></md-icon>
+            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.model.tauxNominal"></md-icon>
         </md-button>
         <span flex></span>
         <md-button aria-label="menu" class="md-raised btn-color-form" ng-click="openVideo()" hide-sm hide-xs>
@@ -32,7 +32,7 @@
             <credit-form></credit-form>
         </div>
         <div flex="95" flex-gt-sm="35" flex-gt-md="30">
-            <credit-result model="dataModel" promiseForm="promiseForm"></credit-result>
+            <credit-result model="dataModel.model" promiseForm="promiseForm"></credit-result>
         </div>
     </div>
     <div layout-gt-md="row" layout-xs="column" layout-sm="column" layout-md="column">
@@ -40,7 +40,7 @@
             <chart-result-component ng-show="dataModel.model.amortissements.length > 0" model="dataModel" promiseForm="promiseForm"></chart-result-component>
         </div>
         <div flex="45">
-            <tab-result ng-show="dataModel.model.amortissements.length > 0" model="dataModel" promiseForm="promiseForm"></tab-result>
+            <tab-result ng-show="dataModel.model.amortissements.length > 0" model="dataModel.model" promiseForm="promiseForm"></tab-result>
         </div>
     </div>
 </div>
