@@ -4,10 +4,10 @@ import "./public/styles/css/main.css";
 
 import contentViewCtrl from "./views/contentView";
 import configService from "./service/configService";
-import chartResultComponent from "./components/chartResult/chartResult.component";
-import creditForm from "./components/creditForm/creditForm.component";
-import creditResult from "./components/creditResult/creditResult.component";
-import tabResult from "./components/tabResult/tabResult.component";
+import {creditResult} from "./components/creditResult/creditResult.component";
+import {tabResult} from "./components/tabResult/tabResult.component";
+import {chartResultComponent} from "./components/chartResult/chartResult.component";
+import {creditForm} from "./components/creditForm/creditForm.component";
 import {marketRate} from "./components/marketRate/marketRate.component";
 import creditService from "./service/creditDemoService";
 import routing from "./config/routing";
@@ -17,10 +17,10 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
     .factory('configService', configService)
     .factory('creditService', creditService)
     .controller('contentViewCtrl',contentViewCtrl)
-    .directive('chartResultComponent',chartResultComponent)
-    .directive('creditResult',creditResult)
-    .directive('tabResult',tabResult)
-    .directive('creditForm',creditForm)
+    .component('creditResult',creditResult)
+    .component('tabResult',tabResult)
+    .component('chartResultComponent',chartResultComponent)
+    .component('creditForm',creditForm)
     .component('marketRate',marketRate)
     .config(routing)
     .run(function($rootScope){

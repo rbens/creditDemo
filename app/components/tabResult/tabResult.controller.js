@@ -1,8 +1,9 @@
 export default function tabResultController($scope,$filter, $document){
-    $scope.$watch('model.amortissements',function(){
-        if($scope.model.amortissements){
+    'ngInject';
+    $scope.$watch('$ctrl.model.model.amortissements',() => {
+        if(this.model.model.amortissements){
             $document.find('tbody').find('tr').remove();
-            angular.forEach($scope.model.amortissements,function(val,key){
+            angular.forEach(this.model.model.amortissements,(val,key) => {
                 $document.find('tbody').append(
                     '<tr class="tabLine"><td style="width: 10%">'+val.currentMonth +' </td>'+
                     '<td>'+$filter('number')(val.interestAmount,2)   +' € </td>'+

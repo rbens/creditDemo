@@ -22,7 +22,7 @@ export default class DataModel{
     }
 
     chartArea( area ){
-        Object.assign(this.are, area);
+        Object.assign(this.area, area);
     }
 
     chartPie( pie ){

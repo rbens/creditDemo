@@ -1,38 +1,33 @@
 import $ from 'jquery';
 
-export default function chartResultController(configService, $window, $document, $scope) {
+export default function chartResultController(configService, creditService, $window) {
     'ngInject';
+
     configService.get().$promise.then(
-        function (config) {
-            config.line.xAxis.labels.formatter = function () {
-                return this.value / 12;
-            };
-            config.area.xAxis.labels.formatter = function () {
-                return this.value / 12;
-            };
+        (config) => {
+            config.line.xAxis.labels.formatter = () => this.value / 12;
+            config.area.xAxis.labels.formatter = () => this.value / 12;
 
-            $scope.line = config.line;
-            $scope.area = config.area;
-            $scope.pie = config.pie;
+            creditService.getDataModel().chartArea(config.area);
+            creditService.getDataModel().chartLine(config.line);
+            creditService.getDataModel().chartPie(config.pie);
         });
-
     let options = [
         {"id": "chart1", "config": "pie", "title": "Répartition du remboursement"},
         {"id": "chart2", "config": "line", "title": "Évolution du remboursement"},
         {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
     ];
 
-    //$scope.panelWidth = angular.element('.panel-body').css('width');
 
-    angular.element($window).bind('resize', function(){
-        $scope.panelWidth = $('.panel-body').css('width');
-        $scope.$digest();
+    angular.element($window).bind('resize', () => {
+        this.panelWidth = $('.panel-body').css('width');
+        this.$digest();
     });
 
-    $scope.option = options[0];
+    this.option = options[0];
 
-    $scope.swapChartType = function (index) {
-        $scope.option = options[index];
+    this.swapChartType = (index) => {
+        this.option = options[index];
     };
 
 }
