@@ -1,11 +1,7 @@
 import creditFormController from "./creditForm.controller";
 
-export default function creditForm() {
-    'ngInject';
-    return {
-        restrict:'E',
+export const creditForm = {
         template: require('./creditForm.html'),
         controller: creditFormController
-    };
-}
+};
 

@@ -6,6 +6,7 @@ export default function creditService($http, $timeout, $filter, $q) {
     let dataModel = new DataModel({},{},{},{});
     let formatNumber = (data) => $filter('number')(data, 2);
     let getAmortization = (credit) => $http.post("amortissements", credit);
+    let promiseForm;
 
     return  {
         formatNumber: formatNumber,
@@ -16,14 +17,14 @@ export default function creditService($http, $timeout, $filter, $q) {
         },
         calcul : function () {
             let time = '';
-            $timeout.cancel(time);
+            // $timeout.cancel(time);
             time = $timeout( () => {
                 if (dataModel.isComplete()) {
                     let tauxNominal = dataModel.model.tauxNominal !== 0 ? dataModel.model.tauxNominal : dataModel.model.tauxGlobal;
                     if (screen.width < 660) {
                         goTo();
                     }
-                    $q.all([
+                    promiseForm = $q.all([
                         getAmortization({
                             months: dataModel.model.annee * 12 + "",
                             capital: dataModel.model.capital,
@@ -66,6 +67,7 @@ export default function creditService($http, $timeout, $filter, $q) {
             } else {
                 dataModel.model.tauxGlobal = dataModel.model.tauxNominal;
             }
-        }
+        },
+        promiseForm:promiseForm
     };
 }

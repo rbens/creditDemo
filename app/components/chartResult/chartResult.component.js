@@ -1,10 +1,11 @@
 import chartResultController from "./chartResult.controller";
 
-export default function chartResultComponent() {
-    'ngInject';
-    return {
-        template: require('./chartResult.html'),
-        controller: chartResultController
-    }
-}
+export const chartResultComponent = {
+    bindings: {
+        model: '<',
+        promiseForm: '<'
+    },
+    template: require('./chartResult.html'),
+    controller: chartResultController
+};
 

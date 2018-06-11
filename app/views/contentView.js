@@ -1,4 +1,4 @@
-export default function contentViewCtrl($scope, $window, $mdDialog, configService, $document) {
+export default function contentViewCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
     'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
@@ -14,6 +14,9 @@ export default function contentViewCtrl($scope, $window, $mdDialog, configServic
             $window.localStorage.setItem('hideVideo',$scope.hideVideo);
         });
     }
+
+    $scope.dataModel = creditService.getDataModel();
+    $scope.promiseForm = creditService.promiseForm;
 
     $scope.openVideo =  function(ev){
         $mdDialog.show({
