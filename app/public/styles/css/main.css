@@ -7,6 +7,7 @@
 @import "bootstrap-theme.css";
 @import "bootstrap.css";
 
+@import "../../../node_modules/highcharts-ng/dist/highcharts-ng.css";
 @import "ripples.css";
 @import "material-wfont.css";
 @import "angular-material.min.css";
