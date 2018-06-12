@@ -2,8 +2,7 @@ import creditResultController from './creditResult.controller';
 
 export const creditResult = {
     bindings: {
-        model: '<',
-        promiseForm: '<'
+        model: '<'
     },
     template: require('./creditResult.html'),
     controller: creditResultController

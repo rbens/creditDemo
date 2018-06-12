@@ -15,7 +15,7 @@
             </md-button>
         </div>
     </md-toolbar>
-    <div class="panel-body" ng-if="$ctrl.model.model.amortissements.length > 0">
+    <div class="panel-body">
         <div class="row">
             <div cg-busy="{promise:$ctrl.promiseForm}">
                 <highchart id="chart1" config="$ctrl.model.pie" ng-if="$ctrl.option.config === 'pie'" ng-style="{width : $ctrl.panelWidth}" ></highchart>

@@ -25,7 +25,6 @@ export default function chartResultController(configService, creditService, $win
 
     angular.element($window).bind('resize', () => {
         this.panelWidth = $('.panel-body').css('width');
-        this.$digest();
     });
 
     this.option = options[0];
