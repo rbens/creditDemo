@@ -17,7 +17,7 @@
     </md-toolbar>
     <div class="panel-body">
         <div class="row">
-            <div cg-busy="{promise:$ctrl.promiseForm}">
+            <div cg-busy="{promise:$ctrl.cgPromise}">
                 <highchart id="chart1" config="$ctrl.model.pie" ng-if="$ctrl.option.config === 'pie'" ng-style="{width : $ctrl.panelWidth}" ></highchart>
                 <highchart id="chart2" config="$ctrl.model.line" ng-if="$ctrl.option.config === 'line'" ng-style="{width : $ctrl.panelWidth}" ></highchart>
                 <highchart id="chart3" config="$ctrl.model.area" ng-if="$ctrl.option.config === 'area'" ng-style="{width : $ctrl.panelWidth}"></highchart>

@@ -2,39 +2,31 @@ export default function contentViewCtrl($scope, $window, $mdDialog, configServic
     'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
-    function DiaController($scope,$mdDialog,$window) {
+    let DiaController = ($scope,$mdDialog,$window) => {
         $scope.hideVideo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
-
-        $scope.hide = function() {
-            $mdDialog.hide();
-        };
-
+        $scope.hide = () => $mdDialog.hide();
         //use $watch, because the change detection with ng-change misses the first change
-        $scope.$watch('hideVideo',function(){
-            $window.localStorage.setItem('hideVideo',$scope.hideVideo);
-        });
-    }
+        $scope.$watch('hideVideo',() => $window.localStorage.setItem('hideVideo',$scope.hideVideo));
+    };
 
     $scope.dataModel = creditService.getDataModel();
-    $scope.promiseForm = creditService.promiseForm;
 
-    $scope.openVideo =  function(ev){
+    $scope.openVideo =  (ev) => {
         $mdDialog.show({
             parent: $document.body,
             controller: DiaController,
             template : require('./modalTuto.html'),
             targetEvent:ev,
             clickOutsideToClose:false
-        }).then(function(answer) {
-            $scope.status = 'cancel';
-        },function(){
-            $scope.status = 'close';
-        });
+        }).then(
+            () => $scope.status = 'cancel',
+            () => $scope.status = 'close'
+        );
     };
 
-    $document.ready(function (ev) {
+    $document.ready((ev) => {
         configService.get().$promise.then(
-            function(config){
+            (config) => {
                 if(!initDemo && screen.width > 660 && config.activeDemoVideo){
                     $mdDialog.show({
                         parent: $document.body,
@@ -42,11 +34,10 @@ export default function contentViewCtrl($scope, $window, $mdDialog, configServic
                         template : require('./modalTuto.html'),
                         targetEvent:ev,
                         clickOutsideToClose:false
-                    }).then(function() {
-                        $scope.status = 'cancel';
-                    },function(){
-                        $scope.status = 'close';
-                    });
+                    }).then(
+                        () => $scope.status = 'cancel',
+                        () => $scope.status = 'close'
+                    );
                 }
             });
     });

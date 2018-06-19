@@ -1,9 +1,7 @@
-export default function creditFormController($scope, $filter, $timeout, creditService, $mdDialog) {
+export default function creditFormController($rootScope, $filter, $timeout, creditService, $mdDialog) {
     'ngInject';
-    this.model = creditService.getDataModel().model;
-
+    this.model = creditService.getDataModel().credit;
     this.calcul = () => creditService.calcul();
-
     this.teg = () => creditService.teg();
 
     this.modalForm = (ev) => {
@@ -24,14 +22,14 @@ export default function creditFormController($scope, $filter, $timeout, creditSe
             annee: undefined,
             tauxNominal: undefined,
             tauxAssurance: undefined,
-            tauxGlobal: 0,
+            tauxGlobal: $filter(rate)(0),
             amortissements: [],
-            mensualite: formatNumber(0).concat(' €'),
-            interetTotal: formatNumber(0).concat(' €'),
-            assuranceTotal: formatNumber(0).concat(' €'),
-            creditTotal: formatNumber(0).concat(' €'),
-            assurance: formatNumber(0).concat(' €'),
-            remboursementTotal: formatNumber(0).concat(' €'),
+            mensualite: $filter(euro)(0),
+            interetTotal: $filter(euro)(0),
+            assuranceTotal: $filter(euro)(0),
+            creditTotal: $filter(euro)(0),
+            assurance: $filter(euro)(0),
+            remboursementTotal: $filter(euro)(0)
         };
     };
 }

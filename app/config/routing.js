@@ -13,7 +13,7 @@ export default function routing($locationProvider, $stateProvider) {
         url:'/',
         controller:'contentViewCtrl',
         controllerAs:'content',
-        template : require('../views/contentView.html')
+        template : require('../controller/contentView.html')
     });
 
 }

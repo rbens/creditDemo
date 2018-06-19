@@ -17,7 +17,7 @@
                            ng-model="$ctrl.model.annee" value="0" max="35" min="0" step="1" ng-change="$ctrl.calcul()" placeholder=""></md-slider>
             </md-input-container>
             <md-input-container flex="15">
-                <input type="text" class="form-control" ng-value="$ctrl.model.annee +(model.annee ? ' ans' : '')" disabled data-toggle="tooltip"
+                <input type="text" class="form-control" ng-value="$ctrl.model.annee | year" disabled data-toggle="tooltip"
                        data-placement="right" aria-label="durée en année">
             </md-input-container>
             <md-input-container flex="30">
@@ -34,7 +34,7 @@
                             ng-change="$ctrl.teg();$ctrl.calcul()" placeholder=""></md-slider>
             </md-input-container>
             <md-input-container flex="15">
-                <input type="text" class="form-control"  ng-value="$ctrl.model.tauxNominal +(model.tauxNominal ? ' %' : '')" aria-label="taux fixe" ng-model="$ctrl.model.tauxNominal" disabled ng-change="$ctrl.teg();$ctrl.calcul()">
+                <input type="text" class="form-control"  ng-value="$ctrl.model.tauxNominal | rate" aria-label="taux fixe" ng-model="$ctrl.model.tauxNominal" disabled ng-change="$ctrl.teg();$ctrl.calcul()">
             </md-input-container>
             <md-input-container flex="30">
                 <label>Taux assurance</label>
@@ -43,7 +43,7 @@
                            ng-change="$ctrl.teg();$ctrl.calcul();$ctrl.assu()" placeholder=""></md-slider>
             </md-input-container>
             <md-input-container flex="15">
-                <input type="text" class="form-control" ng-value="$ctrl.model.tauxAssurance +($ctrl.model.tauxAssurance ? ' %' : '')" aria-label="taux d'assurance" ng-model="$ctrl.model.tauxAssurance" disabled ng-change="$ctrl.teg();$ctrl.calcul();$ctrl.assu()">
+                <input type="text" class="form-control" ng-value="$ctrl.model.tauxAssurance | rate" aria-label="taux d'assurance" ng-model="$ctrl.model.tauxAssurance" disabled ng-change="$ctrl.teg();$ctrl.calcul();$ctrl.assu()">
             </md-input-container>
             <md-input-container flex="15">
                 <input type="text" class="form-control" aria-label="prix assurance par mois" ng-value="$ctrl.model.assurance" disabled >
@@ -53,7 +53,7 @@
         <md-content layout="row" layout-padding class="adapt-form">
             <md-input-container>
                 <label>TEG</label>
-                <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="$ctrl.model.tauxGlobal | number:2 " disabled>
+                <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="$ctrl.model.tauxGlobal | rate" disabled>
             </md-input-container>
             <md-input-container class="md-button-form">
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="$ctrl.model.amortissements.length == 0">
@@ -67,7 +67,7 @@
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50" >
                 <label>Durée </label>
-                <input type="number" min="1" max="35" required ng-model="$ctrl.model.annee" ng-value="$ctrl.model.annee" aria-label="durée en année">
+                <input type="number" min="1" max="35" required ng-model="$ctrl.model.annee" ng-value="$ctrl.model.annee | year" aria-label="durée en année">
                 <div class="hint">max 35 ans</div>
             </md-input-container>
             <md-input-container flex="30" flex-xs="50" style="margin-left: 2%">
@@ -99,7 +99,7 @@
             </md-input-container>
             <md-input-container flex="50" style="margin-left: 2%;">
                 <label>TEG</label>
-                <input type="text" disabled class="form-control"  aria-label="taux emprunt global" ng-value="$ctrl.model.tauxGlobal | number:2 " placeholder="">
+                <input type="text" disabled class="form-control"  aria-label="taux emprunt global" ng-value="$ctrl.model.tauxGlobal" placeholder="">
             </md-input-container>
          </md-content>
 

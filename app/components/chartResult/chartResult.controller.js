@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default function chartResultController(configService, creditService, $window) {
+export default function chartResultController($rootScope, configService, creditService, $window) {
     'ngInject';
 
     configService.get().$promise.then(
@@ -22,6 +22,7 @@ export default function chartResultController(configService, creditService, $win
         {"id": "chart3", "config": "area", "title": "Évolution de la dette"}
     ];
 
+    this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
 
     angular.element($window).bind('resize', () => {
         this.panelWidth = $('.panel-body').css('width');

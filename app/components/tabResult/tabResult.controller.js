@@ -1,4 +1,4 @@
-export default function tabResultController($scope,$filter, $document){
+export default function tabResultController($rootScope, $scope,$filter, $document){
     'ngInject';
     $scope.$watch('$ctrl.model.amortissements',() => {
         if(this.model.amortissements){
@@ -7,12 +7,14 @@ export default function tabResultController($scope,$filter, $document){
                 $document.find('tbody').append(
                     `<tr class="tabLine">
                      <td style="width: 10%">${val.currentMonth} </td>
-                     <td>${$filter('number')(val.interestAmount, 2)} € </td>
-                     <td>${$filter('number')(val.principalAmount, 2)} € </td>
-                     <td>${$filter('number')(val.insuranceAmount, 2)} € </td>
-                     <td>${$filter('number')(val.owingAmount, 2)} € </td>
+                     <td>${$filter('euro')(val.interestAmount)} </td>
+                     <td>${$filter('euro')(val.principalAmount)}</td>
+                     <td>${$filter('euro')(val.insuranceAmount)} </td>
+                     <td>${$filter('euro')(val.owingAmount)} </td>
                      </tr>`);
             });
         }
     },true);
+
+    this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
 }
