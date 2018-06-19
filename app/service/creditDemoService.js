@@ -1,44 +1,48 @@
 import DataModel from './DataModel';
 import _ from 'lodash';
 
-export default function creditService($rootScope, $http, $timeout, $filter, $q) {
+export default function creditService($rootScope, $http, $timeout, $filter, $q, $document) {
     'ngInject';
     let dataModel = new DataModel({},{},{},{});
     let formatNumber = (data) => $filter('number')(data, 2);
     let getAmortization = (credit) => $http.post("amortissements", credit);
+    let goTo = () => {
+        let someElement = angular.element(document.getElementById('results'));
+        $document.scrollToElement(someElement, -450, 1000);
+    };
 
     return  {
         getMarketRates : () => $http.get("rates"),
         getDataModel: () => dataModel,
         setDataModel: (model) => {
-            _.merge(dataModel.model, model);
+            _.merge(dataModel.credit, model);
         },
         calcul : function () {
             let time = '';
-            $timeout.cancel(time);
-            time = $timeout( () => {
+            $timeout.cancel($rootScope.cgPromise);
+             $timeout( () => {
                 if (dataModel.isComplete()) {
-                    let tauxNominal = dataModel.model.tauxNominal !== 0 ? dataModel.model.tauxNominal : dataModel.model.tauxGlobal;
+                    let tauxNominal = dataModel.credit.tauxNominal !== 0 ? dataModel.credit.tauxNominal : dataModel.credit.tauxGlobal;
                     if (screen.width < 660) {
                         goTo();
                     }
-                    $rootScope.promiseForm = $q.all([
+                    $rootScope.cgPromise = $q.all([
                         getAmortization({
-                            months: dataModel.model.annee * 12 + "",
-                            capital: dataModel.model.capital,
+                            months: dataModel.credit.annee * 12 + "",
+                            capital: dataModel.credit.capital,
                             interestRate: tauxNominal,
-                            insuranceRate: dataModel.model.tauxAssurance
+                            insuranceRate: dataModel.credit.tauxAssurance
                         }).then((response) => {
                                 let data = response.data;
                                 //noinspection JSUnresolvedVariable
                                 if (data.coutPrincipal) {
-                                    dataModel.model.amortissements = data.writeDowns;
-                                    dataModel.model.assurance = formatNumber(data.coutAssurance).concat(' €');
-                                    dataModel.model.mensualite = formatNumber(data.monthlyAmount).concat(' €');
-                                    dataModel.model.interetTotal = formatNumber(data.interestTotalCost).concat(' €');
-                                    dataModel.model.assuranceTotal = formatNumber(data.insuranceTotalCost).concat(' €');
-                                    dataModel.model.creditTotal = formatNumber(data.creditTotalCost).concat(' €');
-                                    dataModel.model.remboursementTotal = formatNumber(data.owingTotalCost).concat(' €');
+                                    dataModel.credit.amortissements = data.writeDowns;
+                                    dataModel.credit.assurance = $filter('euro')(data.coutAssurance);
+                                    dataModel.credit.mensualite = $filter('euro')(data.monthlyAmount);
+                                    dataModel.credit.interetTotal = $filter('euro')(data.interestTotalCost);
+                                    dataModel.credit.assuranceTotal = $filter('euro')(data.insuranceTotalCost);
+                                    dataModel.credit.creditTotal = $filter('euro')(data.creditTotalCost);
+                                    dataModel.credit.remboursementTotal = $filter('euro')(data.owingTotalCost);
 
                                     let last = (data.writeDowns.length - 1);
                                     dataModel.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
@@ -47,23 +51,23 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q) 
                             })
                     ]);
                 } else {
-                    dataModel.model.amortissements = [];
-                    dataModel.model.mensualite = formatNumber(0).concat(' €');
-                    dataModel.model.interetTotal = formatNumber(0).concat(' €');
-                    dataModel.model.assuranceTotal = formatNumber(0).concat(' €');
-                    dataModel.model.creditTotal = formatNumber(0).concat(' €');
-                    dataModel.model.assurance = formatNumber(0).concat(' €');
-                    dataModel.model.remboursementTotal = formatNumber(0).concat(' €');
+                    dataModel.credit.amortissements = [];
+                    dataModel.credit.mensualite = $filter('euro')(0);
+                    dataModel.credit.interetTotal = $filter('euro')(0);
+                    dataModel.credit.assuranceTotal = $filter('euro')(0);
+                    dataModel.credit.creditTotal = $filter('euro')(0);
+                    dataModel.credit.assurance = $filter('euro')(0);
+                    dataModel.credit.remboursementTotal = $filter('euro')(0);
                 }
-            }, 2000);
+            }, 1500);
         },
-        teg : function() {
-            dataModel.model.tauxNominal = Number(formatNumber(dataModel.model.tauxNominal));
-            if (dataModel.model.tauxAssurance) {
-                dataModel.model.tauxAssurance = Number(formatNumber(dataModel.model.tauxAssurance));
-                dataModel.model.tauxGlobal = dataModel.model.tauxNominal + dataModel.model.tauxAssurance;
+        teg : () => {
+            dataModel.credit.tauxNominal = Number(formatNumber(dataModel.credit.tauxNominal));
+            if (dataModel.credit.tauxAssurance) {
+                dataModel.credit.tauxAssurance = Number(formatNumber(dataModel.credit.tauxAssurance));
+                dataModel.credit.tauxGlobal = dataModel.credit.tauxNominal + dataModel.credit.tauxAssurance;
             } else {
-                dataModel.model.tauxGlobal = dataModel.model.tauxNominal;
+                dataModel.credit.tauxGlobal = dataModel.credit.tauxNominal;
             }
         }
     };

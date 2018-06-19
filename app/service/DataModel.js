@@ -3,7 +3,7 @@
 export default class DataModel{
 
     constructor(model, line, area, pie){
-            this.model = model;
+            this.credit = model;
             this.line = line;
             this.area = area;
             this.pie = pie;
@@ -14,7 +14,7 @@ export default class DataModel{
     }
 
     dataModel( model ){
-        Object.assign(this.model, model);
+        Object.assign(this.credit, model);
     }
 
     chartLine( line ){
@@ -30,7 +30,7 @@ export default class DataModel{
     }
 
     isComplete(){
-        return DataModel.isDefined(this.model.annee) && DataModel.isDefined(this.model.capital) && DataModel.isDefined(this.model.tauxNominal);
+        return DataModel.isDefined(this.credit.annee) && DataModel.isDefined(this.credit.capital) && DataModel.isDefined(this.credit.tauxNominal);
     }
 
     addSeries(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries){

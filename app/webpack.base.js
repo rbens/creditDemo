@@ -28,12 +28,17 @@ module.exports = {
             {
                 from: './config/config.json',
                 to: 'config',
-                toType: 'dir'
+                toType: 'file'
             },
             {
                 from: './public/img/*.png',
                 to: '',
                 toType: 'dir'
+            },
+            {
+                from: './favicon.ico',
+                to: '',
+                toType: 'file'
             }
         ],{})
     ],
