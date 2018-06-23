@@ -17,16 +17,15 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
         setDataModel: (model) => {
             _.merge(dataModel.credit, model);
         },
-        calcul : function () {
-            let time = '';
+        calcul : () => {
             $timeout.cancel($rootScope.cgPromise);
-             $timeout( () => {
+            $rootScope.cgPromise = $timeout( () => {
                 if (dataModel.isComplete()) {
                     let tauxNominal = dataModel.credit.tauxNominal !== 0 ? dataModel.credit.tauxNominal : dataModel.credit.tauxGlobal;
                     if (screen.width < 660) {
                         goTo();
                     }
-                    $rootScope.cgPromise = $q.all([
+                    $q.all([
                         getAmortization({
                             months: dataModel.credit.annee * 12 + "",
                             capital: dataModel.credit.capital,
@@ -69,6 +68,22 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
             } else {
                 dataModel.credit.tauxGlobal = dataModel.credit.tauxNominal;
             }
+        },
+        reset : () => {
+            dataModel.credit = {
+                capital: undefined,
+                annee: undefined,
+                tauxNominal: undefined,
+                tauxAssurance: undefined,
+                tauxGlobal: $filter('rate')(0),
+                amortissements: [],
+                mensualite: $filter('euro')(0),
+                interetTotal: $filter('euro')(0),
+                assuranceTotal: $filter('euro')(0),
+                creditTotal: $filter('euro')(0),
+                assurance: $filter('euro')(0),
+                remboursementTotal: $filter('euro')(0)
+            };
         }
     };
 }
