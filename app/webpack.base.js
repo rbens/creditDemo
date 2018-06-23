@@ -2,8 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const PACKAGE = require('./package.json');
-const dir = `dist-${PACKAGE.version}`;
+const dir = `dist`;
 
 module.exports = {
     entry: {
@@ -27,7 +26,7 @@ module.exports = {
         new CopyWebpackPlugin([
             {
                 from: './config/config.json',
-                to: 'config',
+                to: './config/config.json',
                 toType: 'file'
             },
             {
