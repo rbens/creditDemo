@@ -52,6 +52,12 @@ Modules - reusable parts of our design
   width: 160px;
 }
 
+.box_rotate {
+  -webkit-transform: rotate(-20.5deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+  -ms-transform: rotate(-20.5deg);  /* IE 9 */
+  transform: rotate(-20.5deg);  /* Firefox 16+, IE 10+, Opera */
+}
+
 /* -------------------------------- 
 
 Main components 

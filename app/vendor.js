@@ -7,3 +7,4 @@ import "angular-strap";
 import "angular-material";
 import "angular-busy";
 import "angular-resource";
+import "angular-scroll";

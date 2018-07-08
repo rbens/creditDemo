@@ -44,6 +44,7 @@
     "angular-material": "^1.1.9",
     "angular-motion": "^0.4.4",
     "angular-resource": "^1.6.10",
+    "angular-scroll": "^1.0.2",
     "angular-strap": "^2.3.12",
     "bootstrap": "^4.1.1",
     "bootstrap-material-design": "^4.1.1",
