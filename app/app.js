@@ -14,7 +14,7 @@ import creditService from "./service/creditDemoService";
 import routing from "./config/routing";
 
 
-angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router'])
+angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll'])
     .filter('euro', () => format.euro)
     .filter('rate', () => format.rate)
     .filter('year', () => format.year)
