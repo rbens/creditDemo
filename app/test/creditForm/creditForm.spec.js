@@ -1,9 +1,16 @@
 describe('credit form test',function(){
 
-    beforeEach(module('mainApp'));
+    beforeEach(angular.mock.module('mainApp'));
 
-    it('should be ...',function(){
+    let $controller;
 
+    beforeEach(angular.mock.inject(function(_$controller_){
+        $controller = _$controller_;
+    }));
+
+    describe('sum', function () {
+        it('1 + 1 should equal 2', function () {
+        });
     });
 
 });
