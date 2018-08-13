@@ -3,14 +3,14 @@
 import "./public/styles/css/main.css";
 
 import contentViewCtrl from "./controller/contentView";
-import configService from "./service/configService";
+import configService from "./service/config.service";
 import {creditResult} from "./components/creditResult/creditResult.component";
 import {tabResult} from "./components/tabResult/tabResult.component";
 import {chartResultComponent} from "./components/chartResult/chartResult.component";
 import {creditForm} from "./components/creditForm/creditForm.component";
 import {marketRate} from "./components/marketRate/marketRate.component";
-import format from "./filter/FormatFilter"
-import creditService from "./service/creditDemoService";
+import format from "./filter/format.filter"
+import creditService from "./service/creditDemo.service";
 import routing from "./config/routing";
 
 
