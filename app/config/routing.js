@@ -1,5 +1,3 @@
-
-
 export default function routing($locationProvider, $stateProvider) {
     'ngInject';
     // use the HTML5 History API

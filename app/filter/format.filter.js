@@ -3,7 +3,7 @@
  */
 class FormatFilter{
    static euro(data){
-       return data.toLocaleString("fr-Fr", {style: "currency", currency: "EUR"});
+       return data ? data.toFixed(2).concat(' €')  : '';
     }
 
     static year(data){
@@ -11,7 +11,7 @@ class FormatFilter{
     }
 
     static rate(data){
-       return data ? data.toFixed(2) + ' %' : '';
+       return data ? data.toFixed(2).concat(' %')  : '';
     }
 }
 
