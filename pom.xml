@@ -106,6 +106,21 @@
                         </goals>
                         <phase>initialize</phase>
                         <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>app</workingDirectory>
+                            <arguments>
+                                <argument>install</argument>
+                                <argument>yarn</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>package installations</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                        <configuration>
                             <executable>yarn</executable>
                             <workingDirectory>app</workingDirectory>
                             <arguments>
