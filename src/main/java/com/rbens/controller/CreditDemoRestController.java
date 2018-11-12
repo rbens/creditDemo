@@ -33,7 +33,7 @@ public class CreditDemoRestController {
 
     @RequestMapping(value = "/rates", method = GET)
     public String[] getMarketRates() throws IOException {
-        Document document =  Jsoup.connect(RATES_URL).get();
+        final Document document =  Jsoup.connect(RATES_URL).get();
 
         final Elements elements = document.select(DOM_SELECTOR);
         final List<String> collect = elements.stream()

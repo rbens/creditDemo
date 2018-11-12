@@ -1,8 +1,8 @@
 .idea
+.DS_Store
 app/node_modules
 app/libs
 app/coverage
 app/dist
 target/
-app/public/styles/css/credit.css
 *.iml
