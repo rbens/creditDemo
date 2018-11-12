@@ -158,7 +158,7 @@ module.exports = function (grunt) {
                 options: {
                     replacements: [{
                         pattern: /localhost:8090/g,
-                        replacement: 'credit-immo.app-rb.net'
+                        replacement: 'credit-immo.herokuapp.com'
                     }]
                 }
             },
@@ -171,7 +171,7 @@ module.exports = function (grunt) {
                     replacements: [{
 
                         pattern: /localhost:8090/g,
-                        replacement: 'credit-immo-dev.app-rb.net'
+                        replacement: 'credit-immo.herokuapp.com'
                     }]
                 }
             }
