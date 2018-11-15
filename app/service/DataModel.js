@@ -55,8 +55,6 @@ export default class DataModel{
             "data": interetRestantSeries
         });
 
-        this.line.xAxis.tickInterval = creditSeries.length < 60 ? 1 : 12;
-        this.area.xAxis.tickInterval = creditSeries.length < 60 ? 1 : 12;
     }
 
     addSeriesToPieChart(interetSeries, assuranceSeries, creditSeries){

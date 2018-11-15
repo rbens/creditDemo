@@ -7,7 +7,7 @@ export default function creditResultController($rootScope, $mdDialog) {
         $mdDialog.show({
             title: 'Informations sur les résultats',
             parent: angular.element(document.body),
-            template: require('./infoCreditResult.html'),
+            template: require('./creditResult.modal.html'),
             targetEvent: ev,
             clickOutsideToClose: true
         }).then(
