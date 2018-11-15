@@ -39,7 +39,7 @@ export default function marketRateController($scope, creditService, $mdDialog, $
     this.modalRate = (ev) => {
         $mdDialog.show({
             parent: angular.element(document.body),
-            template: require('./infoMarketRate.html'),
+            template: require('./marketRate.modal.html'),
             targetEvent: ev,
             clickOutsideToClose: true
         }).then(

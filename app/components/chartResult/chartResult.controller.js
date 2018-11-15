@@ -5,17 +5,28 @@ export default function chartResultController($rootScope, configService, creditS
 
     configService.get().$promise.then(
         (config) => {
-            config.line.xAxis.labels.formatter = function () {
-                return this.value / 12;
+            let lxAxis = config.line.xAxis;
+            lxAxis.labels.formatter = function () {
+                let loanDuration = creditService.getDataModel().credit.annee;
+                lxAxis.title.text =  loanDuration > 4 ? 'années' : 'mois';
+                lxAxis.tickInterval = loanDuration > 4 ? 12 : 1;
+
+                return loanDuration > 4 ? this.value / 12 : this.value;
             };
-            config.area.xAxis.labels.formatter = function () {
-                return this.value / 12;
+
+            let axAxis = config.area.xAxis;
+            axAxis.labels.formatter = function () {
+                let loanDuration = creditService.getDataModel().credit.annee;
+                axAxis.title.text = loanDuration > 4 ? 'années' : 'mois';
+                axAxis.tickInterval = loanDuration > 4 ? 12 : 1;
+                return loanDuration > 4 ? this.value / 12 : this.value;
             };
 
             creditService.getDataModel().chartArea(config.area);
             creditService.getDataModel().chartLine(config.line);
             creditService.getDataModel().chartPie(config.pie);
         });
+
     let options = [
         {"id": "chart1", "config": "pie", "title": "Répartition du remboursement"},
         {"id": "chart2", "config": "line", "title": "Évolution du remboursement"},

@@ -6,7 +6,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
     let dataModel = new DataModel({},{},{},{});
     let formatNumber = (data) => $filter('number')(data, 2);
     let getAmortization = (credit) => $http.post("amortissements", credit);
-    let goTo = () => {
+    let scrollTo = () => {
         let someElement = angular.element(document.getElementById('results'));
         $document.scrollToElement(someElement, -450, 1000);
     };
@@ -19,12 +19,12 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
         },
         calcul : () => {
             $timeout.cancel($rootScope.cgPromise);
-            $rootScope.cgPromise = $timeout( () => {
                 if (dataModel.isComplete()) {
                     let tauxNominal = dataModel.credit.tauxNominal !== 0 ? dataModel.credit.tauxNominal : dataModel.credit.tauxGlobal;
                     if (screen.width < 660) {
-                        goTo();
+                        scrollTo();
                     }
+                    $rootScope.cgPromise = $timeout( () => {
                     $q.all([
                         getAmortization({
                             months: dataModel.credit.annee * 12 + "",
@@ -49,6 +49,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                                 }
                             })
                     ]);
+                    }, 1500);
                 } else {
                     dataModel.credit.amortissements = [];
                     dataModel.credit.mensualite = $filter('euro')(0);
@@ -58,7 +59,6 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                     dataModel.credit.assurance = $filter('euro')(0);
                     dataModel.credit.remboursementTotal = $filter('euro')(0);
                 }
-            }, 1500);
         },
         teg : () => {
             dataModel.credit.tauxNominal = Number(formatNumber(dataModel.credit.tauxNominal));

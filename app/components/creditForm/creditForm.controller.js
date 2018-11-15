@@ -7,7 +7,7 @@ export default function creditFormController($rootScope, $filter, $timeout, cred
     this.modalForm = (ev) => {
         $mdDialog.show({
             parent: angular.element(document.body),
-            template : require('./infoCreditForm.html'),
+            template : require('./creditForm.modal.html'),
             targetEvent:ev,
             clickOutsideToClose:true
         }).then(
