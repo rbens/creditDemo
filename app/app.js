@@ -2,7 +2,7 @@
 
 import "./public/styles/css/main.css";
 
-import contentViewCtrl from "./controller/contentView";
+import mainCtrl from "./controller/main.controller";
 import configService from "./service/config.service";
 import {creditResult} from "./components/creditResult/creditResult.component";
 import {tabResult} from "./components/tabResult/tabResult.component";
@@ -20,7 +20,7 @@ angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cg
     .filter('year', () => format.year)
     .factory('configService', configService)
     .factory('creditService', creditService)
-    .controller('contentViewCtrl',contentViewCtrl)
+    .controller('contentViewCtrl',mainCtrl)
     .component('creditResult',creditResult)
     .component('tabResult',tabResult)
     .component('chartResultComponent',chartResultComponent)

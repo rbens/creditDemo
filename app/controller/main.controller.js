@@ -1,4 +1,4 @@
-export default function contentViewCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
+export default function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
     'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 

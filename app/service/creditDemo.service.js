@@ -50,14 +50,6 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                             })
                     ]);
                     }, 1500);
-                } else {
-                    dataModel.credit.amortissements = [];
-                    dataModel.credit.mensualite = $filter('euro')(0);
-                    dataModel.credit.interetTotal = $filter('euro')(0);
-                    dataModel.credit.assuranceTotal = $filter('euro')(0);
-                    dataModel.credit.creditTotal = $filter('euro')(0);
-                    dataModel.credit.assurance = $filter('euro')(0);
-                    dataModel.credit.remboursementTotal = $filter('euro')(0);
                 }
         },
         teg : () => {
@@ -71,10 +63,10 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
         },
         reset : () => {
             dataModel.credit = {
-                capital: undefined,
-                annee: undefined,
-                tauxNominal: undefined,
-                tauxAssurance: undefined,
+                capital: '',
+                annee: '',
+                tauxNominal: '',
+                tauxAssurance: '',
                 tauxGlobal: $filter('rate')(0),
                 amortissements: [],
                 mensualite: $filter('euro')(0),
