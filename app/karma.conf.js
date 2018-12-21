@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Sat Nov 21 2015 16:55:19 GMT+0100 (CET)
-const webpackConfig = require('./webpack.base.js');
+const webpackConfig = require('./webpack.test.js');
 
 module.exports = function (config) {
     config.set({
@@ -16,12 +16,7 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            './node_modules/angular/angular.js',
-            './node_modules/angular-resource/angular-resource.js',
-            './node_modules/angular-mocks/angular-mocks.js',
-            './node_modules/angular-material/angular-material.js',
-            './app.tests.js',
-            './test/**/*.js'
+            './test/index.test.js'
         ],
 
 
@@ -30,14 +25,25 @@ module.exports = function (config) {
 
 
         preprocessors: {
-            './app.tests.js': ['webpack'],
-            './test/**/*.js': ['babel']
+            './test/index.test.js': ['webpack']
         },
 
         ngHtml2JsPreprocessor: {
             moduleName: 'html2jsTemplates'
         },
+
         webpack: webpackConfig,
+
+        webpackMiddleware: {
+            // webpack-dev-middleware configuration
+            // i.e.
+            noInfo: true,
+            // and use stats to turn off verbose output
+            stats: {
+                // options i.e.
+                chunks: false
+            }
+        },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
@@ -55,7 +61,7 @@ module.exports = function (config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
+        logLevel: config.LOG_DEBUG,
 
 
         // enable / disable watching file and executing tests whenever any file changes
@@ -64,22 +70,22 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['PhantomJS'],
+        browsers: ['ChromeHeadless'],
 
         // Which plugins to enable
         plugins: [
             "karma-jasmine",
             "karma-webpack",
             'karma-babel-preprocessor',
-            'karma-phantomjs-launcher'
+            'karma-chrome-launcher',
+            'karma-coverage-istanbul-reporter'
         ],
 
         // optionally, configure the reporter
-        coverageReporter: {
-            dir: 'coverage/',
-            reporters: [
-                {type: 'html', file: 'coverage.html'}
-            ]
+        reporters: [ 'progress', 'coverage-istanbul' ],
+        coverageIstanbulReporter: {
+            reports: [ 'text-summary' ],
+            fixWebpackSourcePaths: true
         },
 
 

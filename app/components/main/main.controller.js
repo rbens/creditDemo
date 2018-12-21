@@ -1,4 +1,7 @@
-export default function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
+import creditService from "../../service/credit.service";
+import configService from "../../service/config.service";
+
+function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
     'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
@@ -43,5 +46,11 @@ export default function mainCtrl($scope, $window, $mdDialog, configService, cred
     });
 
 }
+
+angular.module('main', [])
+    .factory('configService', configService)
+    .factory('creditService', creditService)
+    .controller('mainCtrl', mainCtrl)
+;
 
 

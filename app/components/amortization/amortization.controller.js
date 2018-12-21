@@ -1,4 +1,4 @@
-export default function tabResultController($rootScope, $scope,$filter, $document){
+export default function amortizationController($rootScope, $scope,$filter, $document){
     'ngInject';
     $scope.$watch('$ctrl.model.amortissements',() => {
         if(this.model.amortissements){

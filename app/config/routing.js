@@ -9,9 +9,9 @@ export default function routing($locationProvider, $stateProvider) {
     $stateProvider.state({
         name:'root',
         url:'/',
-        controller:'contentViewCtrl',
+        controller:'mainCtrl',
         controllerAs:'content',
-        template : require('../controller/main.html')
+        template : require('../components/main/main.html')
     });
 
 }
