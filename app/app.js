@@ -2,30 +2,26 @@
 
 import "./public/styles/css/main.css";
 
-import mainCtrl from "./controller/main.controller";
-import configService from "./service/config.service";
-import {creditResult} from "./components/creditResult/creditResult.component";
-import {tabResult} from "./components/tabResult/tabResult.component";
-import {chartResultComponent} from "./components/chartResult/chartResult.component";
-import {creditForm} from "./components/creditForm/creditForm.component";
-import {marketRate} from "./components/marketRate/marketRate.component";
-import format from "./filter/format.filter"
-import creditService from "./service/creditDemo.service";
+import "./filter/format.filter";
+import "./components/main/main.controller";
+import "./components/mortgageResult/mortgageResult.component";
+import "./components/amortization/amortization.component";
+import "./components/chartResult/chartResult.component";
+import "./components/mortgageData/mortgageData.component";
+import "./components/marketRate/marketRate.component";
 import routing from "./config/routing";
 
 
-angular.module('mainApp', [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll'])
-    .filter('euro', () => format.euro)
-    .filter('rate', () => format.rate)
-    .filter('year', () => format.year)
-    .factory('configService', configService)
-    .factory('creditService', creditService)
-    .controller('contentViewCtrl',mainCtrl)
-    .component('creditResult',creditResult)
-    .component('tabResult',tabResult)
-    .component('chartResultComponent',chartResultComponent)
-    .component('creditForm',creditForm)
-    .component('marketRate',marketRate)
+let modules = [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll',
+    'main',
+    'chartResult',
+    'mortgageData',
+    'marketRate',
+    'mortgageResult',
+    'amortization',
+    'format',];
+
+angular.module('mainApp', modules)
     .config(routing);
 
 //override cgBusy templateCache

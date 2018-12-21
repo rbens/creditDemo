@@ -15,4 +15,7 @@ class FormatFilter{
     }
 }
 
-export default FormatFilter;
+angular.module('format',[])
+    .filter('euro', () => FormatFilter.euro)
+    .filter('rate', () => FormatFilter.rate)
+    .filter('year', () => FormatFilter.year);

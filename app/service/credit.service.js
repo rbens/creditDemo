@@ -62,7 +62,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
             }
         },
         reset : () => {
-            dataModel.credit = {
+            dataModel.mortgageResult = {
                 capital: '',
                 annee: '',
                 tauxNominal: '',
@@ -79,3 +79,5 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
         }
     };
 }
+
+angular.module('creditService',[]).factory('creditService',creditService);

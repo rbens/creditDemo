@@ -1,4 +1,4 @@
-export default function creditResultController($rootScope, $mdDialog) {
+export default function mortgageResultController($rootScope, $mdDialog) {
     'ngInject';
 
     this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
@@ -7,7 +7,7 @@ export default function creditResultController($rootScope, $mdDialog) {
         $mdDialog.show({
             title: 'Informations sur les résultats',
             parent: angular.element(document.body),
-            template: require('./creditResult.modal.html'),
+            template: require('./mortgageResult.modal.html'),
             targetEvent: ev,
             clickOutsideToClose: true
         }).then(

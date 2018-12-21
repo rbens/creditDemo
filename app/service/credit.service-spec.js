@@ -1,11 +1,13 @@
+import './credit.service';
+
 describe('credit service ',function() {
 
-    beforeEach(angular.mock.module('mainApp'));
+    beforeEach(angular.mock.module('creditService'));
 
-    var $service;
+    let $service;
 
-    beforeEach(angular.mock.inject(function(_configService_){
-        $service = _configService_;
+    beforeEach(angular.mock.inject(function(_creditService_){
+        $service = _creditService_;
     }));
 
     describe('configuration ', function(){
@@ -16,12 +18,12 @@ describe('credit service ',function() {
 
 
         it('should simulate promise', inject(function($q, $rootScope, $httpBackend) {
-            // let deferred = $q.defer();
-            // let promise = $service.get().$promise;
-            // let resolvedValue;
+            let deferred = $q.defer();
+            let promise = $service.getMarketRates().$promise;
+            let resolvedValue;
             // jasmine.getFixtures().fixturesPath = 'config';
-            // let valid_respond = getJSONFixture('config.json');
-            // $httpBackend.whenGET(/.*/).respond(valid_respond);
+            //             // let valid_respond = getJSONFixture('config.json');
+            //             // $httpBackend.whenGET(/.*/).respond(valid_respond);
             //
             // promise.then(function(value) { resolvedValue = value; });
             // expect(resolvedValue).toBeUndefined();

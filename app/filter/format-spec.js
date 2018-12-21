@@ -1,15 +1,17 @@
+import './format.filter';
+
 describe('credit filter',function(){
 
-    beforeEach(angular.mock.module('mainApp'));
+    beforeEach(angular.mock.module('format'));
 
-    var $filter;
+    let $filter;
 
     beforeEach(angular.mock.inject(function(_$filter_){
         $filter = _$filter_;
     }));
 
     describe('euro ', function(){
-        var euro;
+        let euro;
 
         beforeEach(function () {
             euro = $filter('euro');
@@ -27,7 +29,7 @@ describe('credit filter',function(){
     });
 
     describe('year ', function(){
-        var year;
+        let year;
 
         beforeEach(function () {
             year = $filter('year')
@@ -47,7 +49,7 @@ describe('credit filter',function(){
     });
 
     describe('rate ', function(){
-        var rate;
+        let rate;
 
         beforeEach(function () {
             rate = $filter('rate')
