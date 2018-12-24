@@ -1,5 +1,5 @@
-import creditService from "../../service/credit.service";
-import configService from "../../service/config.service";
+import creditService from "../../service/loan/credit.service";
+import configService from "../../service/config/config.service";
 
 function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
     'ngInject';

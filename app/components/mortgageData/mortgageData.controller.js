@@ -19,5 +19,9 @@ export default function creditFormController($rootScope, $filter, $timeout, cred
     this.reset = () => {
         creditService.reset();
         this.credit = creditService.getDataModel().credit;
+    };
+
+    this.enabled = () => {
+        return this.credit.annee && this.credit.tauxNominal && this.credit.capital;
     }
 }

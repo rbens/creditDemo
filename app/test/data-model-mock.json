@@ -1,0 +1,291 @@
+{
+  "credit": {
+    "capital": 240000,
+    "annee": 1,
+    "tauxNominal": 0.61,
+    "tauxAssurance": "",
+    "tauxGlobal": 0.61,
+    "amortissements": [
+      {
+        "currentMonth": 1,
+        "interestAmount": 10.166666470468044,
+        "principalAmount": 1662.09376071684,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 18337.90623928316
+      },
+      {
+        "currentMonth": 2,
+        "interestAmount": 9.321768825075342,
+        "principalAmount": 1662.9386583622327,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 16674.967580920926
+      },
+      {
+        "currentMonth": 3,
+        "interestAmount": 8.47644169005452,
+        "principalAmount": 1663.7839854972535,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 15011.183595423672
+      },
+      {
+        "currentMonth": 4,
+        "interestAmount": 7.63068484708169,
+        "principalAmount": 1664.6297423402264,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 13346.553853083446
+      },
+      {
+        "currentMonth": 5,
+        "interestAmount": 6.784498077721977,
+        "principalAmount": 1665.475929109586,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 11681.077923973859
+      },
+      {
+        "currentMonth": 6,
+        "interestAmount": 5.937881163429475,
+        "principalAmount": 1666.3225460238787,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 10014.75537794998
+      },
+      {
+        "currentMonth": 7,
+        "interestAmount": 5.0908338855471795,
+        "principalAmount": 1667.1695933017609,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 8347.585784648218
+      },
+      {
+        "currentMonth": 8,
+        "interestAmount": 4.243356025306936,
+        "principalAmount": 1668.0170711620012,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 6679.568713486216
+      },
+      {
+        "currentMonth": 9,
+        "interestAmount": 3.3954473638293843,
+        "principalAmount": 1668.8649798234787,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 5010.703733662738
+      },
+      {
+        "currentMonth": 10,
+        "interestAmount": 2.5471076821239,
+        "principalAmount": 1669.7133195051842,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 3340.990414157554
+      },
+      {
+        "currentMonth": 11,
+        "interestAmount": 1.6983367610885374,
+        "principalAmount": 1670.5620904262196,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1672.260427187308,
+        "owingAmount": 1670.4283237313343
+      },
+      {
+        "currentMonth": 12,
+        "interestAmount": 0.8491343815099748,
+        "principalAmount": 1671.4112928057982,
+        "insuranceAmount": 0,
+        "monthlyAmount": 1671.2774581128442,
+        "owingAmount": 0
+      }
+    ],
+    "mensualite": "1672.26 €",
+    "interetTotal": "66.14 €",
+    "assuranceTotal": "",
+    "creditTotal": "66.14 €",
+    "assurance": "",
+    "remboursementTotal": "20066.14 €"
+  },
+  "line": {
+    "options": {
+      "chart": {
+        "type": "line"
+      },
+      "plotOptions": {
+        "series": {
+          "stacking": ""
+        }
+      }
+    },
+    "title": {
+      "text": null
+    },
+    "series": [
+      {
+        "name": "Intérets",
+        "data": [
+          10.17,
+          19.49,
+          27.96,
+          35.6,
+          42.38,
+          48.32,
+          53.41,
+          57.65,
+          61.05,
+          63.59,
+          65.29,
+          66.14
+        ]
+      },
+      {
+        "name": "Assurance",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Crédit",
+        "data": [
+          10.17,
+          19.49,
+          27.96,
+          35.6,
+          42.38,
+          48.32,
+          53.41,
+          57.65,
+          61.05,
+          63.59,
+          65.29,
+          66.14
+        ]
+      }
+    ],
+    "xAxis": {
+      "min": 0,
+      "title": {
+        "text": "années"
+      },
+      "tickInterval": 1,
+      "labels": {}
+    },
+    "yAxis": {
+      "min": 0,
+      "title": {
+        "text": "valeur en euros"
+      }
+    }
+  },
+  "area": {
+    "options": {
+      "chart": {
+        "type": "spline"
+      },
+      "plotOptions": {
+        "series": {
+          "stacking": ""
+        }
+      }
+    },
+    "series": [
+      {
+        "name": "Capital restant",
+        "data": [
+          18337.91,
+          16674.97,
+          15011.18,
+          13346.55,
+          11681.08,
+          10014.76,
+          8347.59,
+          6679.57,
+          5010.7,
+          3340.99,
+          1670.43,
+          0
+        ]
+      },
+      {
+        "name": "Total restant",
+        "data": [
+          20066.14,
+          18394.86,
+          16722.6,
+          15050.34,
+          13378.08,
+          11705.82,
+          10033.56,
+          8361.3,
+          6689.04,
+          5016.78,
+          3344.52,
+          1672.26
+        ]
+      }
+    ],
+    "title": {
+      "text": null
+    },
+    "xAxis": {
+      "min": 0,
+      "title": {
+        "text": "années"
+      },
+      "tickInterval": 1,
+      "labels": {}
+    },
+    "yAxis": {
+      "min": 0,
+      "title": {
+        "text": "valeur en euros"
+      }
+    }
+  },
+  "pie": {
+    "options": {
+      "chart": {
+        "type": "pie"
+      }
+    },
+    "series": [
+      {
+        "type": "pie",
+        "name": "somme en euros",
+        "data": [
+          [
+            "Cout total interets ",
+            66.14
+          ],
+          [
+            "Cout total assurances",
+            0
+          ],
+          [
+            "Capital emprunté",
+            20000
+          ]
+        ],
+        "id": "cc-1"
+      }
+    ],
+    "title": {
+      "text": null
+    }
+  }
+}

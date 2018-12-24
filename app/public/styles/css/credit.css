@@ -174,9 +174,9 @@ md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
     }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 960px) {
     .margin-phone-screen {
-        margin-right: 15px;
+        margin-right: 5%;
     }
 }
 

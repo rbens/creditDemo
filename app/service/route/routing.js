@@ -11,7 +11,7 @@ export default function routing($locationProvider, $stateProvider) {
         url:'/',
         controller:'mainCtrl',
         controllerAs:'content',
-        template : require('../components/main/main.html')
+        template : require('../../components/main/main.html')
     });
 
 }

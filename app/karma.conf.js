@@ -11,12 +11,14 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine'],
+        frameworks: ['jasmine-jquery','jasmine'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            './test/index.test.js'
+            'test/index.test.js',
+            // fixtures
+            {pattern: 'test/*.json', watched: true, served: true, included: false}
         ],
 
 
@@ -61,7 +63,7 @@ module.exports = function (config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
 
 
         // enable / disable watching file and executing tests whenever any file changes
@@ -78,6 +80,7 @@ module.exports = function (config) {
             "karma-webpack",
             'karma-babel-preprocessor',
             'karma-chrome-launcher',
+            'karma-jasmine-jquery',
             'karma-coverage-istanbul-reporter'
         ],
 
@@ -91,10 +94,11 @@ module.exports = function (config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        singleRun: true,
 
         // Concurrency level
         // how many browser should be started simultanous
-        concurrency: Infinity
+        concurrency: Infinity,
+
     });
 };

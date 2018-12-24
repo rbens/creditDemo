@@ -13,6 +13,10 @@ export default class DataModel{
        return value && value !== null && value !== 0;
     }
 
+    static formatNumber(data) {
+        return data.toFixed(2);
+    }
+
     dataModel( model ){
         Object.assign(this.credit, model);
     }
@@ -27,6 +31,17 @@ export default class DataModel{
 
     chartPie( pie ){
         Object.assign(this.pie, pie);
+    }
+
+    teg(){
+        this.credit.tauxNominal = Number(DataModel.formatNumber(this.credit.tauxNominal));
+
+        if (this.credit.tauxAssurance) {
+            this.credit.tauxAssurance = Number(DataModel.formatNumber(this.credit.tauxAssurance));
+            this.credit.tauxGlobal = this.credit.tauxNominal + this.credit.tauxAssurance;
+        } else {
+            this.credit.tauxGlobal = this.credit.tauxNominal;
+        }
     }
 
     isComplete(){
@@ -69,6 +84,23 @@ export default class DataModel{
             ]
 
         });
-    };
+    }
+
+    reset($filter){
+        this.credit = {
+            capital: '',
+            annee: '',
+            tauxNominal: '',
+            tauxAssurance: '',
+            tauxGlobal: $filter('rate')(0),
+            amortissements: [],
+            mensualite: $filter('euro')(0),
+            interetTotal: $filter('euro')(0),
+            assuranceTotal: $filter('euro')(0),
+            creditTotal: $filter('euro')(0),
+            assurance: $filter('euro')(0),
+            remboursementTotal: $filter('euro')(0)
+        };
+    }
 
 }

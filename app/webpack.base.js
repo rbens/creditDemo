@@ -21,11 +21,11 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin([dir]),
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './public/index.html'
         }),
         new CopyWebpackPlugin([
             {
-                from: './config/config.json',
+                from: './service/config/config.json',
                 to: './config/config.json',
                 toType: 'file'
             },
@@ -35,7 +35,7 @@ module.exports = {
                 toType: 'dir'
             },
             {
-                from: './favicon.ico',
+                from: './public/img/favicon.ico',
                 to: '',
                 toType: 'file'
             }
