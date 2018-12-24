@@ -19,7 +19,7 @@
 			}
 		],
 		"xAxis": {
-			"min": 0,
+			"min": 1,
 			"title": {
 				"text": "années"
 			},
@@ -54,7 +54,7 @@
 			"text": null
 		},
 		"xAxis": {
-			"min": 0,
+			"min": 1,
 			"title": {
 				"text": "années"
 			},
