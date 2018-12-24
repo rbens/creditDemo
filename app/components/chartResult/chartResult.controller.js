@@ -1,4 +1,3 @@
-import $ from 'jquery';
 
 export default function chartResultController($rootScope, configService, creditService, $window) {
     'ngInject';
@@ -34,10 +33,6 @@ export default function chartResultController($rootScope, configService, creditS
     ];
 
     this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
-
-    angular.element($window).bind('resize', () => {
-        this.panelWidth = $('.panel-body').css('width');
-    });
 
     this.option = options[0];
 

@@ -2,15 +2,13 @@
 @import "credit.css";
 @import "animations.css";
 @import "../../flaticon/flaticon.css";
-@import "../../svg/sprites.css";
-@import "bootstrap-custom.css";
-@import "bootstrap-theme.css";
+@import "../../img/svg/sprites.css";
 @import "bootstrap.css";
 
-@import "../../../node_modules/highcharts-ng/dist/highcharts-ng.css";
+@import "~highcharts-ng/dist/highcharts-ng.css";
 @import "ripples.css";
 @import "material-wfont.css";
-@import "angular-material.min.css";
-@import "angular-busy.css";
+@import "~angular-material/angular-material.min.css";
+@import "~angular-busy/dist/angular-busy.min.css";
 @import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
 @import "style.css";

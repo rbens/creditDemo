@@ -9,6 +9,8 @@
             </md-button>
         </div>
     </md-toolbar>
+
+    <!--desktop-->
     <div layout-fill hide-xs hide-sm hide-md>
         <md-content layout="row" layout-padding class="adapt-form">
             <md-input-container flex="25" >
@@ -63,6 +65,7 @@
         </md-content>
     </div>
 
+    <!--screen phone and tablet-->
     <div layout-fill hide-gt-md>
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50" >
@@ -105,10 +108,10 @@
 
         <md-content  layout="row" hide-xs layout-padding class="adapt-form">
             <md-input-container layout="row" class="md-button-form">
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
                     <span >calculer</span>
                 </md-button>
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="$ctrl.credit.amortissements.length == 0">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()">
                     <span hide-xs>réinitialiser</span>
                 </md-button>
             </md-input-container>
@@ -116,10 +119,10 @@
 
         <md-content  layout="row" hide-gt-xs layout-padding class="adapt-form">
             <md-input-container layout="row" class="md-button-form" style="margin-left: 20%">
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
                     <md-icon md-font-icon="add_white"></md-icon>
                 </md-button>
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="$ctrl.credit.amortissements.length == 0">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()">
                     <md-icon md-font-icon="clear_white"></md-icon>
                 </md-button>
             </md-input-container>

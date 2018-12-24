@@ -9,10 +9,10 @@ import "./components/amortization/amortization.component";
 import "./components/chartResult/chartResult.component";
 import "./components/mortgageData/mortgageData.component";
 import "./components/marketRate/marketRate.component";
-import routing from "./config/routing";
+import routing from "./service/route/routing";
 
 
-let modules = [ 'highcharts-ng', 'mgcrea.ngStrap', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll',
+let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll',
     'main',
     'chartResult',
     'mortgageData',
