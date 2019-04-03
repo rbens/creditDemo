@@ -1,0 +1,132 @@
+<md-content class="panel" flex-offset="5" flex-offset-md="8" style="padding-left: 0;" id="simulateur">
+    <md-toolbar class="demo-toolbar" >
+        <div class="md-toolbar-tools panel-dialog">
+            <h3 class="panel-title">Calculatrice</h3>
+            <span flex></span>
+            <md-button class="md-icon-button icon-color" aria-label="Settings" ng-click="$ctrl.modalForm($event)">
+                <md-tooltip>Cliquez pour les détails</md-tooltip>
+                <md-icon md-font-icon="info_outline"></md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <!--desktop-->
+    <div layout-fill hide-xs hide-sm hide-md>
+        <md-content layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="25" >
+                <label>Durée </label>
+                <md-slider class="md-accent" aria-label="dureé" required
+                           ng-model="$ctrl.credit.annee" value="0" max="35" min="0" step="1" ng-change="$ctrl.calcul()" placeholder=""></md-slider>
+            </md-input-container>
+            <md-input-container flex="15">
+                <input type="text" class="form-control" ng-value="$ctrl.credit.annee | year" disabled data-toggle="tooltip"
+                       data-placement="right" aria-label="durée en année">
+            </md-input-container>
+            <md-input-container flex="30">
+                <label>Capital </label>
+                <input type="number" required ng-model="$ctrl.credit.capital" ng-change="$ctrl.calcul()" aria-label="" placeholder=""/>
+            </md-input-container>
+        </md-content>
+
+        <md-content layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="25">
+                <label>Taux emprunt</label>
+                <md-slider  class="md-accent" required aria-label="selectionnez le taux fixe"
+                            ng-model="$ctrl.credit.tauxNominal" value="0.00" max="10.00" min="0.00" step="0.01"
+                            ng-change="$ctrl.teg();$ctrl.calcul()" placeholder=""></md-slider>
+            </md-input-container>
+            <md-input-container flex="15">
+                <input type="text" class="form-control"  ng-value="$ctrl.credit.tauxNominal | rate" aria-label="taux fixe" ng-model="$ctrl.credit.tauxNominal" disabled ng-change="$ctrl.teg();$ctrl.calcul()">
+            </md-input-container>
+            <md-input-container flex="30">
+                <label>Taux assurance</label>
+                <md-slider class="md-accent" aria-label="selectionnez le taux d'assurance"
+                           ng-model="$ctrl.credit.tauxAssurance" value="0.00" max="10.00" min="0.00" step="0.01"
+                           ng-change="$ctrl.teg();$ctrl.calcul();$ctrl.assu()" placeholder=""></md-slider>
+            </md-input-container>
+            <md-input-container flex="15">
+                <input type="text" class="form-control" ng-value="$ctrl.credit.tauxAssurance | rate" aria-label="taux d'assurance" ng-model="$ctrl.credit.tauxAssurance" disabled ng-change="$ctrl.teg();$ctrl.calcul();$ctrl.assu()">
+            </md-input-container>
+            <md-input-container flex="15">
+                <input type="text" class="form-control" aria-label="prix assurance par mois" ng-value="$ctrl.credit.assurance" disabled >
+            </md-input-container>
+        </md-content>
+
+        <md-content layout="row" layout-padding class="adapt-form">
+            <md-input-container>
+                <label>TEG</label>
+                <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="$ctrl.credit.tauxGlobal | rate" disabled>
+            </md-input-container>
+            <md-input-container class="md-button-form">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="$ctrl.credit.amortissements.length == 0">
+                    réinitialiser
+                </md-button>
+            </md-input-container>
+        </md-content>
+    </div>
+
+    <!--screen phone and tablet-->
+    <div layout-fill hide-gt-md>
+        <md-content  layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="30" flex-xs="50" >
+                <label>Durée </label>
+                <input type="number" min="1" max="35" required ng-model="$ctrl.credit.annee" ng-value="$ctrl.credit.annee" aria-label="durée en année">
+                <div class="hint">max 35 ans</div>
+            </md-input-container>
+            <md-input-container flex="30" flex-xs="50" style="margin-left: 2%">
+                <label>Capital </label>
+                <input type="number" ng-model="$ctrl.credit.capital" required aria-label=""/>
+            </md-input-container>
+        </md-content>
+
+        <md-content  layout="row" layout-padding class="adapt-form">
+            <md-input-container flex="30" flex-xs="50">
+                <label>Taux emprunt</label>
+                <input type="number" min="0.01" max="10" required aria-label="taux fixe" ng-model="$ctrl.credit.tauxNominal" ng-change="$ctrl.teg()">
+                <div class="hint">max 10%</div>
+            </md-input-container>
+            <md-input-container flex="30" flex-xs="50" style="margin-left: 2%;">
+                <label>Taux assurance</label>
+                <input type="number" min="0.01" max="5" flex="" aria-label="taux d'assurance" ng-model="$ctrl.credit.tauxAssurance" ng-change="$ctrl.teg()">
+                <div class="hint">max 5%</div>
+            </md-input-container>
+            <md-input-container flex="30" hide-xs>
+                <input type="text" class="form-control" disabled aria-label="prix assurance par mois" ng-value="$ctrl.credit.assurance" >
+            </md-input-container>
+        </md-content>
+
+        <md-content  layout="row" layout-padding class="adapt-form" hide-gt-xs>
+            <md-input-container flex="50">
+                <label>Prix assurance</label>
+                <input type="text" disabled class="form-control" aria-label="prix assurance par mois" ng-value="$ctrl.credit.assurance" placeholder="">
+            </md-input-container>
+            <md-input-container flex="50" style="margin-left: 2%;">
+                <label>TEG</label>
+                <input type="text" disabled class="form-control"  aria-label="taux emprunt global" ng-value="$ctrl.credit.tauxGlobal" placeholder="">
+            </md-input-container>
+         </md-content>
+
+        <md-content  layout="row" hide-xs layout-padding class="adapt-form">
+            <md-input-container layout="row" class="md-button-form">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
+                    <span >calculer</span>
+                </md-button>
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()">
+                    <span hide-xs>réinitialiser</span>
+                </md-button>
+            </md-input-container>
+        </md-content>
+
+        <md-content  layout="row" hide-gt-xs layout-padding class="adapt-form">
+            <md-input-container layout="row" class="md-button-form" style="margin-left: 20%">
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
+                    <md-icon md-font-icon="add_white"></md-icon>
+                </md-button>
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()">
+                    <md-icon md-font-icon="clear_white"></md-icon>
+                </md-button>
+            </md-input-container>
+        </md-content>
+    </div>
+</md-content>
+

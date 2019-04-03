@@ -1,113 +1,104 @@
 // Karma configuration
 // Generated on Sat Nov 21 2015 16:55:19 GMT+0100 (CET)
+const webpackConfig = require('./webpack.test.js');
 
-module.exports = function(config) {
-  config.set({
+module.exports = function (config) {
+    config.set({
 
-    // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '/',
-
-
-    // frameworks to use
-    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+        // base path that will be used to resolve all patterns (eg. files, exclude)
+        basePath: '',
 
 
-    // list of files / patterns to load in the browser
-    files: [
-      {pattern : 'libs/jquery/dist/jquery.min.js', watched :false},
-      {pattern : 'libs/angular/angular.js', watched :false},
-      {pattern : 'libs/angular-mocks/angular-mocks.js', watched :false},
-      {pattern : 'libs/angular-material/angular-material.js', watched :false},
-      {pattern : 'libs/modernizr/modernizr.js', watched :false},
-      {pattern : 'libs/highcharts-ng/dist/highcharts-ng.js', watched :false},
-      {pattern : 'libs/highcharts/highcharts.js', watched :false},
-      {pattern : 'libs/angular-bootstrap/ui-bootstrap.min.js', watched :false},
-      {pattern : 'libs/angular-bootstrap/ui-bootstrap-tpls.min.js', watched :false},
-      {pattern : 'libs/angular-strap/dist/angular-strap.min.js', watched :false},
-      {pattern : 'libs/angular-strap/dist/angular-strap.tpl.min.js', watched :false},
-      {pattern : 'libs/bootstrap-material-design/dist/js/ripples.min.js', watched :false},
-      {pattern : 'libs/bootstrap-material-design/dist/js/material.min.js', watched :false},
-      {pattern : 'libs/angular-animate/angular-animate.min.js', watched :false},
-      {pattern : 'libs/angular-route/angular-route.min.js', watched :false},
-      {pattern : 'libs/angular-aria/angular-aria.min.js', watched :false},
-      {pattern : 'libs/hammerjs/hammer.min.js', watched :false},
-      {pattern : 'libs/angular-busy/dist/angular-busy.js', watched :false},
-
-      {pattern : 'app.js', watched :true},
-      {pattern : 'service/*.js', watched :true},
-      {pattern : 'directive/*/*.html', watched :false},
-      {pattern : 'directive/*/*.js', watched :true},
-      {pattern : 'test/*/*spec.js', watched :true}
-    ],
+        // frameworks to use
+        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['jasmine-jquery','jasmine'],
 
 
-    // list of files to exclude
-    exclude: [
-    ],
+        // list of files / patterns to load in the browser
+        files: [
+            'test/index.test.js',
+            // fixtures
+            {pattern: 'test/*.json', watched: true, served: true, included: false}
+        ],
 
 
-    preprocessors: {
-      'directive/**/*.html': ['ng-html2js'],
-      'service/*.js': ['coverage'],
-      'directive/*/*.js': ['coverage']
-
-    },
-
-    ngHtml2JsPreprocessor: {
-      moduleName: 'html2jsTemplates'
-    },
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress','coverage'],
+        // list of files to exclude
+        exclude: [],
 
 
-    // web server port
-    port: 9876,
+        preprocessors: {
+            './test/index.test.js': ['webpack']
+        },
+
+        ngHtml2JsPreprocessor: {
+            moduleName: 'html2jsTemplates'
+        },
+
+        webpack: webpackConfig,
+
+        webpackMiddleware: {
+            // webpack-dev-middleware configuration
+            // i.e.
+            noInfo: true,
+            // and use stats to turn off verbose output
+            stats: {
+                // options i.e.
+                chunks: false
+            }
+        },
+
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        // reporters: ['progress', 'coverage'],
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+        // web server port
+        port: 9876,
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
 
 
-    // start these browsers
-    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
-
-    // Which plugins to enable
-    plugins: [
-      "karma-phantomjs-launcher",
-      "karma-jasmine",
-      "karma-coverage",
-      'karma-ng-html2js-preprocessor'
-    ],
-
-    // optionally, configure the reporter
-    coverageReporter: {
-      dir : 'coverage/',
-      reporters:[
-        {type: 'html',file : 'coverage.html'}
-      ]
-    },
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
 
 
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        browsers: ['ChromeHeadless'],
 
-    // Concurrency level
-    // how many browser should be started simultanous
-    concurrency: Infinity
-  });
+        // Which plugins to enable
+        plugins: [
+            "karma-jasmine",
+            "karma-webpack",
+            'karma-babel-preprocessor',
+            'karma-chrome-launcher',
+            'karma-jasmine-jquery',
+            'karma-coverage-istanbul-reporter'
+        ],
+
+        // optionally, configure the reporter
+        reporters: [ 'progress', 'coverage-istanbul' ],
+        coverageIstanbulReporter: {
+            reports: [ 'text-summary' ],
+            fixWebpackSourcePaths: true
+        },
+
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: true,
+
+        // Concurrency level
+        // how many browser should be started simultanous
+        concurrency: Infinity,
+
+    });
 };

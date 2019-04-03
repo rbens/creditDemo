@@ -90,15 +90,15 @@ public final class Results extends MonthlyPayment {
         return seriesResults;
     }
 
-    private double[] reverseArrayDouble(double[] numberArray){
-        for(int i = 0; i < numberArray.length / 2; i++)
+    private double[] reverseArrayDouble(double[] doubles){
+        for(int i = 0; i < doubles.length / 2; i++)
         {
-            double temp = numberArray[i];
-            numberArray[i] = numberArray[numberArray.length - i - 1];
-            numberArray[numberArray.length - i - 1] = temp;
+            double temp = doubles[i];
+            doubles[i] = doubles[doubles.length - i - 1];
+            doubles[doubles.length - i - 1] = temp;
         }
 
-        return numberArray;
+        return doubles;
     }
 
 }
