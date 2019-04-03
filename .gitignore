@@ -1,8 +1,9 @@
 .idea
-.DS_Store
 app/node_modules
+node_modules
 app/libs
 app/coverage
 app/dist
 target/
 *.iml
+.DS_Store

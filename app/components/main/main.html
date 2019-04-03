@@ -1,0 +1,48 @@
+<!-- header -->
+<md-toolbar class="demo-toolbar md-primary">
+    <div class="md-toolbar-tools" >
+        <h1 class="font-cool">Calculez votre crédit !</h1>
+        <span flex></span>
+        <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
+            Durée
+            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.credit.annee"></md-icon>
+        </md-button>
+        <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
+            Capital
+            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.credit.capital"></md-icon>
+        </md-button>
+        <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
+            Taux d'int&eacute;ret
+            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.credit.tauxNominal"></md-icon>
+        </md-button>
+        <span flex></span>
+        <md-button aria-label="menu" class="md-raised btn-color-form" ng-click="openVideo()" hide-sm hide-xs>
+            <md-icon md-font-icon="ic_movie"></md-icon> Demo vidéo
+        </md-button>
+    </div>
+</md-toolbar>
+<br>
+<!-- content -->
+<div layout="column" class="margin-phone-screen">
+    <div layout="row" layout-xs="column" layout-sm="column">
+        <div flex-offset="5" flex="15" hide-xs hide-md hide-sm>
+            <market-rate-component></market-rate-component>
+        </div>
+        <div flex="95" flex-gt-sm="60" flex-gt-md="45">
+            <mortgage-data-component></mortgage-data-component>
+        </div>
+        <div flex="95" flex-gt-sm="35" flex-gt-md="30">
+            <mortgage-result-component model="dataModel.credit"></mortgage-result-component>
+        </div>
+    </div>
+    <div layout-gt-md="row" layout-xs="column" layout-sm="column" layout-md="column">
+        <div flex="50" hide-xs>
+            <chart-result-component ng-show="dataModel.credit.amortissements.length > 0" model="dataModel" ></chart-result-component>
+        </div>
+        <div flex="45">
+            <amortization-component ng-show="dataModel.credit.amortissements.length > 0" model="dataModel.credit" ></amortization-component>
+        </div>
+    </div>
+</div>
+
+

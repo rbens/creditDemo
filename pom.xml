@@ -100,7 +100,7 @@
                 <version>1.3.2</version>
                 <executions>
                     <execution>
-                        <id>npm install (initialize)</id>
+                        <id>yarn install (initialize)</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
@@ -110,17 +110,19 @@
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>install</argument>
+                                <argument>yarn</argument>
+                                <argument>-g</argument>
                             </arguments>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>bower install</id>
+                        <id>package installations</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <phase>initialize</phase>
                         <configuration>
-                            <executable>bower</executable>
+                            <executable>yarn</executable>
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>install</argument>
@@ -128,17 +130,16 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>grunt build</id>
+                        <id>yarn build</id>
                         <goals>
                             <goal>exec</goal>
                         </goals>
                         <phase>initialize</phase>
                         <configuration>
-                            <executable>grunt</executable>
+                            <executable>yarn</executable>
                             <workingDirectory>app</workingDirectory>
                             <arguments>
                                 <argument>build</argument>
-                                <argument>--target=${env}</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -181,12 +182,6 @@
                             <directory>app/.tmp</directory>
                         </fileset>
                         <fileset>
-                            <directory>app/coverage</directory>
-                        </fileset>
-                        <fileset>
-                            <directory>app/libs</directory>
-                        </fileset>
-                        <fileset>
                             <directory>app/node_modules</directory>
                         </fileset>
                     </filesets>
@@ -213,6 +208,27 @@
                         <goals>
                             <goal>run-war-only</goal>
                         </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>copy</goal></goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.jsimone</groupId>
+                                    <artifactId>webapp-runner</artifactId>
+                                    <version>9.0.11.0</version>
+                                    <destFileName>webapp-runner.jar</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

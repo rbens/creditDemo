@@ -1,33 +1,38 @@
-angular.module('mainApp', ['highcharts-ng','mgcrea.ngStrap','ngMaterial','cgBusy','ngResource', 'ngRoute','duScroll'])
-    .config(function ($locationProvider, $routeProvider, $scrollspyProvider) {
-        // use the HTML5 History API
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        }).hashPrefix('!');
+'use strict';
 
-        $routeProvider.when('/',{
-            controller:'contentViewCtrl',
-            templateUrl : 'views/contentView.html'
-        });
+import "./public/styles/css/main.css";
 
-        angular.extend($scrollspyProvider.defaults, {
-            animation: 'view-animate',
-            placement: 'top'
-        });
+import "./filter/format.filter";
+import "./components/main/main.controller";
+import "./components/mortgageResult/mortgageResult.component";
+import "./components/amortization/amortization.component";
+import "./components/chartResult/chartResult.component";
+import "./components/mortgageData/mortgageData.component";
+import "./components/marketRate/marketRate.component";
+import routing from "./service/route/routing";
 
-    }).value('cgBusyDefaults',{
-        templateUrl:'cg-template.html'
-    }).run(['$rootScope', function($rootScope){
 
-        $rootScope.rootPath = '//localhost:8090/';
+let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll',
+    'main',
+    'chartResult',
+    'mortgageData',
+    'marketRate',
+    'mortgageResult',
+    'amortization',
+    'format',];
 
-        $rootScope.model = {
-            duree: undefined,
-            capital: undefined,
-            tauxNominal: 0.0,
-            tauxAssurance: 0.0,
-            tauxGlobal: 0.0
-        };
+angular.module('mainApp', modules)
+    .config(routing);
 
-    }]);
+//override cgBusy templateCache
+angular.module('cgBusy').run(['$templateCache', function($templateCache) {
+    'use strict';
+
+    $templateCache.put('angular-busy.html',
+        "<div layout=\"row\" layout-sm=\"column\" layout-align=\"space-around\">\n" +
+        "<md-progress-circular md-mode=\"indeterminate\"></md-progress-circular>" +
+        "</div>"
+    );
+
+}]);
+

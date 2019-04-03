@@ -1,0 +1,24 @@
+<div class="panel no-bottom" id="tab" flex-offset="5" flex-offset-gt-md="10">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
+        <div class="md-toolbar-tools panel-dialog">
+            <h3 class="panel-title" hide-xs>D&eacute;tails du remboursement par mois</h3>
+            <h3 class="panel-title" hide-gt-xs>Remboursement par mois</h3>
+        </div>
+    </md-toolbar>
+    <md-content flex layout-padding >
+        <div class="table-responsive">
+            <table class="table table-striped table-hover fixed_header" cg-busy="{promise:$ctrl.cgPromise}">
+                <thead>
+                <th style="width: 7%;">Mois</th>
+                <th>Intérêts payé</th>
+                <th>Capital remboursé</th>
+                <th>Assurance payé</th>
+                <th title="capital restant à rembourser">Capital restant</th>
+                </thead>
+
+                <tbody >
+                </tbody>
+            </table>
+        </div>
+    </md-content>
+</div>
