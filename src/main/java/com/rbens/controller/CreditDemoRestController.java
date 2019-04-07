@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -36,13 +34,11 @@ final class CreditDemoRestController {
         final Document document =  Jsoup.connect(RATES_URL).get();
 
         final Elements elements = document.select(DOM_SELECTOR);
-        final List<String> collect = elements.stream()
+
+        return (String[]) elements.stream()
                 .filter(element -> element.hasText() && element.text().contains("%"))
                 .map(Element::text)
-                .collect(Collectors.toList());
-        final String[] rates = new String[collect.size()];
-
-        return collect.toArray(rates);
+                .toArray();
     }
 
 }

@@ -1,12 +1,15 @@
 package com.rbens.model;
 
-import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Created by rabah on 15/10/17.
  */
-public class ResultsTest extends TestCase {
+public class ResultsTest {
+
+    private Results results;
+
     @Test
     public void insuranceTotalCost() throws Exception {
 
@@ -61,12 +64,15 @@ public class ResultsTest extends TestCase {
     private float insuranceRate;
 
     //TODO : test must be finished
+    @Before
     public void setUp(){
-        months = 12;
-        capital = 15000;
-        interestRate = 1.0f;
+        results = new Results();
+        results.months = 12;
+        results.capital = 15000;
+        results.interestRate = 1.0f;
     }
 
+    @Test
     public void testInterestSeries(){
 
     }
