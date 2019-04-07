@@ -35,10 +35,10 @@ final class CreditDemoRestController {
 
         final Elements elements = document.select(DOM_SELECTOR);
 
-        return (String[]) elements.stream()
+        return  elements.stream()
                 .filter(element -> element.hasText() && element.text().contains("%"))
                 .map(Element::text)
-                .toArray();
+                .toArray(String[]::new);
     }
 
 }
