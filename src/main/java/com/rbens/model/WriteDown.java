@@ -2,25 +2,18 @@ package com.rbens.model;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import lombok.Builder;
 
 @JsonAutoDetect(fieldVisibility= JsonAutoDetect.Visibility.ANY)
+@Builder
 final class WriteDown{
 
-    private final int currentMonth;
-    final double interestAmount;
-    private final double principalAmount;
-    final double insuranceAmount;
-    final double monthlyAmount;
-    final double owingAmount;
-
-    WriteDown(int currentMonth, double interestAmount, double principalAmount, double insuranceAmount, double monthlyAmount, double owingAmount) {
-        this.currentMonth    = currentMonth;
-        this.interestAmount  = interestAmount;
-        this.principalAmount = principalAmount;
-        this.insuranceAmount = insuranceAmount;
-        this.monthlyAmount   = monthlyAmount;
-        this.owingAmount     = owingAmount;
-    }
+    private int currentMonth;
+    double interestAmount;
+    private double principalAmount;
+    double insuranceAmount;
+    double monthlyAmount;
+    double owingAmount;
 
     public double getMonthlyAmount() {
         return monthlyAmount;

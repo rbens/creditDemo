@@ -17,24 +17,24 @@ public abstract class MonthlyPayment {
     float interestRate;
 
     @JsonProperty
-    float insuranceRate;
+    private float insuranceRate;
 
     List<WriteDown> writeDowns;
 
-    public MonthlyPayment() {
-        writeDowns = new ArrayList<>();
+    MonthlyPayment() {
+        this.writeDowns = new ArrayList<>();
     }
 
     @JsonProperty(value = "coutPrincipal")
-    double creditFormula(){
-        final float v = (interestRate * 0.01f) / 12;
-        return (capital * v) / (1 - Math.pow((1+ v),-months));
+    private double creditFormula(){
+        final float v = (this.interestRate * 0.01f) / 12;
+        return (this.capital * v) / (1 - Math.pow((1+ v),-this.months));
     }
 
     @JsonProperty(value = "coutAssurance")
-    double insuranceFormula() {
-        final float v = (insuranceRate * 0.01f) / 12;
-        return capital * v;
+    private double insuranceFormula() {
+        final float v = (this.insuranceRate * 0.01f) / 12;
+        return this.capital * v;
     }
 
     @JsonProperty
@@ -43,14 +43,17 @@ public abstract class MonthlyPayment {
     }
 
     public List<WriteDown> getWriteDowns(){
-        final float v = (interestRate * 0.01f) / 12;
-        final double assurance = insuranceFormula();
-        double capitalRestant = capital;
+        buildWriteDowns((this.interestRate * 0.01f) / 12, insuranceFormula(), this.capital);
+        return this.writeDowns;
+    }
+
+    private void buildWriteDowns(float monthlyInterestRate, double assurance, double capitalRestant) {
         double interet;
         double principal;
         double mensualite;
-        for (int currentMonth=1 ; currentMonth<= months; currentMonth++){
-            interet = capitalRestant * v ;
+
+        for (int currentMonth = 1; currentMonth<= months; currentMonth++){
+            interet = capitalRestant * monthlyInterestRate ;
             principal =  creditFormula() - interet;
             mensualite = creditFormula() + assurance;
             capitalRestant = capitalRestant - principal;
@@ -61,10 +64,15 @@ public abstract class MonthlyPayment {
                 capitalRestant = 0;
             }
 
-            writeDowns.add(new WriteDown(currentMonth, interet, principal, assurance, mensualite, capitalRestant));
+            writeDowns.add(WriteDown.builder()
+                    .currentMonth(currentMonth)
+                    .interestAmount(interet)
+                    .principalAmount(principal)
+                    .insuranceAmount(assurance)
+                    .monthlyAmount(mensualite)
+                    .owingAmount(capitalRestant)
+                    .build());
         }
-
-        return writeDowns;
     }
 
 }
