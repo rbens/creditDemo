@@ -3,8 +3,10 @@ package com.rbens.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.rbens.utils.NumberFormatter;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.rbens.utils.NumberFormatter.formatNumberToDoubleValue;
 
@@ -74,10 +76,9 @@ public final class Results extends MonthlyPayment {
 
     @JsonProperty(value = "totalRestantSeries")
     double[] totalRestantSeries() {
-        return calculSeries(writeDowns.stream()
-                .sorted(Collections.reverseOrder())
+        return reverseArrayDouble(calculSeries(writeDowns.stream()
                 .mapToDouble(WriteDown::getMonthlyAmount)
-                .toArray());
+                .toArray()));
     }
 
     private double[] calculSeries(double[] series){
@@ -92,5 +93,13 @@ public final class Results extends MonthlyPayment {
         return seriesResults;
     }
 
+    private double[] reverseArrayDouble(double[] doubles){
+        final List<Double> list = Arrays.stream(doubles).boxed().collect(Collectors.toList());
+        Collections.reverse(list);
+        return list.stream()
+                .mapToDouble(Double::doubleValue)
+                .map(NumberFormatter::formatNumberToDoubleValue)
+                .toArray();
+    }
 
 }
