@@ -30,6 +30,11 @@ module.exports = {
                 toType: 'file'
             },
             {
+                from: './service/cities/cities.json',
+                to: './cities/cities.json',
+                toType: 'file'
+            },
+            {
                 from: './public/img/*.png',
                 to: '',
                 toType: 'dir'

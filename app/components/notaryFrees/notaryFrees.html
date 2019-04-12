@@ -1,0 +1,31 @@
+<div class="panel no-bottom">
+    <md-toolbar class="demo-toolbar">
+        <div class="md-toolbar-tools modal-dialog">
+            <h3 class="panel-title">Frais de notaire</h3>
+        </div>
+    </md-toolbar>
+    <div class="panel-body">
+        <md-content layout-padding class="adapt-form">
+            <md-input-container flex="25">
+                <label>Type de propriété </label>
+                <md-select ng-model="notaryFreesInfo.propertyType">
+                        <md-option>ancien</md-option>
+                        <md-option>neuf</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex="25">
+                <label>Ville ou code postale </label>
+                <md-autocomplete
+                        md-no-cache="true"
+                        md-selected-item="selectedItem"
+                        md-search-text-change="searchTextChange(searchText)"
+                        md-search-text="searchText"
+                        md-items="city in querySearch(searchText)"
+                        md-item-text="city"
+                >
+                    <span md-highlight-text="searchText">{{city}}</span>
+                </md-autocomplete>
+            </md-input-container>
+        </md-content>
+    </div>
+</div>

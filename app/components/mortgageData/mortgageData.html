@@ -57,8 +57,9 @@
                 <label>TEG</label>
                 <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="$ctrl.credit.tauxGlobal | rate" disabled>
             </md-input-container>
-            <md-input-container class="md-button-form">
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="$ctrl.credit.amortissements.length == 0">
+            <md-input-container class="md-button-form" layout="row">
+                <md-button class="md-raised btn-color-form" aria-label="frais de notaire" ng-click="$ctrl.notaryFreesModal()">Frais de notaire</md-button>
+                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="!$ctrl.credit.amortissements.length || $ctrl.credit.amortissements.length == 0">
                     réinitialiser
                 </md-button>
             </md-input-container>

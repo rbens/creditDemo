@@ -1,5 +1,5 @@
 
-export default function chartResultController($rootScope, configService, creditService, $window) {
+export default function chartResultController($rootScope, configService, creditService) {
     'ngInject';
 
     configService.get().$promise.then(

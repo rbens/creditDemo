@@ -16,6 +16,15 @@ export default function creditFormController($rootScope, $filter, $timeout, cred
         );
     };
 
+    this.notaryFreesModal = (ev) => {
+        $mdDialog.show({
+            parent: angular.element(document.body),
+            template : require('./../notaryFrees/notaryFrees.html'),
+            targetEvent:ev,
+            controller: 'notaryFreesController'
+        });
+    };
+
     this.reset = () => {
         creditService.reset();
         this.credit = creditService.getDataModel().credit;

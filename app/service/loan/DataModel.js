@@ -10,7 +10,7 @@ export default class DataModel{
     }
 
     static isDefined(value){
-       return value && value !== null && value !== 0;
+       return value && value !== 0;
     }
 
     static formatNumber(data) {
