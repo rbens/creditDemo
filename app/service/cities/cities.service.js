@@ -1,7 +1,12 @@
 'use strict';
+import "angular-mocks";
 
-export default function cityService($resource) {
+function cityService($http, $resource) {
     "ngInject";
-    return $resource('../cities/cities.json');
+    return {
+        getCities : (city,code) => $http.get('cities',{params :{"city":city, "code":code}}),
+        loadCitiesFromJson : () => $resource('../cities/cities.json')
+    };
 }
 
+angular.module('cities', []) .factory('cityService', cityService);

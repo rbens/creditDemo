@@ -12,9 +12,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
     return {
         getMarketRates: () => $http.get("rates"),
         getDataModel: () => dataModel,
-        setDataModel: (model) => {
-            Object.assign(dataModel.credit, model);
-        },
+        setDataModel: (model) => Object.assign(dataModel.credit, model),
         calcul: () => {
             $timeout.cancel($rootScope.cgPromise);
             if (dataModel.isComplete()) {
@@ -50,12 +48,8 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                 }, 1500);
             }
         },
-        teg: () => {
-            dataModel.teg();
-        },
-        reset: () => {
-            dataModel.reset($filter);
-        }
+        teg: () => dataModel.teg(),
+        reset: () => dataModel.reset($filter)
     };
 }
 

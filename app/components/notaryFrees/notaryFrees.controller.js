@@ -1,24 +1,26 @@
-import citiesService from "../../service/cities/cities.service";
+import "../../service/cities/cities.service";
 
-export default function notaryFreesController($scope, cityService) {
-    $scope.notaryFreesInfo = {
+function notaryFreesController($scope, cityService) {
+
+    let isNumber = (query) => query.match(new RegExp('\^[1-9]+'));
+    let self = $scope;
+
+    self.notaryFreesInfo = {
         cost: '',
         propertyType: '',
         zip: ''
     };
-
-    cityService.get().$promise.then((res) => $scope.cities = res.cities);
-
-    $scope.querySearch = querySearch;
-
-    /**
-     * Search for states... use $timeout to simulate
-     * remote dataservice call.
-     */
-    function querySearch(query) {
-        return query ? $scope.cities.filter(city => city.toLocaleLowerCase().includes(query)) : $scope.cities;
-    }
+    self.propertiesType = ['ancien', 'neuf'];
+    let cityOrCodeFilter = (query, res) => isNumber(query) ? res.code.toString() : res.city.toLocaleLowerCase();
+    let applyQueryFilterOnCities = (query) => self.cities ? self.cities.then((res) => res.filter(value => cityOrCodeFilter(query,value).includes(query.toLocaleLowerCase()))) : [];
+    let initCities = (query) => self.cities = cityService.getCities(!isNumber(query) ? query : null, isNumber(query) ? query : null).then(
+        // the service could not be available
+        (res) =>  res.data.cities,
+        // so error is raised
+        () => cityService.loadCitiesFromJson().get().$promise.then((res) => res)
+    );
+    self.querySearch = (query) => query.length === 2 ?  initCities(query) : applyQueryFilterOnCities(query);
 
 }
 
-angular.module('notaryFrees', []) .factory('cityService', citiesService).controller('notaryFreesController', notaryFreesController);
+angular.module('notaryFrees', ['cities']).controller('notaryFreesController', notaryFreesController);

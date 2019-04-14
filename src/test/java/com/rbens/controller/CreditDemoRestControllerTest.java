@@ -1,9 +1,8 @@
 package com.rbens.controller;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
-public class CreditDemoRestControllerTest extends TestCase {
+public class CreditDemoRestControllerTest{
 
     @Test
     public void amortissement() {

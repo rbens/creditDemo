@@ -1,205 +1,753 @@
 {
-  "cities" : [
-    "Aast(64460)                            ",
-    "Abainville(55130)                      ",
-    "Abancourt(59268)                       ",
-    "Abancourt(60220)                       ",
-    "Abaucourt(54610)                       ",
-    "Abaucourt - Hautecourt(55400)          ",
-    "Abbans - Dessous(25320)                ",
-    "Abbans - Dessus(25440)                 ",
-    "Abbaretz(44170)                        ",
-    "Abbécourt(02300)                       ",
-    "Abbecourt(60430)                       ",
-    "Abbenans(25340)                        ",
-    "Abbeville(80100)                       ",
-    "Abbéville - la - Rivière(91150)        ",
-    "Abbéville - lès - Conflans(54800)      ",
-    "Abbeville - Saint - Lucien(60480)      ",
-    "Abbévillers(25310)                     ",
-    "Abeilhan(34290)                        ",
-    "Abelcourt(70300)                       ",
-    "Abère(64160)                           ",
-    "Abergement - la - Ronce(39500)         ",
-    "Abergement - le - Grand(39600)         ",
-    "Abergement - le - Petit(39800)         ",
-    "Abergement - lès - Thésy(39110)        ",
-    "Abidos(64150)                          ",
-    "Abilly(37160)                          ",
-    "Abitain(64390)                         ",
-    "Abjat - sur - Bandiat(24300)           ",
-    "Ablain - Saint - Nazaire(62153)        ",
-    "Ablaincourt - Pressoir(80320)          ",
-    "Ablainzevelle(62116)                   ",
-    "Ablancourt(51240)                      ",
-    "Ableiges(95450)                        ",
-    "Ablis(78660)                           ",
-    "Ablon(14600)                           ",
-    "Ablon - sur - Seine(94480)             ",
-    "Aboën(42380)                           ",
-    "Aboncourt(54115)                       ",
-    "Aboncourt(57920)                       ",
-    "Aboncourt - Gesincourt(70500)          ",
-    "Aboncourt - sur - Seille(57590)        ",
-    "Abondance(74360)                       ",
-    "Abondant(28410)                        ",
-    "Abos(64360)                            ",
-    "Abreschviller(57560)                   ",
-    "Abrest(03200)                          ",
-    "Abriès(05460)                          ",
-    "Abscon(59215)                          ",
-    "Abzac(16500)                           ",
-    "Abzac(33230)                           ",
-    "Accolans(25250)                        ",
-    "Accons(07160)                          ",
-    "Accous(64490)                          ",
-    "Achain(57340)                          ",
-    "Achen(57412)                           ",
-    "Achenheim(67204)                       ",
-    "Achères(18250)                         ",
-    "Achères(78260)                         ",
-    "Achères - la - Forêt(77760)            ",
-    "Achery(02800)                          ",
-    "Acheux - en - Amiénois(80560)          ",
-    "Acheux - en - Vimeu(80210)             ",
-    "Acheville(62320)                       ",
-    "Achey(70180)                           ",
-    "Achicourt(62217)                       ",
-    "Achiet - le - Grand(62121)             ",
-    "Achiet - le - Petit(62121)             ",
-    "Achun(58110)                           ",
-    "Achy(60690)                            ",
-    "Acigné(35690)                          ",
-    "Aclou(27800)                           ",
-    "Acon(27570)                            ",
-    "Acoua(97630)                           ",
-    "Acq(62144)                             ",
-    "Acqueville(14220)                      ",
-    "Acquigny(27400)                        ",
-    "Acquin - Westbécourt(62380)            ",
-    "Acy(02200)                             ",
-    "Acy - en - Multien(60620)              ",
-    "Acy - Romance(08300)                   ",
-    "Adaincourt(57580)                      ",
-    "Adainville(78113)                      ",
-    "Adam - lès - Passavant(25360)          ",
-    "Adam - lès - Vercel(25530)             ",
-    "Adamswiller(67320)                     ",
-    "Adast(65260)                           ",
-    "Adé(65100)                             ",
-    "Adelange(57380)                        ",
-    "Adelans-et-le-Val-de-Bithaine(70200)   ",
-    "Adervielle - Pouchergues(65240)        ",
-    "Adilly(79200)                          ",
-    "Adinfer(62116)                         ",
-    "Adissan(34230)                         ",
-    "Adon(45230)                            ",
-    "Adriers(86430)                         ",
-    "Afa(20167)                             ",
-    "Affieux(19260)                         ",
-    "Affléville(54800)                      ",
-    "Affoux(69170)                          ",
-    "Affracourt(54740)                      ",
-    "Affringues(62380)                      ",
-    "Agassac(31230)                         ",
-    "Agde(34300)                            ",
-    "Agel(34210)                            ",
-    "Agen(47000)                            ",
-    "Agen - d_'Aveyron (12630)              ",
-    "Agencourt(21700)                       ",
-    "Agenville(80370)                       ",
-    "Agenvillers(80150)                     ",
-    "Ageville(52340)                        ",
-    "Agey(21410)                            ",
-    "Aghione(20270)                         ",
-    "Agincourt(54770)                       ",
-    "Agmé(47350)                            ",
-    "Agnac(47800)                           ",
-    "Agnat(43100)                           ",
-    "Agneaux(50180)                         ",
-    "Agnetz(60600)                          ",
-    "Agnez - lès - Duisans(62161)           ",
-    "Agnicourt - et - Séchelles(02340)      ",
-    "Agnières(62690)                        ",
-    "Agnin(38150)                           ",
-    "Agnos(64400)                           ",
-    "Agny(62217)                            ",
-    "Agon - Coutainville(50230)             ",
-    "Agonac(24460)                          ",
-    "Agonès(34190)                          ",
-    "Agonges(03210)                         ",
-    "Agos - Vidalos(65400)                  ",
-    "Agris(16110)                           ",
-    "Agudelle(17500)                        ",
-    "Aguessac(12520)                        ",
-    "Aguilcourt(02190)                      ",
-    "Aguts(81470)                           ",
-    "Agy(14400)                             ",
-    "Ahaxe - Alciette - Bascassan(64220)    ",
-    "Ahetze(64210)                          ",
-    "Ahéville(88500)                        ",
-    "Ahuillé(53940)                         ",
-    "Ahun(23150)                            ",
-    "Ahuy(21121)                            ",
-    "Aibes(59149)                           ",
-    "Aibre(25750)                           ",
-    "Aïcirits - Camou - Suhast(64120)       ",
-    "Aiffres(79230)                         ",
-    "Aigaliers(30700)                       ",
-    "Aiglemont(08090)                       ",
-    "Aiglepierre(39110)                     ",
-    "Aigleville(27120)                      ",
-    "Aiglun(04510)                          ",
-    "Baâlon (55700)                         ",
-    "Baâlons (08430)                        ",
-    "Babeau-Bouldoux (34360)                ",
-    "Baby (77480)                           ",
-    "Babœuf (60400)                         ",
-    "Baccarat (54120)                       ",
-    "Baccon (45130)                         ",
-    "Bach (46230)                           ",
-    "Bachant (59138)                        ",
-    "Bachas (31420)                         ",
-    "Bachivillers (60240)                   ",
-    "Bachos (31440)                         ",
-    "Bachy (59830)                          ",
-    "Bacilly (50530)                        ",
-    "Baconnes (51400)                       ",
-    "Bacouël (60120)                        ",
-    "Bacouel-sur-Selle (80480)              ",
-    "Bacourt (57590)                        ",
-    "Bacquepuis (27930)                     ",
-    "Bacqueville (27440)                    ",
-    "Bacqueville-en-Caux (76730)            ",
-    "Badailhac (15800)                      ",
-    "Badaroux (48000)                       ",
-    "Badecon-le-Pin (36200)                 ",
-    "Badefols-d'Ans (24390)                 ",
-    "Badefols-sur-Dordogne (24150)          ",
-    "Baden (56870)                          ",
-    "Badens (11800)                         ",
-    "Badevel (25490)                        ",
-    "Badménil-aux-Bois (88330)              ",
-    "Badonviller (54540)                    ",
-    "Badonvilliers-Gérauvilliers (55130)    ",
-    "Baerendorf (67320)                     ",
-    "Baerenthal (57230)                     ",
-    "Baffie (63600)                         ",
-    "Bagard (30140)                         ",
-    "Bagas (33190)                          ",
-    "Bagat-en-Quercy (46800)                ",
-    "Bâgé-Dommartin (01380)                 ",
-    "Bâgé-le-Châtel (01380)                 ",
-    "Bagert (09230)                         ",
-    "Bages (11100)                          ",
-    "Bages (66670)                          ",
-    "Bagiry (31510)                         ",
-    "Bagnac-sur-Célé (46270)                ",
-    "Bagneaux (89190)                       ",
-    "Bagneaux-sur-Loing (77167)             ",
-    "Bagnères-de-Bigorre (65200)            ",
-    "Bagnères-de-Luchon (31110)             ",
-    "Bagneux (02290)                        "
+  "input": "95",
+  "cities": [
+    {
+      "code": 95270,
+      "city": "ASNIERES SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LUZARCHES"
+    },
+    {
+      "code": 95270,
+      "city": "EPINAY CHAMPLATREUX"
+    },
+    {
+      "code": 95270,
+      "city": "CHAUMONTEL"
+    },
+    {
+      "code": 95270,
+      "city": "VIARMES"
+    },
+    {
+      "code": 95270,
+      "city": "BELLEFONTAINE"
+    },
+    {
+      "code": 95270,
+      "city": "LE PLESSIS LUZARCHES"
+    },
+    {
+      "code": 95270,
+      "city": "BELLOY EN FRANCE"
+    },
+    {
+      "code": 95270,
+      "city": "SEUGY"
+    },
+    {
+      "code": 95270,
+      "city": "NOISY SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LASSY"
+    },
+    {
+      "code": 95270,
+      "city": "ST MARTIN DU TERTRE"
+    },
+    {
+      "code": 95690,
+      "city": "FROUVILLE"
+    },
+    {
+      "code": 95690,
+      "city": "NESLES LA VALLEE"
+    },
+    {
+      "code": 95690,
+      "city": "LABBEVILLE"
+    },
+    {
+      "code": 95690,
+      "city": "HEDOUVILLE"
+    },
+    {
+      "code": 95490,
+      "city": "VAUREAL"
+    },
+    {
+      "code": 95420,
+      "city": "MAUDETOUR EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "WY DIT JOLI VILLAGE"
+    },
+    {
+      "code": 95420,
+      "city": "HODENT"
+    },
+    {
+      "code": 95420,
+      "city": "ARTHIES"
+    },
+    {
+      "code": 95420,
+      "city": "NUCOURT"
+    },
+    {
+      "code": 95420,
+      "city": "LA CHAPELLE EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "MAGNY EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "OMERVILLE"
+    },
+    {
+      "code": 95420,
+      "city": "AMBLEVILLE"
+    },
+    {
+      "code": 95420,
+      "city": "CHARMONT"
+    },
+    {
+      "code": 95420,
+      "city": "BANTHELU"
+    },
+    {
+      "code": 95420,
+      "city": "GENAINVILLE"
+    },
+    {
+      "code": 95420,
+      "city": "CLERY EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "ST GERVAIS"
+    },
+    {
+      "code": 95830,
+      "city": "FREMECOURT"
+    },
+    {
+      "code": 95830,
+      "city": "CORMEILLES EN VEXIN"
+    },
+    {
+      "code": 95000,
+      "city": "CERGY"
+    },
+    {
+      "code": 95000,
+      "city": "NEUVILLE SUR OISE"
+    },
+    {
+      "code": 95000,
+      "city": "BOISEMONT"
+    },
+    {
+      "code": 95000,
+      "city": "PONTOISE"
+    },
+    {
+      "code": 95530,
+      "city": "LA FRETTE SUR SEINE"
+    },
+    {
+      "code": 95500,
+      "city": "GONESSE"
+    },
+    {
+      "code": 95500,
+      "city": "BONNEUIL EN FRANCE"
+    },
+    {
+      "code": 95500,
+      "city": "VAUDHERLAND"
+    },
+    {
+      "code": 95500,
+      "city": "LE THILLAY"
+    },
+    {
+      "code": 95430,
+      "city": "BUTRY SUR OISE"
+    },
+    {
+      "code": 95430,
+      "city": "AUVERS SUR OISE"
+    },
+    {
+      "code": 95670,
+      "city": "MARLY LA VILLE"
+    },
+    {
+      "code": 95510,
+      "city": "AINCOURT"
+    },
+    {
+      "code": 95510,
+      "city": "ST CYR EN ARTHIES"
+    },
+    {
+      "code": 95510,
+      "city": "CHERENCE"
+    },
+    {
+      "code": 95510,
+      "city": "VIENNE EN ARTHIES"
+    },
+    {
+      "code": 95510,
+      "city": "VETHEUIL"
+    },
+    {
+      "code": 95510,
+      "city": "VILLERS EN ARTHIES"
+    },
+    {
+      "code": 95510,
+      "city": "AMENUCOURT"
+    },
+    {
+      "code": 95640,
+      "city": "BRIGNANCOURT"
+    },
+    {
+      "code": 95640,
+      "city": "NEUILLY EN VEXIN"
+    },
+    {
+      "code": 95640,
+      "city": "LE HEAULME"
+    },
+    {
+      "code": 95640,
+      "city": "MOUSSY"
+    },
+    {
+      "code": 95640,
+      "city": "BREANCON"
+    },
+    {
+      "code": 95640,
+      "city": "SANTEUIL"
+    },
+    {
+      "code": 95640,
+      "city": "HARAVILLIERS"
+    },
+    {
+      "code": 95640,
+      "city": "MARINES"
+    },
+    {
+      "code": 95160,
+      "city": "MONTMORENCY"
+    },
+    {
+      "code": 95570,
+      "city": "VILLAINES SOUS BOIS"
+    },
+    {
+      "code": 95570,
+      "city": "BOUFFEMONT"
+    },
+    {
+      "code": 95570,
+      "city": "ATTAINVILLE"
+    },
+    {
+      "code": 95570,
+      "city": "MOISSELLES"
+    },
+    {
+      "code": 95450,
+      "city": "GADANCOURT"
+    },
+    {
+      "code": 95450,
+      "city": "VIGNY"
+    },
+    {
+      "code": 95450,
+      "city": "ABLEIGES"
+    },
+    {
+      "code": 95450,
+      "city": "LE PERCHAY"
+    },
+    {
+      "code": 95450,
+      "city": "US"
+    },
+    {
+      "code": 95450,
+      "city": "AVERNES"
+    },
+    {
+      "code": 95450,
+      "city": "FREMAINVILLE"
+    },
+    {
+      "code": 95450,
+      "city": "SERAINCOURT"
+    },
+    {
+      "code": 95450,
+      "city": "COMMENY"
+    },
+    {
+      "code": 95450,
+      "city": "CONDECOURT"
+    },
+    {
+      "code": 95450,
+      "city": "GOUZANGREZ"
+    },
+    {
+      "code": 95450,
+      "city": "LONGUESSE"
+    },
+    {
+      "code": 95450,
+      "city": "SAGY"
+    },
+    {
+      "code": 95450,
+      "city": "GUIRY EN VEXIN"
+    },
+    {
+      "code": 95450,
+      "city": "THEMERICOURT"
+    },
+    {
+      "code": 95380,
+      "city": "LOUVRES"
+    },
+    {
+      "code": 95380,
+      "city": "PUISEUX EN FRANCE"
+    },
+    {
+      "code": 95380,
+      "city": "EPIAIS LES LOUVRES"
+    },
+    {
+      "code": 95380,
+      "city": "CHENNEVIERES LES LOUVRES"
+    },
+    {
+      "code": 95380,
+      "city": "VILLERON"
+    },
+    {
+      "code": 95700,
+      "city": "ROISSY EN FRANCE"
+    },
+    {
+      "code": 95470,
+      "city": "SURVILLIERS"
+    },
+    {
+      "code": 95470,
+      "city": "FOSSES"
+    },
+    {
+      "code": 95470,
+      "city": "VEMARS"
+    },
+    {
+      "code": 95470,
+      "city": "ST WITZ"
+    },
+    {
+      "code": 95760,
+      "city": "VALMONDOIS"
+    },
+    {
+      "code": 95560,
+      "city": "MONTSOULT"
+    },
+    {
+      "code": 95560,
+      "city": "CHAUVRY"
+    },
+    {
+      "code": 95560,
+      "city": "MAFFLIERS"
+    },
+    {
+      "code": 95560,
+      "city": "BAILLET EN FRANCE"
+    },
+    {
+      "code": 95260,
+      "city": "BEAUMONT SUR OISE"
+    },
+    {
+      "code": 95260,
+      "city": "MOURS"
+    },
+    {
+      "code": 95770,
+      "city": "MONTREUIL SUR EPTE"
+    },
+    {
+      "code": 95770,
+      "city": "BUHY"
+    },
+    {
+      "code": 95770,
+      "city": "ST CLAIR SUR EPTE"
+    },
+    {
+      "code": 95280,
+      "city": "JOUY LE MOUTIER"
+    },
+    {
+      "code": 95300,
+      "city": "ENNERY"
+    },
+    {
+      "code": 95300,
+      "city": "LIVILLIERS"
+    },
+    {
+      "code": 95300,
+      "city": "PONTOISE"
+    },
+    {
+      "code": 95300,
+      "city": "HEROUVILLE"
+    },
+    {
+      "code": 95180,
+      "city": "MENUCOURT"
+    },
+    {
+      "code": 95110,
+      "city": "SANNOIS"
+    },
+    {
+      "code": 95720,
+      "city": "LE MESNIL AUBRY"
+    },
+    {
+      "code": 95720,
+      "city": "BOUQUEVAL"
+    },
+    {
+      "code": 95720,
+      "city": "LE PLESSIS GASSOT"
+    },
+    {
+      "code": 95720,
+      "city": "VILLIERS LE SEC"
+    },
+    {
+      "code": 95850,
+      "city": "MAREIL EN FRANCE"
+    },
+    {
+      "code": 95850,
+      "city": "JAGNY SOUS BOIS"
+    },
+    {
+      "code": 95350,
+      "city": "PISCOP"
+    },
+    {
+      "code": 95350,
+      "city": "ST BRICE SOUS FORET"
+    },
+    {
+      "code": 95580,
+      "city": "ANDILLY"
+    },
+    {
+      "code": 95580,
+      "city": "MARGENCY"
+    },
+    {
+      "code": 95170,
+      "city": "DEUIL LA BARRE"
+    },
+    {
+      "code": 95710,
+      "city": "BRAY ET LU"
+    },
+    {
+      "code": 95710,
+      "city": "AMBLEVILLE"
+    },
+    {
+      "code": 95710,
+      "city": "CHAUSSY"
+    },
+    {
+      "code": 95810,
+      "city": "GRISY LES PLATRES"
+    },
+    {
+      "code": 95810,
+      "city": "EPIAIS RHUS"
+    },
+    {
+      "code": 95810,
+      "city": "MENOUVILLE"
+    },
+    {
+      "code": 95810,
+      "city": "THEUVILLE"
+    },
+    {
+      "code": 95810,
+      "city": "VALLANGOUJARD"
+    },
+    {
+      "code": 95810,
+      "city": "BERVILLE"
+    },
+    {
+      "code": 95810,
+      "city": "ARRONVILLE"
+    },
+    {
+      "code": 95540,
+      "city": "MERY SUR OISE"
+    },
+    {
+      "code": 95610,
+      "city": "ERAGNY"
+    },
+    {
+      "code": 95650,
+      "city": "GENICOURT"
+    },
+    {
+      "code": 95650,
+      "city": "COURCELLES SUR VIOSNE"
+    },
+    {
+      "code": 95650,
+      "city": "MONTGEROULT"
+    },
+    {
+      "code": 95650,
+      "city": "PUISEUX PONTOISE"
+    },
+    {
+      "code": 95650,
+      "city": "BOISSY L AILLERIE"
+    },
+    {
+      "code": 95190,
+      "city": "FONTENAY EN PARISIS"
+    },
+    {
+      "code": 95190,
+      "city": "GOUSSAINVILLE"
+    },
+    {
+      "code": 95190,
+      "city": "CHATENAY EN FRANCE"
+    },
+    {
+      "code": 95130,
+      "city": "LE PLESSIS BOUCHARD"
+    },
+    {
+      "code": 95130,
+      "city": "FRANCONVILLE"
+    },
+    {
+      "code": 95740,
+      "city": "FREPILLON"
+    },
+    {
+      "code": 95340,
+      "city": "BERNES SUR OISE"
+    },
+    {
+      "code": 95340,
+      "city": "RONQUEROLLES"
+    },
+    {
+      "code": 95340,
+      "city": "PERSAN"
+    },
+    {
+      "code": 95590,
+      "city": "NERVILLE LA FORET"
+    },
+    {
+      "code": 95590,
+      "city": "NOINTEL"
+    },
+    {
+      "code": 95590,
+      "city": "PRESLES"
+    },
+    {
+      "code": 95290,
+      "city": "L ISLE ADAM"
+    },
+    {
+      "code": 95620,
+      "city": "PARMAIN"
+    },
+    {
+      "code": 95310,
+      "city": "ST OUEN L AUMONE"
+    },
+    {
+      "code": 95750,
+      "city": "CHARS"
+    },
+    {
+      "code": 95750,
+      "city": "LE BELLAY EN VEXIN"
+    },
+    {
+      "code": 95390,
+      "city": "ST PRIX"
+    },
+    {
+      "code": 95550,
+      "city": "BESSANCOURT"
+    },
+    {
+      "code": 95120,
+      "city": "ERMONT"
+    },
+    {
+      "code": 95880,
+      "city": "ENGHIEN LES BAINS"
+    },
+    {
+      "code": 95600,
+      "city": "EAUBONNE"
+    },
+    {
+      "code": 95210,
+      "city": "ST GRATIEN"
+    },
+    {
+      "code": 95400,
+      "city": "ARNOUVILLE"
+    },
+    {
+      "code": 95400,
+      "city": "VILLIERS LE BEL"
+    },
+    {
+      "code": 95140,
+      "city": "GARGES LES GONESSE"
+    },
+    {
+      "code": 95230,
+      "city": "SOISY SOUS MONTMORENCY"
+    },
+    {
+      "code": 95440,
+      "city": "ECOUEN"
+    },
+    {
+      "code": 95220,
+      "city": "HERBLAY"
+    },
+    {
+      "code": 95220,
+      "city": "PIERRELAYE"
+    },
+    {
+      "code": 95800,
+      "city": "CERGY"
+    },
+    {
+      "code": 95800,
+      "city": "COURDIMANCHE"
+    },
+    {
+      "code": 95330,
+      "city": "DOMONT"
+    },
+    {
+      "code": 95480,
+      "city": "PIERRELAYE"
+    },
+    {
+      "code": 95840,
+      "city": "BETHEMONT LA FORET"
+    },
+    {
+      "code": 95840,
+      "city": "VILLIERS ADAM"
+    },
+    {
+      "code": 95780,
+      "city": "HAUTE ISLE"
+    },
+    {
+      "code": 95780,
+      "city": "LA ROCHE GUYON"
+    },
+    {
+      "code": 95520,
+      "city": "OSNY"
+    },
+    {
+      "code": 95150,
+      "city": "TAVERNY"
+    },
+    {
+      "code": 95320,
+      "city": "ST LEU LA FORET"
+    },
+    {
+      "code": 95870,
+      "city": "BEZONS"
+    },
+    {
+      "code": 95240,
+      "city": "CORMEILLES EN PARISIS"
+    },
+    {
+      "code": 95630,
+      "city": "MERIEL"
+    },
+    {
+      "code": 95370,
+      "city": "MONTIGNY LES CORMEILLES"
+    },
+    {
+      "code": 95410,
+      "city": "GROSLAY"
+    },
+    {
+      "code": 95680,
+      "city": "MONTLIGNON"
+    },
+    {
+      "code": 95360,
+      "city": "MONTMAGNY"
+    },
+    {
+      "code": 95820,
+      "city": "BRUYERES SUR OISE"
+    },
+    {
+      "code": 95200,
+      "city": "SARCELLES"
+    },
+    {
+      "code": 95460,
+      "city": "EZANVILLE"
+    },
+    {
+      "code": 95660,
+      "city": "CHAMPAGNE SUR OISE"
+    }
   ]
-
 }

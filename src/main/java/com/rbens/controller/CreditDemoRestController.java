@@ -28,11 +28,21 @@ final class CreditDemoRestController {
     private final static String RATES_URL = "https://www.guideducredit.com/HTMcorps/Fichiersmarche/tauxbanque.htm";
     private final static String DOM_SELECTOR = ".tab_taux_l .tab_clair td";
     private final static String NOTARY_FREES_URL = "https://www.cafpi.fr/calculators/notary-fees-amount";
+    private final static String CITIES_URL = "https://vicopo.selfbuild.fr/";
     private final static String REQUEST_BODY = "{\"cost\":\"%s\",\"property_type\":\"%s\",\"zip\":\"%s\"}";
 
     @RequestMapping(value = "/amortissements", method = POST)
     public MonthlyPayment amortissement(@RequestBody String mensualite) throws IOException {
         return new ObjectMapper().readValue(mensualite, Results.class);
+    }
+
+    @RequestMapping(value = "/cities", method = GET)
+    public String cities(@RequestParam(required = false) String city, @RequestParam(required = false) String code) throws IOException {
+        final String urlParam = (city != null ? "?city="+city : "") + (code != null ? "?code="+code : "");
+        final URL url = new URL(CITIES_URL + urlParam);
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("GET");
+        return getResponseAsString(urlConnection);
     }
 
     @RequestMapping(value = "/notary-frees", method = GET)
@@ -73,7 +83,7 @@ final class CreditDemoRestController {
         return buf.toString();
     }
 
-    private void addParamsToRequestBody(@RequestParam String cost, @RequestParam String propertyType, @RequestParam String zip, HttpURLConnection con) throws IOException {
+    private void addParamsToRequestBody(String cost, String propertyType, String zip, HttpURLConnection con) throws IOException {
         final OutputStream os = con.getOutputStream();
         final OutputStreamWriter osw = new OutputStreamWriter(os, UTF_8);
         osw.write(String.format(REQUEST_BODY, cost, propertyType, zip));

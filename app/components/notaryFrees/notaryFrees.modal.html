@@ -1,0 +1,41 @@
+<div class="panel no-bottom">
+    <md-toolbar class="demo-toolbar">
+        <div class="md-toolbar-tools modal-dialog">
+            <h3 class="panel-title">Frais de notaire à renseigner</h3>
+        </div>
+    </md-toolbar>
+    <div class="panel-body">
+        <form ng-submit="$event.preventDefault()" name="searchForm" layout="column" >
+                    <md-input-container>
+                        <label>prix du bien </label>
+                        <input type="number" required ng-model="notaryFreesInfo.cost" ng-value="">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Type de propriété </label>
+                        <md-select ng-model="notaryFreesInfo.propertyType">
+                            <md-option><em>---</em></md-option>
+                            <md-option ng-repeat="property in propertiesType" ng-value="property">{{property}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container>
+                        <md-autocomplete
+                                md-input-name="autocompleteField"
+                                md-input-minlength="3"
+                                md-selected-item="notaryFreesInfo.zip"
+                                md-search-text="searchText"
+                                md-items="location in querySearch(searchText)"
+                                md-item-text="location.code"
+                                md-floating-label="code postal"
+                        >
+                            <md-item-template>
+                                <span md-highlight-text="ctrl.searchText">{{location.city}} - {{location.code}}</span>
+                            </md-item-template>
+                        </md-autocomplete>
+                    </md-input-container>
+            <md-button type="submit" class="md-raised btn-color-form" ng-disabled="!$ctrl.enabled()">
+                <span >calculer</span>
+            </md-button>
+        </form>
+    </div>
+</div>
