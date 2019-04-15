@@ -25,8 +25,9 @@
                                 md-selected-item="notaryFreesInfo.zip"
                                 md-search-text="searchText"
                                 md-items="location in querySearch(searchText)"
-                                md-item-text="location.code"
+                                md-item-text="location.code.toString()"
                                 md-floating-label="code postal"
+                                md-clear-button="true"
                         >
                             <md-item-template>
                                 <span md-highlight-text="ctrl.searchText">{{location.city}} - {{location.code}}</span>
