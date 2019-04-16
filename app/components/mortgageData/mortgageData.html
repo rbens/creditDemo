@@ -53,11 +53,15 @@
         </md-content>
 
         <md-content layout="row" layout-padding class="adapt-form">
-            <md-input-container>
+            <md-input-container flex="30">
                 <label>TEG</label>
                 <input type="text" class="form-control" aria-label="taux emprunt global" ng-value="$ctrl.credit.tauxGlobal | rate" disabled>
             </md-input-container>
-            <md-input-container class="md-button-form" layout="row">
+            <md-input-container flex="30" >
+                <label>Frais notaire</label>
+                <input type="text" class="form-control"  aria-label="frais de notaire" ng-value="$ctrl.notaryFreesInfo.price" disabled>
+            </md-input-container>
+            <md-input-container class="" layout="row" flex="40">
                 <md-button class="md-raised btn-color-form" aria-label="frais de notaire" ng-click="$ctrl.notaryFreesModal()">Frais de notaire</md-button>
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()" ng-disabled="!$ctrl.credit.amortissements.length || $ctrl.credit.amortissements.length == 0">
                     réinitialiser

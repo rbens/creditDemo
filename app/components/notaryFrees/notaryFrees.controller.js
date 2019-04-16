@@ -1,15 +1,12 @@
 import "../../service/cities/cities.service";
+import notaryFreesService from "./notaryFrees.service";
 
-function notaryFreesController($scope, cityService) {
-
+function notaryFreesController(cityService, notaryFreesService, $timeout) {
+    'ngInject';
     let isZipFormat = (query) => query.match(new RegExp('\^[1-9]+'));
-    let self = $scope;
+    let self = this;
 
-    self.notaryFreesInfo = {
-        cost: '',
-        propertyType: '',
-        zip: ''
-    };
+    self.notaryFreesInfo = notaryFreesService.notaryFreesInfo;
 
     self.propertiesType = ['ancien', 'neuf'];
 
@@ -26,6 +23,20 @@ function notaryFreesController($scope, cityService) {
 
     self.querySearch = (query) => query.length === 2 ?  initCities(query) : applyQueryFilterOnCities(query);
 
+    self.valid = () => self.notaryFreesInfo.cost && self.notaryFreesInfo.propertyType && self.notaryFreesInfo.localite;
+
+    self.calcul = () => this.cgPromise = $timeout(() => {
+        notaryFreesService.notaryFreesCompute(self.notaryFreesInfo).then(
+            (res)   => {
+                self.notaryFreesInfo.price = res.data.data.general.total
+            },
+            (error) => console.error(error)
+        );
+    }, 1500);
+
+
 }
 
-angular.module('notaryFrees', ['cities']).controller('notaryFreesController', notaryFreesController);
+angular.module('notaryFrees', ['cities'])
+    .service('notaryFreesService', notaryFreesService)
+    .controller('notaryFreesController', notaryFreesController);
