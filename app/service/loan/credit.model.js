@@ -79,12 +79,12 @@ export default class CreditModel{
             name: 'somme en euros',
             data: [
                 ['Capital emprunté', creditSeries],
-                ['Cout total interets ', interetSeries],
-                assuranceSeries ? ['Cout total assurances', assuranceSeries] : [],
-                notaryFrees ? ['Frais de notaire', notaryFrees] : []
+                ['Cout total interets ', interetSeries]
             ]
 
         });
+        if(assuranceSeries) this.pie.series[0].data.push(['Cout total assurances', assuranceSeries]);
+        if(notaryFrees) this.pie.series[0].data.push(['Frais de notaire', notaryFrees]);
     }
 
     reset($filter){

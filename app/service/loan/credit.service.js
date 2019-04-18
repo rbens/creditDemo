@@ -3,6 +3,7 @@ import CreditModel from './credit.model';
 export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFreesService) {
     'ngInject';
     let creditModel = new CreditModel({}, {}, {}, {});
+    let taxes = '';
     let getAmortization = (credit) => $http.post("amortissements", credit);
     let scrollTo = () => {
         let someElement = angular.element(document.getElementById('results'));
@@ -29,6 +30,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                             insuranceRate: creditModel.credit.tauxAssurance
                         }).then((response) => {
                             let data = response.data;
+                            let getNotaryFrees = notaryFreesService.getNotaryFeesModel() ? notaryFreesService.getNotaryFeesModel().total : 0;
                             //noinspection JSUnresolvedVariable
                             if (data.coutPrincipal) {
                                 creditModel.credit.amortissements = data.writeDowns;
@@ -41,7 +43,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
 
                                 let last = (data.writeDowns.length - 1);
                                 creditModel.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
-                                creditModel.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], creditModel.credit.capital, notaryFreesService.getNotaryFeesModel() ? notaryFreesService.getNotaryFeesModel().total : 0);
+                                creditModel.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], creditModel.credit.capital, getNotaryFrees);
                             }
                         })
                     ]);

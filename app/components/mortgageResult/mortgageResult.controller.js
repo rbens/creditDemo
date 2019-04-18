@@ -3,6 +3,8 @@ export default function mortgageResultController($rootScope, $mdDialog) {
 
     this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
 
+    this.$onChanges = () => this.taxesPrice = this.taxes.total;
+
     this.modalResult = (ev) => {
         $mdDialog.show({
             title: 'Informations sur les résultats',

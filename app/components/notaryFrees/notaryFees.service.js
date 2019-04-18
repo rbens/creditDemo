@@ -8,10 +8,7 @@ export default function notaryFeesService($http) {
         notaryFeesInfo : {
             cost: '',
             propertyType: '',
-            localite: {
-                city : '',
-                code : ''
-            }
+            localite: ''
         },
         notaryFeesDetailsRequest : (notaryFrees) => $http.get('notary-frees', {
             params: {

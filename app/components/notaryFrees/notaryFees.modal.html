@@ -38,10 +38,6 @@
     </md-dialog-content>
 
     <md-dialog-actions>
-        <md-input-container flex="40" style="margin-right: 35%;" ng-if="price">
-            <label>Frais notaire</label>
-            <input type="text" disabled class="form-control" aria-label="frais de notaire" ng-value="price" placeholder="">
-        </md-input-container>
         <md-button type="submit" class="md-raised btn-color-form" ng-disabled="!ctrl.valid()" ng-click="ctrl.getPrice()">
             <span>calculer</span>
         </md-button>

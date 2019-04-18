@@ -1,5 +1,7 @@
-export default function creditFormController($rootScope, $filter, $timeout, creditService, $mdDialog, notaryFreesService) {
+export default function creditFormController($filter, $timeout, creditService, $mdDialog) {
     'ngInject';
+
+    let self = this;
 
     this.credit = creditService.getCreditModel().credit;
 
@@ -24,16 +26,13 @@ export default function creditFormController($rootScope, $filter, $timeout, cred
             template : require('../notaryFrees/notaryFees.modal.html'),
             targetEvent:ev,
             controller: 'notaryFreesController',
-            controllerAs: 'ctrl',
             clickOutsideToClose:true,
-            onRemoving: this.addNotaryFreeToAmount
+            controllerAs: 'ctrl',
+        }).then(function(price) {
+            self.calcul();
+        }, function() {
+            console.log('not price');
         });
-
-    };
-
-    this.addNotaryFreeToAmount = () => {
-        this.notaryFeesInfo = notaryFreesService.getNotaryFeesModel();
-        this.calcul();
     };
 
     this.reset = () => {

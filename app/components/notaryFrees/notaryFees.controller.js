@@ -1,7 +1,7 @@
 import "../../service/cities/cities.service";
 import notaryFeesService from "./notaryFees.service";
 
-function notaryFeesController(cityService, notaryFreesService, $timeout) {
+function notaryFeesController(cityService, notaryFreesService, $timeout, $mdDialog) {
     'ngInject';
     let isZipFormat = (query) => query.match(new RegExp('\^[1-9]+'));
     let self = this;
@@ -25,12 +25,13 @@ function notaryFeesController(cityService, notaryFreesService, $timeout) {
 
     self.valid = () => self.notaryFeesInfo.cost && self.notaryFeesInfo.propertyType && self.notaryFeesInfo.localite;
 
-    self.getPrice = () => this.cgPromise = $timeout(() => {
+    self.getPrice = (price) => this.cgPromise = $timeout(() => {
         notaryFreesService.notaryFeesDetailsRequest(self.notaryFeesInfo).then(
             (res)   => {
                 let result = res.data.data.general;
                 notaryFreesService.setNotaryFeesModel(result.notary_fees_taxes_included, result.taxes, result.formalities_disbursements);
                 self.price = notaryFreesService.getNotaryFeesModel().total;
+                $mdDialog.hide(price);
             },
             (error) => console.error(error)
         );
