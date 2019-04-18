@@ -12,7 +12,7 @@ function mainCtrl($scope, $window, $mdDialog, configService, creditService, $doc
         $scope.$watch('hideVideo',() => $window.localStorage.setItem('hideVideo',$scope.hideVideo));
     };
 
-    $scope.dataModel = creditService.getDataModel();
+    $scope.dataModel = creditService.getCreditModel();
 
     $scope.openVideo =  (ev) => {
         $mdDialog.show({

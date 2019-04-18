@@ -1,8 +1,8 @@
 export default function creditFormController($rootScope, $filter, $timeout, creditService, $mdDialog, notaryFreesService) {
     'ngInject';
-    let self = this;
-    this.credit = creditService.getDataModel().credit;
-    this.notaryFreesInfo = notaryFreesService.notaryFreesInfo;
+
+    this.credit = creditService.getCreditModel().credit;
+
     this.calcul = () => creditService.calcul();
 
     this.teg = () => creditService.teg();
@@ -21,25 +21,25 @@ export default function creditFormController($rootScope, $filter, $timeout, cred
     this.notaryFreesModal = (ev) => {
         $mdDialog.show({
             parent: angular.element(document.body),
-            template : require('../notaryFrees/notaryFrees.modal.html'),
+            template : require('../notaryFrees/notaryFees.modal.html'),
             targetEvent:ev,
             controller: 'notaryFreesController',
             controllerAs: 'ctrl',
             clickOutsideToClose:true,
-            onRemoving: this.addNotaryFree
+            onRemoving: this.addNotaryFreeToAmount
         });
 
     };
 
-    this.addNotaryFree = () => {
-        this.credit.capital += this.notaryFreesInfo.price;
+    this.addNotaryFreeToAmount = () => {
+        this.notaryFeesInfo = notaryFreesService.getNotaryFeesModel();
         this.calcul();
     };
 
     this.reset = () => {
         creditService.reset();
-        this.credit = creditService.getDataModel().credit;
-        this.notaryFreesInfo.price = 0;
+        this.credit = creditService.getCreditModel().credit;
+        this.notaryFeesInfo.price = 0;
     };
 
     this.enabled = () => {

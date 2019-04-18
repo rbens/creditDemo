@@ -29,7 +29,7 @@ export default function marketRateController($scope, creditService, $mdDialog, $
         this.model.tauxNominal = Number(result.rate.replace('%', '').replace(',', '.'));
         this.model.tauxGlobal = this.model.tauxNominal + this.model.tauxAssurance;
         this.model.annee = result.years;
-        creditService.setDataModel(this.model);
+        creditService.setCreditModel(this.model);
         creditService.calcul();
         creditService.teg();
         $interval.cancel(intervalPromise);

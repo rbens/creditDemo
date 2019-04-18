@@ -9,7 +9,7 @@ import "./components/amortization/amortization.component";
 import "./components/chartResult/chartResult.component";
 import "./components/mortgageData/mortgageData.component";
 import "./components/marketRate/marketRate.component";
-import "./components/notaryFrees/notaryFrees.controller";
+import "./components/notaryFrees/notaryFees.controller";
 import routing from "./service/route/routing";
 
 

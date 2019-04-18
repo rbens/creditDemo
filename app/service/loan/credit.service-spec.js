@@ -29,7 +29,7 @@ describe('credit service ',function() {
             console.log($service.calcul());
 
             $httpBackend.flush();
-            let data = $service.getDataModel();
+            let data = $service.getCreditModel();
 
             expect(data).isDefined();
 

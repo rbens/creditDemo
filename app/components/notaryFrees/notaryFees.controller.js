@@ -1,12 +1,12 @@
 import "../../service/cities/cities.service";
-import notaryFreesService from "./notaryFrees.service";
+import notaryFeesService from "./notaryFees.service";
 
-function notaryFreesController(cityService, notaryFreesService, $timeout) {
+function notaryFeesController(cityService, notaryFreesService, $timeout) {
     'ngInject';
     let isZipFormat = (query) => query.match(new RegExp('\^[1-9]+'));
     let self = this;
 
-    self.notaryFreesInfo = notaryFreesService.notaryFreesInfo;
+    self.notaryFeesInfo = notaryFreesService.notaryFeesInfo;
 
     self.propertiesType = ['ancien', 'neuf'];
 
@@ -23,12 +23,14 @@ function notaryFreesController(cityService, notaryFreesService, $timeout) {
 
     self.querySearch = (query) => query.length === 2 ?  initCities(query) : applyQueryFilterOnCities(query);
 
-    self.valid = () => self.notaryFreesInfo.cost && self.notaryFreesInfo.propertyType && self.notaryFreesInfo.localite;
+    self.valid = () => self.notaryFeesInfo.cost && self.notaryFeesInfo.propertyType && self.notaryFeesInfo.localite;
 
-    self.calcul = () => this.cgPromise = $timeout(() => {
-        notaryFreesService.notaryFreesCompute(self.notaryFreesInfo).then(
+    self.getPrice = () => this.cgPromise = $timeout(() => {
+        notaryFreesService.notaryFeesDetailsRequest(self.notaryFeesInfo).then(
             (res)   => {
-                self.notaryFreesInfo.price = res.data.data.general.total
+                let result = res.data.data.general;
+                notaryFreesService.setNotaryFeesModel(result.notary_fees_taxes_included, result.taxes, result.formalities_disbursements);
+                self.price = notaryFreesService.getNotaryFeesModel().total;
             },
             (error) => console.error(error)
         );
@@ -38,5 +40,5 @@ function notaryFreesController(cityService, notaryFreesService, $timeout) {
 }
 
 angular.module('notaryFrees', ['cities'])
-    .service('notaryFreesService', notaryFreesService)
-    .controller('notaryFreesController', notaryFreesController);
+    .service('notaryFreesService', notaryFeesService)
+    .controller('notaryFreesController', notaryFeesController);
