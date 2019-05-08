@@ -1,6 +1,6 @@
 import CreditModel from './credit.model';
 
-export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFreesService) {
+export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService) {
     'ngInject';
     let creditModel = new CreditModel({}, {}, {}, {});
     let taxes = '';
@@ -25,12 +25,12 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                     $q.all([
                         getAmortization({
                             months: creditModel.credit.annee * 12 + "",
-                            capital: creditModel.credit.capital + (notaryFreesService.getNotaryFeesModel() ? notaryFreesService.getNotaryFeesModel().total : 0),
+                            capital: creditModel.credit.capital + (notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0),
                             interestRate: tauxNominal,
                             insuranceRate: creditModel.credit.tauxAssurance
                         }).then((response) => {
                             let data = response.data;
-                            let getNotaryFrees = notaryFreesService.getNotaryFeesModel() ? notaryFreesService.getNotaryFeesModel().total : 0;
+                            let getNotaryFrees = notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0;
                             //noinspection JSUnresolvedVariable
                             if (data.coutPrincipal) {
                                 creditModel.credit.amortissements = data.writeDowns;

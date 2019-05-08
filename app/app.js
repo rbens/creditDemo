@@ -9,7 +9,7 @@ import "./components/amortization/amortization.component";
 import "./components/chartResult/chartResult.component";
 import "./components/mortgageData/mortgageData.component";
 import "./components/marketRate/marketRate.component";
-import "./components/notaryFrees/notaryFees.controller";
+import "./components/notaryFees/notaryFees.controller";
 import routing from "./service/route/routing";
 
 
@@ -21,7 +21,7 @@ let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.route
     'mortgageResult',
     'amortization',
     'format',
-    'notaryFrees'];
+    'notaryFees'];
 
 angular.module('mainApp', modules)
     .config(routing);

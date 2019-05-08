@@ -23,9 +23,9 @@ export default function creditFormController($filter, $timeout, creditService, $
     this.notaryFreesModal = (ev) => {
         $mdDialog.show({
             parent: angular.element(document.body),
-            template : require('../notaryFrees/notaryFees.modal.html'),
+            template : require('../notaryFees/notaryFees.modal.html'),
             targetEvent:ev,
-            controller: 'notaryFreesController',
+            controller: 'notaryFeesController',
             clickOutsideToClose:true,
             controllerAs: 'ctrl',
         }).then(function(price) {

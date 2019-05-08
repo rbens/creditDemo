@@ -1,5 +1,4 @@
 'use strict';
-import "angular-mocks";
 
 function cityService($http, $resource) {
     "ngInject";
