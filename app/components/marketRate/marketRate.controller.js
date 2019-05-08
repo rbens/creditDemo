@@ -1,4 +1,6 @@
-export default function marketRateController($scope, creditService, $mdDialog, $interval, $mdColors) {
+
+
+export default function marketRateController($scope, creditService, $mdDialog, $interval, $mdColors, apiService) {
     'ngInject';
     let intervalPromise = $interval(() => {
             this.currentId++;
@@ -12,7 +14,7 @@ export default function marketRateController($scope, creditService, $mdDialog, $
     this.model = {};
 
 
-    creditService.getMarketRates().then(
+    apiService.getMarketRates().then(
         (response) => {
             if (response) {
                 let id = 1;

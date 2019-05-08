@@ -1,7 +1,8 @@
 import "../../service/cities/cities.service";
 import notaryFeesService from "./notaryFees.service";
+import NotaryFeesModel from "./notaryFees.model";
 
-function notaryFeesController(cityService, notaryFeesService, $timeout, $mdDialog) {
+function notaryFeesController(apiService, cityService, notaryFeesService, $timeout, $mdDialog) {
     'ngInject';
     let isZipFormat = (query) => query.match(new RegExp('\^[1-9]+'));
     let self = this;
@@ -14,7 +15,7 @@ function notaryFeesController(cityService, notaryFeesService, $timeout, $mdDialo
 
     let applyQueryFilterOnCities = (query) => self.cities ? self.cities.then((res) => res.filter(value => cityOrCodeFilter(query,value).includes(query.toLocaleLowerCase()))) : [];
 
-    let initCities = (query) => self.cities = cityService.getCities(!isZipFormat(query) ? query : null, isZipFormat(query) ? query : null).then(
+    let initCities = (query) => self.cities = apiService.getCities(!isZipFormat(query) ? query : null, isZipFormat(query) ? query : null).then(
         // the service could not be available
         (res) =>  res.data.cities,
         // so error is raised and replace response by json file data
@@ -26,10 +27,10 @@ function notaryFeesController(cityService, notaryFeesService, $timeout, $mdDialo
     self.valid = () => self.notaryFeesInfo.cost && self.notaryFeesInfo.propertyType && self.notaryFeesInfo.localite;
 
     self.getPrice = (price) => this.cgPromise = $timeout(() => {
-        notaryFeesService.notaryFeesDetailsRequest(self.notaryFeesInfo).then(
+        apiService.getNotaryFees(self.notaryFeesInfo).then(
             (res)   => {
                 let result = res.data.data.general;
-                notaryFeesService.setNotaryFeesModel(result.notary_fees_taxes_included, result.taxes, result.formalities_disbursements);
+                notaryFeesService.setNotaryFeesModel(new NotaryFeesModel(result.notary_fees_taxes_included, result.taxes, result.formalities_disbursements));
                 self.price = notaryFeesService.getNotaryFeesModel().total;
                 $mdDialog.hide(price);
             },

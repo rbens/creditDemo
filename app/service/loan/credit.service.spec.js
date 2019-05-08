@@ -1,16 +1,18 @@
 import './credit.service';
+import './../../service/api/api.service';
 import './../../components/notaryFees/notaryFees.controller';
 
 describe('credit service ',function() {
 
 
+    beforeEach(angular.mock.module('api'));
     beforeEach(angular.mock.module('notaryFees'));
     beforeEach(angular.mock.module('creditService'));
 
-    let $creditService , $notaryFeesService, $httpBackend, requestHandler;
+    let $creditService , $notaryFeesService, $httpBackend, $apiService;
 
 
-    beforeEach(angular.mock.inject(function(_creditService_, _notaryFeesService_, $injector){
+    beforeEach(angular.mock.inject(function(_creditService_, _notaryFeesService_, _apiService_, $injector){
         let dataModel = {
             credit : {
                 annee : 1,
@@ -21,6 +23,7 @@ describe('credit service ',function() {
 
         $creditService = _creditService_;
         $notaryFeesService = _notaryFeesService_;
+        $apiService = _apiService_;
         $httpBackend = $injector.get('$httpBackend');
 
         jasmine.getJSONFixtures().fixturesPath='base/test';
@@ -47,7 +50,7 @@ describe('credit service ',function() {
 
 
         it('should get market rate', inject(function($httpBackend) {
-            let promise = $creditService.getMarketRates();
+            let promise = $apiService.getMarketRates();
             let resolvedValue;
 
             $httpBackend.when('GET', 'rates')

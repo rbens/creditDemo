@@ -1,5 +1,6 @@
 import marketRateController from './marketRate.controller';
 
+
 const marketRateComponent = {
         template : require('./marketRate.html'),
         controller:   marketRateController ,

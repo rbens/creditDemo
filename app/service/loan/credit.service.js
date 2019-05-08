@@ -1,17 +1,14 @@
 import CreditModel from './credit.model';
 
-export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService) {
+export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService, apiService) {
     'ngInject';
     let creditModel = new CreditModel({}, {}, {}, {});
-    let taxes = '';
-    let getAmortization = (credit) => $http.post("amortissements", credit);
     let scrollTo = () => {
         let someElement = angular.element(document.getElementById('results'));
         $document.scrollToElement(someElement, -750, 1000);
     };
 
     return {
-        getMarketRates: () => $http.get("rates"),
         getCreditModel: () => creditModel,
         setCreditModel: (model) => Object.assign(creditModel.credit, model),
         calcul: () => {
@@ -23,7 +20,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                 }
                 $rootScope.cgPromise = $timeout(() => {
                     $q.all([
-                        getAmortization({
+                        apiService.getAmortization({
                             months: creditModel.credit.annee * 12 + "",
                             capital: creditModel.credit.capital + (notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0),
                             interestRate: tauxNominal,

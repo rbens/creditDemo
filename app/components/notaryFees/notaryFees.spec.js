@@ -30,7 +30,7 @@ describe('notary fees ',function() {
     });
 
     describe('with controller ', function(){
-        let $controller, $rootScope, cityService, $mdDialog, $scope;
+        let $controller, $rootScope, cityService, $mdDialog, $scope, apiService;
 
         beforeEach(inject(function($injector) {
             $controller = $injector.get('$controller');
@@ -40,7 +40,7 @@ describe('notary fees ',function() {
 
         it('and test zip format', function () {
             // let $scope = $rootScope.$new();
-            let $notaryFreesController = $controller('notaryFeesController', { $scope: $scope , cityService: cityService, $mdDialog: $mdDialog});
+            let $notaryFreesController = $controller('notaryFeesController', { $scope: $scope , apiService: apiService, cityService: cityService, $mdDialog: $mdDialog});
 
             $notaryFreesController.notaryFeesInfo = {
                 cost : 120000,

@@ -1,4 +1,4 @@
-export default function notaryFeesService($http) {
+export default function notaryFeesService() {
     'ngInject';
     let notaryFeesModel;
 
@@ -7,15 +7,6 @@ export default function notaryFeesService($http) {
             propertyType: '',
             localite: ''
     };
-
-    this.notaryFeesDetailsRequest = (notaryFrees) => $http.get('notary-frees', {
-        params: {
-            'cost': notaryFrees.cost,
-            'propertyType': notaryFrees.propertyType,
-            'zip': notaryFrees.localite.code
-        }
-    });
-
 
     this.getNotaryFeesModel = () => notaryFeesModel;
     this.setNotaryFeesModel = (model) => notaryFeesModel = model;
