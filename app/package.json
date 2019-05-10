@@ -27,6 +27,7 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "ng-annotate-loader": "^0.6.1",
+    "puppeteer": "^1.15.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.6.0",
     "webpack-bundle-analyzer": "^3.0.3",
