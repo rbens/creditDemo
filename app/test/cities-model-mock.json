@@ -1,0 +1,13 @@
+{
+  "input": "95",
+  "cities": [
+    {
+      "code": 95270,
+      "city": "ASNIERES SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LUZARCHES"
+    }
+  ]
+}

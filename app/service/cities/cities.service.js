@@ -1,4 +1,5 @@
 'use strict';
+import "angular-resource";
 
 function cityService($resource) {
     "ngInject";
@@ -7,4 +8,4 @@ function cityService($resource) {
     };
 }
 
-angular.module('cities', []) .factory('cityService', cityService);
+angular.module('cities', ['ngResource']) .factory('cityService', cityService);

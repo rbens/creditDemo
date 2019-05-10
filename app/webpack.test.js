@@ -13,6 +13,12 @@ module.exports = {
                         esModules: true
                     }
                 }
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    'html-loader'
+                ]
             }
         ]
     }
