@@ -10,7 +10,7 @@ function apiService($http) {
             params: {
                 'cost': notaryFrees.cost,
                 'propertyType': notaryFrees.propertyType,
-                'zip': notaryFrees.localite.code
+                'zip': notaryFrees.code
             }})
     };
 }

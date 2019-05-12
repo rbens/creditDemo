@@ -1,0 +1,36 @@
+{
+	"line" : {
+		"options": {
+			"chart": {
+				"type": "line"
+			},
+			"plotOptions": {
+				"series": {
+					"stacking": ""
+				}
+			}
+		},
+		"title": {
+		},
+		"series": [
+			{
+				"data": []
+			}
+		],
+		"xAxis": {
+			"min": 1,
+			"title": {
+				"text": "années"
+			},
+			"tickInterval":1,
+			"labels":{
+
+			}
+		},
+		"yAxis": {
+			"min": 0,
+			"title": {
+				"text": "valeur en euros"}
+		}
+	}
+}

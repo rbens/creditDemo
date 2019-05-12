@@ -3,7 +3,7 @@ export default function notaryFeesService() {
     let notaryFeesModel;
 
     this.notaryFeesInfo = {
-        cost: '',
+            cost: '',
             propertyType: '',
             localite: ''
     };

@@ -14,7 +14,7 @@ describe('cities service ', function () {
 
                 jasmine.getJSONFixtures().fixturesPath = 'base/test';
 
-                let cities = getJSONFixture('cities-model-mock.json');
+                let cities = getJSONFixture('cities-mock.json');
                 $httpBackend.when('GET', '../cities/cities.json').respond(200, cities);
             }
         ));
@@ -31,7 +31,6 @@ describe('cities service ', function () {
 
             $httpBackend.flush();
             expect(resolvedValue).toBeDefined();
-            expect(resolvedValue.input).toEqual('95');
             expect(resolvedValue.cities.length).not.toBe(0);
             expect(resolvedValue.cities).toEqual(jasmine.arrayContaining(
                 [{

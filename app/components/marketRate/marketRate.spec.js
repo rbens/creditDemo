@@ -16,7 +16,7 @@ describe('market rate', function () {
         $compile = $injector.get('$compile');
         $httpBackend = $injector.get('$httpBackend');
         $rootScope = $injector.get('$rootScope');
-        $controller = $injector.get('$controller');
+        $controller = $injector.get('$componentController');
         $scope =  $rootScope.$new();
 
         $httpBackend.when('GET', 'rates')
@@ -24,7 +24,7 @@ describe('market rate', function () {
     }));
 
     it('should get market rate', inject(function($httpBackend) {
-        let $marketRateController = $controller('marketRateController as market', { $scope: $scope});
+        let $marketRateController = $controller('marketRateComponent', { $scope: $scope});
 
         $httpBackend.flush();
         expect($marketRateController.rates).toBeDefined();
