@@ -14,7 +14,7 @@ export default class CreditModel{
     }
 
     static formatNumber(data) {
-        return data.toFixed(2);
+        return data ? data.toFixed(2) : data;
     }
 
     creditModel(model ){
