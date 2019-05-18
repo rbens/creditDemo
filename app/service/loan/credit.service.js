@@ -1,11 +1,12 @@
 import CreditModel from './credit.model';
+import zenscroll from "zenscroll";
 
 export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService, apiService) {
     'ngInject';
     let creditModel = new CreditModel({}, {}, {}, {});
-    let scrollTo = () => {
-        let someElement = angular.element(document.getElementById('results'));
-        $document.scrollToElement(someElement, -750, 1000);
+    let scrollTo = (id) => {
+        let someElement = document.getElementById(id);
+        zenscroll.center(someElement, 500);
     };
 
     return {
@@ -16,7 +17,7 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
             if (creditModel.isComplete()) {
                 let tauxNominal = creditModel.credit.tauxNominal !== 0 ? creditModel.credit.tauxNominal : creditModel.credit.tauxGlobal;
                 if (screen.width < 660) {
-                    scrollTo();
+                    scrollTo('mortgageResult');
                 }
                 $rootScope.cgPromise = $timeout(() => {
                     $q.all([
@@ -48,7 +49,10 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
             }
         },
         teg: () => creditModel.teg(),
-        reset: () => creditModel.reset($filter)
+        reset: () => {
+            creditModel.reset($filter);
+            scrollTo('mortgageData');
+        }
     };
 }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 import "./public/styles/css/main.css";
+import "./public/styles/main.scss";
 
 import "./filter/format.filter";
 import "./components/main/main.controller";

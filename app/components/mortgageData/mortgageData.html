@@ -67,7 +67,7 @@
     </div>
 
     <!--screen phone and tablet-->
-    <div layout-fill hide-gt-md>
+    <div layout-fill hide-gt-md id="mortgageData">
         <md-content  layout="row" layout-padding class="adapt-form">
             <md-input-container flex="30" flex-xs="50" >
                 <label>Durée </label>
@@ -103,7 +103,7 @@
             </md-input-container>
             <md-input-container flex="50" style="margin-left: 2%;">
                 <label>TEG</label>
-                <input type="text" disabled class="form-control"  aria-label="taux emprunt global" ng-value="$ctrl.credit.tauxGlobal" placeholder="">
+                <input type="text" disabled class="form-control"  aria-label="taux emprunt global" ng-value="$ctrl.credit.tauxGlobal | rate" placeholder="">
             </md-input-container>
          </md-content>
 
@@ -119,9 +119,12 @@
         </md-content>
 
         <md-content  layout="row" hide-gt-xs layout-padding class="adapt-form">
-            <md-input-container layout="row" class="md-button-form" style="margin-left: 20%">
-                <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
-                    <md-icon md-font-icon="add_white"></md-icon>
+            <md-input-container layout="row" class="md-button-form" style="margin-left: 0">
+                <md-button class="md-raised md-fab btn-color-form" aria-label="frais de notaire" ng-click="$ctrl.notaryFreesModal()">
+                    FDN
+                </md-button>
+                <md-button class="md-primary md-fab btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
+                    <span>GO !</span>
                 </md-button>
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()">
                     <md-icon md-font-icon="clear_white"></md-icon>
