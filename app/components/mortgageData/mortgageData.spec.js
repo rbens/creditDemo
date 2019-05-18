@@ -54,7 +54,7 @@ describe('mortgage data',function () {
 
             element.find('button').eq(1).click();
 
-            expect(notaryFeesModal.find('h2')[0]).toContainText('Informations pour calculer les frais de notaire');
+            expect(notaryFeesModal.find('h2')[0]).toContainText('Calculer les frais de notaire');
             expect($mdDialog.show).toHaveBeenCalled();
         });
 
