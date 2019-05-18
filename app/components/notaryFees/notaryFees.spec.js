@@ -133,10 +133,7 @@ describe('notary fees ',function() {
                 $notaryFreesController.notaryFeesInfo = {
                     cost : 120000,
                     propertyType : 'ancien',
-                    localite : {
-                        city : 'HERBLAY',
-                        code : 95370
-                    }
+                    code : 95370
                 };
 
                 $httpBackend.when('GET', 'notary-frees').respond(200, {

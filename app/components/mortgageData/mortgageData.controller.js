@@ -1,4 +1,4 @@
-export default function creditFormController($filter, $timeout, creditService, $mdDialog) {
+export default function mortgageDataController($filter, $timeout, creditService, $mdDialog) {
     'ngInject';
 
     let self = this;
@@ -31,7 +31,7 @@ export default function creditFormController($filter, $timeout, creditService, $
         }).then(function(price) {
             self.calcul();
         }, function() {
-            console.log('not price');
+            console.error('Problem with service for getting price');
         });
     };
 

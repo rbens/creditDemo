@@ -24,9 +24,12 @@ function notaryFeesController(apiService, cityService, notaryFeesService, $timeo
 
     self.querySearch = (query) => query.length === 2 ?  initCities(query) : applyQueryFilterOnCities(query);
 
-    self.valid = () => self.notaryFeesInfo.cost && self.notaryFeesInfo.propertyType && self.notaryFeesInfo.localite;
+    self.assignTo = (location) => self.notaryFeesInfo.code = location.code;
+
+    self.valid = () => self.notaryFeesInfo.cost && self.notaryFeesInfo.propertyType && self.notaryFeesInfo.code;
 
     self.getPrice = (price) => this.cgPromise = $timeout(() => {
+        self.notaryFeesInfo.code = self.localite.code;
         apiService.getNotaryFees(self.notaryFeesInfo).then(
             (res)   => {
                 let result = res.data.data.general;

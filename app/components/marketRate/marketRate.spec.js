@@ -12,7 +12,6 @@ describe('market rate', function () {
     let  $httpBackend, $compile, $rootScope, $controller, $scope;
 
     beforeEach(inject(function( _apiService_, $injector){
-        $controller = $injector.get('$controller');
         $compile = $injector.get('$compile');
         $httpBackend = $injector.get('$httpBackend');
         $rootScope = $injector.get('$rootScope');
