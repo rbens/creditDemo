@@ -32,6 +32,13 @@ Modules - reusable parts of our design
   transform: rotate(-20.5deg);  /* Firefox 16+, IE 10+, Opera */
 }
 
+.panel-title-size {
+  @media only screen and (max-width: 380px) {
+    font-size : 16px;
+  }
+}
+
+
 /* -------------------------------- 
 
 Main components 
@@ -56,3 +63,6 @@ Main components
 md-content{
   overflow: hidden;
 }
+
+
+

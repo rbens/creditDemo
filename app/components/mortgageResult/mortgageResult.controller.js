@@ -3,13 +3,13 @@ export default function mortgageResultController($rootScope, $mdDialog) {
 
     this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
 
-    this.$onChanges = () => this.taxesPrice = this.taxes.total;
+    this.$onChanges = () => this.taxesPrice = this.taxes ? this.taxes.total : '';
 
     this.modalResult = (ev) => {
         $mdDialog.show({
             title: 'Informations sur les résultats',
             parent: angular.element(document.body),
-            template: require('./mortgageResult.modal.html'),
+            template: require('./mortgageResultInfo.modal.html'),
             targetEvent: ev,
             clickOutsideToClose: true
         }).then(

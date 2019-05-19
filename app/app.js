@@ -15,7 +15,7 @@ import './service/api/api.service'
 import routing from "./service/route/routing";
 
 
-let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ui.router','duScroll',
+let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ui.router',
     'main',
     'chartResult',
     'mortgageData',
