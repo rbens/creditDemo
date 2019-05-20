@@ -1,9 +1,13 @@
-export default function creditFormController($rootScope, $filter, $timeout, creditService, $mdDialog) {
+export default function mortgageDataController($filter, $timeout, creditService, $mdDialog) {
     'ngInject';
-    this.credit = creditService.getDataModel().credit;
-    this.calcul = () => creditService.calcul();
-    this.teg = () => creditService.teg();
 
+    let self = this;
+
+    this.credit = creditService.getCreditModel().credit;
+
+    this.calcul = () => creditService.calcul();
+
+    this.teg = () => creditService.teg();
     this.modalForm = (ev) => {
         $mdDialog.show({
             parent: angular.element(document.body),
@@ -14,11 +18,27 @@ export default function creditFormController($rootScope, $filter, $timeout, cred
             () => this.status = 'cancel',
             () => this.status = 'close'
         );
+
+    };
+    this.notaryFreesModal = (ev) => {
+        $mdDialog.show({
+            parent: angular.element(document.body),
+            template : require('../notaryFees/notaryFees.modal.html'),
+            targetEvent:ev,
+            controller: 'notaryFeesController',
+            clickOutsideToClose:true,
+            controllerAs: 'ctrl',
+        }).then(function(price) {
+            self.calcul();
+        }, function() {
+            console.error('Problem with service for getting price');
+        });
     };
 
     this.reset = () => {
         creditService.reset();
-        this.credit = creditService.getDataModel().credit;
+        this.credit = creditService.getCreditModel().credit;
+        this.notaryFeesInfo.price = 0;
     };
 
     this.enabled = () => {

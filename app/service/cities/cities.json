@@ -1,0 +1,753 @@
+{
+  "input": "95",
+  "cities": [
+    {
+      "code": 95270,
+      "city": "ASNIERES SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LUZARCHES"
+    },
+    {
+      "code": 95270,
+      "city": "EPINAY CHAMPLATREUX"
+    },
+    {
+      "code": 95270,
+      "city": "CHAUMONTEL"
+    },
+    {
+      "code": 95270,
+      "city": "VIARMES"
+    },
+    {
+      "code": 95270,
+      "city": "BELLEFONTAINE"
+    },
+    {
+      "code": 95270,
+      "city": "LE PLESSIS LUZARCHES"
+    },
+    {
+      "code": 95270,
+      "city": "BELLOY EN FRANCE"
+    },
+    {
+      "code": 95270,
+      "city": "SEUGY"
+    },
+    {
+      "code": 95270,
+      "city": "NOISY SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LASSY"
+    },
+    {
+      "code": 95270,
+      "city": "ST MARTIN DU TERTRE"
+    },
+    {
+      "code": 95690,
+      "city": "FROUVILLE"
+    },
+    {
+      "code": 95690,
+      "city": "NESLES LA VALLEE"
+    },
+    {
+      "code": 95690,
+      "city": "LABBEVILLE"
+    },
+    {
+      "code": 95690,
+      "city": "HEDOUVILLE"
+    },
+    {
+      "code": 95490,
+      "city": "VAUREAL"
+    },
+    {
+      "code": 95420,
+      "city": "MAUDETOUR EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "WY DIT JOLI VILLAGE"
+    },
+    {
+      "code": 95420,
+      "city": "HODENT"
+    },
+    {
+      "code": 95420,
+      "city": "ARTHIES"
+    },
+    {
+      "code": 95420,
+      "city": "NUCOURT"
+    },
+    {
+      "code": 95420,
+      "city": "LA CHAPELLE EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "MAGNY EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "OMERVILLE"
+    },
+    {
+      "code": 95420,
+      "city": "AMBLEVILLE"
+    },
+    {
+      "code": 95420,
+      "city": "CHARMONT"
+    },
+    {
+      "code": 95420,
+      "city": "BANTHELU"
+    },
+    {
+      "code": 95420,
+      "city": "GENAINVILLE"
+    },
+    {
+      "code": 95420,
+      "city": "CLERY EN VEXIN"
+    },
+    {
+      "code": 95420,
+      "city": "ST GERVAIS"
+    },
+    {
+      "code": 95830,
+      "city": "FREMECOURT"
+    },
+    {
+      "code": 95830,
+      "city": "CORMEILLES EN VEXIN"
+    },
+    {
+      "code": 95000,
+      "city": "CERGY"
+    },
+    {
+      "code": 95000,
+      "city": "NEUVILLE SUR OISE"
+    },
+    {
+      "code": 95000,
+      "city": "BOISEMONT"
+    },
+    {
+      "code": 95000,
+      "city": "PONTOISE"
+    },
+    {
+      "code": 95530,
+      "city": "LA FRETTE SUR SEINE"
+    },
+    {
+      "code": 95500,
+      "city": "GONESSE"
+    },
+    {
+      "code": 95500,
+      "city": "BONNEUIL EN FRANCE"
+    },
+    {
+      "code": 95500,
+      "city": "VAUDHERLAND"
+    },
+    {
+      "code": 95500,
+      "city": "LE THILLAY"
+    },
+    {
+      "code": 95430,
+      "city": "BUTRY SUR OISE"
+    },
+    {
+      "code": 95430,
+      "city": "AUVERS SUR OISE"
+    },
+    {
+      "code": 95670,
+      "city": "MARLY LA VILLE"
+    },
+    {
+      "code": 95510,
+      "city": "AINCOURT"
+    },
+    {
+      "code": 95510,
+      "city": "ST CYR EN ARTHIES"
+    },
+    {
+      "code": 95510,
+      "city": "CHERENCE"
+    },
+    {
+      "code": 95510,
+      "city": "VIENNE EN ARTHIES"
+    },
+    {
+      "code": 95510,
+      "city": "VETHEUIL"
+    },
+    {
+      "code": 95510,
+      "city": "VILLERS EN ARTHIES"
+    },
+    {
+      "code": 95510,
+      "city": "AMENUCOURT"
+    },
+    {
+      "code": 95640,
+      "city": "BRIGNANCOURT"
+    },
+    {
+      "code": 95640,
+      "city": "NEUILLY EN VEXIN"
+    },
+    {
+      "code": 95640,
+      "city": "LE HEAULME"
+    },
+    {
+      "code": 95640,
+      "city": "MOUSSY"
+    },
+    {
+      "code": 95640,
+      "city": "BREANCON"
+    },
+    {
+      "code": 95640,
+      "city": "SANTEUIL"
+    },
+    {
+      "code": 95640,
+      "city": "HARAVILLIERS"
+    },
+    {
+      "code": 95640,
+      "city": "MARINES"
+    },
+    {
+      "code": 95160,
+      "city": "MONTMORENCY"
+    },
+    {
+      "code": 95570,
+      "city": "VILLAINES SOUS BOIS"
+    },
+    {
+      "code": 95570,
+      "city": "BOUFFEMONT"
+    },
+    {
+      "code": 95570,
+      "city": "ATTAINVILLE"
+    },
+    {
+      "code": 95570,
+      "city": "MOISSELLES"
+    },
+    {
+      "code": 95450,
+      "city": "GADANCOURT"
+    },
+    {
+      "code": 95450,
+      "city": "VIGNY"
+    },
+    {
+      "code": 95450,
+      "city": "ABLEIGES"
+    },
+    {
+      "code": 95450,
+      "city": "LE PERCHAY"
+    },
+    {
+      "code": 95450,
+      "city": "US"
+    },
+    {
+      "code": 95450,
+      "city": "AVERNES"
+    },
+    {
+      "code": 95450,
+      "city": "FREMAINVILLE"
+    },
+    {
+      "code": 95450,
+      "city": "SERAINCOURT"
+    },
+    {
+      "code": 95450,
+      "city": "COMMENY"
+    },
+    {
+      "code": 95450,
+      "city": "CONDECOURT"
+    },
+    {
+      "code": 95450,
+      "city": "GOUZANGREZ"
+    },
+    {
+      "code": 95450,
+      "city": "LONGUESSE"
+    },
+    {
+      "code": 95450,
+      "city": "SAGY"
+    },
+    {
+      "code": 95450,
+      "city": "GUIRY EN VEXIN"
+    },
+    {
+      "code": 95450,
+      "city": "THEMERICOURT"
+    },
+    {
+      "code": 95380,
+      "city": "LOUVRES"
+    },
+    {
+      "code": 95380,
+      "city": "PUISEUX EN FRANCE"
+    },
+    {
+      "code": 95380,
+      "city": "EPIAIS LES LOUVRES"
+    },
+    {
+      "code": 95380,
+      "city": "CHENNEVIERES LES LOUVRES"
+    },
+    {
+      "code": 95380,
+      "city": "VILLERON"
+    },
+    {
+      "code": 95700,
+      "city": "ROISSY EN FRANCE"
+    },
+    {
+      "code": 95470,
+      "city": "SURVILLIERS"
+    },
+    {
+      "code": 95470,
+      "city": "FOSSES"
+    },
+    {
+      "code": 95470,
+      "city": "VEMARS"
+    },
+    {
+      "code": 95470,
+      "city": "ST WITZ"
+    },
+    {
+      "code": 95760,
+      "city": "VALMONDOIS"
+    },
+    {
+      "code": 95560,
+      "city": "MONTSOULT"
+    },
+    {
+      "code": 95560,
+      "city": "CHAUVRY"
+    },
+    {
+      "code": 95560,
+      "city": "MAFFLIERS"
+    },
+    {
+      "code": 95560,
+      "city": "BAILLET EN FRANCE"
+    },
+    {
+      "code": 95260,
+      "city": "BEAUMONT SUR OISE"
+    },
+    {
+      "code": 95260,
+      "city": "MOURS"
+    },
+    {
+      "code": 95770,
+      "city": "MONTREUIL SUR EPTE"
+    },
+    {
+      "code": 95770,
+      "city": "BUHY"
+    },
+    {
+      "code": 95770,
+      "city": "ST CLAIR SUR EPTE"
+    },
+    {
+      "code": 95280,
+      "city": "JOUY LE MOUTIER"
+    },
+    {
+      "code": 95300,
+      "city": "ENNERY"
+    },
+    {
+      "code": 95300,
+      "city": "LIVILLIERS"
+    },
+    {
+      "code": 95300,
+      "city": "PONTOISE"
+    },
+    {
+      "code": 95300,
+      "city": "HEROUVILLE"
+    },
+    {
+      "code": 95180,
+      "city": "MENUCOURT"
+    },
+    {
+      "code": 95110,
+      "city": "SANNOIS"
+    },
+    {
+      "code": 95720,
+      "city": "LE MESNIL AUBRY"
+    },
+    {
+      "code": 95720,
+      "city": "BOUQUEVAL"
+    },
+    {
+      "code": 95720,
+      "city": "LE PLESSIS GASSOT"
+    },
+    {
+      "code": 95720,
+      "city": "VILLIERS LE SEC"
+    },
+    {
+      "code": 95850,
+      "city": "MAREIL EN FRANCE"
+    },
+    {
+      "code": 95850,
+      "city": "JAGNY SOUS BOIS"
+    },
+    {
+      "code": 95350,
+      "city": "PISCOP"
+    },
+    {
+      "code": 95350,
+      "city": "ST BRICE SOUS FORET"
+    },
+    {
+      "code": 95580,
+      "city": "ANDILLY"
+    },
+    {
+      "code": 95580,
+      "city": "MARGENCY"
+    },
+    {
+      "code": 95170,
+      "city": "DEUIL LA BARRE"
+    },
+    {
+      "code": 95710,
+      "city": "BRAY ET LU"
+    },
+    {
+      "code": 95710,
+      "city": "AMBLEVILLE"
+    },
+    {
+      "code": 95710,
+      "city": "CHAUSSY"
+    },
+    {
+      "code": 95810,
+      "city": "GRISY LES PLATRES"
+    },
+    {
+      "code": 95810,
+      "city": "EPIAIS RHUS"
+    },
+    {
+      "code": 95810,
+      "city": "MENOUVILLE"
+    },
+    {
+      "code": 95810,
+      "city": "THEUVILLE"
+    },
+    {
+      "code": 95810,
+      "city": "VALLANGOUJARD"
+    },
+    {
+      "code": 95810,
+      "city": "BERVILLE"
+    },
+    {
+      "code": 95810,
+      "city": "ARRONVILLE"
+    },
+    {
+      "code": 95540,
+      "city": "MERY SUR OISE"
+    },
+    {
+      "code": 95610,
+      "city": "ERAGNY"
+    },
+    {
+      "code": 95650,
+      "city": "GENICOURT"
+    },
+    {
+      "code": 95650,
+      "city": "COURCELLES SUR VIOSNE"
+    },
+    {
+      "code": 95650,
+      "city": "MONTGEROULT"
+    },
+    {
+      "code": 95650,
+      "city": "PUISEUX PONTOISE"
+    },
+    {
+      "code": 95650,
+      "city": "BOISSY L AILLERIE"
+    },
+    {
+      "code": 95190,
+      "city": "FONTENAY EN PARISIS"
+    },
+    {
+      "code": 95190,
+      "city": "GOUSSAINVILLE"
+    },
+    {
+      "code": 95190,
+      "city": "CHATENAY EN FRANCE"
+    },
+    {
+      "code": 95130,
+      "city": "LE PLESSIS BOUCHARD"
+    },
+    {
+      "code": 95130,
+      "city": "FRANCONVILLE"
+    },
+    {
+      "code": 95740,
+      "city": "FREPILLON"
+    },
+    {
+      "code": 95340,
+      "city": "BERNES SUR OISE"
+    },
+    {
+      "code": 95340,
+      "city": "RONQUEROLLES"
+    },
+    {
+      "code": 95340,
+      "city": "PERSAN"
+    },
+    {
+      "code": 95590,
+      "city": "NERVILLE LA FORET"
+    },
+    {
+      "code": 95590,
+      "city": "NOINTEL"
+    },
+    {
+      "code": 95590,
+      "city": "PRESLES"
+    },
+    {
+      "code": 95290,
+      "city": "L ISLE ADAM"
+    },
+    {
+      "code": 95620,
+      "city": "PARMAIN"
+    },
+    {
+      "code": 95310,
+      "city": "ST OUEN L AUMONE"
+    },
+    {
+      "code": 95750,
+      "city": "CHARS"
+    },
+    {
+      "code": 95750,
+      "city": "LE BELLAY EN VEXIN"
+    },
+    {
+      "code": 95390,
+      "city": "ST PRIX"
+    },
+    {
+      "code": 95550,
+      "city": "BESSANCOURT"
+    },
+    {
+      "code": 95120,
+      "city": "ERMONT"
+    },
+    {
+      "code": 95880,
+      "city": "ENGHIEN LES BAINS"
+    },
+    {
+      "code": 95600,
+      "city": "EAUBONNE"
+    },
+    {
+      "code": 95210,
+      "city": "ST GRATIEN"
+    },
+    {
+      "code": 95400,
+      "city": "ARNOUVILLE"
+    },
+    {
+      "code": 95400,
+      "city": "VILLIERS LE BEL"
+    },
+    {
+      "code": 95140,
+      "city": "GARGES LES GONESSE"
+    },
+    {
+      "code": 95230,
+      "city": "SOISY SOUS MONTMORENCY"
+    },
+    {
+      "code": 95440,
+      "city": "ECOUEN"
+    },
+    {
+      "code": 95220,
+      "city": "HERBLAY"
+    },
+    {
+      "code": 95220,
+      "city": "PIERRELAYE"
+    },
+    {
+      "code": 95800,
+      "city": "CERGY"
+    },
+    {
+      "code": 95800,
+      "city": "COURDIMANCHE"
+    },
+    {
+      "code": 95330,
+      "city": "DOMONT"
+    },
+    {
+      "code": 95480,
+      "city": "PIERRELAYE"
+    },
+    {
+      "code": 95840,
+      "city": "BETHEMONT LA FORET"
+    },
+    {
+      "code": 95840,
+      "city": "VILLIERS ADAM"
+    },
+    {
+      "code": 95780,
+      "city": "HAUTE ISLE"
+    },
+    {
+      "code": 95780,
+      "city": "LA ROCHE GUYON"
+    },
+    {
+      "code": 95520,
+      "city": "OSNY"
+    },
+    {
+      "code": 95150,
+      "city": "TAVERNY"
+    },
+    {
+      "code": 95320,
+      "city": "ST LEU LA FORET"
+    },
+    {
+      "code": 95870,
+      "city": "BEZONS"
+    },
+    {
+      "code": 95240,
+      "city": "CORMEILLES EN PARISIS"
+    },
+    {
+      "code": 95630,
+      "city": "MERIEL"
+    },
+    {
+      "code": 95370,
+      "city": "MONTIGNY LES CORMEILLES"
+    },
+    {
+      "code": 95410,
+      "city": "GROSLAY"
+    },
+    {
+      "code": 95680,
+      "city": "MONTLIGNON"
+    },
+    {
+      "code": 95360,
+      "city": "MONTMAGNY"
+    },
+    {
+      "code": 95820,
+      "city": "BRUYERES SUR OISE"
+    },
+    {
+      "code": 95200,
+      "city": "SARCELLES"
+    },
+    {
+      "code": 95460,
+      "city": "EZANVILLE"
+    },
+    {
+      "code": 95660,
+      "city": "CHAMPAGNE SUR OISE"
+    }
+  ]
+}

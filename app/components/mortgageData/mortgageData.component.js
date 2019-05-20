@@ -1,8 +1,8 @@
-import creditFormController from "./mortgageData.controller";
+import mortgageDataController from "./mortgageData.controller";
 
 export const mortgageDataComponent = {
         template: require('./mortgageData.html'),
-        controller: creditFormController
+        controller: mortgageDataController
 };
 
 angular.module('mortgageData',[]).component('mortgageDataComponent',mortgageDataComponent);

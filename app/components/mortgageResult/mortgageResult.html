@@ -1,4 +1,4 @@
-<md-content class="panel" id="results" flex-offset="5" style="padding-left: 0; padding-right: 0;">
+<md-content class="panel" id="mortgageResult" flex-offset="5" style="padding-left: 0; padding-right: 0;" ng-class="">
     <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" >
         <div class="md-toolbar-tools panel-dialog">
             <h3 class="panel-title">R&eacute;sultat</h3>
@@ -33,7 +33,11 @@
             </md-content>
 
             <md-content layout="row" layout-padding class="adapt-form">
-                <md-input-container flex="50" style=";padding-top:0.5em">
+                <md-input-container flex style=";padding-top:0.5em" >
+                    <label class="control-label col-sm-5">Frais notaire</label>
+                    <input class="form-control" aria-label="frais de notaire" ng-value="$ctrl.taxesPrice | euro" placeholder=""  disabled>
+                </md-input-container>
+                <md-input-container flex style=";padding-top:0.5em">
                     <label class="control-label col-sm-5">Total remboursement </label>
                     <input class="form-control" ng-value="$ctrl.model.remboursementTotal" placeholder="" disabled/>
                 </md-input-container>

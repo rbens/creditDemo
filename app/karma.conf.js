@@ -1,6 +1,7 @@
 // Karma configuration
 // Generated on Sat Nov 21 2015 16:55:19 GMT+0100 (CET)
 const webpackConfig = require('./webpack.test.js');
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = function (config) {
     config.set({
@@ -72,7 +73,17 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['ChromeHeadless'],
+        browsers: ['ChromeHeadlessNoSandbox'],
+        customLaunchers: {
+            ChromeHeadlessNoSandbox: {
+                base: 'ChromeHeadless',
+                flags: [
+                    '--no-sandbox',
+                    '--disable-gpu',
+                    '--disable-web-security'
+                ]
+            }
+        },
 
         // Which plugins to enable
         plugins: [
@@ -95,10 +106,6 @@ module.exports = function (config) {
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
         singleRun: true,
-
-        // Concurrency level
-        // how many browser should be started simultanous
-        concurrency: Infinity,
 
     });
 };

@@ -2,7 +2,8 @@ import mortgageResultController from './mortgageResult.controller';
 
 const mortgageResultComponent = {
     bindings: {
-        model: '<'
+        model: '<',
+        taxes: '<'
     },
     template: require('./mortgageResult.html'),
     controller: mortgageResultController

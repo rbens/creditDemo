@@ -17,15 +17,15 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-@RequestMapping(value = "/")
-final class CreditDemoRestController {
+final class CreditDemoRestController extends AbstractController{
 
 
     private final static String RATES_URL = "https://www.guideducredit.com/HTMcorps/Fichiersmarche/tauxbanque.htm";
     private final static String DOM_SELECTOR = ".tab_taux_l .tab_clair td";
 
+
     @RequestMapping(value = "/amortissements", method = POST)
-    public MonthlyPayment getAmortissement(@RequestBody String mensualite) throws IOException {
+    public MonthlyPayment amortissement(@RequestBody String mensualite) throws IOException {
         return new ObjectMapper().readValue(mensualite, Results.class);
     }
 
@@ -40,5 +40,7 @@ final class CreditDemoRestController {
                 .map(Element::text)
                 .toArray(String[]::new);
     }
+
+
 
 }

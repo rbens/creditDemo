@@ -1,6 +1,6 @@
 
 
-export default class DataModel{
+export default class CreditModel{
 
     constructor(model, line, area, pie){
             this.credit = model;
@@ -10,14 +10,14 @@ export default class DataModel{
     }
 
     static isDefined(value){
-       return value && value !== null && value !== 0;
+       return value && value !== 0;
     }
 
     static formatNumber(data) {
-        return data.toFixed(2);
+        return data ? data.toFixed(2) : data;
     }
 
-    dataModel( model ){
+    creditModel(model ){
         Object.assign(this.credit, model);
     }
 
@@ -34,10 +34,10 @@ export default class DataModel{
     }
 
     teg(){
-        this.credit.tauxNominal = Number(DataModel.formatNumber(this.credit.tauxNominal));
+        this.credit.tauxNominal = Number(CreditModel.formatNumber(this.credit.tauxNominal));
 
         if (this.credit.tauxAssurance) {
-            this.credit.tauxAssurance = Number(DataModel.formatNumber(this.credit.tauxAssurance));
+            this.credit.tauxAssurance = Number(CreditModel.formatNumber(this.credit.tauxAssurance));
             this.credit.tauxGlobal = this.credit.tauxNominal + this.credit.tauxAssurance;
         } else {
             this.credit.tauxGlobal = this.credit.tauxNominal;
@@ -45,7 +45,7 @@ export default class DataModel{
     }
 
     isComplete(){
-        return DataModel.isDefined(this.credit.annee) && DataModel.isDefined(this.credit.capital) && DataModel.isDefined(this.credit.tauxNominal);
+        return CreditModel.isDefined(this.credit.annee) && CreditModel.isDefined(this.credit.capital) && CreditModel.isDefined(this.credit.tauxNominal);
     }
 
     addSeries(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries){
@@ -72,18 +72,19 @@ export default class DataModel{
 
     }
 
-    addSeriesToPieChart(interetSeries, assuranceSeries, creditSeries){
+    addSeriesToPieChart(interetSeries, assuranceSeries, creditSeries, notaryFrees){
         this.pie.series = [];
         this.pie.series.push({
             type: 'pie',
             name: 'somme en euros',
             data: [
-                ['Cout total interets ', interetSeries],
-                ['Cout total assurances', assuranceSeries],
-                ['Capital emprunté', creditSeries]
+                ['Capital emprunté', creditSeries],
+                ['Cout total interets ', interetSeries]
             ]
 
         });
+        if(assuranceSeries) this.pie.series[0].data.push(['Cout total assurances', assuranceSeries]);
+        if(notaryFrees) this.pie.series[0].data.push(['Frais de notaire', notaryFrees]);
     }
 
     reset($filter){

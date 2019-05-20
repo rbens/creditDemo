@@ -1,0 +1,64 @@
+{
+  "cities": [
+    {
+      "code": 95270,
+      "city": "ASNIERES SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LUZARCHES"
+    },
+    {
+      "code": 95270,
+      "city": "EPINAY CHAMPLATREUX"
+    },
+    {
+      "code": 95270,
+      "city": "CHAUMONTEL"
+    },
+    {
+      "code": 95270,
+      "city": "VIARMES"
+    },
+    {
+      "code": 95270,
+      "city": "BELLEFONTAINE"
+    },
+    {
+      "code": 95270,
+      "city": "LE PLESSIS LUZARCHES"
+    },
+    {
+      "code": 95270,
+      "city": "BELLOY EN FRANCE"
+    },
+    {
+      "code": 95270,
+      "city": "SEUGY"
+    },
+    {
+      "code": 95270,
+      "city": "NOISY SUR OISE"
+    },
+    {
+      "code": 95270,
+      "city": "LASSY"
+    },
+    {
+      "code": 95270,
+      "city": "ST MARTIN DU TERTRE"
+    },
+    {
+      "code": 95690,
+      "city": "FROUVILLE"
+    },
+    {
+      "code": 95690,
+      "city": "NESLES LA VALLEE"
+    },
+    {
+      "code": 95690,
+      "city": "LABBEVILLE"
+    }
+  ]
+}

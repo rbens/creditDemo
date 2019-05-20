@@ -1,7 +1,7 @@
 import creditService from "../../service/loan/credit.service";
 import configService from "../../service/config/config.service";
 
-function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document) {
+function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document, notaryFeesService) {
     'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
 
@@ -12,7 +12,8 @@ function mainCtrl($scope, $window, $mdDialog, configService, creditService, $doc
         $scope.$watch('hideVideo',() => $window.localStorage.setItem('hideVideo',$scope.hideVideo));
     };
 
-    $scope.dataModel = creditService.getDataModel();
+    $scope.dataModel = creditService.getCreditModel();
+    $scope.taxes = () => notaryFeesService.getNotaryFeesModel();
 
     $scope.openVideo =  (ev) => {
         $mdDialog.show({

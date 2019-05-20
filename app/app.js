@@ -1,6 +1,7 @@
 'use strict';
 
 import "./public/styles/css/main.css";
+import "./public/styles/main.scss";
 
 import "./filter/format.filter";
 import "./components/main/main.controller";
@@ -9,17 +10,21 @@ import "./components/amortization/amortization.component";
 import "./components/chartResult/chartResult.component";
 import "./components/mortgageData/mortgageData.component";
 import "./components/marketRate/marketRate.component";
+import "./components/notaryFees/notaryFees.controller";
+import './service/api/api.service'
 import routing from "./service/route/routing";
 
 
-let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ngResource', 'ui.router','duScroll',
+let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ui.router',
     'main',
     'chartResult',
     'mortgageData',
     'marketRate',
     'mortgageResult',
     'amortization',
-    'format',];
+    'format',
+    'notaryFees',
+    'api'];
 
 angular.module('mainApp', modules)
     .config(routing);

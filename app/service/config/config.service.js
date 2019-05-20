@@ -5,3 +5,4 @@ export default function configService($resource) {
     return $resource('../config/config.json');
 }
 
+angular.module('config', ['ngResource']) .factory('configService', configService);
