@@ -1,15 +1,18 @@
 package com.rbens.controller;
 
-import junit.framework.TestCase;
+import org.junit.Test;
 
-public class CreditDemoRestControllerTest extends TestCase {
+public class CreditDemoRestControllerTest{
 
-    //TODO : finish tests
-    public void testGetAmortissement() throws Exception {
-
+    @Test
+    public void amortissement() {
     }
 
-    public void testGetMarketRates() throws Exception {
+    @Test
+    public void notaryFrees() {
+    }
 
+    @Test
+    public void getMarketRates() {
     }
 }

@@ -1,0 +1,46 @@
+<md-dialog aria-label="notary fees modal">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools panel-title-size">
+            <h2>Calculer les frais de notaire </h2>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content ng-cloak>
+        <div class="md-dialog-content" cg-busy="{promise:ctrl.cgPromise}">
+            <form ng-submit="$event.preventDefault()" name="searchForm" layout="column">
+                <md-input-container style="height: 34px;">
+                    <label>prix du bien </label>
+                    <input type="number" required ng-model="ctrl.notaryFeesInfo.cost" ng-value="ctrl.notaryFeesInfo.cost">
+                </md-input-container>
+                <md-input-container>
+                    <label>Type de propriété </label>
+                    <md-select ng-model="ctrl.notaryFeesInfo.propertyType">
+                        <md-option><em>---</em></md-option>
+                        <md-option ng-repeat="property in ctrl.propertiesType" ng-value="property">{{property}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <md-autocomplete
+                        md-input-name="autocompleteField"
+                        md-input-minlength="3"
+                        md-selected-item="ctrl.localite"
+                        md-selected-item-change="ctrl.assignTo(location)"
+                        md-search-text="ctrl.searchText"
+                        md-items="location in ctrl.querySearch(ctrl.searchText)"
+                        md-item-text="location.code.toString()"
+                        md-floating-label="ville ou code postal">
+                    <md-item-template>
+                        <span md-highlight-text="ctrl.searchText">{{location.city}} - {{location.code}}</span>
+                    </md-item-template>
+                </md-autocomplete>
+            </form>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <md-button type="submit" class="md-raised btn-color-form" ng-disabled="!ctrl.valid()" ng-click="ctrl.getPrice()">
+            <span>calculer</span>
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

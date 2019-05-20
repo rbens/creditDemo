@@ -1,4 +1,4 @@
-export default function amortizationController($rootScope, $scope,$filter, $document){
+export default function amortizationController($rootScope, $scope,$filter, $document, $mdDialog){
     'ngInject';
     $scope.$watch('$ctrl.model.amortissements',() => {
         if(this.model.amortissements){
@@ -15,6 +15,19 @@ export default function amortizationController($rootScope, $scope,$filter, $docu
             });
         }
     },true);
+
+    this.modalAmortizationInfo = (ev) => {
+        $mdDialog.show({
+            title: 'Informations sur le tableau d\'amortissements',
+            parent: angular.element(document.body),
+            template: require('./amortizationInfo.modal.html'),
+            targetEvent: ev,
+            clickOutsideToClose: true
+        }).then(
+            () => this.status = 'cancel',
+            () => this.status = 'close'
+        );
+    };
 
     this.$doCheck = () => this.cgPromise = $rootScope.cgPromise;
 }

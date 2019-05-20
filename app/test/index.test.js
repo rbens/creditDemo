@@ -2,8 +2,11 @@ import 'angular';
 import 'angular-mocks';
 
 
-var testsFilter = require.context("../filter", true, /-spec$/);
+let testsFilter = require.context("../filter", true, /.spec$/);
 testsFilter.keys().forEach(testsFilter);
 
-var testsService = require.context("../service", true, /-spec$/);
+let testsService = require.context("../service", true, /.spec$/);
 testsService.keys().forEach(testsService);
+
+let testsComponent = require.context("../components", true, /.spec$/);
+testsComponent.keys().forEach(testsComponent);

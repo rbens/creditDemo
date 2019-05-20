@@ -1,60 +1,57 @@
-import DataModel from './DataModel';
+import CreditModel from './credit.model';
+import zenscroll from "zenscroll";
 
-export default function creditService($rootScope, $http, $timeout, $filter, $q, $document) {
+export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService, apiService) {
     'ngInject';
-    let dataModel = new DataModel({}, {}, {}, {});
-    let getAmortization = (credit) => $http.post("amortissements", credit);
-    let scrollTo = () => {
-        let someElement = angular.element(document.getElementById('results'));
-        $document.scrollToElement(someElement, -750, 1000);
+    let creditModel = new CreditModel({}, {}, {}, {});
+    let scrollTo = (id) => {
+        let someElement = document.getElementById(id);
+        zenscroll.center(someElement, 500);
     };
 
     return {
-        getMarketRates: () => $http.get("rates"),
-        getDataModel: () => dataModel,
-        setDataModel: (model) => {
-            Object.assign(dataModel.credit, model);
-        },
+        getCreditModel: () => creditModel,
+        setCreditModel: (model) => Object.assign(creditModel.credit, model),
         calcul: () => {
             $timeout.cancel($rootScope.cgPromise);
-            if (dataModel.isComplete()) {
-                let tauxNominal = dataModel.credit.tauxNominal !== 0 ? dataModel.credit.tauxNominal : dataModel.credit.tauxGlobal;
+            if (creditModel.isComplete()) {
+                let tauxNominal = creditModel.credit.tauxNominal !== 0 ? creditModel.credit.tauxNominal : creditModel.credit.tauxGlobal;
                 if (screen.width < 660) {
-                    scrollTo();
+                    scrollTo('mortgageResult');
                 }
                 $rootScope.cgPromise = $timeout(() => {
                     $q.all([
-                        getAmortization({
-                            months: dataModel.credit.annee * 12 + "",
-                            capital: dataModel.credit.capital,
+                        apiService.getAmortization({
+                            months: creditModel.credit.annee * 12 + "",
+                            capital: creditModel.credit.capital + (notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0),
                             interestRate: tauxNominal,
-                            insuranceRate: dataModel.credit.tauxAssurance
+                            insuranceRate: creditModel.credit.tauxAssurance
                         }).then((response) => {
                             let data = response.data;
+                            let getNotaryFrees = notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0;
                             //noinspection JSUnresolvedVariable
                             if (data.coutPrincipal) {
-                                dataModel.credit.amortissements = data.writeDowns;
-                                dataModel.credit.assurance = $filter('euro')(data.coutAssurance);
-                                dataModel.credit.mensualite = $filter('euro')(data.monthlyAmount);
-                                dataModel.credit.interetTotal = $filter('euro')(data.interestTotalCost);
-                                dataModel.credit.assuranceTotal = $filter('euro')(data.insuranceTotalCost);
-                                dataModel.credit.creditTotal = $filter('euro')(data.creditTotalCost);
-                                dataModel.credit.remboursementTotal = $filter('euro')(data.owingTotalCost);
+                                creditModel.credit.amortissements = data.writeDowns;
+                                creditModel.credit.assurance = $filter('euro')(data.coutAssurance);
+                                creditModel.credit.mensualite = $filter('euro')(data.monthlyAmount);
+                                creditModel.credit.interetTotal = $filter('euro')(data.interestTotalCost);
+                                creditModel.credit.assuranceTotal = $filter('euro')(data.insuranceTotalCost);
+                                creditModel.credit.creditTotal = $filter('euro')(data.creditTotalCost);
+                                creditModel.credit.remboursementTotal = $filter('euro')(data.owingTotalCost);
 
                                 let last = (data.writeDowns.length - 1);
-                                dataModel.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
-                                dataModel.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], data.capital);
+                                creditModel.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
+                                creditModel.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], creditModel.credit.capital, getNotaryFrees);
                             }
                         })
                     ]);
                 }, 1500);
             }
         },
-        teg: () => {
-            dataModel.teg();
-        },
+        teg: () => creditModel.teg(),
         reset: () => {
-            dataModel.reset($filter);
+            creditModel.reset($filter);
+            scrollTo('mortgageData');
         }
     };
 }

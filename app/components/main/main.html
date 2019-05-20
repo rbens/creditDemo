@@ -5,7 +5,7 @@
         <span flex></span>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Durée
-            <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.credit.annee"></md-icon>
+           <md-icon class="space-icon" md-font-icon="icon check_circle_white" ng-show="dataModel.credit.annee"></md-icon>
         </md-button>
         <md-button flex="15" aria-label="menu" class="menu-color" hide-sm hide-xs >
             Capital
@@ -32,7 +32,7 @@
             <mortgage-data-component></mortgage-data-component>
         </div>
         <div flex="95" flex-gt-sm="35" flex-gt-md="30">
-            <mortgage-result-component model="dataModel.credit"></mortgage-result-component>
+            <mortgage-result-component model="dataModel.credit" taxes="taxes()"></mortgage-result-component>
         </div>
     </div>
     <div layout-gt-md="row" layout-xs="column" layout-sm="column" layout-md="column">
