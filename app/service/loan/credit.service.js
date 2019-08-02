@@ -1,7 +1,7 @@
 import CreditModel from './credit.model';
 import zenscroll from "zenscroll";
 
-export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService, apiService) {
+function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService, apiService) {
     'ngInject';
     let creditModel = new CreditModel({}, {}, {}, {});
     let scrollTo = (id) => {
