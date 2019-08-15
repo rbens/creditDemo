@@ -32,8 +32,8 @@ function notaryFeesController(apiService, cityService, notaryFeesService, $timeo
         self.notaryFeesInfo.code = self.localite.code;
         apiService.getNotaryFees(self.notaryFeesInfo).then(
             (res)   => {
-                let result = res.data.data.general;
-                notaryFeesService.setNotaryFeesModel(new NotaryFeesModel(result.notary_fees_taxes_included, result.taxes, result.formalities_disbursements));
+                let result = res.data;
+                notaryFeesService.setNotaryFeesModel(new NotaryFeesModel(result.notaryCostPart, result.totalTax, result.outOfPocketExpense));
                 self.price = notaryFeesService.getNotaryFeesModel().total;
                 $mdDialog.hide(price);
             },

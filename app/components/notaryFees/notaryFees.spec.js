@@ -136,7 +136,7 @@ describe('notary fees ',function() {
                     code : 95370
                 };
 
-                $httpBackend.when('GET', 'notary-frees').respond(200, {
+                $httpBackend.when('GET', 'real-estate-fees').respond(200, {
                     notaryTaxes : 3000,
                     taxes : 10000,
                     disbursements : 1500

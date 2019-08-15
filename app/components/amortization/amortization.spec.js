@@ -25,7 +25,7 @@ describe('amortization',function () {
             data = getJSONFixture('data-model-mock.json');
             $httpBackend.when('POST', 'amortissements').respond(200, data);
 
-            $scope.credit = data.credit;
+            $scope.credit = data;
 
             element = $compile(`<amortization-component  model="credit"></amortization-component>`)($scope);
             $amortizationController  = $controller('amortizationComponent', { $scope: $scope, $mdDialog: $mdDialog}, null);
@@ -51,8 +51,6 @@ describe('amortization',function () {
             // $amortizationController.model = $scope.credit ;
             $scope.$apply($amortizationController.model.amortissements = data.credit );
             expect(element.html()).toBeDefined();
-           console.log(element.html());
-
         });
 
     });

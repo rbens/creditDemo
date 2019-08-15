@@ -48,6 +48,22 @@ export default class CreditModel{
         return CreditModel.isDefined(this.credit.annee) && CreditModel.isDefined(this.credit.capital) && CreditModel.isDefined(this.credit.tauxNominal);
     }
 
+    buildCreditFrom(data, getNotaryFrees, $filter){
+        if (data.coutPrincipal) {
+            this.credit.amortissements = data.writeDowns;
+            this.credit.assurance = $filter('euro')(data.coutAssurance);
+            this.credit.mensualite = $filter('euro')(data.monthlyAmount);
+            this.credit.interetTotal = $filter('euro')(data.interestTotalCost);
+            this.credit.assuranceTotal = $filter('euro')(data.insuranceTotalCost);
+            this.credit.creditTotal = $filter('euro')(data.creditTotalCost);
+            this.credit.remboursementTotal = $filter('euro')(data.owingTotalCost);
+
+            let last = (data.writeDowns.length - 1);
+            this.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
+            this.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], this.credit.capital, getNotaryFrees);
+        }
+    };
+
     addSeries(interetSeries, assuranceSeries, creditSeries, capitalRestantSeries, interetRestantSeries){
         this.line.series = [];
         this.line.series.push({

@@ -2,8 +2,9 @@ export default function mortgageDataController($filter, $timeout, creditService,
     'ngInject';
 
     let self = this;
+    let creditModel = creditService.getCreditModel();
 
-    this.credit = creditService.getCreditModel().credit;
+    this.credit = creditModel.credit;
 
     this.calcul = () => creditService.calcul();
 
@@ -37,7 +38,7 @@ export default function mortgageDataController($filter, $timeout, creditService,
 
     this.reset = () => {
         creditService.reset();
-        this.credit = creditService.getCreditModel().credit;
+        this.credit = creditModel.credit;
         this.notaryFeesInfo.price = 0;
     };
 

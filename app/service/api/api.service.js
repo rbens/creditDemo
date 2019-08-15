@@ -6,7 +6,7 @@ function apiService($http) {
         getCities : (city,code) => $http.get('cities',{params :{"city":city, "code":code}}),
         getAmortization : (credit) => $http.post("amortissements", credit),
         getMarketRates: () => $http.get("rates"),
-        getNotaryFees: (notaryFrees) => $http.get('notary-frees', {
+        getNotaryFees: (notaryFrees) => $http.get('real-estate-fees', {
             params: {
                 'cost': notaryFrees.cost,
                 'propertyType': notaryFrees.propertyType,
