@@ -11,21 +11,8 @@ describe('api', function () {
 
         jasmine.getJSONFixtures().fixturesPath = 'base/test';
 
-        let cities = getJSONFixture('cities-mock.json');
-        $httpBackend.when('GET', 'cities').respond(200, cities);
+        let department = getJSONFixture('department-mock.json');
+        $httpBackend.when('GET', 'department').respond(200, department);
     }));
 
-    it('should return cities', function () {
-        let result = apiService.getCities();
-        let resolvedValue = undefined;
-
-        // result.$promise.then(function (value) {
-        //     resolvedValue = value;
-        // });
-        //
-        // expect(result).toBeDefined();
-        //
-        // $httpBackend.flush();
-
-    });
 });

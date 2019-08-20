@@ -30,7 +30,7 @@ describe('notary fees ',function() {
     });
 
     describe('controller should ', function(){
-        let $notaryFreesController,  apiService, $httpBackend, $mdDialog, cityService;
+        let $notaryFreesController,  apiService, $httpBackend, $mdDialog, departmentService;
 
         beforeEach(inject(function($injector) {
             let $controller = $injector.get('$controller');
@@ -41,85 +41,26 @@ describe('notary fees ',function() {
             $httpBackend = $injector.get('$httpBackend');
             jasmine.getJSONFixtures().fixturesPath = 'base/test';
 
-            let cities = getJSONFixture('cities-mock.json');
-            $httpBackend.when('GET', 'cities').respond(200, cities);
+            let cities = getJSONFixture('department-mock.json');
+            $httpBackend.when('GET', 'department').respond(200, cities);
 
             //init controller
-            $notaryFreesController = $controller('notaryFeesController', { $scope: $scope , apiService: apiService, cityService: cityService, $mdDialog: $mdDialog});
+            $notaryFreesController = $controller('notaryFeesController', { $scope: $scope , apiService: apiService, departmentService: departmentService, $mdDialog: $mdDialog});
 
         }));
 
-        describe('search city ', function() {
+        describe('search department ', function() {
 
-            beforeEach(inject(function(_apiService_) {
-                apiService = _apiService_;
-                apiService.getCities().then(
+            beforeEach(inject(function(_departmentService_) {
+                departmentService = _departmentService_;
+                departmentService.loadDepartmentFromJson().then(
                     (res) => {
-                        $notaryFreesController.cities = res.data.cities;
+                        $notaryFreesController.department = res.data.department;
                     }
                 );
                 $httpBackend.flush();
             }));
 
-            it('by label', function () {
-
-                let applyQueryFilterByCity = (query, cities) => $notaryFreesController.cities = cities.filter(value => value.city.includes(query));
-                expect($notaryFreesController).toBeDefined();
-                spyOn($notaryFreesController, "querySearch").and.callFake(
-                    (query) =>  query.length === 2  ? $notaryFreesController.cities : applyQueryFilterByCity(query, $notaryFreesController.cities)
-                );
-
-                $notaryFreesController.querySearch('LU');
-
-                expect($notaryFreesController.cities.length).toBeGreaterThan(1);
-
-                $notaryFreesController.querySearch('LUZ');
-
-                expect($notaryFreesController.cities).toEqual(jasmine.arrayContaining(
-                    [{
-                        "code": 95270,
-                        "city": "LE PLESSIS LUZARCHES"
-                    }, {
-                        "code": 95270,
-                        "city": "LUZARCHES"
-                    }]
-                ));
-
-            });
-
-            it('by zip', function () {
-
-                let applyQueryFilterByZip = (query, cities) => $notaryFreesController.cities = cities.filter(value => value.code.toString().includes(query));
-                expect($notaryFreesController).toBeDefined();
-                spyOn($notaryFreesController, "querySearch").and.callFake(
-                    (query) =>  query.length === 2  ? $notaryFreesController.cities : applyQueryFilterByZip(query, $notaryFreesController.cities)
-                );
-
-                $notaryFreesController.querySearch('95');
-
-                expect($notaryFreesController.cities.length).toBeGreaterThan(1);
-
-                $notaryFreesController.querySearch('956');
-
-                expect($notaryFreesController.cities).toEqual(jasmine.arrayContaining(
-                    [
-                        {
-                            "code": 95690,
-                            "city": "FROUVILLE"
-                        },
-                        {
-                            "code": 95690,
-                            "city": "NESLES LA VALLEE"
-                        },
-                        {
-                            "code": 95690,
-                            "city": "LABBEVILLE"
-                        }
-
-                    ]
-                ));
-
-            })
 
         });
 
