@@ -13,15 +13,17 @@ public class RealEstatePurchaseFees {
     private final double REAL_ESTATE_SECURITY_TAX = 0.001;
     private final double NOTARY_FEES_TAX = 0.2;
     private final double buyingPrice;
+    private final String propertyType;
     private final String zipCode;
 
-    private RealEstatePurchaseFees(double buyingPrice, String zipCode) {
+    private RealEstatePurchaseFees(double buyingPrice, String propertyType, String zipCode) {
         this.buyingPrice = buyingPrice;
+        this.propertyType = propertyType;
         this.zipCode = zipCode;
     }
 
-    public static RealEstatePurchaseFees buildFrom(double buyingPrice, String zipCode){
-        return new RealEstatePurchaseFees(buyingPrice,zipCode);
+    public static RealEstatePurchaseFees buildFrom(double buyingPrice, String propertyType, String zipCode){
+        return new RealEstatePurchaseFees(buyingPrice, propertyType, zipCode);
     }
 
     private double notaryFeesCost(){
@@ -29,7 +31,7 @@ public class RealEstatePurchaseFees {
     }
 
     private double registerTax(){
-        return RegisterTax.getRateAccordingZip(zipCode) * buyingPrice;
+        return RegisterTax.applyRateFrom(propertyType , zipCode) * buyingPrice;
     }
 
     private double realEstateSecurityTax(){
@@ -52,8 +54,8 @@ public class RealEstatePurchaseFees {
 
         Details() {
             outOfPocketExpense = OUT_OF_POCKET_EXPENSE_ESTIMATED;
-            notaryFees = notaryFeesCost();
-            totalTax = registerTax() + realEstateSecurityTax() + notaryFeesTax();
+            notaryFees = formatNumberToDoubleValue(notaryFeesCost());
+            totalTax = formatNumberToDoubleValue(registerTax() + realEstateSecurityTax() + notaryFeesTax());
         }
     }
 
@@ -77,11 +79,10 @@ public class RealEstatePurchaseFees {
         }
 
         static double costCalculatedFrom(double buyingPrice){
-            return formatNumberToDoubleValue(
-                    Arrays.stream(NotaryFees.values())
+            return Arrays.stream(NotaryFees.values())
                             .filter(currentStepApplication -> buyingPrice > currentStepApplication.amountMin)
                             .mapToDouble(currentStepApplication -> notaryCostApplication(buyingPrice, currentStepApplication))
-                            .sum());
+                            .sum();
         }
 
         private static double notaryCostApplication(double buyingPrice, NotaryFees step) {
@@ -95,13 +96,20 @@ public class RealEstatePurchaseFees {
     private static class RegisterTax {
 
         static final double SPECIFIC_ZIP_RATE = 0.0511;
-        static final double REGULAR_RATE = 0.0581;
+        static final double REGULAR_ZIP_RATE = 0.0581;
 
-        static double getRateAccordingZip(String zipCode){
+        static final double SPECIAL_RATE = 0.0071;
+
+        static double applyRateFrom(String propertyType, String zipCode){
+            return propertyType.equalsIgnoreCase("neuf") ? SPECIAL_RATE : getRateAccordingZip(zipCode);
+        }
+
+        private static double getRateAccordingZip(String zipCode){
             return Arrays.stream(SpecialDepartment.values())
                     .filter(department -> zipCode.substring(0, 2).equalsIgnoreCase(department.code))
                     .findFirst()
-                    .map(rate -> SPECIFIC_ZIP_RATE).orElse(REGULAR_RATE);
+                    .map(rate -> SPECIFIC_ZIP_RATE)
+                    .orElse(REGULAR_ZIP_RATE);
         }
     }
 

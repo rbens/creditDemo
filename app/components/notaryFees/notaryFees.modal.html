@@ -23,15 +23,15 @@
                 </md-input-container>
                 <md-autocomplete
                         md-input-name="autocompleteField"
-                        md-input-minlength="3"
+                        md-input-minlength="1"
                         md-selected-item="ctrl.localite"
                         md-selected-item-change="ctrl.assignTo(location)"
                         md-search-text="ctrl.searchText"
                         md-items="location in ctrl.querySearch(ctrl.searchText)"
-                        md-item-text="location.code.toString()"
-                        md-floating-label="ville ou code postal">
+                        md-item-text="location.name"
+                        md-floating-label="code departement">
                     <md-item-template>
-                        <span md-highlight-text="ctrl.searchText">{{location.city}} - {{location.code}}</span>
+                        <span md-highlight-text="ctrl.searchText">{{location.code}} - {{location.name}}</span>
                     </md-item-template>
                 </md-autocomplete>
             </form>

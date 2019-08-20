@@ -3,7 +3,6 @@
 function apiService($http) {
     "ngInject";
     return {
-        getCities : (city,code) => $http.get('cities',{params :{"city":city, "code":code}}),
         getAmortization : (credit) => $http.post("amortissements", credit),
         getMarketRates: () => $http.get("rates"),
         getNotaryFees: (notaryFrees) => $http.get('real-estate-fees', {
