@@ -81,11 +81,11 @@ public class RealEstatePurchaseFees {
         static double costCalculatedFrom(double buyingPrice){
             return Arrays.stream(NotaryFees.values())
                             .filter(currentStepApplication -> buyingPrice > currentStepApplication.amountMin)
-                            .mapToDouble(currentStepApplication -> notaryCostApplication(buyingPrice, currentStepApplication))
+                            .mapToDouble(currentStepApplication -> notaryCostApplicationOnStep(buyingPrice, currentStepApplication))
                             .sum();
         }
 
-        private static double notaryCostApplication(double buyingPrice, NotaryFees step) {
+        private static double notaryCostApplicationOnStep(double buyingPrice, NotaryFees step) {
             final double intermediateNotaryStepRule = step.rate * (step.amountMax - step.amountMin);
             final double lastNotaryStepRule = step.rate * (buyingPrice - step.amountMin);
 

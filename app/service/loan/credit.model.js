@@ -48,7 +48,7 @@ export default class CreditModel{
         return CreditModel.isDefined(this.credit.annee) && CreditModel.isDefined(this.credit.capital) && CreditModel.isDefined(this.credit.tauxNominal);
     }
 
-    buildCreditFrom(data, getNotaryFrees, $filter){
+    buildCreditFrom(data, notaryFees, $filter){
         if (data.coutPrincipal) {
             this.credit.amortissements = data.writeDowns;
             this.credit.assurance = $filter('euro')(data.coutAssurance);
@@ -60,7 +60,7 @@ export default class CreditModel{
 
             let last = (data.writeDowns.length - 1);
             this.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
-            this.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], this.credit.capital, getNotaryFrees);
+            this.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], this.credit.capital, notaryFees);
         }
     };
 
@@ -88,7 +88,7 @@ export default class CreditModel{
 
     }
 
-    addSeriesToPieChart(interetSeries, assuranceSeries, creditSeries, notaryFrees){
+    addSeriesToPieChart(interetSeries, assuranceSeries, creditSeries, notaryFees){
         this.pie.series = [];
         this.pie.series.push({
             type: 'pie',
@@ -100,7 +100,7 @@ export default class CreditModel{
 
         });
         if(assuranceSeries) this.pie.series[0].data.push(['Cout total assurances', assuranceSeries]);
-        if(notaryFrees) this.pie.series[0].data.push(['Frais de notaire', notaryFrees]);
+        if(notaryFees) this.pie.series[0].data.push(['Frais de notaire', notaryFees]);
     }
 
     reset($filter){

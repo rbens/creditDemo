@@ -22,8 +22,8 @@ function creditService($rootScope, $http, $timeout, $filter, $document, notaryFe
                 $rootScope.cgPromise = $timeout(() => {
                         apiService.getAmortization({
                             months: creditModel.credit.annee * 12 + "",
-                            capital: creditModel.credit.capital + (notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0),
-                            interestRate: tauxNominal,
+                            capital: creditModel.credit.capital,
+                             interestRate: tauxNominal,
                             insuranceRate: creditModel.credit.tauxAssurance
                         }).then((response) => {
                             let getNotaryFrees = notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0;
