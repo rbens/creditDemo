@@ -108,12 +108,15 @@
          </md-content>
 
         <md-content  layout="row" hide-xs layout-padding class="adapt-form">
-            <md-input-container layout="row" class="md-button-form">
+            <md-input-container layout="row" class="md-button-form" style="margin-left: 0px">
+                <md-button class="md-raised btn-color-form" aria-label="frais de notaire" ng-click="$ctrl.notaryFreesModal()">
+                    <span>Frais de notaire</span>
+                </md-button>
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.calcul()" ng-disabled="!$ctrl.enabled()">
                     <span >calculer</span>
                 </md-button>
                 <md-button class="md-raised btn-color-form" aria-label="comment" ng-click="$ctrl.reset()">
-                    <span hide-xs>réinitialiser</span>
+                    <span>réinitialiser</span>
                 </md-button>
             </md-input-container>
         </md-content>

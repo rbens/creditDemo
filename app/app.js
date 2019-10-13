@@ -11,11 +11,18 @@ import "./components/chartResult/chartResult.component";
 import "./components/mortgageData/mortgageData.component";
 import "./components/marketRate/marketRate.component";
 import "./components/notaryFees/notaryFees.controller";
-import './service/api/api.service'
+
+import './service/api/api.service';
+import './service/config/config.service';
+import './service/loan/credit.service';
+
+
 import routing from "./service/route/routing";
 
 
 let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ui.router',
+    'config',
+    'creditService',
     'main',
     'chartResult',
     'mortgageData',
