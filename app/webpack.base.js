@@ -30,8 +30,8 @@ module.exports = {
                 toType: 'file'
             },
             {
-                from: './service/cities/cities.json',
-                to: './cities/cities.json',
+                from: './service/department/department.json',
+                to: './department/department.json',
                 toType: 'file'
             },
             {

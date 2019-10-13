@@ -1,291 +1,1117 @@
 {
-  "credit": {
-    "capital": 240000,
-    "annee": 1,
-    "tauxNominal": 0.61,
-    "tauxAssurance": "",
-    "tauxGlobal": 0.61,
-    "amortissements": [
-      {
-        "currentMonth": 1,
-        "interestAmount": 10.166666470468044,
-        "principalAmount": 1662.09376071684,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 18337.90623928316
-      },
-      {
-        "currentMonth": 2,
-        "interestAmount": 9.321768825075342,
-        "principalAmount": 1662.9386583622327,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 16674.967580920926
-      },
-      {
-        "currentMonth": 3,
-        "interestAmount": 8.47644169005452,
-        "principalAmount": 1663.7839854972535,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 15011.183595423672
-      },
-      {
-        "currentMonth": 4,
-        "interestAmount": 7.63068484708169,
-        "principalAmount": 1664.6297423402264,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 13346.553853083446
-      },
-      {
-        "currentMonth": 5,
-        "interestAmount": 6.784498077721977,
-        "principalAmount": 1665.475929109586,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 11681.077923973859
-      },
-      {
-        "currentMonth": 6,
-        "interestAmount": 5.937881163429475,
-        "principalAmount": 1666.3225460238787,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 10014.75537794998
-      },
-      {
-        "currentMonth": 7,
-        "interestAmount": 5.0908338855471795,
-        "principalAmount": 1667.1695933017609,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 8347.585784648218
-      },
-      {
-        "currentMonth": 8,
-        "interestAmount": 4.243356025306936,
-        "principalAmount": 1668.0170711620012,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 6679.568713486216
-      },
-      {
-        "currentMonth": 9,
-        "interestAmount": 3.3954473638293843,
-        "principalAmount": 1668.8649798234787,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 5010.703733662738
-      },
-      {
-        "currentMonth": 10,
-        "interestAmount": 2.5471076821239,
-        "principalAmount": 1669.7133195051842,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 3340.990414157554
-      },
-      {
-        "currentMonth": 11,
-        "interestAmount": 1.6983367610885374,
-        "principalAmount": 1670.5620904262196,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1672.260427187308,
-        "owingAmount": 1670.4283237313343
-      },
-      {
-        "currentMonth": 12,
-        "interestAmount": 0.8491343815099748,
-        "principalAmount": 1671.4112928057982,
-        "insuranceAmount": 0,
-        "monthlyAmount": 1671.2774581128442,
-        "owingAmount": 0
-      }
-    ],
-    "mensualite": "1672.26 €",
-    "interetTotal": "66.14 €",
-    "assuranceTotal": "",
-    "creditTotal": "66.14 €",
-    "assurance": "",
-    "remboursementTotal": "20066.14 €"
-  },
-  "line": {
-    "options": {
-      "chart": {
-        "type": "line"
-      },
-      "plotOptions": {
-        "series": {
-          "stacking": ""
-        }
-      }
+  "months": 84,
+  "capital": 250000.0,
+  "interestRate": 0.7,
+  "insuranceRate": 0.09,
+  "writeDowns": [
+    {
+      "currentMonth": 1,
+      "interestAmount": 145.83332813344896,
+      "principalAmount": 2904.9526503772713,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 247095.04734962274
     },
-    "title": {
-      "text": null
+    {
+      "currentMonth": 2,
+      "interestAmount": 144.13877248115057,
+      "principalAmount": 2906.6472060295696,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 244188.40014359317
     },
-    "series": [
-      {
-        "name": "Intérets",
-        "data": [
-          10.17,
-          19.49,
-          27.96,
-          35.6,
-          42.38,
-          48.32,
-          53.41,
-          57.65,
-          61.05,
-          63.59,
-          65.29,
-          66.14
-        ]
-      },
-      {
-        "name": "Assurance",
-        "data": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "name": "Crédit",
-        "data": [
-          10.17,
-          19.49,
-          27.96,
-          35.6,
-          42.38,
-          48.32,
-          53.41,
-          57.65,
-          61.05,
-          63.59,
-          65.29,
-          66.14
-        ]
-      }
-    ],
-    "xAxis": {
-      "min": 0,
-      "title": {
-        "text": "années"
-      },
-      "tickInterval": 1,
-      "labels": {}
+    {
+      "currentMonth": 3,
+      "interestAmount": 142.44322833809022,
+      "principalAmount": 2908.34275017263,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 241280.05739342055
     },
-    "yAxis": {
-      "min": 0,
-      "title": {
-        "text": "valeur en euros"
-      }
+    {
+      "currentMonth": 4,
+      "interestAmount": 140.7466951276484,
+      "principalAmount": 2910.039283383072,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 238370.01811003746
+    },
+    {
+      "currentMonth": 5,
+      "interestAmount": 139.04917227286904,
+      "principalAmount": 2911.7368062378514,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 235458.28130379962
+    },
+    {
+      "currentMonth": 6,
+      "interestAmount": 137.35065919645976,
+      "principalAmount": 2913.4353193142606,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 232544.84598448535
+    },
+    {
+      "currentMonth": 7,
+      "interestAmount": 135.65115532079122,
+      "principalAmount": 2915.134823189929,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 229629.71116129542
+    },
+    {
+      "currentMonth": 8,
+      "interestAmount": 133.95066006789722,
+      "principalAmount": 2916.835318442823,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 226712.8758428526
+    },
+    {
+      "currentMonth": 9,
+      "interestAmount": 132.24917285947438,
+      "principalAmount": 2918.5368056512457,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 223794.33903720137
+    },
+    {
+      "currentMonth": 10,
+      "interestAmount": 130.54669311688204,
+      "principalAmount": 2920.239285393838,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 220874.09975180752
+    },
+    {
+      "currentMonth": 11,
+      "interestAmount": 128.84322026114194,
+      "principalAmount": 2921.942758249578,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 217952.15699355793
+    },
+    {
+      "currentMonth": 12,
+      "interestAmount": 127.13875371293807,
+      "principalAmount": 2923.647224797782,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 215028.50976876015
+    },
+    {
+      "currentMonth": 13,
+      "interestAmount": 125.43329289261654,
+      "principalAmount": 2925.352685618104,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 212103.15708314205
+    },
+    {
+      "currentMonth": 14,
+      "interestAmount": 123.72683722018529,
+      "principalAmount": 2927.059141290535,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 209176.0979418515
+    },
+    {
+      "currentMonth": 15,
+      "interestAmount": 122.01938611531395,
+      "principalAmount": 2928.7665923954064,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 206247.3313494561
+    },
+    {
+      "currentMonth": 16,
+      "interestAmount": 120.31093899733362,
+      "principalAmount": 2930.4750395133865,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 203316.85630994273
+    },
+    {
+      "currentMonth": 17,
+      "interestAmount": 118.60149528523668,
+      "principalAmount": 2932.1844832254837,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 200384.67182671724
+    },
+    {
+      "currentMonth": 18,
+      "interestAmount": 116.89105439767656,
+      "principalAmount": 2933.8949241130435,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 197450.7769026042
+    },
+    {
+      "currentMonth": 19,
+      "interestAmount": 115.17961575296762,
+      "principalAmount": 2935.606362757753,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 194515.17053984647
+    },
+    {
+      "currentMonth": 20,
+      "interestAmount": 113.46717876908485,
+      "principalAmount": 2937.3187997416353,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 191577.85174010484
+    },
+    {
+      "currentMonth": 21,
+      "interestAmount": 111.75374286366379,
+      "principalAmount": 2939.0322356470565,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 188638.8195044578
+    },
+    {
+      "currentMonth": 22,
+      "interestAmount": 110.03930745400018,
+      "principalAmount": 2940.74667105672,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 185698.07283340106
+    },
+    {
+      "currentMonth": 23,
+      "interestAmount": 108.32387195704993,
+      "principalAmount": 2942.4621065536703,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 182755.6107268474
+    },
+    {
+      "currentMonth": 24,
+      "interestAmount": 106.6074357894288,
+      "principalAmount": 2944.1785427212913,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 179811.4321841261
+    },
+    {
+      "currentMonth": 25,
+      "interestAmount": 104.88999836741228,
+      "principalAmount": 2945.895980143308,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 176865.5362039828
+    },
+    {
+      "currentMonth": 26,
+      "interestAmount": 103.17155910693528,
+      "principalAmount": 2947.614419403785,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 173917.92178457903
+    },
+    {
+      "currentMonth": 27,
+      "interestAmount": 101.4521174235921,
+      "principalAmount": 2949.3338610871283,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 170968.5879234919
+    },
+    {
+      "currentMonth": 28,
+      "interestAmount": 99.73167273263606,
+      "principalAmount": 2951.054305778084,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 168017.5336177138
+    },
+    {
+      "currentMonth": 29,
+      "interestAmount": 98.0102244489794,
+      "principalAmount": 2952.775754061741,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 165064.75786365208
+    },
+    {
+      "currentMonth": 30,
+      "interestAmount": 96.2877719871931,
+      "principalAmount": 2954.498206523527,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 162110.25965712854
+    },
+    {
+      "currentMonth": 31,
+      "interestAmount": 94.56431476150655,
+      "principalAmount": 2956.221663749214,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 159154.03799337932
+    },
+    {
+      "currentMonth": 32,
+      "interestAmount": 92.83985218580756,
+      "principalAmount": 2957.9461263249127,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 156196.0918670544
+    },
+    {
+      "currentMonth": 33,
+      "interestAmount": 91.11438367364194,
+      "principalAmount": 2959.6715948370784,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 153236.42027221734
+    },
+    {
+      "currentMonth": 34,
+      "interestAmount": 89.38790863821345,
+      "principalAmount": 2961.3980698725068,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 150275.02220234482
+    },
+    {
+      "currentMonth": 35,
+      "interestAmount": 87.66042649238352,
+      "principalAmount": 2963.1255520183367,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 147311.89665032647
+    },
+    {
+      "currentMonth": 36,
+      "interestAmount": 85.93193664867113,
+      "principalAmount": 2964.854041862049,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 144347.04260846443
+    },
+    {
+      "currentMonth": 37,
+      "interestAmount": 84.20243851925252,
+      "principalAmount": 2966.5835399914677,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 141380.45906847296
+    },
+    {
+      "currentMonth": 38,
+      "interestAmount": 82.47193151596107,
+      "principalAmount": 2968.3140469947593,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 138412.1450214782
+    },
+    {
+      "currentMonth": 39,
+      "interestAmount": 80.74041505028703,
+      "principalAmount": 2970.045563460433,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 135442.09945801776
+    },
+    {
+      "currentMonth": 40,
+      "interestAmount": 79.00788853337734,
+      "principalAmount": 2971.778089977343,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 132470.32136804043
+    },
+    {
+      "currentMonth": 41,
+      "interestAmount": 77.2743513760355,
+      "principalAmount": 2973.5116271346847,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 129496.80974090575
+    },
+    {
+      "currentMonth": 42,
+      "interestAmount": 75.53980298872128,
+      "principalAmount": 2975.246175521999,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 126521.56356538375
+    },
+    {
+      "currentMonth": 43,
+      "interestAmount": 73.80424278155051,
+      "principalAmount": 2976.98173572917,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 123544.58182965458
+    },
+    {
+      "currentMonth": 44,
+      "interestAmount": 72.06767016429501,
+      "principalAmount": 2978.718308346425,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 120565.86352130816
+    },
+    {
+      "currentMonth": 45,
+      "interestAmount": 70.33008454638222,
+      "principalAmount": 2980.455893964338,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 117585.40762734383
+    },
+    {
+      "currentMonth": 46,
+      "interestAmount": 68.59148533689513,
+      "principalAmount": 2982.1944931738253,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 114603.21313417
+    },
+    {
+      "currentMonth": 47,
+      "interestAmount": 66.85187194457201,
+      "principalAmount": 2983.9341065661483,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 111619.27902760386
+    },
+    {
+      "currentMonth": 48,
+      "interestAmount": 65.11124377780621,
+      "principalAmount": 2985.674734732914,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 108633.60429287095
+    },
+    {
+      "currentMonth": 49,
+      "interestAmount": 63.369600244645994,
+      "principalAmount": 2987.4163782660744,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 105646.18791460487
+    },
+    {
+      "currentMonth": 50,
+      "interestAmount": 61.626940752794326,
+      "principalAmount": 2989.159037757926,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 102657.02887684695
+    },
+    {
+      "currentMonth": 51,
+      "interestAmount": 59.88326470960867,
+      "principalAmount": 2990.9027138011115,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 99666.12616304583
+    },
+    {
+      "currentMonth": 52,
+      "interestAmount": 58.13857152210074,
+      "principalAmount": 2992.6474069886194,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 96673.47875605721
+    },
+    {
+      "currentMonth": 53,
+      "interestAmount": 56.392860596936394,
+      "principalAmount": 2994.393117913784,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 93679.08563814343
+    },
+    {
+      "currentMonth": 54,
+      "interestAmount": 54.646131340435346,
+      "principalAmount": 2996.139847170285,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 90682.94579097314
+    },
+    {
+      "currentMonth": 55,
+      "interestAmount": 52.898383158571,
+      "principalAmount": 2997.887595352149,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 87685.058195621
+    },
+    {
+      "currentMonth": 56,
+      "interestAmount": 51.14961545697026,
+      "principalAmount": 2999.63636305375,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 84685.42183256724
+    },
+    {
+      "currentMonth": 57,
+      "interestAmount": 49.39982764091328,
+      "principalAmount": 3001.386150869807,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 81684.03568169744
+    },
+    {
+      "currentMonth": 58,
+      "interestAmount": 47.649019115333346,
+      "principalAmount": 3003.136959395387,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 78680.89872230205
+    },
+    {
+      "currentMonth": 59,
+      "interestAmount": 45.89718928481656,
+      "principalAmount": 3004.8887892259036,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 75676.00993307614
+    },
+    {
+      "currentMonth": 60,
+      "interestAmount": 44.144337553601744,
+      "principalAmount": 3006.6416409571184,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 72669.36829211902
+    },
+    {
+      "currentMonth": 61,
+      "interestAmount": 42.39046332558018,
+      "principalAmount": 3008.39551518514,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 69660.97277693388
+    },
+    {
+      "currentMonth": 62,
+      "interestAmount": 40.63556600429541,
+      "principalAmount": 3010.150412506425,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 66650.82236442745
+    },
+    {
+      "currentMonth": 63,
+      "interestAmount": 38.87964499294307,
+      "principalAmount": 3011.906333517777,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 63638.91603090968
+    },
+    {
+      "currentMonth": 64,
+      "interestAmount": 37.122699694370624,
+      "principalAmount": 3013.6632788163497,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 60625.25275209333
+    },
+    {
+      "currentMonth": 65,
+      "interestAmount": 35.36472951107722,
+      "principalAmount": 3015.421248999643,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 57609.83150309369
+    },
+    {
+      "currentMonth": 66,
+      "interestAmount": 33.605733845213464,
+      "principalAmount": 3017.180244665507,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 54592.65125842818
+    },
+    {
+      "currentMonth": 67,
+      "interestAmount": 31.84571209858121,
+      "principalAmount": 3018.940266412139,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 51573.710992016044
+    },
+    {
+      "currentMonth": 68,
+      "interestAmount": 30.084663672633358,
+      "principalAmount": 3020.701314838087,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 48553.00967717796
+    },
+    {
+      "currentMonth": 69,
+      "interestAmount": 28.322587968473663,
+      "principalAmount": 3022.4633905422465,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 45530.54628663571
+    },
+    {
+      "currentMonth": 70,
+      "interestAmount": 26.55948438685653,
+      "principalAmount": 3024.2264941238636,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 42506.31979251185
+    },
+    {
+      "currentMonth": 71,
+      "interestAmount": 24.795352328186787,
+      "principalAmount": 3025.9906261825336,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 39480.32916632932
+    },
+    {
+      "currentMonth": 72,
+      "interestAmount": 23.030191192519517,
+      "principalAmount": 3027.755787318201,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 36452.57337901112
+    },
+    {
+      "currentMonth": 73,
+      "interestAmount": 21.264000379559818,
+      "principalAmount": 3029.5219781311603,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 33423.05140087996
+    },
+    {
+      "currentMonth": 74,
+      "interestAmount": 19.49677928866263,
+      "principalAmount": 3031.2891992220575,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 30391.7622016579
+    },
+    {
+      "currentMonth": 75,
+      "interestAmount": 17.728527318832512,
+      "principalAmount": 3033.0574511918876,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 27358.704750466015
+    },
+    {
+      "currentMonth": 76,
+      "interestAmount": 15.959243868723437,
+      "principalAmount": 3034.8267346419966,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 24323.87801582402
+    },
+    {
+      "currentMonth": 77,
+      "interestAmount": 14.188928336638599,
+      "principalAmount": 3036.5970501740817,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 21287.280965649938
+    },
+    {
+      "currentMonth": 78,
+      "interestAmount": 12.417580120530198,
+      "principalAmount": 3038.36839839019,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 18248.912567259747
+    },
+    {
+      "currentMonth": 79,
+      "interestAmount": 10.645198617999245,
+      "principalAmount": 3040.140779892721,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 15208.771787367026
+    },
+    {
+      "currentMonth": 80,
+      "interestAmount": 8.871783226295346,
+      "principalAmount": 3041.9141952844247,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 12166.8575920826
+    },
+    {
+      "currentMonth": 81,
+      "interestAmount": 7.097333342316507,
+      "principalAmount": 3043.6886451684036,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 9123.168946914197
+    },
+    {
+      "currentMonth": 82,
+      "interestAmount": 5.32184836260892,
+      "principalAmount": 3045.4641301481115,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 6077.704816766085
+    },
+    {
+      "currentMonth": 83,
+      "interestAmount": 3.545327683366767,
+      "principalAmount": 3047.2406508273534,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3069.5359794012975,
+      "owingAmount": 3030.4641659387316
+    },
+    {
+      "currentMonth": 84,
+      "interestAmount": 1.7677707004320071,
+      "principalAmount": 3049.0182078102885,
+      "insuranceAmount": 18.750000890577212,
+      "monthlyAmount": 3050.9819375297407,
+      "owingAmount": 0.0
     }
-  },
-  "area": {
-    "options": {
-      "chart": {
-        "type": "spline"
-      },
-      "plotOptions": {
-        "series": {
-          "stacking": ""
-        }
-      }
-    },
-    "series": [
-      {
-        "name": "Capital restant",
-        "data": [
-          18337.91,
-          16674.97,
-          15011.18,
-          13346.55,
-          11681.08,
-          10014.76,
-          8347.59,
-          6679.57,
-          5010.7,
-          3340.99,
-          1670.43,
-          0
-        ]
-      },
-      {
-        "name": "Total restant",
-        "data": [
-          20066.14,
-          18394.86,
-          16722.6,
-          15050.34,
-          13378.08,
-          11705.82,
-          10033.56,
-          8361.3,
-          6689.04,
-          5016.78,
-          3344.52,
-          1672.26
-        ]
-      }
-    ],
-    "title": {
-      "text": null
-    },
-    "xAxis": {
-      "min": 0,
-      "title": {
-        "text": "années"
-      },
-      "tickInterval": 1,
-      "labels": {}
-    },
-    "yAxis": {
-      "min": 0,
-      "title": {
-        "text": "valeur en euros"
-      }
-    }
-  },
-  "pie": {
-    "options": {
-      "chart": {
-        "type": "pie"
-      }
-    },
-    "series": [
-      {
-        "type": "pie",
-        "name": "somme en euros",
-        "data": [
-          [
-            "Cout total interets ",
-            66.14
-          ],
-          [
-            "Cout total assurances",
-            0
-          ],
-          [
-            "Capital emprunté",
-            20000
-          ]
-        ],
-        "id": "cc-1"
-      }
-    ],
-    "title": {
-      "text": null
-    }
-  }
+  ],
+  "insuranceTotalCost": 1575.0000748084858,
+  "interestTotalCost": 6247.468153028883,
+  "owingTotalCost": 257822.46822783744,
+  "creditTotalCost": 7822.468227837368,
+  "monthlyAmount": 3069.5359794012975,
+  "interetSeries": [
+    145.83,
+    289.97,
+    432.42,
+    573.16,
+    712.21,
+    849.56,
+    985.21,
+    1119.16,
+    1251.41,
+    1381.96,
+    1510.8,
+    1637.94,
+    1763.37,
+    1887.1,
+    2009.12,
+    2129.43,
+    2248.03,
+    2364.92,
+    2480.1,
+    2593.57,
+    2705.33,
+    2815.36,
+    2923.69,
+    3030.3,
+    3135.19,
+    3238.36,
+    3339.81,
+    3439.54,
+    3537.55,
+    3633.84,
+    3728.4,
+    3821.24,
+    3912.36,
+    4001.75,
+    4089.41,
+    4175.34,
+    4259.54,
+    4342.01,
+    4422.75,
+    4501.76,
+    4579.03,
+    4654.57,
+    4728.38,
+    4800.45,
+    4870.78,
+    4939.37,
+    5006.22,
+    5071.33,
+    5134.7,
+    5196.33,
+    5256.21,
+    5314.35,
+    5370.74,
+    5425.39,
+    5478.29,
+    5529.44,
+    5578.84,
+    5626.49,
+    5672.38,
+    5716.53,
+    5758.92,
+    5799.55,
+    5838.43,
+    5875.56,
+    5910.92,
+    5944.53,
+    5976.37,
+    6006.46,
+    6034.78,
+    6061.34,
+    6086.13,
+    6109.16,
+    6130.43,
+    6149.92,
+    6167.65,
+    6183.61,
+    6197.8,
+    6210.22,
+    6220.86,
+    6229.74,
+    6236.83,
+    6242.16,
+    6245.7,
+    6247.47
+  ],
+  "assuranceSeries": [
+    18.75,
+    37.5,
+    56.25,
+    75.0,
+    93.75,
+    112.5,
+    131.25,
+    150.0,
+    168.75,
+    187.5,
+    206.25,
+    225.0,
+    243.75,
+    262.5,
+    281.25,
+    300.0,
+    318.75,
+    337.5,
+    356.25,
+    375.0,
+    393.75,
+    412.5,
+    431.25,
+    450.0,
+    468.75,
+    487.5,
+    506.25,
+    525.0,
+    543.75,
+    562.5,
+    581.25,
+    600.0,
+    618.75,
+    637.5,
+    656.25,
+    675.0,
+    693.75,
+    712.5,
+    731.25,
+    750.0,
+    768.75,
+    787.5,
+    806.25,
+    825.0,
+    843.75,
+    862.5,
+    881.25,
+    900.0,
+    918.75,
+    937.5,
+    956.25,
+    975.0,
+    993.75,
+    1012.5,
+    1031.25,
+    1050.0,
+    1068.75,
+    1087.5,
+    1106.25,
+    1125.0,
+    1143.75,
+    1162.5,
+    1181.25,
+    1200.0,
+    1218.75,
+    1237.5,
+    1256.25,
+    1275.0,
+    1293.75,
+    1312.5,
+    1331.25,
+    1350.0,
+    1368.75,
+    1387.5,
+    1406.25,
+    1425.0,
+    1443.75,
+    1462.5,
+    1481.25,
+    1500.0,
+    1518.75,
+    1537.5,
+    1556.25,
+    1575.0
+  ],
+  "creditSeries": [
+    164.58,
+    327.47,
+    488.67,
+    648.16,
+    805.96,
+    962.06,
+    1116.46,
+    1269.16,
+    1420.16,
+    1569.46,
+    1717.05,
+    1862.94,
+    2007.12,
+    2149.6,
+    2290.37,
+    2429.43,
+    2566.78,
+    2702.42,
+    2836.35,
+    2968.57,
+    3099.08,
+    3227.86,
+    3354.94,
+    3480.3,
+    3603.94,
+    3725.86,
+    3846.06,
+    3964.54,
+    4081.3,
+    4196.34,
+    4309.65,
+    4421.24,
+    4531.11,
+    4639.25,
+    4745.66,
+    4850.34,
+    4953.29,
+    5054.51,
+    5154.0,
+    5251.76,
+    5347.78,
+    5442.07,
+    5534.63,
+    5625.45,
+    5714.53,
+    5801.87,
+    5887.47,
+    5971.33,
+    6053.45,
+    6133.83,
+    6212.46,
+    6289.35,
+    6364.49,
+    6437.89,
+    6509.54,
+    6579.44,
+    6647.59,
+    6713.99,
+    6778.63,
+    6841.53,
+    6902.67,
+    6962.05,
+    7019.68,
+    7075.56,
+    7129.67,
+    7182.03,
+    7232.62,
+    7281.46,
+    7328.53,
+    7373.84,
+    7417.38,
+    7459.16,
+    7499.18,
+    7537.42,
+    7573.9,
+    7608.61,
+    7641.55,
+    7672.72,
+    7702.11,
+    7729.74,
+    7755.58,
+    7779.66,
+    7801.95,
+    7822.47
+  ],
+  "capitalRestantSeries": [
+    247095.05,
+    244188.4,
+    241280.06,
+    238370.02,
+    235458.28,
+    232544.85,
+    229629.71,
+    226712.88,
+    223794.34,
+    220874.1,
+    217952.16,
+    215028.51,
+    212103.16,
+    209176.1,
+    206247.33,
+    203316.86,
+    200384.67,
+    197450.78,
+    194515.17,
+    191577.85,
+    188638.82,
+    185698.07,
+    182755.61,
+    179811.43,
+    176865.54,
+    173917.92,
+    170968.59,
+    168017.53,
+    165064.76,
+    162110.26,
+    159154.04,
+    156196.09,
+    153236.42,
+    150275.02,
+    147311.9,
+    144347.04,
+    141380.46,
+    138412.15,
+    135442.1,
+    132470.32,
+    129496.81,
+    126521.56,
+    123544.58,
+    120565.86,
+    117585.41,
+    114603.21,
+    111619.28,
+    108633.6,
+    105646.19,
+    102657.03,
+    99666.13,
+    96673.48,
+    93679.09,
+    90682.95,
+    87685.06,
+    84685.42,
+    81684.04,
+    78680.9,
+    75676.01,
+    72669.37,
+    69660.97,
+    66650.82,
+    63638.92,
+    60625.25,
+    57609.83,
+    54592.65,
+    51573.71,
+    48553.01,
+    45530.55,
+    42506.32,
+    39480.33,
+    36452.57,
+    33423.05,
+    30391.76,
+    27358.7,
+    24323.88,
+    21287.28,
+    18248.91,
+    15208.77,
+    12166.86,
+    9123.17,
+    6077.7,
+    3030.46,
+    0.0
+  ],
+  "totalRestantSeries": [
+    257822.47,
+    254771.49,
+    251701.95,
+    248632.41,
+    245562.88,
+    242493.34,
+    239423.81,
+    236354.27,
+    233284.73,
+    230215.2,
+    227145.66,
+    224076.13,
+    221006.59,
+    217937.05,
+    214867.52,
+    211797.98,
+    208728.45,
+    205658.91,
+    202589.37,
+    199519.84,
+    196450.3,
+    193380.77,
+    190311.23,
+    187241.69,
+    184172.16,
+    181102.62,
+    178033.09,
+    174963.55,
+    171894.01,
+    168824.48,
+    165754.94,
+    162685.41,
+    159615.87,
+    156546.33,
+    153476.8,
+    150407.26,
+    147337.73,
+    144268.19,
+    141198.66,
+    138129.12,
+    135059.58,
+    131990.05,
+    128920.51,
+    125850.98,
+    122781.44,
+    119711.9,
+    116642.37,
+    113572.83,
+    110503.3,
+    107433.76,
+    104364.22,
+    101294.69,
+    98225.15,
+    95155.62,
+    92086.08,
+    89016.54,
+    85947.01,
+    82877.47,
+    79807.94,
+    76738.4,
+    73668.86,
+    70599.33,
+    67529.79,
+    64460.26,
+    61390.72,
+    58321.18,
+    55251.65,
+    52182.11,
+    49112.58,
+    46043.04,
+    42973.5,
+    39903.97,
+    36834.43,
+    33764.9,
+    30695.36,
+    27625.82,
+    24556.29,
+    21486.75,
+    18417.22,
+    15347.68,
+    12278.14,
+    9208.61,
+    6139.07,
+    3069.54
+  ],
+  "coutAssurance": 18.750000890577212,
+  "coutPrincipal": 3050.7859785107203
 }

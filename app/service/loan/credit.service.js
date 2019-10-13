@@ -1,7 +1,7 @@
 import CreditModel from './credit.model';
 import zenscroll from "zenscroll";
 
-export default function creditService($rootScope, $http, $timeout, $filter, $q, $document, notaryFeesService, apiService) {
+function creditService($rootScope, $http, $timeout, $filter, $document, notaryFeesService, apiService) {
     'ngInject';
     let creditModel = new CreditModel({}, {}, {}, {});
     let scrollTo = (id) => {
@@ -20,31 +20,16 @@ export default function creditService($rootScope, $http, $timeout, $filter, $q, 
                     scrollTo('mortgageResult');
                 }
                 $rootScope.cgPromise = $timeout(() => {
-                    $q.all([
                         apiService.getAmortization({
                             months: creditModel.credit.annee * 12 + "",
-                            capital: creditModel.credit.capital + (notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0),
-                            interestRate: tauxNominal,
+                            capital: creditModel.credit.capital,
+                             interestRate: tauxNominal,
                             insuranceRate: creditModel.credit.tauxAssurance
                         }).then((response) => {
-                            let data = response.data;
                             let getNotaryFrees = notaryFeesService.getNotaryFeesModel() ? notaryFeesService.getNotaryFeesModel().total : 0;
                             //noinspection JSUnresolvedVariable
-                            if (data.coutPrincipal) {
-                                creditModel.credit.amortissements = data.writeDowns;
-                                creditModel.credit.assurance = $filter('euro')(data.coutAssurance);
-                                creditModel.credit.mensualite = $filter('euro')(data.monthlyAmount);
-                                creditModel.credit.interetTotal = $filter('euro')(data.interestTotalCost);
-                                creditModel.credit.assuranceTotal = $filter('euro')(data.insuranceTotalCost);
-                                creditModel.credit.creditTotal = $filter('euro')(data.creditTotalCost);
-                                creditModel.credit.remboursementTotal = $filter('euro')(data.owingTotalCost);
-
-                                let last = (data.writeDowns.length - 1);
-                                creditModel.addSeries(data.interetSeries, data.assuranceSeries, data.creditSeries, data.capitalRestantSeries, data.totalRestantSeries);
-                                creditModel.addSeriesToPieChart(data.interetSeries[last], data.assuranceSeries[last], creditModel.credit.capital, getNotaryFrees);
-                            }
-                        })
-                    ]);
+                            creditModel.buildCreditFrom(response.data, getNotaryFrees, $filter);
+                        });
                 }, 1500);
             }
         },

@@ -1,6 +1,7 @@
 import './credit.service';
 import './../../service/api/api.service';
 import './../../components/notaryFees/notaryFees.controller';
+import CreditModel from "./credit.model";
 
 describe('credit service ',function() {
 
@@ -9,7 +10,7 @@ describe('credit service ',function() {
     beforeEach(angular.mock.module('notaryFees'));
     beforeEach(angular.mock.module('creditService'));
 
-    let $creditService , $notaryFeesService, $httpBackend, $apiService;
+    let $creditService , $notaryFeesService, $httpBackend, $apiService, $rootScope;
     let dataModel = {
         credit : {
             annee : 1,
@@ -26,6 +27,7 @@ describe('credit service ',function() {
         $notaryFeesService = _notaryFeesService_;
         $apiService = _apiService_;
         $httpBackend = $injector.get('$httpBackend');
+        $rootScope = $injector.get('$rootScope');
 
         jasmine.getJSONFixtures().fixturesPath='base/test';
 
@@ -39,22 +41,50 @@ describe('credit service ',function() {
             let result = $apiService.getAmortization(dataModel);
             let data = undefined;
 
+
             $httpBackend.expectPOST('amortissements');
             expect(result).toBeDefined();
+            result.then((value) => data = value.data);
 
-            result.then(function(value) { data = value.data; });
 
             $httpBackend.flush();
 
             expect(data).toBeDefined();
-            expect(data.credit).toBeDefined();
-            expect(data.credit.capital).toEqual(240000);
+            expect(data.capital).toEqual(250000);
 
         }));
 
 
-        describe('configuration ', function(){
+       it('should calcul', inject(($timeout) => {
+           let result = $apiService.getAmortization(dataModel);
+           let data = undefined;
+           let credit = new CreditModel({},{},{},{});
+           credit.annee = 12;
+           credit.tauxNominal = 0.7;
 
-        });
+           spyOn($apiService,'getAmortization').and.callFake(function () {
+                   let deferred = $q.defer();
+                   deferred.resolve(result);
+                   return deferred.promise;
+               }
+           );
+
+           $httpBackend.expectPOST('amortissements');
+           expect(result).toBeDefined();
+
+           result.then(function(value) { data = value.data; });
+
+           $creditService.calcul();
+
+           $httpBackend.flush();
+
+           credit.creditModel(data);
+           expect(data).toBeDefined();
+           expect(data.coutPrincipal).toBeDefined();
+
+           $creditService.setCreditModel(data);
+
+           expect(credit.isComplete).toBeTruthy();
+       }))
     });
 });

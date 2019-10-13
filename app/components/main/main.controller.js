@@ -1,6 +1,3 @@
-import creditService from "../../service/loan/credit.service";
-import configService from "../../service/config/config.service";
-
 function mainCtrl($scope, $window, $mdDialog, configService, creditService, $document, notaryFeesService) {
     'ngInject';
     let initDemo =  $window.localStorage.getItem('hideVideo') ? JSON.parse($window.localStorage.getItem('hideVideo')) : false;
@@ -49,8 +46,6 @@ function mainCtrl($scope, $window, $mdDialog, configService, creditService, $doc
 }
 
 angular.module('main', [])
-    .factory('configService', configService)
-    .factory('creditService', creditService)
     .controller('mainCtrl', mainCtrl)
 ;
 

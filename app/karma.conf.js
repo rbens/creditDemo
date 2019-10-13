@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Sat Nov 21 2015 16:55:19 GMT+0100 (CET)
+const path = require('path');
 const webpackConfig = require('./webpack.test.js');
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
@@ -98,7 +99,8 @@ module.exports = function (config) {
         // optionally, configure the reporter
         reporters: [ 'progress', 'coverage-istanbul' ],
         coverageIstanbulReporter: {
-            reports: [ 'text-summary' ],
+            reports: [ 'html','text-summary' ],
+            dir: path.join(__dirname, 'coverage'),
             fixWebpackSourcePaths: true
         },
 

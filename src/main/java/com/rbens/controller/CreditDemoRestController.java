@@ -17,7 +17,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-final class CreditDemoRestController extends AbstractController{
+final class CreditDemoRestController{
 
 
     private final static String RATES_URL = "https://www.guideducredit.com/HTMcorps/Fichiersmarche/tauxbanque.htm";
@@ -40,7 +40,5 @@ final class CreditDemoRestController extends AbstractController{
                 .map(Element::text)
                 .toArray(String[]::new);
     }
-
-
 
 }

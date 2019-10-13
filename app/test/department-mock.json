@@ -1,0 +1,21 @@
+{
+  "departments" : [
+    {"26" : "Drôme"},
+    {"27" : "Eure"},
+    {"28" : "Eure-et-loire"},
+    {"37" : "Indre-et-loire"},
+    {"38" : "Isère"},
+    {"39" : " Jura"},
+    {"40" : " Landes"},
+    {"41" : " Loir-et-cher"},
+    {"42" : " Loire"},
+    {"43" : " Haute-loire"},
+    {"44" : "Loire-atlantique"},
+    {"45" : " Loiret"},
+    {"46" : " Lot"},
+    {"47" : " Lot-et-garonne"},
+    {"48" : " Lozère"},
+    {"49" : " Maine-et-loire"},
+    {"50" : " Manche"}
+  ]
+}
