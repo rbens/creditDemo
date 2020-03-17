@@ -18,9 +18,10 @@ import './service/loan/credit.service';
 
 
 import routing from "./service/route/routing";
+import * as angular from "angular";
 
 
-let modules = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ui.router',
+let modules : any[] = [ 'highcharts-ng', 'ngMaterial', 'cgBusy', 'ui.router',
     'config',
     'creditService',
     'main',
@@ -37,7 +38,7 @@ angular.module('mainApp', modules)
     .config(routing);
 
 //override cgBusy templateCache
-angular.module('cgBusy').run(['$templateCache', function($templateCache) {
+angular.module('cgBusy').run(['$templateCache', function($templateCache : any) {
     'use strict';
 
     $templateCache.put('angular-busy.html',

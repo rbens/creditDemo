@@ -6,8 +6,8 @@ const dir = `dist`;
 
 module.exports = {
     entry: {
-        vendor: './vendor.js',
-        app: './app.js'
+        vendor: './vendor.ts',
+        app: './app.ts'
     },
     output: {
         filename: '[name].[hash].bundle.js',
@@ -96,7 +96,15 @@ module.exports = {
                             presets: ['@babel/preset-env']
                         }
                     }]
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             }
         ]
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
     }
 };		

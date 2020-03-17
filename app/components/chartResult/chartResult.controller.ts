@@ -1,9 +1,9 @@
 
-export default function chartResultController($rootScope, configService, creditService) {
+export default function chartResultController($rootScope : any, configService : any , creditService :any) {
     'ngInject';
 
     configService.get().$promise.then(
-        (config) => {
+        (config :any) => {
             let lxAxis = config.line.xAxis;
             lxAxis.labels.formatter = function () {
                 let loanDuration = creditService.getCreditModel().credit.annee;
@@ -36,7 +36,7 @@ export default function chartResultController($rootScope, configService, creditS
 
     this.option = options[0];
 
-    this.swapChartType = (index) => {
+    this.swapChartType = (index : any) => {
         this.option = options[index];
     };
 
