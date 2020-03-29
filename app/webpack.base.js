@@ -91,15 +91,11 @@ module.exports = {
                 use: [
                     {
                         loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env'],
-                            plugins: ['angularjs-annotate']
-                        }
                     }]
             },
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                use:  ['babel-loader','ts-loader'],
                 exclude: /node_modules/,
             }
         ]

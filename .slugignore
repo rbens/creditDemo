@@ -1,1 +1,2 @@
-/app/yarn.lock
+app/yarn.lock
+app/node_modules
