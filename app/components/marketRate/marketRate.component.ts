@@ -1,4 +1,6 @@
 import marketRateController from './marketRate.controller';
+import * as angular from "angular";
+declare var require: (filename: string) => any;
 
 
 const marketRateComponent = {
@@ -9,4 +11,3 @@ const marketRateComponent = {
 
 angular.module('marketRate', [])
     .component('marketRateComponent', marketRateComponent);
-

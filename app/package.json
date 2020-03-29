@@ -66,6 +66,7 @@
     "hammerjs": "^2.0.8",
     "highcharts": "^6.1.0",
     "highcharts-ng": "^1.2.1",
+    "tsd": "^0.11.0",
     "zenscroll": "^4.0.2"
   }
 }

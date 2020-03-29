@@ -41,15 +41,12 @@ export default function marketRateController($scope :any,
             }
     };
 
-    apiService.getMarketRates().then(
-        (response : any) => {
-            initRates(response);
-        });
+    apiService.getMarketRates().then((response : any) => initRates(response));
 
     this.updateRate = (result : any) => {
         this.model.tauxNominal = Number(result.rate.replace('%', '').replace(',', '.'));
         this.model.tauxGlobal = this.model.tauxNominal + this.model.tauxAssurance;
-        this.model.annee = result.years;
+        this.model.annee = result.year;
         creditService.setCreditModel(this.model);
         creditService.calcul();
         creditService.teg();
