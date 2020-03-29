@@ -9,7 +9,7 @@ import "./components/mortgageResult/mortgageResult.component";
 import "./components/amortization/amortization.component";
 import "./components/chartResult/chartResult.component";
 import "./components/mortgageData/mortgageData.component";
-import "./components/marketRate/marketRate.component";
+import "./components/marketRate/marketRate.module";
 import "./components/notaryFees/notaryFees.controller";
 
 import './service/api/api.service';

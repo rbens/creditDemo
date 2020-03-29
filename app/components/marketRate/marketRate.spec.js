@@ -1,5 +1,5 @@
-import './marketRate.component';
 import "angular-material";
+import "./marketRate.module";
 
 describe('market rate', function () {
 
