@@ -1,4 +1,7 @@
-# creditDemo
+# DEPRECATED
+
+
+## creditDemo
 web application for credit simulation (french computing system)
 
 Ensure npm are installed on your post.(see npm install on : https://docs.npmjs.com/getting-started/installing-node )
