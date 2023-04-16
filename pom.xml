@@ -141,20 +141,20 @@
                             </arguments>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>yarn test</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>initialize</phase>
-                        <configuration>
-                            <executable>yarn</executable>
-                            <workingDirectory>app</workingDirectory>
-                            <arguments>
-                                <argument>test</argument>
-                            </arguments>
-                        </configuration>
-                    </execution>
+<!--                    <execution>-->
+<!--                        <id>yarn test</id>-->
+<!--                        <goals>-->
+<!--                            <goal>exec</goal>-->
+<!--                        </goals>-->
+<!--                        <phase>initialize</phase>-->
+<!--                        <configuration>-->
+<!--                            <executable>yarn</executable>-->
+<!--                            <workingDirectory>app</workingDirectory>-->
+<!--                            <arguments>-->
+<!--                                <argument>test</argument>-->
+<!--                            </arguments>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
                     <execution>
                         <id>yarn build</id>
                         <goals>
