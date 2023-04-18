@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -35,10 +36,11 @@ final class CreditDemoRestController{
 
         final Elements elements = document.select(DOM_SELECTOR);
 
-        return  elements.stream()
+        final String[] array = elements.stream()
                 .filter(element -> element.hasText() && element.text().contains("%"))
                 .map(Element::text)
                 .toArray(String[]::new);
+        return Arrays.copyOfRange(array, 5, 11) ;
     }
 
 }
