@@ -40,7 +40,7 @@ final class CreditDemoRestController{
                 .filter(element -> element.hasText() && element.text().contains("%"))
                 .map(Element::text)
                 .toArray(String[]::new);
-        return Arrays.copyOfRange(array, 5, 11) ;
+        return Arrays.copyOfRange(array, 5, 10) ;
     }
 
 }
