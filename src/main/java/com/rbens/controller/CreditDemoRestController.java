@@ -21,7 +21,7 @@ final class CreditDemoRestController{
 
 
     private final static String RATES_URL = "https://www.guideducredit.com/HTMcorps/Fichiersmarche/tauxbanque.htm";
-    private final static String DOM_SELECTOR = ".tab_taux_l .tab_clair td";
+    private final static String DOM_SELECTOR = ".table-scroll .table-rate td";
 
 
     @RequestMapping(value = "/amortissements", method = POST)
