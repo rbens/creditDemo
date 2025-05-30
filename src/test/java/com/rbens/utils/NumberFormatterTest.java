@@ -1,10 +1,10 @@
 package com.rbens.utils;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import static com.rbens.utils.NumberFormatter.formatNumberToDoubleValue;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class NumberFormatterTest {
 
@@ -13,8 +13,8 @@ public class NumberFormatterTest {
 
     @Test
     public void testFormatNumber() throws Exception {
-        assertThat(formatNumberToDoubleValue(num1), is(32.24));
-        assertThat(formatNumberToDoubleValue(num2), is(32.23));
+        assertThat(formatNumberToDoubleValue(num1)).isEqualTo(32.24);
+        assertThat(formatNumberToDoubleValue(num2)).isEqualTo(32.23);
     }
 
 }
