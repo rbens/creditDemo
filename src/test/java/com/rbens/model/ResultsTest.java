@@ -1,7 +1,8 @@
 package com.rbens.model;
 
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by rabah on 15/10/17.
@@ -11,47 +12,47 @@ public class ResultsTest {
     private Results results;
 
     @Test
-    public void insuranceTotalCost() throws Exception {
+    public void insuranceTotalCost() {
 
     }
 
     @Test
-    public void interestTotalCost() throws Exception {
+    public void interestTotalCost() {
 
     }
 
     @Test
-    public void owingTotalCost() throws Exception {
+    public void owingTotalCost() {
 
     }
 
     @Test
-    public void creditTotalCost() throws Exception {
+    public void creditTotalCost() {
 
     }
 
     @Test
-    public void interetSeries() throws Exception {
+    public void interetSeries() {
 
     }
 
     @Test
-    public void assuranceSeries() throws Exception {
+    public void assuranceSeries() {
 
     }
 
     @Test
-    public void creditSeries() throws Exception {
+    public void creditSeries() {
 
     }
 
     @Test
-    public void capitalRestantSeries() throws Exception {
+    public void capitalRestantSeries() {
 
     }
 
     @Test
-    public void totalRestantSeries() throws Exception {
+    public void totalRestantSeries() {
 
     }
 
@@ -64,7 +65,7 @@ public class ResultsTest {
     private float insuranceRate;
 
     //TODO : test must be finished
-    @Before
+    @BeforeEach
     public void setUp(){
         results = new Results();
         results.months = 12;
